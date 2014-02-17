@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_administratorCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_administratorCategory.Designer.cs">
+      <DependentUpon>_administratorCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_administratorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_administratorList.Designer.cs">
+      <DependentUpon>_administratorList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_customerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_customerList.Designer.cs">
+      <DependentUpon>_customerList.cs</DependentUpon>
+    </Compile>
     <Compile Include="_mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,11 +78,35 @@
     <Compile Include="_administrator.Designer.cs">
       <DependentUpon>_administrator.cs</DependentUpon>
     </Compile>
+    <Compile Include="_productStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_productStock.Designer.cs">
+      <DependentUpon>_productStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_purchasingTrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_purchasingTrans.Designer.cs">
+      <DependentUpon>_purchasingTrans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_sellingTrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_sellingTrans.Designer.cs">
+      <DependentUpon>_sellingTrans.cs</DependentUpon>
+    </Compile>
     <Compile Include="_supplierList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="_supplierList.Designer.cs">
       <DependentUpon>_supplierList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_supplierListPopUp1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_supplierListPopUp1.Designer.cs">
+      <DependentUpon>_supplierListPopUp1.cs</DependentUpon>
     </Compile>
     <Compile Include="_supplierPCategory.cs">
       <SubType>Form</SubType>
@@ -78,6 +120,15 @@
     <Compile Include="_supplierProduct.Designer.cs">
       <DependentUpon>_supplierProduct.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="_administratorCategory.resx">
+      <DependentUpon>_administratorCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_administratorList.resx">
+      <DependentUpon>_administratorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_customerList.resx">
+      <DependentUpon>_customerList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_mainForm.resx">
       <DependentUpon>_mainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,8 +144,20 @@
     <EmbeddedResource Include="_administrator.resx">
       <DependentUpon>_administrator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_productStock.resx">
+      <DependentUpon>_productStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_purchasingTrans.resx">
+      <DependentUpon>_purchasingTrans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_sellingTrans.resx">
+      <DependentUpon>_sellingTrans.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_supplierList.resx">
       <DependentUpon>_supplierList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_supplierListPopUp1.resx">
+      <DependentUpon>_supplierListPopUp1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_supplierPCategory.resx">
       <DependentUpon>_supplierPCategory.cs</DependentUpon>
