@@ -32,10 +32,10 @@
             this._tspPCName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this._bspPCInsert = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this._dataCategoryProduct = new System.Windows.Forms.DataGridView();
             this._bspPCUpdate = new System.Windows.Forms.Button();
             this._bspPCDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._dataCategoryProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -76,13 +76,13 @@
             this._bspPCInsert.Text = "INSERT";
             this._bspPCInsert.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // _dataCategoryProduct
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 104);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(564, 202);
-            this.dataGridView1.TabIndex = 3;
+            this._dataCategoryProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._dataCategoryProduct.Location = new System.Drawing.Point(27, 104);
+            this._dataCategoryProduct.Name = "_dataCategoryProduct";
+            this._dataCategoryProduct.Size = new System.Drawing.Size(564, 202);
+            this._dataCategoryProduct.TabIndex = 3;
             // 
             // _bspPCUpdate
             // 
@@ -111,15 +111,15 @@
             this.ClientSize = new System.Drawing.Size(624, 360);
             this.Controls.Add(this._bspPCUpdate);
             this.Controls.Add(this._bspPCDelete);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this._dataCategoryProduct);
             this.Controls.Add(this._bspPCInsert);
             this.Controls.Add(this._tspPCName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "_supplierPCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "_supplierPCategory";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "CV. WARNA MURNI - PRODUCT CATEGORY";
+            ((System.ComponentModel.ISupportInitialize)(this._dataCategoryProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,7 +131,7 @@
         private System.Windows.Forms.TextBox _tspPCName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button _bspPCInsert;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView _dataCategoryProduct;
         private System.Windows.Forms.Button _bspPCUpdate;
         private System.Windows.Forms.Button _bspPCDelete;
     }
