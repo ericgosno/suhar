@@ -40,10 +40,10 @@
             this._cbspPTypePrice = new System.Windows.Forms.ComboBox();
             this._cbspPTypeStock = new System.Windows.Forms.ComboBox();
             this._cbspPCategory = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this._dataProduct = new System.Windows.Forms.DataGridView();
             this._bspPUpdate = new System.Windows.Forms.Button();
             this._bspPDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._dataProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -157,13 +157,13 @@
             this._cbspPCategory.Size = new System.Drawing.Size(413, 37);
             this._cbspPCategory.TabIndex = 6;
             // 
-            // dataGridView1
+            // _dataProduct
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 228);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(707, 270);
-            this.dataGridView1.TabIndex = 8;
+            this._dataProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._dataProduct.Location = new System.Drawing.Point(18, 228);
+            this._dataProduct.Name = "_dataProduct";
+            this._dataProduct.Size = new System.Drawing.Size(707, 270);
+            this._dataProduct.TabIndex = 8;
             // 
             // _bspPUpdate
             // 
@@ -192,7 +192,7 @@
             this.ClientSize = new System.Drawing.Size(752, 552);
             this.Controls.Add(this._bspPUpdate);
             this.Controls.Add(this._bspPDelete);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this._dataProduct);
             this.Controls.Add(this._cbspPCategory);
             this.Controls.Add(this._cbspPTypeStock);
             this.Controls.Add(this._cbspPTypePrice);
@@ -208,7 +208,7 @@
             this.Name = "_supplierProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - PRODUCT";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._dataProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +228,7 @@
         private System.Windows.Forms.ComboBox _cbspPTypePrice;
         private System.Windows.Forms.ComboBox _cbspPTypeStock;
         private System.Windows.Forms.ComboBox _cbspPCategory;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView _dataProduct;
         private System.Windows.Forms.Button _bspPUpdate;
         private System.Windows.Forms.Button _bspPDelete;
     }
