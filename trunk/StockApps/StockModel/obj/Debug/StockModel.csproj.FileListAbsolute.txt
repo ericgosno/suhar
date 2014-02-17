@@ -1,0 +1,6 @@
+C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockModel\bin\Debug\StockModel.dll.config
+C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockModel\bin\Debug\StockModel.dll
+C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockModel\bin\Debug\StockModel.pdb
+C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockModel\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockModel\obj\Debug\StockModel.dll
+C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockModel\obj\Debug\StockModel.pdb
