@@ -32,5 +32,11 @@ namespace StockApps
             _supplierList supplierListForm = new _supplierList();
             supplierListForm.Show();
         }
+
+        private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _customerList customerListForm = new _customerList();
+            customerListForm.Show();
+        }
     }
 }

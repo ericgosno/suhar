@@ -22,6 +22,7 @@ namespace StockModel
             newSupplier.Supplier_Address = supplierAddress;
             newSupplier.Supplier_Email = supplierEmail;
             newSupplier.Supplier_Phone = supplierPhone;
+            newSupplier.Supplier_Status = 1;
             StockEntity.Entity.AddTosuppliers(newSupplier);
             StockEntity.Entity.SaveChanges();
             return newSupplier;

@@ -62,6 +62,7 @@ namespace StockApps
         {
             var rowNow = _dgvspListSupplier.Rows[e.RowIndex];
             SupplierController.editSupplier((int)rowNow.Cells["Supplier_ID"].Value, rowNow.Cells["Supplier_Name"].Value.ToString(), rowNow.Cells["Supplier_Address"].Value.ToString(), rowNow.Cells["Supplier_Email"].Value.ToString(), rowNow.Cells["Supplier_Phone"].Value.ToString());
+            _dgvspListSupplier.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }
