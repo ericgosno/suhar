@@ -1870,11 +1870,13 @@ namespace StockModel
         /// </summary>
         /// <param name="supplier_ID">Initial value of the Supplier_ID property.</param>
         /// <param name="supplier_Name">Initial value of the Supplier_Name property.</param>
-        public static supplier Createsupplier(global::System.Int32 supplier_ID, global::System.String supplier_Name)
+        /// <param name="supplier_Status">Initial value of the Supplier_Status property.</param>
+        public static supplier Createsupplier(global::System.Int32 supplier_ID, global::System.String supplier_Name, global::System.Int32 supplier_Status)
         {
             supplier supplier = new supplier();
             supplier.Supplier_ID = supplier_ID;
             supplier.Supplier_Name = supplier_Name;
+            supplier.Supplier_Status = supplier_Status;
             return supplier;
         }
 
@@ -2003,6 +2005,30 @@ namespace StockModel
         private global::System.String _Supplier_Phone;
         partial void OnSupplier_PhoneChanging(global::System.String value);
         partial void OnSupplier_PhoneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Supplier_Status
+        {
+            get
+            {
+                return _Supplier_Status;
+            }
+            set
+            {
+                OnSupplier_StatusChanging(value);
+                ReportPropertyChanging("Supplier_Status");
+                _Supplier_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Status");
+                OnSupplier_StatusChanged();
+            }
+        }
+        private global::System.Int32 _Supplier_Status;
+        partial void OnSupplier_StatusChanging(global::System.Int32 value);
+        partial void OnSupplier_StatusChanged();
 
         #endregion
     

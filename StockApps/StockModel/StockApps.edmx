@@ -137,6 +137,7 @@
           <Property Name="Supplier_Address" Type="varchar" MaxLength="250" />
           <Property Name="Supplier_Email" Type="varchar" MaxLength="200" />
           <Property Name="Supplier_Phone" Type="longtext" />
+          <Property Name="Supplier_Status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="supplier_transaction">
           <Key>
@@ -442,6 +443,7 @@
           <Property Name="Supplier_Phone" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="products" Relationship="stockappsModel.FK_Relationship_1" FromRole="supplier" ToRole="product" />
           <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.FK_Relationship_6" FromRole="supplier" ToRole="supplier_transaction" />
+          <Property Type="Int32" Name="Supplier_Status" Nullable="false" />
         </EntityType>
         <EntityType Name="supplier_transaction">
           <Key>
@@ -654,7 +656,8 @@
             <ScalarProperty Name="Stock_Type_Kilogram" ColumnName="Stock_Type_Kilogram" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="suppliers"><EntityTypeMapping TypeName="stockappsModel.supplier"><MappingFragment StoreEntitySet="supplier">
-            <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+            <ScalarProperty Name="Supplier_Status" ColumnName="Supplier_Status" />
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
             <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
             <ScalarProperty Name="Supplier_Address" ColumnName="Supplier_Address" />
             <ScalarProperty Name="Supplier_Email" ColumnName="Supplier_Email" />
