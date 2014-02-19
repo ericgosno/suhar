@@ -238,6 +238,22 @@ namespace StockModel
             }
         }
         private ObjectSet<supplier_transaction_product> _supplier_transaction_product;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<user> users
+        {
+            get
+            {
+                if ((_users == null))
+                {
+                    _users = base.CreateObjectSet<user>("users");
+                }
+                return _users;
+            }
+        }
+        private ObjectSet<user> _users;
 
         #endregion
         #region AddTo Methods
@@ -320,6 +336,14 @@ namespace StockModel
         public void AddTosupplier_transaction_product(supplier_transaction_product supplier_transaction_product)
         {
             base.AddObject("supplier_transaction_product", supplier_transaction_product);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTousers(user user)
+        {
+            base.AddObject("users", user);
         }
 
         #endregion
@@ -2536,6 +2560,139 @@ namespace StockModel
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="user")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class user : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new user object.
+        /// </summary>
+        /// <param name="users_id">Initial value of the users_id property.</param>
+        /// <param name="users_username">Initial value of the users_username property.</param>
+        /// <param name="users_password">Initial value of the users_password property.</param>
+        /// <param name="users_status">Initial value of the users_status property.</param>
+        public static user Createuser(global::System.Int32 users_id, global::System.String users_username, global::System.String users_password, global::System.Int32 users_status)
+        {
+            user user = new user();
+            user.users_id = users_id;
+            user.users_username = users_username;
+            user.users_password = users_password;
+            user.users_status = users_status;
+            return user;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 users_id
+        {
+            get
+            {
+                return _users_id;
+            }
+            set
+            {
+                if (_users_id != value)
+                {
+                    Onusers_idChanging(value);
+                    ReportPropertyChanging("users_id");
+                    _users_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("users_id");
+                    Onusers_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _users_id;
+        partial void Onusers_idChanging(global::System.Int32 value);
+        partial void Onusers_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String users_username
+        {
+            get
+            {
+                return _users_username;
+            }
+            set
+            {
+                Onusers_usernameChanging(value);
+                ReportPropertyChanging("users_username");
+                _users_username = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("users_username");
+                Onusers_usernameChanged();
+            }
+        }
+        private global::System.String _users_username;
+        partial void Onusers_usernameChanging(global::System.String value);
+        partial void Onusers_usernameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String users_password
+        {
+            get
+            {
+                return _users_password;
+            }
+            set
+            {
+                Onusers_passwordChanging(value);
+                ReportPropertyChanging("users_password");
+                _users_password = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("users_password");
+                Onusers_passwordChanged();
+            }
+        }
+        private global::System.String _users_password;
+        partial void Onusers_passwordChanging(global::System.String value);
+        partial void Onusers_passwordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 users_status
+        {
+            get
+            {
+                return _users_status;
+            }
+            set
+            {
+                Onusers_statusChanging(value);
+                ReportPropertyChanging("users_status");
+                _users_status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("users_status");
+                Onusers_statusChanged();
+            }
+        }
+        private global::System.Int32 _users_status;
+        partial void Onusers_statusChanging(global::System.Int32 value);
+        partial void Onusers_statusChanged();
+
+        #endregion
+    
     }
 
     #endregion

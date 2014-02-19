@@ -15,5 +15,10 @@ namespace StockApps
         {
             InitializeComponent();
         }
+
+        private void _bspInsert_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
