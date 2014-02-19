@@ -369,11 +369,13 @@ namespace StockModel
         /// </summary>
         /// <param name="customer_ID">Initial value of the Customer_ID property.</param>
         /// <param name="customer_Name">Initial value of the Customer_Name property.</param>
-        public static customer Createcustomer(global::System.Int32 customer_ID, global::System.String customer_Name)
+        /// <param name="customer_Status">Initial value of the Customer_Status property.</param>
+        public static customer Createcustomer(global::System.Int32 customer_ID, global::System.String customer_Name, global::System.Int32 customer_Status)
         {
             customer customer = new customer();
             customer.Customer_ID = customer_ID;
             customer.Customer_Name = customer_Name;
+            customer.Customer_Status = customer_Status;
             return customer;
         }
 
@@ -502,6 +504,30 @@ namespace StockModel
         private global::System.String _Customer_Phone;
         partial void OnCustomer_PhoneChanging(global::System.String value);
         partial void OnCustomer_PhoneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Customer_Status
+        {
+            get
+            {
+                return _Customer_Status;
+            }
+            set
+            {
+                OnCustomer_StatusChanging(value);
+                ReportPropertyChanging("Customer_Status");
+                _Customer_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Status");
+                OnCustomer_StatusChanged();
+            }
+        }
+        private global::System.Int32 _Customer_Status;
+        partial void OnCustomer_StatusChanging(global::System.Int32 value);
+        partial void OnCustomer_StatusChanged();
 
         #endregion
     

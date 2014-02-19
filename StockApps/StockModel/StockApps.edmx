@@ -67,6 +67,7 @@
           <Property Name="Customer_Address" Type="varchar" MaxLength="200" />
           <Property Name="Customer_Email" Type="varchar" MaxLength="50" />
           <Property Name="Customer_Phone" Type="varchar" MaxLength="12" />
+          <Property Name="Customer_Status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="customer_transaction">
           <Key>
@@ -358,6 +359,7 @@
           <Property Name="Customer_Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Customer_Phone" Type="String" MaxLength="12" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="customer_transaction" Relationship="stockappsModel.FK_Relationship_8" FromRole="customer" ToRole="customer_transaction" />
+          <Property Type="Int32" Name="Customer_Status" Nullable="false" />
         </EntityType>
         <EntityType Name="customer_transaction">
           <Key>
@@ -608,7 +610,8 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="stockappsModelStoreContainer" CdmEntityContainer="stockappsEntities">
           <EntitySetMapping Name="customers"><EntityTypeMapping TypeName="stockappsModel.customer"><MappingFragment StoreEntitySet="customer">
-            <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+            <ScalarProperty Name="Customer_Status" ColumnName="Customer_Status" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
             <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
             <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
             <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />

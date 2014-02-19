@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._bcusUpdate = new System.Windows.Forms.Button();
             this._bcusDelete = new System.Windows.Forms.Button();
             this._bcusInsert = new System.Windows.Forms.Button();
             this._dataCustomer = new System.Windows.Forms.DataGridView();
@@ -44,16 +43,6 @@
             ((System.ComponentModel.ISupportInitialize)(this._dataCustomer)).BeginInit();
             this.SuspendLayout();
             // 
-            // _bcusUpdate
-            // 
-            this._bcusUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusUpdate.Location = new System.Drawing.Point(480, 486);
-            this._bcusUpdate.Name = "_bcusUpdate";
-            this._bcusUpdate.Size = new System.Drawing.Size(121, 35);
-            this._bcusUpdate.TabIndex = 20;
-            this._bcusUpdate.Text = "UPDATE";
-            this._bcusUpdate.UseVisualStyleBackColor = true;
-            // 
             // _bcusDelete
             // 
             this._bcusDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -63,6 +52,7 @@
             this._bcusDelete.TabIndex = 21;
             this._bcusDelete.Text = "DELETE";
             this._bcusDelete.UseVisualStyleBackColor = true;
+            this._bcusDelete.Click += new System.EventHandler(this._bcusDelete_Click);
             // 
             // _bcusInsert
             // 
@@ -73,6 +63,7 @@
             this._bcusInsert.TabIndex = 18;
             this._bcusInsert.Text = "INSERT";
             this._bcusInsert.UseVisualStyleBackColor = true;
+            this._bcusInsert.Click += new System.EventHandler(this._bcusInsert_Click);
             // 
             // _dataCustomer
             // 
@@ -81,6 +72,7 @@
             this._dataCustomer.Name = "_dataCustomer";
             this._dataCustomer.Size = new System.Drawing.Size(699, 252);
             this._dataCustomer.TabIndex = 19;
+            this._dataCustomer.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataCustomer_CellEndEdit);
             // 
             // _tcusPhone
             // 
@@ -169,7 +161,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 529);
-            this.Controls.Add(this._bcusUpdate);
             this.Controls.Add(this._bcusDelete);
             this.Controls.Add(this._bcusInsert);
             this.Controls.Add(this._dataCustomer);
@@ -192,7 +183,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button _bcusUpdate;
         private System.Windows.Forms.Button _bcusDelete;
         private System.Windows.Forms.Button _bcusInsert;
         private System.Windows.Forms.DataGridView _dataCustomer;
