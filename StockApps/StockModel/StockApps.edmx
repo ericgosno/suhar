@@ -120,6 +120,7 @@
           </Key>
           <Property Name="Product_Category_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Product_Category_Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Product_Category_Status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="stock_type">
           <Key>
@@ -424,6 +425,7 @@
           <Property Name="Product_Category_ID" Type="Int32" Nullable="false" />
           <Property Name="Product_Category_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="products" Relationship="stockappsModel.FK_Relationship_2" FromRole="product_category" ToRole="product" />
+          <Property Type="Int32" Name="Product_Category_Status" Nullable="false" />
         </EntityType>
         <EntityType Name="stock_type">
           <Key>
@@ -650,7 +652,8 @@
             <ScalarProperty Name="Product_Buy_Price_Rupiah" ColumnName="Product_Buy_Price_Rupiah" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="product_category"><EntityTypeMapping TypeName="stockappsModel.product_category"><MappingFragment StoreEntitySet="product_category">
-            <ScalarProperty Name="Product_Category_ID" ColumnName="Product_Category_ID" />
+            <ScalarProperty Name="Product_Category_Status" ColumnName="Product_Category_Status" />
+                <ScalarProperty Name="Product_Category_ID" ColumnName="Product_Category_ID" />
             <ScalarProperty Name="Product_Category_Name" ColumnName="Product_Category_Name" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="stock_type"><EntityTypeMapping TypeName="stockappsModel.stock_type"><MappingFragment StoreEntitySet="stock_type">

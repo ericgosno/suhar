@@ -64,5 +64,18 @@ namespace StockApps
             SupplierController.editSupplier((int)rowNow.Cells["Supplier_ID"].Value, rowNow.Cells["Supplier_Name"].Value.ToString(), rowNow.Cells["Supplier_Address"].Value.ToString(), rowNow.Cells["Supplier_Email"].Value.ToString(), rowNow.Cells["Supplier_Phone"].Value.ToString());
             _dgvspListSupplier.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
+
+        private void _bspDetail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _supplierListPopUp1 detailSupplier = new _supplierListPopUp1(SupplierController.getSupplier((int)_dgvspListSupplier.SelectedRows[0].Cells["Supplier_ID"].Value).First());
+                detailSupplier.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You must select a Row First!");
+            }
+        }
     }
 }

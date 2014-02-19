@@ -40,6 +40,7 @@
             this._dgvspListSupplier = new System.Windows.Forms.DataGridView();
             this._bspInsert = new System.Windows.Forms.Button();
             this._bspDelete = new System.Windows.Forms.Button();
+            this._bspDetail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dgvspListSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,11 +157,23 @@
             this._bspDelete.UseVisualStyleBackColor = true;
             this._bspDelete.Click += new System.EventHandler(this._bspDelete_Click);
             // 
+            // _bspDetail
+            // 
+            this._bspDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bspDetail.Location = new System.Drawing.Point(504, 486);
+            this._bspDetail.Name = "_bspDetail";
+            this._bspDetail.Size = new System.Drawing.Size(115, 35);
+            this._bspDetail.TabIndex = 10;
+            this._bspDetail.Text = "DETAIL";
+            this._bspDetail.UseVisualStyleBackColor = true;
+            this._bspDetail.Click += new System.EventHandler(this._bspDetail_Click);
+            // 
             // _supplierList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 529);
+            this.Controls.Add(this._bspDetail);
             this.Controls.Add(this._bspDelete);
             this.Controls.Add(this._bspInsert);
             this.Controls.Add(this._dgvspListSupplier);
@@ -196,6 +209,7 @@
         private System.Windows.Forms.DataGridView _dgvspListSupplier;
         private System.Windows.Forms.Button _bspInsert;
         private System.Windows.Forms.Button _bspDelete;
+        private System.Windows.Forms.Button _bspDetail;
 
     }
 }
