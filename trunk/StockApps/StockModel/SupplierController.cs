@@ -30,6 +30,7 @@ namespace StockModel
         public static IQueryable<supplier> getSupplier()
         {
             var list = from e in StockEntity.Entity.suppliers
+                       where e.Supplier_Status == 1
                        select e;
             return list;
         }
@@ -69,7 +70,7 @@ namespace StockModel
             supplier supplierNows = (from f in StockEntity.Entity.suppliers
                                      where f.Supplier_ID == supplierId
                                      select f).First();
-            StockEntity.Entity.DeleteObject(supplierNows);
+            supplierNows.Supplier_Status = 0;
             StockEntity.Entity.SaveChanges();
         }
     }

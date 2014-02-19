@@ -29,7 +29,8 @@ namespace StockApps
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            _supplierList supplierListForm = new _supplierList();
+            supplierListForm.Show();
         }
     }
 }
