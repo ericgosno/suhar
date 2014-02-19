@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using StockModel;
 
 namespace StockApps
 {
@@ -24,6 +25,11 @@ namespace StockApps
         private void addCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

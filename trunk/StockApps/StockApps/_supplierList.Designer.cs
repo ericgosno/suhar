@@ -35,13 +35,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this._tspName = new System.Windows.Forms.TextBox();
             this._tspAddress = new System.Windows.Forms.TextBox();
-            this._tspEmail = new System.Windows.Forms.TextBox();
-            this._tspPhone = new System.Windows.Forms.TextBox();
-            this._dataSupplier = new System.Windows.Forms.DataGridView();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this._bspInsert = new System.Windows.Forms.Button();
             this._bspDelete = new System.Windows.Forms.Button();
             this._bspUpdate = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this._dataSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -110,29 +110,26 @@
             this._tspAddress.Size = new System.Drawing.Size(463, 35);
             this._tspAddress.TabIndex = 2;
             // 
-            // _tspEmail
+            // textBox3
             // 
-            this._tspEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tspEmail.Location = new System.Drawing.Point(133, 139);
-            this._tspEmail.Name = "_tspEmail";
-            this._tspEmail.Size = new System.Drawing.Size(463, 35);
-            this._tspEmail.TabIndex = 3;
+            this.textBox3.Location = new System.Drawing.Point(302, 318);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 11;
             // 
-            // _tspPhone
+            // textBox4
             // 
-            this._tspPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tspPhone.Location = new System.Drawing.Point(133, 180);
-            this._tspPhone.Name = "_tspPhone";
-            this._tspPhone.Size = new System.Drawing.Size(463, 35);
-            this._tspPhone.TabIndex = 4;
+            this.textBox4.Location = new System.Drawing.Point(133, 142);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(463, 20);
+            this.textBox4.TabIndex = 10;
             // 
-            // _dataSupplier
+            // dataGridView1
             // 
-            this._dataSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._dataSupplier.Location = new System.Drawing.Point(23, 228);
-            this._dataSupplier.Name = "_dataSupplier";
-            this._dataSupplier.Size = new System.Drawing.Size(699, 252);
-            this._dataSupplier.TabIndex = 6;
+            this.dataGridView1.Location = new System.Drawing.Point(18, 234);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 9;
             // 
             // _bspInsert
             // 
@@ -143,6 +140,7 @@
             this._bspInsert.TabIndex = 5;
             this._bspInsert.Text = "INSERT";
             this._bspInsert.UseVisualStyleBackColor = true;
+            this._bspInsert.Click += new System.EventHandler(this._bspInsert_Click);
             // 
             // _bspDelete
             // 
@@ -172,9 +170,9 @@
             this.Controls.Add(this._bspUpdate);
             this.Controls.Add(this._bspDelete);
             this.Controls.Add(this._bspInsert);
-            this.Controls.Add(this._dataSupplier);
-            this.Controls.Add(this._tspPhone);
-            this.Controls.Add(this._tspEmail);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this._tspAddress);
             this.Controls.Add(this._tspName);
             this.Controls.Add(this.label5);
@@ -185,7 +183,7 @@
             this.Name = "_supplierList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - SUPPLIER";
-            ((System.ComponentModel.ISupportInitialize)(this._dataSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,9 +198,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox _tspName;
         private System.Windows.Forms.TextBox _tspAddress;
-        private System.Windows.Forms.TextBox _tspEmail;
-        private System.Windows.Forms.TextBox _tspPhone;
-        private System.Windows.Forms.DataGridView _dataSupplier;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button _bspInsert;
         private System.Windows.Forms.Button _bspDelete;
         private System.Windows.Forms.Button _bspUpdate;

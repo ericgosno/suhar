@@ -83,6 +83,7 @@
             this._tadmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tadmPass.Location = new System.Drawing.Point(277, 205);
             this._tadmPass.Name = "_tadmPass";
+            this._tadmPass.PasswordChar = '*';
             this._tadmPass.Size = new System.Drawing.Size(215, 35);
             this._tadmPass.TabIndex = 2;
             // 
@@ -95,6 +96,7 @@
             this._badmLogin.TabIndex = 3;
             this._badmLogin.Text = "LOGIN";
             this._badmLogin.UseVisualStyleBackColor = true;
+            this._badmLogin.Click += new System.EventHandler(this._badmLogin_Click);
             // 
             // label4
             // 

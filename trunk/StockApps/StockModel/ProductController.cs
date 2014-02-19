@@ -5,10 +5,10 @@ using System.Text;
 
 namespace StockModel
 {
-    public class Product
+    public class ProductController
     {
         private stockappsEntities entity;
-        public Product()
+        public ProductController()
         {
             entity = new stockappsEntities();
         }

@@ -55,14 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Product.cs" />
+    <Compile Include="MD5Function.cs" />
+    <Compile Include="ProductController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockApps.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StockApps.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Supplier.cs" />
+    <Compile Include="StockEntity.cs" />
+    <Compile Include="SupplierController.cs" />
+    <Compile Include="UserController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="StockApps.edmx">
