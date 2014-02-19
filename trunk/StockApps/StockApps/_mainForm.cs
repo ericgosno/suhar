@@ -24,7 +24,8 @@ namespace StockApps
 
         private void addCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            _supplierPCategory formCategory = new _supplierPCategory();
+            formCategory.Show();
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1658,11 +1658,13 @@ namespace StockModel
         /// </summary>
         /// <param name="product_Category_ID">Initial value of the Product_Category_ID property.</param>
         /// <param name="product_Category_Name">Initial value of the Product_Category_Name property.</param>
-        public static product_category Createproduct_category(global::System.Int32 product_Category_ID, global::System.String product_Category_Name)
+        /// <param name="product_Category_Status">Initial value of the Product_Category_Status property.</param>
+        public static product_category Createproduct_category(global::System.Int32 product_Category_ID, global::System.String product_Category_Name, global::System.Int32 product_Category_Status)
         {
             product_category product_category = new product_category();
             product_category.Product_Category_ID = product_Category_ID;
             product_category.Product_Category_Name = product_Category_Name;
+            product_category.Product_Category_Status = product_Category_Status;
             return product_category;
         }
 
@@ -1719,6 +1721,30 @@ namespace StockModel
         private global::System.String _Product_Category_Name;
         partial void OnProduct_Category_NameChanging(global::System.String value);
         partial void OnProduct_Category_NameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Product_Category_Status
+        {
+            get
+            {
+                return _Product_Category_Status;
+            }
+            set
+            {
+                OnProduct_Category_StatusChanging(value);
+                ReportPropertyChanging("Product_Category_Status");
+                _Product_Category_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Product_Category_Status");
+                OnProduct_Category_StatusChanged();
+            }
+        }
+        private global::System.Int32 _Product_Category_Status;
+        partial void OnProduct_Category_StatusChanging(global::System.Int32 value);
+        partial void OnProduct_Category_StatusChanged();
 
         #endregion
     
