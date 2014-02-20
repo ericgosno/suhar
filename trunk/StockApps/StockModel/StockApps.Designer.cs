@@ -28,6 +28,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_7", "product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.product), "supplier_transaction_product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_transaction_product), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_6", "supplier", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.supplier), "supplier_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_transaction), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_9", "supplier_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.supplier_transaction), "supplier_transaction_product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_transaction_product), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "privilege_authorization_ibfk_2", "authorization", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.authorization), "privilege_authorization", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.privilege_authorization), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "privilege_authorization_ibfk_1", "privilege", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.privilege), "privilege_authorization", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.privilege_authorization), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "users_ibfk_1", "privilege", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.privilege), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.user), true)]
 
 #endregion
 
@@ -254,6 +257,54 @@ namespace StockModel
             }
         }
         private ObjectSet<user> _users;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<privilege> privileges
+        {
+            get
+            {
+                if ((_privileges == null))
+                {
+                    _privileges = base.CreateObjectSet<privilege>("privileges");
+                }
+                return _privileges;
+            }
+        }
+        private ObjectSet<privilege> _privileges;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<authorization> authorizations
+        {
+            get
+            {
+                if ((_authorizations == null))
+                {
+                    _authorizations = base.CreateObjectSet<authorization>("authorizations");
+                }
+                return _authorizations;
+            }
+        }
+        private ObjectSet<authorization> _authorizations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<privilege_authorization> privilege_authorization
+        {
+            get
+            {
+                if ((_privilege_authorization == null))
+                {
+                    _privilege_authorization = base.CreateObjectSet<privilege_authorization>("privilege_authorization");
+                }
+                return _privilege_authorization;
+            }
+        }
+        private ObjectSet<privilege_authorization> _privilege_authorization;
 
         #endregion
         #region AddTo Methods
@@ -345,6 +396,30 @@ namespace StockModel
         {
             base.AddObject("users", user);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the privileges EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToprivileges(privilege privilege)
+        {
+            base.AddObject("privileges", privilege);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the authorizations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToauthorizations(authorization authorization)
+        {
+            base.AddObject("authorizations", authorization);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the privilege_authorization EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToprivilege_authorization(privilege_authorization privilege_authorization)
+        {
+            base.AddObject("privilege_authorization", privilege_authorization);
+        }
 
         #endregion
     }
@@ -353,6 +428,138 @@ namespace StockModel
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="authorization")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class authorization : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new authorization object.
+        /// </summary>
+        /// <param name="authorization_ID">Initial value of the Authorization_ID property.</param>
+        /// <param name="authorization_Name">Initial value of the Authorization_Name property.</param>
+        /// <param name="authorization_Status">Initial value of the Authorization_Status property.</param>
+        public static authorization Createauthorization(global::System.Int32 authorization_ID, global::System.String authorization_Name, global::System.Int32 authorization_Status)
+        {
+            authorization authorization = new authorization();
+            authorization.Authorization_ID = authorization_ID;
+            authorization.Authorization_Name = authorization_Name;
+            authorization.Authorization_Status = authorization_Status;
+            return authorization;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Authorization_ID
+        {
+            get
+            {
+                return _Authorization_ID;
+            }
+            set
+            {
+                if (_Authorization_ID != value)
+                {
+                    OnAuthorization_IDChanging(value);
+                    ReportPropertyChanging("Authorization_ID");
+                    _Authorization_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Authorization_ID");
+                    OnAuthorization_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Authorization_ID;
+        partial void OnAuthorization_IDChanging(global::System.Int32 value);
+        partial void OnAuthorization_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Authorization_Name
+        {
+            get
+            {
+                return _Authorization_Name;
+            }
+            set
+            {
+                OnAuthorization_NameChanging(value);
+                ReportPropertyChanging("Authorization_Name");
+                _Authorization_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Authorization_Name");
+                OnAuthorization_NameChanged();
+            }
+        }
+        private global::System.String _Authorization_Name;
+        partial void OnAuthorization_NameChanging(global::System.String value);
+        partial void OnAuthorization_NameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Authorization_Status
+        {
+            get
+            {
+                return _Authorization_Status;
+            }
+            set
+            {
+                OnAuthorization_StatusChanging(value);
+                ReportPropertyChanging("Authorization_Status");
+                _Authorization_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Authorization_Status");
+                OnAuthorization_StatusChanged();
+            }
+        }
+        private global::System.Int32 _Authorization_Status;
+        partial void OnAuthorization_StatusChanging(global::System.Int32 value);
+        partial void OnAuthorization_StatusChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "privilege_authorization_ibfk_2", "privilege_authorization")]
+        public EntityCollection<privilege_authorization> privilege_authorization
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<privilege_authorization>("stockappsModel.privilege_authorization_ibfk_2", "privilege_authorization");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<privilege_authorization>("stockappsModel.privilege_authorization_ibfk_2", "privilege_authorization", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -1224,6 +1431,323 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<product>("stockappsModel.FK_Relationship_3", "product", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="privilege")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class privilege : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new privilege object.
+        /// </summary>
+        /// <param name="privilege_ID">Initial value of the Privilege_ID property.</param>
+        /// <param name="privilege_name">Initial value of the Privilege_name property.</param>
+        public static privilege Createprivilege(global::System.Int32 privilege_ID, global::System.String privilege_name)
+        {
+            privilege privilege = new privilege();
+            privilege.Privilege_ID = privilege_ID;
+            privilege.Privilege_name = privilege_name;
+            return privilege;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Privilege_ID
+        {
+            get
+            {
+                return _Privilege_ID;
+            }
+            set
+            {
+                if (_Privilege_ID != value)
+                {
+                    OnPrivilege_IDChanging(value);
+                    ReportPropertyChanging("Privilege_ID");
+                    _Privilege_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Privilege_ID");
+                    OnPrivilege_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Privilege_ID;
+        partial void OnPrivilege_IDChanging(global::System.Int32 value);
+        partial void OnPrivilege_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Privilege_name
+        {
+            get
+            {
+                return _Privilege_name;
+            }
+            set
+            {
+                OnPrivilege_nameChanging(value);
+                ReportPropertyChanging("Privilege_name");
+                _Privilege_name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Privilege_name");
+                OnPrivilege_nameChanged();
+            }
+        }
+        private global::System.String _Privilege_name;
+        partial void OnPrivilege_nameChanging(global::System.String value);
+        partial void OnPrivilege_nameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "privilege_authorization_ibfk_1", "privilege_authorization")]
+        public EntityCollection<privilege_authorization> privilege_authorization
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<privilege_authorization>("stockappsModel.privilege_authorization_ibfk_1", "privilege_authorization");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<privilege_authorization>("stockappsModel.privilege_authorization_ibfk_1", "privilege_authorization", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "users_ibfk_1", "user")]
+        public EntityCollection<user> users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<user>("stockappsModel.users_ibfk_1", "user");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<user>("stockappsModel.users_ibfk_1", "user", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="privilege_authorization")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class privilege_authorization : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new privilege_authorization object.
+        /// </summary>
+        /// <param name="privilege_ID">Initial value of the Privilege_ID property.</param>
+        /// <param name="authorization_ID">Initial value of the Authorization_ID property.</param>
+        /// <param name="privilege_Authorization_Status">Initial value of the Privilege_Authorization_Status property.</param>
+        public static privilege_authorization Createprivilege_authorization(global::System.Int32 privilege_ID, global::System.Int32 authorization_ID, global::System.Int32 privilege_Authorization_Status)
+        {
+            privilege_authorization privilege_authorization = new privilege_authorization();
+            privilege_authorization.Privilege_ID = privilege_ID;
+            privilege_authorization.Authorization_ID = authorization_ID;
+            privilege_authorization.Privilege_Authorization_Status = privilege_Authorization_Status;
+            return privilege_authorization;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Privilege_ID
+        {
+            get
+            {
+                return _Privilege_ID;
+            }
+            set
+            {
+                if (_Privilege_ID != value)
+                {
+                    OnPrivilege_IDChanging(value);
+                    ReportPropertyChanging("Privilege_ID");
+                    _Privilege_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Privilege_ID");
+                    OnPrivilege_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Privilege_ID;
+        partial void OnPrivilege_IDChanging(global::System.Int32 value);
+        partial void OnPrivilege_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Authorization_ID
+        {
+            get
+            {
+                return _Authorization_ID;
+            }
+            set
+            {
+                if (_Authorization_ID != value)
+                {
+                    OnAuthorization_IDChanging(value);
+                    ReportPropertyChanging("Authorization_ID");
+                    _Authorization_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Authorization_ID");
+                    OnAuthorization_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Authorization_ID;
+        partial void OnAuthorization_IDChanging(global::System.Int32 value);
+        partial void OnAuthorization_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Privilege_Authorization_Status
+        {
+            get
+            {
+                return _Privilege_Authorization_Status;
+            }
+            set
+            {
+                OnPrivilege_Authorization_StatusChanging(value);
+                ReportPropertyChanging("Privilege_Authorization_Status");
+                _Privilege_Authorization_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Privilege_Authorization_Status");
+                OnPrivilege_Authorization_StatusChanged();
+            }
+        }
+        private global::System.Int32 _Privilege_Authorization_Status;
+        partial void OnPrivilege_Authorization_StatusChanging(global::System.Int32 value);
+        partial void OnPrivilege_Authorization_StatusChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "privilege_authorization_ibfk_2", "authorization")]
+        public authorization authorization
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<authorization>("stockappsModel.privilege_authorization_ibfk_2", "authorization").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<authorization>("stockappsModel.privilege_authorization_ibfk_2", "authorization").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<authorization> authorizationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<authorization>("stockappsModel.privilege_authorization_ibfk_2", "authorization");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<authorization>("stockappsModel.privilege_authorization_ibfk_2", "authorization", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "privilege_authorization_ibfk_1", "privilege")]
+        public privilege privilege
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<privilege>("stockappsModel.privilege_authorization_ibfk_1", "privilege").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<privilege>("stockappsModel.privilege_authorization_ibfk_1", "privilege").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<privilege> privilegeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<privilege>("stockappsModel.privilege_authorization_ibfk_1", "privilege");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<privilege>("stockappsModel.privilege_authorization_ibfk_1", "privilege", value);
                 }
             }
         }
@@ -2657,13 +3181,15 @@ namespace StockModel
         /// <param name="users_username">Initial value of the users_username property.</param>
         /// <param name="users_password">Initial value of the users_password property.</param>
         /// <param name="users_status">Initial value of the users_status property.</param>
-        public static user Createuser(global::System.Int32 users_id, global::System.String users_username, global::System.String users_password, global::System.Int32 users_status)
+        /// <param name="privilege_ID">Initial value of the Privilege_ID property.</param>
+        public static user Createuser(global::System.Int32 users_id, global::System.String users_username, global::System.String users_password, global::System.Int32 users_status, global::System.Int32 privilege_ID)
         {
             user user = new user();
             user.users_id = users_id;
             user.users_username = users_username;
             user.users_password = users_password;
             user.users_status = users_status;
+            user.Privilege_ID = privilege_ID;
             return user;
         }
 
@@ -2768,9 +3294,74 @@ namespace StockModel
         private global::System.Int32 _users_status;
         partial void Onusers_statusChanging(global::System.Int32 value);
         partial void Onusers_statusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Privilege_ID
+        {
+            get
+            {
+                return _Privilege_ID;
+            }
+            set
+            {
+                OnPrivilege_IDChanging(value);
+                ReportPropertyChanging("Privilege_ID");
+                _Privilege_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Privilege_ID");
+                OnPrivilege_IDChanged();
+            }
+        }
+        private global::System.Int32 _Privilege_ID;
+        partial void OnPrivilege_IDChanging(global::System.Int32 value);
+        partial void OnPrivilege_IDChanged();
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "users_ibfk_1", "privilege")]
+        public privilege privilege
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<privilege>("stockappsModel.users_ibfk_1", "privilege").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<privilege>("stockappsModel.users_ibfk_1", "privilege").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<privilege> privilegeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<privilege>("stockappsModel.users_ibfk_1", "privilege");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<privilege>("stockappsModel.users_ibfk_1", "privilege", value);
+                }
+            }
+        }
+
+        #endregion
     }
 
     #endregion

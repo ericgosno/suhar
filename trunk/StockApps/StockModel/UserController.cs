@@ -19,5 +19,7 @@ namespace StockModel
             if (MD5Function.VerifyMd5Hash(password, userNow.users_password)) return userNow;
             else return null;
         }
+
+
     }
 }
