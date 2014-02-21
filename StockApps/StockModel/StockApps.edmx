@@ -211,6 +211,7 @@
           <Property Name="Privilege_ID" Type="int" Nullable="false" />
           <Property Name="users_username" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="users_password" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="users_email" Type="varchar" MaxLength="50" />
           <Property Name="users_status" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="customer_transaction_ibfk_1">
@@ -715,6 +716,7 @@
           <Property Type="Int32" Name="users_status" Nullable="false" />
           <Property Type="Int32" Name="Privilege_ID" Nullable="false" />
           <NavigationProperty Name="privilege" Relationship="stockappsModel.users_ibfk_1" FromRole="user" ToRole="privilege" />
+          <Property Type="String" Name="users_email" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="privilege">
           <Key>
@@ -864,6 +866,7 @@
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="stockappsModel.user">
               <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="users_email" ColumnName="users_email" />
                 <ScalarProperty Name="Privilege_ID" ColumnName="Privilege_ID" />
                 <ScalarProperty Name="users_status" ColumnName="users_status" />
                 <ScalarProperty Name="users_password" ColumnName="users_password" />

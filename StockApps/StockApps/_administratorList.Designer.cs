@@ -43,6 +43,7 @@
             this._cbadmCCategory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this._tadmCPassConf = new System.Windows.Forms.TextBox();
+            this._badmCReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataAdministrator)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,25 +53,28 @@
             this._dataAdministrator.Location = new System.Drawing.Point(29, 277);
             this._dataAdministrator.Name = "_dataAdministrator";
             this._dataAdministrator.Size = new System.Drawing.Size(798, 270);
-            this._dataAdministrator.TabIndex = 22;
+            this._dataAdministrator.TabIndex = 7;
+            this._dataAdministrator.SelectionChanged += new System.EventHandler(this._dataAdministrator_SelectionChanged);
             // 
             // _badmCInsert
             // 
             this._badmCInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._badmCInsert.Location = new System.Drawing.Point(662, 218);
+            this._badmCInsert.Location = new System.Drawing.Point(662, 182);
             this._badmCInsert.Name = "_badmCInsert";
             this._badmCInsert.Size = new System.Drawing.Size(165, 35);
-            this._badmCInsert.TabIndex = 21;
+            this._badmCInsert.TabIndex = 6;
             this._badmCInsert.Text = "INSERT";
             this._badmCInsert.UseVisualStyleBackColor = true;
+            this._badmCInsert.Click += new System.EventHandler(this._badmCInsert_Click);
             // 
             // _tadmCPass
             // 
             this._tadmCPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tadmCPass.Location = new System.Drawing.Point(243, 138);
             this._tadmCPass.Name = "_tadmCPass";
+            this._tadmCPass.PasswordChar = '*';
             this._tadmCPass.Size = new System.Drawing.Size(413, 35);
-            this._tadmCPass.TabIndex = 16;
+            this._tadmCPass.TabIndex = 3;
             // 
             // _tadmCEmail
             // 
@@ -78,7 +82,7 @@
             this._tadmCEmail.Location = new System.Drawing.Point(243, 99);
             this._tadmCEmail.Name = "_tadmCEmail";
             this._tadmCEmail.Size = new System.Drawing.Size(413, 35);
-            this._tadmCEmail.TabIndex = 14;
+            this._tadmCEmail.TabIndex = 2;
             // 
             // _tadmCName
             // 
@@ -86,7 +90,7 @@
             this._tadmCName.Location = new System.Drawing.Point(243, 59);
             this._tadmCName.Name = "_tadmCName";
             this._tadmCName.Size = new System.Drawing.Size(413, 35);
-            this._tadmCName.TabIndex = 13;
+            this._tadmCName.TabIndex = 1;
             // 
             // label4
             // 
@@ -141,12 +145,13 @@
             // _badmCUpdate
             // 
             this._badmCUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._badmCUpdate.Location = new System.Drawing.Point(585, 561);
+            this._badmCUpdate.Location = new System.Drawing.Point(662, 223);
             this._badmCUpdate.Name = "_badmCUpdate";
-            this._badmCUpdate.Size = new System.Drawing.Size(121, 35);
-            this._badmCUpdate.TabIndex = 26;
+            this._badmCUpdate.Size = new System.Drawing.Size(165, 35);
+            this._badmCUpdate.TabIndex = 8;
             this._badmCUpdate.Text = "UPDATE";
             this._badmCUpdate.UseVisualStyleBackColor = true;
+            this._badmCUpdate.Click += new System.EventHandler(this._badmCUpdate_Click);
             // 
             // _badmCDelete
             // 
@@ -154,9 +159,10 @@
             this._badmCDelete.Location = new System.Drawing.Point(712, 561);
             this._badmCDelete.Name = "_badmCDelete";
             this._badmCDelete.Size = new System.Drawing.Size(115, 35);
-            this._badmCDelete.TabIndex = 27;
+            this._badmCDelete.TabIndex = 9;
             this._badmCDelete.Text = "DELETE";
             this._badmCDelete.UseVisualStyleBackColor = true;
+            this._badmCDelete.Click += new System.EventHandler(this._badmCDelete_Click);
             // 
             // _cbadmCCategory
             // 
@@ -165,7 +171,7 @@
             this._cbadmCCategory.Location = new System.Drawing.Point(243, 216);
             this._cbadmCCategory.Name = "_cbadmCCategory";
             this._cbadmCCategory.Size = new System.Drawing.Size(413, 37);
-            this._cbadmCCategory.TabIndex = 28;
+            this._cbadmCCategory.TabIndex = 5;
             // 
             // label6
             // 
@@ -182,14 +188,27 @@
             this._tadmCPassConf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tadmCPassConf.Location = new System.Drawing.Point(243, 176);
             this._tadmCPassConf.Name = "_tadmCPassConf";
+            this._tadmCPassConf.PasswordChar = '*';
             this._tadmCPassConf.Size = new System.Drawing.Size(413, 35);
-            this._tadmCPassConf.TabIndex = 30;
+            this._tadmCPassConf.TabIndex = 4;
+            // 
+            // _badmCReset
+            // 
+            this._badmCReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._badmCReset.Location = new System.Drawing.Point(662, 141);
+            this._badmCReset.Name = "_badmCReset";
+            this._badmCReset.Size = new System.Drawing.Size(165, 35);
+            this._badmCReset.TabIndex = 30;
+            this._badmCReset.Text = "RESET";
+            this._badmCReset.UseVisualStyleBackColor = true;
+            this._badmCReset.Click += new System.EventHandler(this._badmCReset_Click);
             // 
             // _administratorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 627);
+            this.Controls.Add(this._badmCReset);
             this.Controls.Add(this._tadmCPassConf);
             this.Controls.Add(this._cbadmCCategory);
             this.Controls.Add(this.label6);
@@ -207,6 +226,7 @@
             this.Controls.Add(this.label5);
             this.Name = "_administratorList";
             this.Text = "CV. WARNA MURNI - ADMINISTRATOR";
+            this.Load += new System.EventHandler(this._administratorList_Load);
             ((System.ComponentModel.ISupportInitialize)(this._dataAdministrator)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -230,5 +250,6 @@
         private System.Windows.Forms.ComboBox _cbadmCCategory;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox _tadmCPassConf;
+        private System.Windows.Forms.Button _badmCReset;
     }
 }
