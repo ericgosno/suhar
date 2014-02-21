@@ -39,5 +39,17 @@ namespace StockApps
             _customerList customerListForm = new _customerList();
             customerListForm.Show();
         }
+
+        private void categoryUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _administratorCategory adminCategory = new _administratorCategory();
+            adminCategory.Show();
+        }
+
+        private void createUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _administratorList adminList = new _administratorList();
+            adminList.Show();
+        }
     }
 }

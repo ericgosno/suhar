@@ -35,7 +35,7 @@ namespace StockModel
             MD5 md5Hash = MD5.Create();
             // Hash the input. 
             string hashOfInput = GetMd5Hash(input);
-
+            
             // Create a StringComparer an compare the hashes.
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
 

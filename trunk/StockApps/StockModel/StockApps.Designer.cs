@@ -3318,6 +3318,30 @@ namespace StockModel
         private global::System.Int32 _Privilege_ID;
         partial void OnPrivilege_IDChanging(global::System.Int32 value);
         partial void OnPrivilege_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String users_email
+        {
+            get
+            {
+                return _users_email;
+            }
+            set
+            {
+                Onusers_emailChanging(value);
+                ReportPropertyChanging("users_email");
+                _users_email = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("users_email");
+                Onusers_emailChanged();
+            }
+        }
+        private global::System.String _users_email;
+        partial void Onusers_emailChanging(global::System.String value);
+        partial void Onusers_emailChanged();
 
         #endregion
     
