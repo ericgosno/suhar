@@ -34,6 +34,7 @@
             this._dataDetailSupplier = new System.Windows.Forms.DataGridView();
             this._bspDUpdate = new System.Windows.Forms.Button();
             this._bspDDelete = new System.Windows.Forms.Button();
+            this._bspDInsert = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataDetailSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,11 +96,23 @@
             this._bspDDelete.Text = "DELETE";
             this._bspDDelete.UseVisualStyleBackColor = true;
             // 
+            // _bspDInsert
+            // 
+            this._bspDInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bspDInsert.Location = new System.Drawing.Point(227, 381);
+            this._bspDInsert.Name = "_bspDInsert";
+            this._bspDInsert.Size = new System.Drawing.Size(121, 35);
+            this._bspDInsert.TabIndex = 16;
+            this._bspDInsert.Text = "INSERT";
+            this._bspDInsert.UseVisualStyleBackColor = true;
+            this._bspDInsert.Click += new System.EventHandler(this._bspDInsert_Click);
+            // 
             // _supplierListPopUp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 432);
+            this.Controls.Add(this._bspDInsert);
             this.Controls.Add(this._bspDUpdate);
             this.Controls.Add(this._bspDDelete);
             this.Controls.Add(this._dataDetailSupplier);
@@ -123,5 +136,6 @@
         private System.Windows.Forms.DataGridView _dataDetailSupplier;
         private System.Windows.Forms.Button _bspDUpdate;
         private System.Windows.Forms.Button _bspDDelete;
+        private System.Windows.Forms.Button _bspDInsert;
     }
 }

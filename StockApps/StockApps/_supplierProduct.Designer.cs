@@ -30,7 +30,7 @@
         {
             this.label5 = new System.Windows.Forms.Label();
             this._bspPInsert = new System.Windows.Forms.Button();
-            this._tspPStock = new System.Windows.Forms.TextBox();
+            this._tspPPackingKilogram = new System.Windows.Forms.TextBox();
             this._tspPPrice = new System.Windows.Forms.TextBox();
             this._tspPName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,12 +38,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this._cbspPTypePrice = new System.Windows.Forms.ComboBox();
-            this._cbspPTypeStock = new System.Windows.Forms.ComboBox();
             this._cbspPCategory = new System.Windows.Forms.ComboBox();
-            this._dataProduct = new System.Windows.Forms.DataGridView();
-            this._bspPUpdate = new System.Windows.Forms.Button();
-            this._bspPDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this._dataProduct)).BeginInit();
+            this.label6 = new System.Windows.Forms.Label();
+            this._lspPSupplierName = new System.Windows.Forms.Label();
+            this._cbspPPackageName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label5
@@ -59,28 +57,29 @@
             // _bspPInsert
             // 
             this._bspPInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspPInsert.Location = new System.Drawing.Point(560, 180);
+            this._bspPInsert.Location = new System.Drawing.Point(141, 279);
             this._bspPInsert.Name = "_bspPInsert";
             this._bspPInsert.Size = new System.Drawing.Size(165, 35);
-            this._bspPInsert.TabIndex = 7;
+            this._bspPInsert.TabIndex = 8;
             this._bspPInsert.Text = "INSERT";
             this._bspPInsert.UseVisualStyleBackColor = true;
+            this._bspPInsert.Click += new System.EventHandler(this._bspPInsert_Click);
             // 
-            // _tspPStock
+            // _tspPPackingKilogram
             // 
-            this._tspPStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tspPStock.Location = new System.Drawing.Point(141, 139);
-            this._tspPStock.Name = "_tspPStock";
-            this._tspPStock.Size = new System.Drawing.Size(413, 35);
-            this._tspPStock.TabIndex = 4;
+            this._tspPPackingKilogram.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._tspPPackingKilogram.Location = new System.Drawing.Point(141, 181);
+            this._tspPPackingKilogram.Name = "_tspPPackingKilogram";
+            this._tspPPackingKilogram.Size = new System.Drawing.Size(234, 35);
+            this._tspPPackingKilogram.TabIndex = 5;
             // 
             // _tspPPrice
             // 
             this._tspPPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tspPPrice.Location = new System.Drawing.Point(141, 98);
+            this._tspPPrice.Location = new System.Drawing.Point(141, 138);
             this._tspPPrice.Name = "_tspPPrice";
-            this._tspPPrice.Size = new System.Drawing.Size(413, 35);
-            this._tspPPrice.TabIndex = 2;
+            this._tspPPrice.Size = new System.Drawing.Size(234, 35);
+            this._tspPPrice.TabIndex = 3;
             // 
             // _tspPName
             // 
@@ -94,7 +93,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 183);
+            this.label4.Location = new System.Drawing.Point(13, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 29);
             this.label4.TabIndex = 12;
@@ -104,17 +103,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(50, 142);
+            this.label3.Location = new System.Drawing.Point(25, 184);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 29);
+            this.label3.Size = new System.Drawing.Size(111, 29);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Stock :";
+            this.label3.Text = "Packing :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(54, 101);
+            this.label2.Location = new System.Drawing.Point(54, 143);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 29);
             this.label2.TabIndex = 8;
@@ -134,70 +133,61 @@
             // 
             this._cbspPTypePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._cbspPTypePrice.FormattingEnabled = true;
-            this._cbspPTypePrice.Location = new System.Drawing.Point(560, 98);
+            this._cbspPTypePrice.Location = new System.Drawing.Point(389, 137);
             this._cbspPTypePrice.Name = "_cbspPTypePrice";
             this._cbspPTypePrice.Size = new System.Drawing.Size(165, 37);
-            this._cbspPTypePrice.TabIndex = 3;
-            // 
-            // _cbspPTypeStock
-            // 
-            this._cbspPTypeStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._cbspPTypeStock.FormattingEnabled = true;
-            this._cbspPTypeStock.Location = new System.Drawing.Point(560, 139);
-            this._cbspPTypeStock.Name = "_cbspPTypeStock";
-            this._cbspPTypeStock.Size = new System.Drawing.Size(165, 37);
-            this._cbspPTypeStock.TabIndex = 5;
+            this._cbspPTypePrice.TabIndex = 4;
             // 
             // _cbspPCategory
             // 
             this._cbspPCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._cbspPCategory.FormattingEnabled = true;
-            this._cbspPCategory.Location = new System.Drawing.Point(141, 180);
+            this._cbspPCategory.Location = new System.Drawing.Point(141, 222);
             this._cbspPCategory.Name = "_cbspPCategory";
             this._cbspPCategory.Size = new System.Drawing.Size(413, 37);
-            this._cbspPCategory.TabIndex = 6;
+            this._cbspPCategory.TabIndex = 7;
             // 
-            // _dataProduct
+            // label6
             // 
-            this._dataProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._dataProduct.Location = new System.Drawing.Point(18, 228);
-            this._dataProduct.Name = "_dataProduct";
-            this._dataProduct.Size = new System.Drawing.Size(707, 270);
-            this._dataProduct.TabIndex = 8;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(19, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(116, 29);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Supplier :";
             // 
-            // _bspPUpdate
+            // _lspPSupplierName
             // 
-            this._bspPUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspPUpdate.Location = new System.Drawing.Point(483, 504);
-            this._bspPUpdate.Name = "_bspPUpdate";
-            this._bspPUpdate.Size = new System.Drawing.Size(121, 35);
-            this._bspPUpdate.TabIndex = 9;
-            this._bspPUpdate.Text = "UPDATE";
-            this._bspPUpdate.UseVisualStyleBackColor = true;
+            this._lspPSupplierName.AutoSize = true;
+            this._lspPSupplierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lspPSupplierName.Location = new System.Drawing.Point(141, 98);
+            this._lspPSupplierName.Name = "_lspPSupplierName";
+            this._lspPSupplierName.Size = new System.Drawing.Size(174, 29);
+            this._lspPSupplierName.TabIndex = 14;
+            this._lspPSupplierName.Text = "Nama Supplier";
             // 
-            // _bspPDelete
+            // _cbspPPackageName
             // 
-            this._bspPDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspPDelete.Location = new System.Drawing.Point(610, 504);
-            this._bspPDelete.Name = "_bspPDelete";
-            this._bspPDelete.Size = new System.Drawing.Size(115, 35);
-            this._bspPDelete.TabIndex = 10;
-            this._bspPDelete.Text = "DELETE";
-            this._bspPDelete.UseVisualStyleBackColor = true;
+            this._cbspPPackageName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._cbspPPackageName.FormattingEnabled = true;
+            this._cbspPPackageName.Location = new System.Drawing.Point(389, 180);
+            this._cbspPPackageName.Name = "_cbspPPackageName";
+            this._cbspPPackageName.Size = new System.Drawing.Size(165, 37);
+            this._cbspPPackageName.TabIndex = 15;
             // 
             // _supplierProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 552);
-            this.Controls.Add(this._bspPUpdate);
-            this.Controls.Add(this._bspPDelete);
-            this.Controls.Add(this._dataProduct);
+            this.ClientSize = new System.Drawing.Size(571, 324);
+            this.Controls.Add(this._cbspPPackageName);
+            this.Controls.Add(this._lspPSupplierName);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this._cbspPCategory);
-            this.Controls.Add(this._cbspPTypeStock);
             this.Controls.Add(this._cbspPTypePrice);
             this.Controls.Add(this._bspPInsert);
-            this.Controls.Add(this._tspPStock);
+            this.Controls.Add(this._tspPPackingKilogram);
             this.Controls.Add(this._tspPPrice);
             this.Controls.Add(this._tspPName);
             this.Controls.Add(this.label4);
@@ -208,7 +198,6 @@
             this.Name = "_supplierProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - PRODUCT";
-            ((System.ComponentModel.ISupportInitialize)(this._dataProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +207,7 @@
 
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button _bspPInsert;
-        private System.Windows.Forms.TextBox _tspPStock;
+        private System.Windows.Forms.TextBox _tspPPackingKilogram;
         private System.Windows.Forms.TextBox _tspPPrice;
         private System.Windows.Forms.TextBox _tspPName;
         private System.Windows.Forms.Label label4;
@@ -226,10 +215,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox _cbspPTypePrice;
-        private System.Windows.Forms.ComboBox _cbspPTypeStock;
         private System.Windows.Forms.ComboBox _cbspPCategory;
-        private System.Windows.Forms.DataGridView _dataProduct;
-        private System.Windows.Forms.Button _bspPUpdate;
-        private System.Windows.Forms.Button _bspPDelete;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label _lspPSupplierName;
+        private System.Windows.Forms.ComboBox _cbspPPackageName;
     }
 }
