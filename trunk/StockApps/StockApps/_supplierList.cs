@@ -67,15 +67,15 @@ namespace StockApps
 
         private void _bspDetail_Click(object sender, EventArgs e)
         {
-            try
-            {
+           // try
+            //{
                 _supplierListPopUp1 detailSupplier = new _supplierListPopUp1(SupplierController.getSupplier((int)_dgvspListSupplier.SelectedRows[0].Cells["Supplier_ID"].Value).First());
                 detailSupplier.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("You must select a Row First!");
-            }
+           //}
+            //catch (Exception ex)
+           // {
+            //    MessageBox.Show("You must select a Row First!");
+           // }
         }
     }
 }

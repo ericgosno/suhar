@@ -7,6 +7,38 @@ namespace StockModel
 {
     public static class ProductController
     {
+        public static IQueryable<product> getProduct()
+        {
+            var list = from f in StockEntity.Entity.products
+                       select f;
+            return list;
+        }
+
+        public static IQueryable<product> getProductByProductID(int productId)
+        {
+            return getProduct().Where(a => a.Product_ID == productId);
+        }
+
+        public static IQueryable<product> getProductBySupplierID(int supplierId)
+        {
+            return getProduct().Where(a => a.Supplier_ID == supplierId);
+        }
+
+        public static product insertProduct(int supplierID, int productCategoryID,int currencyID,double price, string productName,string productPackingName,int productPackingKilogram)
+        {
+            product newProduct = new product();
+            newProduct.Supplier_ID = supplierID;
+            newProduct.Product_Category_ID = productCategoryID;
+            newProduct.Product_Name = productName;
+            newProduct.Product_Stock = 0;
+            newProduct.Currency_ID = currencyID;
+            newProduct.Product_Packing_Name = productPackingName;
+            newProduct.Product_Packing_Kilogram = productPackingKilogram;
+            StockEntity.Entity.AddToproducts(newProduct);
+            StockEntity.Entity.SaveChanges();
+            return newProduct;
+        }
+
         public static product_category insertProductCategory(string name)
         {
             product_category newCategory = new product_category();

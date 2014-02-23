@@ -24,13 +24,14 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_3", "product", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.product), "price_history", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.price_history), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_1", "supplier", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.supplier), "product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.product), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_2", "product_category", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.product_category), "product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.product), true)]
-[assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_4", "stock_type", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.stock_type), "product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.product), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_7", "product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.product), "supplier_transaction_product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_transaction_product), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_6", "supplier", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.supplier), "supplier_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_transaction), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_9", "supplier_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.supplier_transaction), "supplier_transaction_product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_transaction_product), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "privilege_authorization_ibfk_2", "authorization", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.authorization), "privilege_authorization", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.privilege_authorization), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "privilege_authorization_ibfk_1", "privilege", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.privilege), "privilege_authorization", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.privilege_authorization), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "users_ibfk_1", "privilege", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.privilege), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.user), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "product_ibfk_4", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.currency), "product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.product), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_4", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "price_history", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.price_history), true)]
 
 #endregion
 
@@ -181,22 +182,6 @@ namespace StockModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<stock_type> stock_type
-        {
-            get
-            {
-                if ((_stock_type == null))
-                {
-                    _stock_type = base.CreateObjectSet<stock_type>("stock_type");
-                }
-                return _stock_type;
-            }
-        }
-        private ObjectSet<stock_type> _stock_type;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<supplier> suppliers
         {
             get
@@ -305,6 +290,22 @@ namespace StockModel
             }
         }
         private ObjectSet<privilege_authorization> _privilege_authorization;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<currency> currencies
+        {
+            get
+            {
+                if ((_currencies == null))
+                {
+                    _currencies = base.CreateObjectSet<currency>("currencies");
+                }
+                return _currencies;
+            }
+        }
+        private ObjectSet<currency> _currencies;
 
         #endregion
         #region AddTo Methods
@@ -355,14 +356,6 @@ namespace StockModel
         public void AddToproduct_category(product_category product_category)
         {
             base.AddObject("product_category", product_category);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the stock_type EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTostock_type(stock_type stock_type)
-        {
-            base.AddObject("stock_type", stock_type);
         }
     
         /// <summary>
@@ -419,6 +412,14 @@ namespace StockModel
         public void AddToprivilege_authorization(privilege_authorization privilege_authorization)
         {
             base.AddObject("privilege_authorization", privilege_authorization);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the currencies EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTocurrencies(currency currency)
+        {
+            base.AddObject("currencies", currency);
         }
 
         #endregion
@@ -554,6 +555,134 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<privilege_authorization>("stockappsModel.privilege_authorization_ibfk_2", "privilege_authorization", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="currency")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class currency : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new currency object.
+        /// </summary>
+        /// <param name="currency_ID">Initial value of the Currency_ID property.</param>
+        /// <param name="currency_Name">Initial value of the Currency_Name property.</param>
+        public static currency Createcurrency(global::System.Int32 currency_ID, global::System.String currency_Name)
+        {
+            currency currency = new currency();
+            currency.Currency_ID = currency_ID;
+            currency.Currency_Name = currency_Name;
+            return currency;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Currency_ID
+        {
+            get
+            {
+                return _Currency_ID;
+            }
+            set
+            {
+                if (_Currency_ID != value)
+                {
+                    OnCurrency_IDChanging(value);
+                    ReportPropertyChanging("Currency_ID");
+                    _Currency_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Currency_ID");
+                    OnCurrency_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Currency_ID;
+        partial void OnCurrency_IDChanging(global::System.Int32 value);
+        partial void OnCurrency_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Currency_Name
+        {
+            get
+            {
+                return _Currency_Name;
+            }
+            set
+            {
+                OnCurrency_NameChanging(value);
+                ReportPropertyChanging("Currency_Name");
+                _Currency_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Currency_Name");
+                OnCurrency_NameChanged();
+            }
+        }
+        private global::System.String _Currency_Name;
+        partial void OnCurrency_NameChanging(global::System.String value);
+        partial void OnCurrency_NameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "product_ibfk_4", "product")]
+        public EntityCollection<product> products
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<product>("stockappsModel.product_ibfk_4", "product");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<product>("stockappsModel.product_ibfk_4", "product", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "FK_Relationship_4", "price_history")]
+        public EntityCollection<price_history> price_history
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<price_history>("stockappsModel.FK_Relationship_4", "price_history");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<price_history>("stockappsModel.FK_Relationship_4", "price_history", value);
                 }
             }
         }
@@ -1281,13 +1410,13 @@ namespace StockModel
         /// </summary>
         /// <param name="price_History_ID">Initial value of the Price_History_ID property.</param>
         /// <param name="price_History_Price">Initial value of the Price_History_Price property.</param>
-        /// <param name="price_History_Kurs">Initial value of the Price_History_Kurs property.</param>
-        public static price_history Createprice_history(global::System.Int32 price_History_ID, global::System.Decimal price_History_Price, global::System.Int32 price_History_Kurs)
+        /// <param name="currency_ID">Initial value of the Currency_ID property.</param>
+        public static price_history Createprice_history(global::System.Int32 price_History_ID, global::System.Decimal price_History_Price, global::System.Int32 currency_ID)
         {
             price_history price_history = new price_history();
             price_history.Price_History_ID = price_History_ID;
             price_history.Price_History_Price = price_History_Price;
-            price_history.Price_History_Kurs = price_History_Kurs;
+            price_history.Currency_ID = currency_ID;
             return price_history;
         }
 
@@ -1374,24 +1503,24 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Price_History_Kurs
+        public global::System.Int32 Currency_ID
         {
             get
             {
-                return _Price_History_Kurs;
+                return _Currency_ID;
             }
             set
             {
-                OnPrice_History_KursChanging(value);
-                ReportPropertyChanging("Price_History_Kurs");
-                _Price_History_Kurs = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Price_History_Kurs");
-                OnPrice_History_KursChanged();
+                OnCurrency_IDChanging(value);
+                ReportPropertyChanging("Currency_ID");
+                _Currency_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Currency_ID");
+                OnCurrency_IDChanged();
             }
         }
-        private global::System.Int32 _Price_History_Kurs;
-        partial void OnPrice_History_KursChanging(global::System.Int32 value);
-        partial void OnPrice_History_KursChanged();
+        private global::System.Int32 _Currency_ID;
+        partial void OnCurrency_IDChanging(global::System.Int32 value);
+        partial void OnCurrency_IDChanged();
 
         #endregion
     
@@ -1431,6 +1560,44 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<product>("stockappsModel.FK_Relationship_3", "product", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "FK_Relationship_4", "currency")]
+        public currency currency
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.FK_Relationship_4", "currency").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.FK_Relationship_4", "currency").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<currency> currencyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.FK_Relationship_4", "currency");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<currency>("stockappsModel.FK_Relationship_4", "currency", value);
                 }
             }
         }
@@ -1863,30 +2030,6 @@ namespace StockModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Stock_Type_ID
-        {
-            get
-            {
-                return _Stock_Type_ID;
-            }
-            set
-            {
-                OnStock_Type_IDChanging(value);
-                ReportPropertyChanging("Stock_Type_ID");
-                _Stock_Type_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Stock_Type_ID");
-                OnStock_Type_IDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Stock_Type_ID;
-        partial void OnStock_Type_IDChanging(Nullable<global::System.Int32> value);
-        partial void OnStock_Type_IDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Product_Name
@@ -1937,48 +2080,96 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Product_Buy_Price_Dollar
+        public Nullable<global::System.Decimal> Product_Buy_Price
         {
             get
             {
-                return _Product_Buy_Price_Dollar;
+                return _Product_Buy_Price;
             }
             set
             {
-                OnProduct_Buy_Price_DollarChanging(value);
-                ReportPropertyChanging("Product_Buy_Price_Dollar");
-                _Product_Buy_Price_Dollar = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Product_Buy_Price_Dollar");
-                OnProduct_Buy_Price_DollarChanged();
+                OnProduct_Buy_PriceChanging(value);
+                ReportPropertyChanging("Product_Buy_Price");
+                _Product_Buy_Price = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Product_Buy_Price");
+                OnProduct_Buy_PriceChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Product_Buy_Price_Dollar;
-        partial void OnProduct_Buy_Price_DollarChanging(Nullable<global::System.Decimal> value);
-        partial void OnProduct_Buy_Price_DollarChanged();
+        private Nullable<global::System.Decimal> _Product_Buy_Price;
+        partial void OnProduct_Buy_PriceChanging(Nullable<global::System.Decimal> value);
+        partial void OnProduct_Buy_PriceChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Product_Buy_Price_Rupiah
+        public Nullable<global::System.Int32> Currency_ID
         {
             get
             {
-                return _Product_Buy_Price_Rupiah;
+                return _Currency_ID;
             }
             set
             {
-                OnProduct_Buy_Price_RupiahChanging(value);
-                ReportPropertyChanging("Product_Buy_Price_Rupiah");
-                _Product_Buy_Price_Rupiah = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Product_Buy_Price_Rupiah");
-                OnProduct_Buy_Price_RupiahChanged();
+                OnCurrency_IDChanging(value);
+                ReportPropertyChanging("Currency_ID");
+                _Currency_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Currency_ID");
+                OnCurrency_IDChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Product_Buy_Price_Rupiah;
-        partial void OnProduct_Buy_Price_RupiahChanging(Nullable<global::System.Decimal> value);
-        partial void OnProduct_Buy_Price_RupiahChanged();
+        private Nullable<global::System.Int32> _Currency_ID;
+        partial void OnCurrency_IDChanging(Nullable<global::System.Int32> value);
+        partial void OnCurrency_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Product_Packing_Name
+        {
+            get
+            {
+                return _Product_Packing_Name;
+            }
+            set
+            {
+                OnProduct_Packing_NameChanging(value);
+                ReportPropertyChanging("Product_Packing_Name");
+                _Product_Packing_Name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Product_Packing_Name");
+                OnProduct_Packing_NameChanged();
+            }
+        }
+        private global::System.String _Product_Packing_Name;
+        partial void OnProduct_Packing_NameChanging(global::System.String value);
+        partial void OnProduct_Packing_NameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Product_Packing_Kilogram
+        {
+            get
+            {
+                return _Product_Packing_Kilogram;
+            }
+            set
+            {
+                OnProduct_Packing_KilogramChanging(value);
+                ReportPropertyChanging("Product_Packing_Kilogram");
+                _Product_Packing_Kilogram = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Product_Packing_Kilogram");
+                OnProduct_Packing_KilogramChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Product_Packing_Kilogram;
+        partial void OnProduct_Packing_KilogramChanging(Nullable<global::System.Int32> value);
+        partial void OnProduct_Packing_KilogramChanged();
 
         #endregion
     
@@ -2110,44 +2301,6 @@ namespace StockModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "FK_Relationship_4", "stock_type")]
-        public stock_type stock_type
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<stock_type>("stockappsModel.FK_Relationship_4", "stock_type").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<stock_type>("stockappsModel.FK_Relationship_4", "stock_type").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<stock_type> stock_typeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<stock_type>("stockappsModel.FK_Relationship_4", "stock_type");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<stock_type>("stockappsModel.FK_Relationship_4", "stock_type", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "FK_Relationship_7", "supplier_transaction_product")]
         public EntityCollection<supplier_transaction_product> supplier_transaction_product
         {
@@ -2160,6 +2313,44 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_transaction_product>("stockappsModel.FK_Relationship_7", "supplier_transaction_product", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "product_ibfk_4", "currency")]
+        public currency currency
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.product_ibfk_4", "currency").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.product_ibfk_4", "currency").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<currency> currencyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.product_ibfk_4", "currency");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<currency>("stockappsModel.product_ibfk_4", "currency", value);
                 }
             }
         }
@@ -2292,138 +2483,6 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<product>("stockappsModel.FK_Relationship_2", "product", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="stock_type")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class stock_type : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new stock_type object.
-        /// </summary>
-        /// <param name="stock_Type_ID">Initial value of the Stock_Type_ID property.</param>
-        /// <param name="stock_Type_Name">Initial value of the Stock_Type_Name property.</param>
-        /// <param name="stock_Type_Kilogram">Initial value of the Stock_Type_Kilogram property.</param>
-        public static stock_type Createstock_type(global::System.Int32 stock_Type_ID, global::System.String stock_Type_Name, global::System.Decimal stock_Type_Kilogram)
-        {
-            stock_type stock_type = new stock_type();
-            stock_type.Stock_Type_ID = stock_Type_ID;
-            stock_type.Stock_Type_Name = stock_Type_Name;
-            stock_type.Stock_Type_Kilogram = stock_Type_Kilogram;
-            return stock_type;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Stock_Type_ID
-        {
-            get
-            {
-                return _Stock_Type_ID;
-            }
-            set
-            {
-                if (_Stock_Type_ID != value)
-                {
-                    OnStock_Type_IDChanging(value);
-                    ReportPropertyChanging("Stock_Type_ID");
-                    _Stock_Type_ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Stock_Type_ID");
-                    OnStock_Type_IDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Stock_Type_ID;
-        partial void OnStock_Type_IDChanging(global::System.Int32 value);
-        partial void OnStock_Type_IDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Stock_Type_Name
-        {
-            get
-            {
-                return _Stock_Type_Name;
-            }
-            set
-            {
-                OnStock_Type_NameChanging(value);
-                ReportPropertyChanging("Stock_Type_Name");
-                _Stock_Type_Name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Stock_Type_Name");
-                OnStock_Type_NameChanged();
-            }
-        }
-        private global::System.String _Stock_Type_Name;
-        partial void OnStock_Type_NameChanging(global::System.String value);
-        partial void OnStock_Type_NameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Stock_Type_Kilogram
-        {
-            get
-            {
-                return _Stock_Type_Kilogram;
-            }
-            set
-            {
-                OnStock_Type_KilogramChanging(value);
-                ReportPropertyChanging("Stock_Type_Kilogram");
-                _Stock_Type_Kilogram = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Stock_Type_Kilogram");
-                OnStock_Type_KilogramChanged();
-            }
-        }
-        private global::System.Decimal _Stock_Type_Kilogram;
-        partial void OnStock_Type_KilogramChanging(global::System.Decimal value);
-        partial void OnStock_Type_KilogramChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "FK_Relationship_4", "product")]
-        public EntityCollection<product> products
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<product>("stockappsModel.FK_Relationship_4", "product");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<product>("stockappsModel.FK_Relationship_4", "product", value);
                 }
             }
         }
