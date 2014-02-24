@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerTransaction.cs" />
     <Compile Include="CurrencyController.cs" />
     <Compile Include="CustomerController.cs" />
     <Compile Include="MD5Function.cs" />
@@ -67,6 +68,7 @@
     </Compile>
     <Compile Include="StockEntity.cs" />
     <Compile Include="SupplierController.cs" />
+    <Compile Include="SupplierTransaction.cs" />
     <Compile Include="UserController.cs" />
   </ItemGroup>
   <ItemGroup>

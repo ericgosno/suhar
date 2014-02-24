@@ -10,8 +10,18 @@ namespace StockModel
         public static IQueryable<product> getProduct()
         {
             var list = from f in StockEntity.Entity.products
+                       where f.Product_Status == 1
                        select f;
             return list;
+        }
+
+        public static void changeProductStock(int productId, int change)
+        {
+            product productNow = (from f in StockEntity.Entity.products
+                                 where f.Product_ID == productId
+                                 select f).First();
+            productNow.Product_Stock += change;
+            StockEntity.Entity.SaveChanges();
         }
 
         public static IQueryable<product> getProductByProductID(int productId)
@@ -31,12 +41,42 @@ namespace StockModel
             newProduct.Product_Category_ID = productCategoryID;
             newProduct.Product_Name = productName;
             newProduct.Product_Stock = 0;
+            newProduct.Product_Status = 1;
             newProduct.Currency_ID = currencyID;
             newProduct.Product_Packing_Name = productPackingName;
             newProduct.Product_Packing_Kilogram = productPackingKilogram;
+            newProduct.Product_Buy_Price = Convert.ToDecimal(price);
             StockEntity.Entity.AddToproducts(newProduct);
             StockEntity.Entity.SaveChanges();
             return newProduct;
+        }
+
+        public static void updateProduct(int productId, int supplierID, int productCategoryID, int currencyID, double price, string productName, string productPackingName, int productPackingKilogram)
+        {
+            var list = from f in StockEntity.Entity.products
+                       where f.Product_ID == productId
+                       select f;
+            if (list.Count() <= 0) return;
+            var productNow = list.First();
+            productNow.Supplier_ID = supplierID;
+            productNow.Product_Category_ID = productCategoryID;
+            productNow.Product_Name = productName;
+            productNow.Currency_ID = currencyID;
+            productNow.Product_Packing_Name = productPackingName;
+            productNow.Product_Packing_Kilogram = productPackingKilogram;
+            productNow.Product_Buy_Price = Convert.ToDecimal(price);
+            StockEntity.Entity.SaveChanges();
+        }
+
+        public static void deleteProduct(int productId)
+        {
+            var list = from f in StockEntity.Entity.products
+                       where f.Product_ID == productId
+                       select f;
+            if (list.Count() <= 0) return;
+            var productNow = list.First();
+            productNow.Product_Status = 0;
+            StockEntity.Entity.SaveChanges();
         }
 
         public static product_category insertProductCategory(string name)

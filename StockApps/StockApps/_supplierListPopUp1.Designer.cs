@@ -85,6 +85,7 @@
             this._bspDUpdate.TabIndex = 14;
             this._bspDUpdate.Text = "UPDATE";
             this._bspDUpdate.UseVisualStyleBackColor = true;
+            this._bspDUpdate.Click += new System.EventHandler(this._bspDUpdate_Click);
             // 
             // _bspDDelete
             // 
@@ -95,6 +96,7 @@
             this._bspDDelete.TabIndex = 15;
             this._bspDDelete.Text = "DELETE";
             this._bspDDelete.UseVisualStyleBackColor = true;
+            this._bspDDelete.Click += new System.EventHandler(this._bspDDelete_Click);
             // 
             // _bspDInsert
             // 
