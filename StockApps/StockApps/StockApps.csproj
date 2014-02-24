@@ -11,7 +11,8 @@
     <RootNamespace>StockApps</RootNamespace>
     <AssemblyName>StockApps</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,9 +35,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +61,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminHistoryR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminHistoryR.Designer.cs">
+      <DependentUpon>adminHistoryR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>adminReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="dsAdmin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAdmin.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="_administratorCategory.cs">
       <SubType>Form</SubType>
@@ -65,6 +103,12 @@
     </Compile>
     <Compile Include="_customerList.Designer.cs">
       <DependentUpon>_customerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_history.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_history.Designer.cs">
+      <DependentUpon>_history.cs</DependentUpon>
     </Compile>
     <Compile Include="_mainForm.cs">
       <SubType>Form</SubType>
@@ -122,6 +166,17 @@
     <Compile Include="_supplierProduct.Designer.cs">
       <DependentUpon>_supplierProduct.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="adminHistoryR.resx">
+      <DependentUpon>adminHistoryR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>adminReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="_administratorCategory.resx">
       <DependentUpon>_administratorCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_customerList.resx">
       <DependentUpon>_customerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_history.resx">
+      <DependentUpon>_history.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_mainForm.resx">
       <DependentUpon>_mainForm.cs</DependentUpon>
@@ -142,6 +200,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="_administrator.resx">
       <DependentUpon>_administrator.cs</DependentUpon>
@@ -170,6 +229,17 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="dsAdmin.xsc">
+      <DependentUpon>dsAdmin.xsd</DependentUpon>
+    </None>
+    <None Include="dsAdmin.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAdmin.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsAdmin.xss">
+      <DependentUpon>dsAdmin.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -185,6 +255,9 @@
       <Project>{A27E7E72-EF72-413E-AF40-FF4EACDE48DC}</Project>
       <Name>StockModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

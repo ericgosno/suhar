@@ -3,11 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
+using System.Data;
+using System.Reflection;
 
 namespace StockModel
 {
     public static class UserController
     {
+
+        public static IQueryable<admin_history> geHistorytUser()
+        {
+            var list = from f in StockEntity.Entity.admin_history
+                       select f;
+            return list;
+        }
+
+        public static void insertHistoryLogIn(int userID, int typeLog){
+            admin_history newadminhistory = new admin_history();
+            newadminhistory.users_id = userID;
+            newadminhistory.log_type = typeLog;
+            newadminhistory.time_log = DateTime.Now;
+            StockEntity.Entity.AddToadmin_history(newadminhistory);
+            StockEntity.Entity.SaveChanges();
+        }
+
+        public static void insertHistoryLogOut(int userID, int typeLog)
+        {
+            admin_history newadminhistory = new admin_history();
+            newadminhistory.users_id = userID;
+            newadminhistory.log_type = typeLog;
+            newadminhistory.time_log = DateTime.Now;
+            StockEntity.Entity.AddToadmin_history(newadminhistory);
+            StockEntity.Entity.SaveChanges();
+        }
+
         public static user Login(string username, string password)
         {
 
@@ -17,7 +46,11 @@ namespace StockModel
             if (list.Count() < 0) return null;
             user userNow = list.First();
 
-            if (MD5Function.VerifyMd5Hash(password, userNow.users_password)) return userNow;
+            if (MD5Function.VerifyMd5Hash(password, userNow.users_password))
+            {
+                insertHistoryLogIn(userNow.users_id, 0);
+                return userNow;
+            }
             else return null;
         }
 

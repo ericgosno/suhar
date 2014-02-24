@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="stockappsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="stockappsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="customers" EntityType="stockappsModel.customer" />
+    <EntitySet Name="customer_transaction" EntityType="stockappsModel.customer_transaction" />
+    <EntitySet Name="customer_transaction_product" EntityType="stockappsModel.customer_transaction_product" />
+    <EntitySet Name="price_history" EntityType="stockappsModel.price_history" />
+    <EntitySet Name="products" EntityType="stockappsModel.product" />
+    <EntitySet Name="product_category" EntityType="stockappsModel.product_category" />
+    <EntitySet Name="suppliers" EntityType="stockappsModel.supplier" />
+    <EntitySet Name="supplier_transaction" EntityType="stockappsModel.supplier_transaction" />
+    <EntitySet Name="supplier_transaction_product" EntityType="stockappsModel.supplier_transaction_product" />
+    <AssociationSet Name="FK_Relationship_8" Association="stockappsModel.FK_Relationship_8">
+      <End Role="customer" EntitySet="customers" />
+      <End Role="customer_transaction" EntitySet="customer_transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_10" Association="stockappsModel.FK_Relationship_10">
+      <End Role="customer_transaction" EntitySet="customer_transaction" />
+      <End Role="customer_transaction_product" EntitySet="customer_transaction_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_11" Association="stockappsModel.FK_Relationship_11">
+      <End Role="product" EntitySet="products" />
+      <End Role="customer_transaction_product" EntitySet="customer_transaction_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_3" Association="stockappsModel.FK_Relationship_3">
+      <End Role="product" EntitySet="products" />
+      <End Role="price_history" EntitySet="price_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_1" Association="stockappsModel.FK_Relationship_1">
+      <End Role="supplier" EntitySet="suppliers" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_2" Association="stockappsModel.FK_Relationship_2">
+      <End Role="product_category" EntitySet="product_category" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_7" Association="stockappsModel.FK_Relationship_7">
+      <End Role="product" EntitySet="products" />
+      <End Role="supplier_transaction_product" EntitySet="supplier_transaction_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_6" Association="stockappsModel.FK_Relationship_6">
+      <End Role="supplier" EntitySet="suppliers" />
+      <End Role="supplier_transaction" EntitySet="supplier_transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_9" Association="stockappsModel.FK_Relationship_9">
+      <End Role="supplier_transaction" EntitySet="supplier_transaction" />
+      <End Role="supplier_transaction_product" EntitySet="supplier_transaction_product" />
+    </AssociationSet>
+    <EntitySet Name="users" EntityType="stockappsModel.user" />
+    <EntitySet Name="privileges" EntityType="stockappsModel.privilege" />
+    <EntitySet Name="authorizations" EntityType="stockappsModel.authorization" />
+    <EntitySet Name="privilege_authorization" EntityType="stockappsModel.privilege_authorization" />
+    <AssociationSet Name="privilege_authorization_ibfk_2" Association="stockappsModel.privilege_authorization_ibfk_2">
+      <End Role="authorization" EntitySet="authorizations" />
+      <End Role="privilege_authorization" EntitySet="privilege_authorization" />
+    </AssociationSet>
+    <AssociationSet Name="privilege_authorization_ibfk_1" Association="stockappsModel.privilege_authorization_ibfk_1">
+      <End Role="privilege" EntitySet="privileges" />
+      <End Role="privilege_authorization" EntitySet="privilege_authorization" />
+    </AssociationSet>
+    <AssociationSet Name="users_ibfk_1" Association="stockappsModel.users_ibfk_1">
+      <End Role="privilege" EntitySet="privileges" />
+      <End Role="user" EntitySet="users" />
+    </AssociationSet>
+    <EntitySet Name="currencies" EntityType="stockappsModel.currency" />
+    <AssociationSet Name="product_ibfk_4" Association="stockappsModel.product_ibfk_4">
+      <End Role="currency" EntitySet="currencies" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relationship_4" Association="stockappsModel.FK_Relationship_4">
+      <End Role="currency" EntitySet="currencies" />
+      <End Role="price_history" EntitySet="price_history" />
+    </AssociationSet>
+    <EntitySet Name="admin_history" EntityType="stockappsModel.admin_history" />
+    <AssociationSet Name="users_idfk_1" Association="stockappsModel.users_idfk_1">
+      <End Role="user" EntitySet="users" />
+      <End Role="admin_history" EntitySet="admin_history" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="Customer_ID" />
+    </Key>
+    <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+    <Property Name="Customer_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Customer_Address" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Customer_Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Customer_Phone" Type="String" MaxLength="12" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="customer_transaction" Relationship="stockappsModel.FK_Relationship_8" FromRole="customer" ToRole="customer_transaction" />
+    <Property Type="Int32" Name="Customer_Status" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customer_transaction">
+    <Key>
+      <PropertyRef Name="Customer_Transaction_ID" />
+    </Key>
+    <Property Name="Customer_Transaction_ID" Type="Int32" Nullable="false" />
+    <Property Name="Customer_ID" Type="Int32" />
+    <Property Name="Customer_Transaction_Total_Rupiah" Type="Decimal" />
+    <Property Name="Customer_Transaction_Total_Dollar" Type="Decimal" />
+    <Property Name="Customer_Transaction_Date" Type="DateTime" Nullable="false" />
+    <Property Name="Customer_Transaction_Status" Type="Int32" Nullable="false" />
+    <Property Name="Customer_Transaction_Description" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="customer" Relationship="stockappsModel.FK_Relationship_8" FromRole="customer_transaction" ToRole="customer" />
+    <NavigationProperty Name="customer_transaction_product" Relationship="stockappsModel.FK_Relationship_10" FromRole="customer_transaction" ToRole="customer_transaction_product" />
+  </EntityType>
+  <EntityType Name="customer_transaction_product">
+    <Key>
+      <PropertyRef Name="Customer_Transaction_ID" />
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Customer_Transaction_ID" Type="Int32" Nullable="false" />
+    <Property Name="Product_ID" Type="Int32" Nullable="false" />
+    <Property Name="Customer_Transaction_Product_Quantity" Type="Int32" />
+    <Property Name="Customer_Transaction_Product_Price_Dollar" Type="Decimal" />
+    <Property Name="Customer_Transaction_Product_Price_Rupiah" Type="Decimal" />
+    <NavigationProperty Name="customer_transaction" Relationship="stockappsModel.FK_Relationship_10" FromRole="customer_transaction_product" ToRole="customer_transaction" />
+    <NavigationProperty Name="product" Relationship="stockappsModel.FK_Relationship_11" FromRole="customer_transaction_product" ToRole="product" />
+  </EntityType>
+  <EntityType Name="price_history">
+    <Key>
+      <PropertyRef Name="Price_History_ID" />
+    </Key>
+    <Property Name="Price_History_ID" Type="Int32" Nullable="false" />
+    <Property Name="Product_ID" Type="Int32" />
+    <Property Name="Price_History_Price" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="product" Relationship="stockappsModel.FK_Relationship_3" FromRole="price_history" ToRole="product" />
+    <Property Type="Int32" Name="Currency_ID" Nullable="false" />
+    <NavigationProperty Name="currency" Relationship="stockappsModel.FK_Relationship_4" FromRole="price_history" ToRole="currency" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+    <Property Name="Product_Category_ID" Type="Int32" />
+    <Property Name="Product_Name" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Product_Stock" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="customer_transaction_product" Relationship="stockappsModel.FK_Relationship_11" FromRole="product" ToRole="customer_transaction_product" />
+    <NavigationProperty Name="price_history" Relationship="stockappsModel.FK_Relationship_3" FromRole="product" ToRole="price_history" />
+    <NavigationProperty Name="supplier" Relationship="stockappsModel.FK_Relationship_1" FromRole="product" ToRole="supplier" />
+    <NavigationProperty Name="product_category" Relationship="stockappsModel.FK_Relationship_2" FromRole="product" ToRole="product_category" />
+    <NavigationProperty Name="supplier_transaction_product" Relationship="stockappsModel.FK_Relationship_7" FromRole="product" ToRole="supplier_transaction_product" />
+    <Property Type="Decimal" Name="Product_Buy_Price" />
+    <Property Type="Int32" Name="Currency_ID" />
+    <Property Type="String" Name="Product_Packing_Name" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Product_Packing_Kilogram" />
+    <NavigationProperty Name="currency" Relationship="stockappsModel.product_ibfk_4" FromRole="product" ToRole="currency" />
+    <Property Type="Int32" Name="Product_Status" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product_category">
+    <Key>
+      <PropertyRef Name="Product_Category_ID" />
+    </Key>
+    <Property Name="Product_Category_ID" Type="Int32" Nullable="false" />
+    <Property Name="Product_Category_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="products" Relationship="stockappsModel.FK_Relationship_2" FromRole="product_category" ToRole="product" />
+    <Property Type="Int32" Name="Product_Category_Status" Nullable="false" />
+  </EntityType>
+  <EntityType Name="supplier">
+    <Key>
+      <PropertyRef Name="Supplier_ID" />
+    </Key>
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Supplier_Address" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="Supplier_Email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Supplier_Phone" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="products" Relationship="stockappsModel.FK_Relationship_1" FromRole="supplier" ToRole="product" />
+    <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.FK_Relationship_6" FromRole="supplier" ToRole="supplier_transaction" />
+    <Property Type="Int32" Name="Supplier_Status" Nullable="false" />
+  </EntityType>
+  <EntityType Name="supplier_transaction">
+    <Key>
+      <PropertyRef Name="Supplier_Transaction_ID" />
+    </Key>
+    <Property Name="Supplier_Transaction_Total_Rupiah" Type="Decimal" />
+    <Property Name="Supplier_Transaction_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_ID" Type="Int32" />
+    <Property Name="Supplier_Transaction_Total_Dollar" Type="Decimal" />
+    <Property Name="Supplier_Transaction_Date" Type="DateTime" Nullable="false" />
+    <Property Name="Supplier_Transaction_Status" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Transaction_Description" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="supplier" Relationship="stockappsModel.FK_Relationship_6" FromRole="supplier_transaction" ToRole="supplier" />
+    <NavigationProperty Name="supplier_transaction_product" Relationship="stockappsModel.FK_Relationship_9" FromRole="supplier_transaction" ToRole="supplier_transaction_product" />
+  </EntityType>
+  <EntityType Name="supplier_transaction_product">
+    <Key>
+      <PropertyRef Name="Product_ID" />
+      <PropertyRef Name="Supplier_Transaction_ID" />
+    </Key>
+    <Property Name="Product_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Transaction_ID" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Transaction_Product_Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Supplier_Transaction_Product_Price_Dollar" Type="Decimal" Nullable="false" />
+    <Property Name="Supplier_Transaction_Product_Price_Rupiah" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="product" Relationship="stockappsModel.FK_Relationship_7" FromRole="supplier_transaction_product" ToRole="product" />
+    <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.FK_Relationship_9" FromRole="supplier_transaction_product" ToRole="supplier_transaction" />
+  </EntityType>
+  <Association Name="FK_Relationship_8">
+    <End Role="customer" Type="stockappsModel.customer" Multiplicity="0..1" />
+    <End Role="customer_transaction" Type="stockappsModel.customer_transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="Customer_ID" />
+      </Principal>
+      <Dependent Role="customer_transaction">
+        <PropertyRef Name="Customer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_10">
+    <End Role="customer_transaction" Type="stockappsModel.customer_transaction" Multiplicity="1" />
+    <End Role="customer_transaction_product" Type="stockappsModel.customer_transaction_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer_transaction">
+        <PropertyRef Name="Customer_Transaction_ID" />
+      </Principal>
+      <Dependent Role="customer_transaction_product">
+        <PropertyRef Name="Customer_Transaction_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_11">
+    <End Role="product" Type="stockappsModel.product" Multiplicity="1" />
+    <End Role="customer_transaction_product" Type="stockappsModel.customer_transaction_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="customer_transaction_product">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_3">
+    <End Role="product" Type="stockappsModel.product" Multiplicity="0..1" />
+    <End Role="price_history" Type="stockappsModel.price_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="price_history">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_1">
+    <End Role="supplier" Type="stockappsModel.supplier" Multiplicity="1" />
+    <End Role="product" Type="stockappsModel.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_2">
+    <End Role="product_category" Type="stockappsModel.product_category" Multiplicity="0..1" />
+    <End Role="product" Type="stockappsModel.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product_category">
+        <PropertyRef Name="Product_Category_ID" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="Product_Category_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_7">
+    <End Role="product" Type="stockappsModel.product" Multiplicity="1" />
+    <End Role="supplier_transaction_product" Type="stockappsModel.supplier_transaction_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="Product_ID" />
+      </Principal>
+      <Dependent Role="supplier_transaction_product">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_6">
+    <End Role="supplier" Type="stockappsModel.supplier" Multiplicity="0..1" />
+    <End Role="supplier_transaction" Type="stockappsModel.supplier_transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier">
+        <PropertyRef Name="Supplier_ID" />
+      </Principal>
+      <Dependent Role="supplier_transaction">
+        <PropertyRef Name="Supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_9">
+    <End Role="supplier_transaction" Type="stockappsModel.supplier_transaction" Multiplicity="1" />
+    <End Role="supplier_transaction_product" Type="stockappsModel.supplier_transaction_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier_transaction">
+        <PropertyRef Name="Supplier_Transaction_ID" />
+      </Principal>
+      <Dependent Role="supplier_transaction_product">
+        <PropertyRef Name="Supplier_Transaction_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="users_id" />
+    </Key>
+    <Property Type="Int32" Name="users_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="users_username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="users_password" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="users_status" Nullable="false" />
+    <Property Type="Int32" Name="Privilege_ID" Nullable="false" />
+    <NavigationProperty Name="privilege" Relationship="stockappsModel.users_ibfk_1" FromRole="user" ToRole="privilege" />
+    <Property Type="String" Name="users_email" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="admin_history" Relationship="stockappsModel.users_idfk_1" FromRole="user" ToRole="admin_history" />
+  </EntityType>
+  <EntityType Name="privilege">
+    <Key>
+      <PropertyRef Name="Privilege_ID" />
+    </Key>
+    <Property Type="Int32" Name="Privilege_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Privilege_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="privilege_authorization" Relationship="stockappsModel.privilege_authorization_ibfk_1" FromRole="privilege" ToRole="privilege_authorization" />
+    <NavigationProperty Name="users" Relationship="stockappsModel.users_ibfk_1" FromRole="privilege" ToRole="user" />
+  </EntityType>
+  <EntityType Name="authorization">
+    <Key>
+      <PropertyRef Name="Authorization_ID" />
+    </Key>
+    <Property Type="Int32" Name="Authorization_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Authorization_Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Authorization_Status" Nullable="false" />
+    <NavigationProperty Name="privilege_authorization" Relationship="stockappsModel.privilege_authorization_ibfk_2" FromRole="authorization" ToRole="privilege_authorization" />
+  </EntityType>
+  <EntityType Name="privilege_authorization">
+    <Key>
+      <PropertyRef Name="Privilege_ID" />
+      <PropertyRef Name="Authorization_ID" />
+    </Key>
+    <Property Type="Int32" Name="Privilege_ID" Nullable="false" />
+    <Property Type="Int32" Name="Authorization_ID" Nullable="false" />
+    <Property Type="Int32" Name="Privilege_Authorization_Status" Nullable="false" />
+    <NavigationProperty Name="authorization" Relationship="stockappsModel.privilege_authorization_ibfk_2" FromRole="privilege_authorization" ToRole="authorization" />
+    <NavigationProperty Name="privilege" Relationship="stockappsModel.privilege_authorization_ibfk_1" FromRole="privilege_authorization" ToRole="privilege" />
+  </EntityType>
+  <Association Name="privilege_authorization_ibfk_2">
+    <End Type="stockappsModel.authorization" Role="authorization" Multiplicity="1" />
+    <End Type="stockappsModel.privilege_authorization" Role="privilege_authorization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="authorization">
+        <PropertyRef Name="Authorization_ID" />
+      </Principal>
+      <Dependent Role="privilege_authorization">
+        <PropertyRef Name="Authorization_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="privilege_authorization_ibfk_1">
+    <End Type="stockappsModel.privilege" Role="privilege" Multiplicity="1" />
+    <End Type="stockappsModel.privilege_authorization" Role="privilege_authorization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="privilege">
+        <PropertyRef Name="Privilege_ID" />
+      </Principal>
+      <Dependent Role="privilege_authorization">
+        <PropertyRef Name="Privilege_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="users_ibfk_1">
+    <End Type="stockappsModel.privilege" Role="privilege" Multiplicity="1" />
+    <End Type="stockappsModel.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="privilege">
+        <PropertyRef Name="Privilege_ID" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="Privilege_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="currency">
+    <Key>
+      <PropertyRef Name="Currency_ID" />
+    </Key>
+    <Property Type="Int32" Name="Currency_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Currency_Name" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="products" Relationship="stockappsModel.product_ibfk_4" FromRole="currency" ToRole="product" />
+    <NavigationProperty Name="price_history" Relationship="stockappsModel.FK_Relationship_4" FromRole="currency" ToRole="price_history" />
+  </EntityType>
+  <Association Name="product_ibfk_4">
+    <End Type="stockappsModel.currency" Role="currency" Multiplicity="0..1" />
+    <End Type="stockappsModel.product" Role="product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="Currency_ID" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="Currency_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relationship_4">
+    <End Type="stockappsModel.currency" Role="currency" Multiplicity="1" />
+    <End Type="stockappsModel.price_history" Role="price_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="Currency_ID" />
+      </Principal>
+      <Dependent Role="price_history">
+        <PropertyRef Name="Currency_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="admin_history">
+    <Key>
+      <PropertyRef Name="admin_history_id" />
+    </Key>
+    <Property Type="Int32" Name="admin_history_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="users_id" />
+    <Property Type="Int32" Name="log_type" />
+    <Property Type="DateTime" Name="time_log" />
+    <NavigationProperty Name="user" Relationship="stockappsModel.users_idfk_1" FromRole="admin_history" ToRole="user" />
+  </EntityType>
+  <Association Name="users_idfk_1">
+    <End Type="stockappsModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="stockappsModel.admin_history" Role="admin_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="users_id" />
+      </Principal>
+      <Dependent Role="admin_history">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

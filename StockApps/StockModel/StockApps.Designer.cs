@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -32,6 +33,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("stockappsModel", "users_ibfk_1", "privilege", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.privilege), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.user), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "product_ibfk_4", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.currency), "product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.product), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_4", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "price_history", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.price_history), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "users_idfk_1", "user", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.user), "admin_history", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.admin_history), true)]
 
 #endregion
 
@@ -306,8 +308,25 @@ namespace StockModel
             }
         }
         private ObjectSet<currency> _currencies;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<admin_history> admin_history
+        {
+            get
+            {
+                if ((_admin_history == null))
+                {
+                    _admin_history = base.CreateObjectSet<admin_history>("admin_history");
+                }
+                return _admin_history;
+            }
+        }
+        private ObjectSet<admin_history> _admin_history;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -421,14 +440,193 @@ namespace StockModel
         {
             base.AddObject("currencies", currency);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the admin_history EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToadmin_history(admin_history admin_history)
+        {
+            base.AddObject("admin_history", admin_history);
+        }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="admin_history")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class admin_history : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new admin_history object.
+        /// </summary>
+        /// <param name="admin_history_id">Initial value of the admin_history_id property.</param>
+        public static admin_history Createadmin_history(global::System.Int32 admin_history_id)
+        {
+            admin_history admin_history = new admin_history();
+            admin_history.admin_history_id = admin_history_id;
+            return admin_history;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 admin_history_id
+        {
+            get
+            {
+                return _admin_history_id;
+            }
+            set
+            {
+                if (_admin_history_id != value)
+                {
+                    Onadmin_history_idChanging(value);
+                    ReportPropertyChanging("admin_history_id");
+                    _admin_history_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("admin_history_id");
+                    Onadmin_history_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _admin_history_id;
+        partial void Onadmin_history_idChanging(global::System.Int32 value);
+        partial void Onadmin_history_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> users_id
+        {
+            get
+            {
+                return _users_id;
+            }
+            set
+            {
+                Onusers_idChanging(value);
+                ReportPropertyChanging("users_id");
+                _users_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("users_id");
+                Onusers_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _users_id;
+        partial void Onusers_idChanging(Nullable<global::System.Int32> value);
+        partial void Onusers_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> log_type
+        {
+            get
+            {
+                return _log_type;
+            }
+            set
+            {
+                Onlog_typeChanging(value);
+                ReportPropertyChanging("log_type");
+                _log_type = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("log_type");
+                Onlog_typeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _log_type;
+        partial void Onlog_typeChanging(Nullable<global::System.Int32> value);
+        partial void Onlog_typeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> time_log
+        {
+            get
+            {
+                return _time_log;
+            }
+            set
+            {
+                Ontime_logChanging(value);
+                ReportPropertyChanging("time_log");
+                _time_log = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("time_log");
+                Ontime_logChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _time_log;
+        partial void Ontime_logChanging(Nullable<global::System.DateTime> value);
+        partial void Ontime_logChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "users_idfk_1", "user")]
+        public user user
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<user>("stockappsModel.users_idfk_1", "user").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<user>("stockappsModel.users_idfk_1", "user").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<user> userReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<user>("stockappsModel.users_idfk_1", "user");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<user>("stockappsModel.users_idfk_1", "user", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -456,6 +654,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -534,6 +733,7 @@ namespace StockModel
         partial void OnAuthorization_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -560,6 +760,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -586,6 +787,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -640,6 +842,7 @@ namespace StockModel
         partial void OnCurrency_NameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -688,6 +891,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -716,6 +920,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -866,6 +1071,7 @@ namespace StockModel
         partial void OnCustomer_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -892,6 +1098,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -920,6 +1127,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1094,6 +1302,7 @@ namespace StockModel
         partial void OnCustomer_Transaction_DescriptionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1158,6 +1367,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1184,6 +1394,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1313,6 +1524,7 @@ namespace StockModel
         partial void OnCustomer_Transaction_Product_Price_RupiahChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1393,6 +1605,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1421,6 +1634,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1523,6 +1737,7 @@ namespace StockModel
         partial void OnCurrency_IDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1603,6 +1818,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1629,6 +1845,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1683,6 +1900,7 @@ namespace StockModel
         partial void OnPrivilege_nameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1731,6 +1949,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1759,6 +1978,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1840,6 +2060,7 @@ namespace StockModel
         partial void OnPrivilege_Authorization_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1920,6 +2141,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1952,6 +2174,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2198,6 +2421,7 @@ namespace StockModel
         partial void OnProduct_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2382,6 +2606,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2410,6 +2635,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2488,6 +2714,7 @@ namespace StockModel
         partial void OnProduct_Category_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2514,6 +2741,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2542,6 +2770,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2692,6 +2921,7 @@ namespace StockModel
         partial void OnSupplier_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2740,6 +2970,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2768,6 +2999,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2942,6 +3174,7 @@ namespace StockModel
         partial void OnSupplier_Transaction_DescriptionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3006,6 +3239,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3038,6 +3272,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3167,6 +3402,7 @@ namespace StockModel
         partial void OnSupplier_Transaction_Product_Price_RupiahChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3247,6 +3483,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3279,6 +3516,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3429,6 +3667,7 @@ namespace StockModel
         partial void Onusers_emailChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3469,10 +3708,34 @@ namespace StockModel
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "users_idfk_1", "admin_history")]
+        public EntityCollection<admin_history> admin_history
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<admin_history>("stockappsModel.users_idfk_1", "admin_history");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<admin_history>("stockappsModel.users_idfk_1", "admin_history", value);
+                }
+            }
+        }
 
         #endregion
+
     }
 
     #endregion
+
     
 }
