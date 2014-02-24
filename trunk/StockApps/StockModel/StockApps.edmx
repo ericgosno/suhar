@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="stockappsModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="stockappsModelStoreContainer">
+          <EntitySet Name="admin_history" EntityType="stockappsModel.Store.admin_history" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="authorization" EntityType="stockappsModel.Store.authorization" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="currency" EntityType="stockappsModel.Store.currency" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="customer" EntityType="stockappsModel.Store.customer" store:Type="Tables" Schema="stockapps" />
@@ -72,7 +73,20 @@
             <End Role="privilege" EntitySet="privilege" />
             <End Role="users" EntitySet="users" />
           </AssociationSet>
+          <AssociationSet Name="users_idfk_1" Association="stockappsModel.Store.users_idfk_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="admin_history" EntitySet="admin_history" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="admin_history">
+          <Key>
+            <PropertyRef Name="admin_history_id" />
+          </Key>
+          <Property Name="admin_history_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="users_id" Type="int" />
+          <Property Name="log_type" Type="int" />
+          <Property Name="time_log" Type="timestamp" Precision="0" />
+        </EntityType>
         <EntityType Name="authorization">
           <Key>
             <PropertyRef Name="Authorization_ID" />
@@ -387,6 +401,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="users_idfk_1">
+          <End Role="users" Type="stockappsModel.Store.users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="admin_history" Type="stockappsModel.Store.admin_history" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="users_id" />
+            </Principal>
+            <Dependent Role="admin_history">
+              <PropertyRef Name="users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -461,6 +489,11 @@
           <AssociationSet Name="FK_Relationship_4" Association="stockappsModel.FK_Relationship_4">
             <End Role="currency" EntitySet="currencies" />
             <End Role="price_history" EntitySet="price_history" />
+          </AssociationSet>
+          <EntitySet Name="admin_history" EntityType="stockappsModel.admin_history" />
+          <AssociationSet Name="users_idfk_1" Association="stockappsModel.users_idfk_1">
+            <End Role="user" EntitySet="users" />
+            <End Role="admin_history" EntitySet="admin_history" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="customer">
@@ -702,6 +735,7 @@
           <Property Type="Int32" Name="Privilege_ID" Nullable="false" />
           <NavigationProperty Name="privilege" Relationship="stockappsModel.users_ibfk_1" FromRole="user" ToRole="privilege" />
           <Property Type="String" Name="users_email" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="admin_history" Relationship="stockappsModel.users_idfk_1" FromRole="user" ToRole="admin_history" />
         </EntityType>
         <EntityType Name="privilege">
           <Key>
@@ -798,6 +832,28 @@
             </Principal>
             <Dependent Role="price_history">
               <PropertyRef Name="Currency_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="admin_history">
+          <Key>
+            <PropertyRef Name="admin_history_id" />
+          </Key>
+          <Property Type="Int32" Name="admin_history_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="users_id" />
+          <Property Type="Int32" Name="log_type" />
+          <Property Type="DateTime" Name="time_log" />
+          <NavigationProperty Name="user" Relationship="stockappsModel.users_idfk_1" FromRole="admin_history" ToRole="user" />
+        </EntityType>
+        <Association Name="users_idfk_1">
+          <End Type="stockappsModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="stockappsModel.admin_history" Role="admin_history" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="users_id" />
+            </Principal>
+            <Dependent Role="admin_history">
+              <PropertyRef Name="users_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -924,6 +980,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="admin_history">
+            <EntityTypeMapping TypeName="stockappsModel.admin_history">
+              <MappingFragment StoreEntitySet="admin_history">
+                <ScalarProperty Name="time_log" ColumnName="time_log" />
+                <ScalarProperty Name="log_type" ColumnName="log_type" />
+                <ScalarProperty Name="users_id" ColumnName="users_id" />
+                <ScalarProperty Name="admin_history_id" ColumnName="admin_history_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1009,9 +1075,9 @@
           <ConnectorPoint PointX="11" PointY="4.9516910807291659" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.users_ibfk_1" >
-          <ConnectorPoint PointX="9.5" PointY="4.25" />
-          <ConnectorPoint PointX="9.5" PointY="1.8362939453125" />
-          <ConnectorPoint PointX="6.875" PointY="1.8362939453125" />
+          <ConnectorPoint PointX="9.71875" PointY="4.25" />
+          <ConnectorPoint PointX="9.71875" PointY="3.1749886067708362" />
+          <ConnectorPoint PointX="6.875" PointY="3.1749886067708362" />
         </AssociationConnector>
         <EntityTypeShape EntityType="stockappsModel.currency" Width="1.5" PointX="5.375" PointY="4.875" Height="1.5956835937500031" />
         <AssociationConnector Association="stockappsModel.product_ibfk_4" >
@@ -1027,6 +1093,11 @@
           <ConnectorPoint PointX="7.25" PointY="10.875" />
           <ConnectorPoint PointX="7.1261528461538468" PointY="10.875" />
           <ConnectorPoint PointX="6.75" PointY="11.251152846153847" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="stockappsModel.admin_history" Width="1.5" PointX="7.625" PointY="1" Height="1.9802864583333388" />
+        <AssociationConnector Association="stockappsModel.users_idfk_1" >
+          <ConnectorPoint PointX="6.875" PointY="1.9901432291666694" />
+          <ConnectorPoint PointX="7.625" PointY="1.9901432291666694" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
