@@ -1,6 +1,6 @@
 ﻿namespace StockApps
 {
-    partial class _supplierProduct
+    partial class _SupplierProduct
     {
         /// <summary>
         /// Required designer variable.
@@ -42,6 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this._lspPSupplierName = new System.Windows.Forms.Label();
             this._cbspPPackageName = new System.Windows.Forms.ComboBox();
+            this._bspPUpdate = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label5
@@ -50,9 +52,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(197, 31);
+            this.label5.Size = new System.Drawing.Size(184, 31);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Create Product";
+            this.label5.Text = "Insert Product";
             // 
             // _bspPInsert
             // 
@@ -70,7 +72,7 @@
             this._tspPPackingKilogram.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tspPPackingKilogram.Location = new System.Drawing.Point(141, 181);
             this._tspPPackingKilogram.Name = "_tspPPackingKilogram";
-            this._tspPPackingKilogram.Size = new System.Drawing.Size(234, 35);
+            this._tspPPackingKilogram.Size = new System.Drawing.Size(165, 35);
             this._tspPPackingKilogram.TabIndex = 5;
             // 
             // _tspPPrice
@@ -176,11 +178,35 @@
             this._cbspPPackageName.Size = new System.Drawing.Size(165, 37);
             this._cbspPPackageName.TabIndex = 15;
             // 
-            // _supplierProduct
+            // _bspPUpdate
+            // 
+            this._bspPUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bspPUpdate.Location = new System.Drawing.Point(141, 279);
+            this._bspPUpdate.Name = "_bspPUpdate";
+            this._bspPUpdate.Size = new System.Drawing.Size(165, 35);
+            this._bspPUpdate.TabIndex = 16;
+            this._bspPUpdate.Text = "UPDATE";
+            this._bspPUpdate.UseVisualStyleBackColor = true;
+            this._bspPUpdate.Visible = false;
+            this._bspPUpdate.Click += new System.EventHandler(this._bspPUpdate_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(312, 184);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 29);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Kgs/1";
+            // 
+            // _SupplierProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 324);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this._bspPUpdate);
             this.Controls.Add(this._cbspPPackageName);
             this.Controls.Add(this._lspPSupplierName);
             this.Controls.Add(this.label6);
@@ -195,7 +221,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Name = "_supplierProduct";
+            this.Name = "_SupplierProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - PRODUCT";
             this.ResumeLayout(false);
@@ -219,5 +245,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label _lspPSupplierName;
         private System.Windows.Forms.ComboBox _cbspPPackageName;
+        private System.Windows.Forms.Button _bspPUpdate;
+        private System.Windows.Forms.Label label7;
     }
 }

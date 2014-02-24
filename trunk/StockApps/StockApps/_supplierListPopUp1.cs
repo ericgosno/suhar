@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Objects.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,41 +27,41 @@ namespace StockApps
             var listCategory = ProductController.getProductCategory();
             var listCurrency = CurrencyController.getCurrency();
 
-           var list = listProduct
-                .Join(listCurrency,
-                product => product.Currency_ID,
-                currency => currency.Currency_ID,
-                (product, currency) => new { product = product, currency = currency })
-                .Join(listCategory,
-                join => join.product.Product_Category_ID,
-                product_category => product_category.Product_Category_ID,
-                (join, product_category) => new { join = join, product_category = product_category })
-                .Select(join => new {
-                    Product_ID = join.join.product.Product_ID,
-                    Product_Name = join.join.product.Product_Name,
-                    Product_Stock = join.join.product.Product_Stock,
-                    Product_Price = join.join.product.Product_Buy_Price,
-                    Product_Category_Name = join.product_category.Product_Category_Name,
-                });
-           _dataDetailSupplier.DataSource = list;
-            /* 
-            _dataDetailSupplier.Columns["Supplier_Name"].HeaderText = "Name";
-            _dataDetailSupplier.Columns["Supplier_Address"].HeaderText = "Address";
-            _dataDetailSupplier.Columns["Supplier_Email"].HeaderText = "Email";
-            _dataDetailSupplier.Columns["Supplier_Phone"].HeaderText = "Phone";
+            var list = listProduct
+                 .Join(listCurrency,
+                 product => product.Currency_ID,
+                 currency => currency.Currency_ID,
+                 (product, currency) => new { product = product, currency = currency })
+                 .Join(listCategory,
+                 join => join.product.Product_Category_ID,
+                 product_category => product_category.Product_Category_ID,
+                 (join, product_category) => new { join = join, product_category = product_category })
+                 .AsEnumerable()
+                 .Select(join => new
+                 {
+                     Product_ID = join.join.product.Product_ID + "",
+                     Product_Name = join.join.product.Product_Name + "",
+                     Product_Stock = join.join.product.Product_Stock + "",
+                     Product_Price = join.join.product.Product_Buy_Price + " " + join.join.currency.Currency_Name,
+                     Product_Category_Name = join.product_category.Product_Category_Name + "",
+                     Product_Package = (join.join.product.Product_Stock / join.join.product.Product_Packing_Kilogram) + " " + join.join.product.Product_Packing_Name
+                 }).ToList();
+                
 
-            _dataDetailSupplier.Columns["Supplier_Status"].Visible = false;
-            _dataDetailSupplier.Columns["Supplier_ID"].Visible = false;
-            _dataDetailSupplier.Columns["products"].Visible = false;
-            _dataDetailSupplier.Columns["supplier_transaction"].Visible = false;
-            _dataDetailSupplier.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            */
+            _dataDetailSupplier.DataSource = list;
+            _dataDetailSupplier.Columns["Product_Name"].HeaderText = "Name";
+            _dataDetailSupplier.Columns["Product_Stock"].HeaderText = "Stock";
+            _dataDetailSupplier.Columns["Product_Price"].HeaderText = "Price";
+            _dataDetailSupplier.Columns["Product_Category_Name"].HeaderText = "Category";
+            _dataDetailSupplier.Columns["Product_Package"].HeaderText = "Package Avaliable";
+            
+            _dataDetailSupplier.Columns["Product_ID"].Visible = false;
             _dataDetailSupplier.Refresh();
         }
 
         private void _bspDInsert_Click(object sender, EventArgs e)
         {
-            _supplierProduct prodForm = new _supplierProduct(supplierNow);
+            _SupplierProduct prodForm = new _SupplierProduct(supplierNow);
             prodForm.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
             prodForm.Show();
         }
@@ -69,5 +70,34 @@ namespace StockApps
         {
             RefreshForm();
         }
+
+        private void _bspDDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ProductController.deleteProduct((int)_dataDetailSupplier.SelectedRows[0].Cells["Product_ID"].Value);
+                RefreshForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You must select a Row First!");
+            }
+        }
+
+        private void _bspDUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var prodnow = ProductController.getProductByProductID((int)_dataDetailSupplier.SelectedRows[0].Cells["Product_ID"].Value).First();
+                _SupplierProduct prodForm = new _SupplierProduct(supplierNow,prodnow);
+                prodForm.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
+                prodForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You must select a Row First!");
+            }
+        }
+
     }
 }

@@ -75,7 +75,7 @@ namespace StockApps
             //catch (Exception ex)
            // {
             //    MessageBox.Show("You must select a Row First!");
-           // }
+           //}
         }
     }
 }

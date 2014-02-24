@@ -133,6 +133,7 @@
             this.transactionToolStripMenuItem1.Name = "transactionToolStripMenuItem1";
             this.transactionToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.transactionToolStripMenuItem1.Text = "Transaction";
+            this.transactionToolStripMenuItem1.Click += new System.EventHandler(this.transactionToolStripMenuItem1_Click);
             // 
             // sellingToolStripMenuItem
             // 
@@ -145,8 +146,9 @@
             // transactionToolStripMenuItem2
             // 
             this.transactionToolStripMenuItem2.Name = "transactionToolStripMenuItem2";
-            this.transactionToolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
+            this.transactionToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.transactionToolStripMenuItem2.Text = "Transaction";
+            this.transactionToolStripMenuItem2.Click += new System.EventHandler(this.transactionToolStripMenuItem2_Click);
             // 
             // productToolStripMenuItem
             // 
@@ -174,14 +176,14 @@
             // createUserToolStripMenuItem
             // 
             this.createUserToolStripMenuItem.Name = "createUserToolStripMenuItem";
-            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.createUserToolStripMenuItem.Text = "Cr&eate";
             this.createUserToolStripMenuItem.Click += new System.EventHandler(this.createUserToolStripMenuItem_Click);
             // 
             // categoryUserToolStripMenuItem
             // 
             this.categoryUserToolStripMenuItem.Name = "categoryUserToolStripMenuItem";
-            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.categoryUserToolStripMenuItem.Text = "Catego&ry";
             this.categoryUserToolStripMenuItem.Click += new System.EventHandler(this.categoryUserToolStripMenuItem_Click);
             // 

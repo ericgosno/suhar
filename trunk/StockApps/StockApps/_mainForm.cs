@@ -51,5 +51,17 @@ namespace StockApps
             _administratorList adminList = new _administratorList();
             adminList.Show();
         }
+
+        private void transactionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            _purchasingTrans purTrans = new _purchasingTrans();
+            purTrans.Show();
+        }
+
+        private void transactionToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            _sellingTrans sellTrans = new _sellingTrans();
+            sellTrans.Show();
+        }
     }
 }

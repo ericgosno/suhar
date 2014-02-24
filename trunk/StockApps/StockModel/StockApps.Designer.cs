@@ -1939,13 +1939,15 @@ namespace StockModel
         /// <param name="supplier_ID">Initial value of the Supplier_ID property.</param>
         /// <param name="product_Name">Initial value of the Product_Name property.</param>
         /// <param name="product_Stock">Initial value of the Product_Stock property.</param>
-        public static product Createproduct(global::System.Int32 product_ID, global::System.Int32 supplier_ID, global::System.String product_Name, global::System.Int32 product_Stock)
+        /// <param name="product_Status">Initial value of the Product_Status property.</param>
+        public static product Createproduct(global::System.Int32 product_ID, global::System.Int32 supplier_ID, global::System.String product_Name, global::System.Int32 product_Stock, global::System.Int32 product_Status)
         {
             product product = new product();
             product.Product_ID = product_ID;
             product.Supplier_ID = supplier_ID;
             product.Product_Name = product_Name;
             product.Product_Stock = product_Stock;
+            product.Product_Status = product_Status;
             return product;
         }
 
@@ -2170,6 +2172,30 @@ namespace StockModel
         private Nullable<global::System.Int32> _Product_Packing_Kilogram;
         partial void OnProduct_Packing_KilogramChanging(Nullable<global::System.Int32> value);
         partial void OnProduct_Packing_KilogramChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Product_Status
+        {
+            get
+            {
+                return _Product_Status;
+            }
+            set
+            {
+                OnProduct_StatusChanging(value);
+                ReportPropertyChanging("Product_Status");
+                _Product_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Product_Status");
+                OnProduct_StatusChanged();
+            }
+        }
+        private global::System.Int32 _Product_Status;
+        partial void OnProduct_StatusChanging(global::System.Int32 value);
+        partial void OnProduct_StatusChanged();
 
         #endregion
     
