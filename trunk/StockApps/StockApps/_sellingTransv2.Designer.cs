@@ -40,8 +40,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this._cbsellPayWith = new System.Windows.Forms.ComboBox();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this._lblSellNPWP = new System.Windows.Forms.Label();
@@ -183,25 +181,6 @@
             this._cbsellPayWith.Name = "_cbsellPayWith";
             this._cbsellPayWith.Size = new System.Drawing.Size(159, 37);
             this._cbsellPayWith.TabIndex = 54;
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(735, 498);
-            this.shapeContainer1.TabIndex = 55;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 1;
-            this.lineShape1.X2 = 747;
-            this.lineShape1.Y1 = 262;
-            this.lineShape1.Y2 = 262;
             // 
             // label9
             // 
@@ -447,7 +426,6 @@
             this.Controls.Add(this._cbsellNama);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.shapeContainer1);
             this.Name = "_sellingTransv2";
             this.Text = "CV. WARNA MURNI - SELLING -> PAYMENT";
             this.ResumeLayout(false);
@@ -469,8 +447,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox _cbsellPayWith;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label _lblSellNPWP;
