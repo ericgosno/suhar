@@ -63,5 +63,10 @@ namespace StockApps
             _sellingTrans sellTrans = new _sellingTrans();
             sellTrans.Show();
         }
+
+        private void _mainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

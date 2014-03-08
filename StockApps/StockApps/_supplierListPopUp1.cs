@@ -86,17 +86,17 @@ namespace StockApps
 
         private void _bspDUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var prodnow = ProductController.getProductByProductID((int)_dataDetailSupplier.SelectedRows[0].Cells["Product_ID"].Value).First();
+            /*try
+            {*/
+                var prodnow = ProductController.getProductByProductID(Convert.ToInt32(_dataDetailSupplier.SelectedRows[0].Cells["Product_ID"].Value)).First();
                 _SupplierProduct prodForm = new _SupplierProduct(supplierNow,prodnow);
                 prodForm.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
                 prodForm.Show();
-            }
+            /*}
             catch (Exception ex)
             {
                 MessageBox.Show("You must select a Row First!");
-            }
+            }*/
         }
 
     }

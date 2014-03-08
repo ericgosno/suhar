@@ -64,7 +64,10 @@ namespace StockApps
             ds.Tables[1].Merge(dt2);
 
             // Your .rpt file path will be below
-            rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\adminReport.rpt");
+            
+            //rptDoc.Load(Application.StartupPath + @"adminReport.rpt");
+            //rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\adminReport.rpt");
+            rptDoc.Load(@"C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockApps\adminReport.rpt");
 
             //set dataset to the report viewer.
             rptDoc.SetDataSource(ds);
