@@ -145,6 +145,7 @@
             this.Name = "_administrator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - ADMINISTRATOR";
+            this.Load += new System.EventHandler(this._administrator_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

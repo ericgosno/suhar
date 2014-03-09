@@ -10,6 +10,22 @@ namespace StockModel
         public static customer_transaction insertCustomerTransaction(DateTime transDate, int customerID, double totalDollar, double totalRupiah, string description, List<customer_transaction_product> transProd)
         {
             customer_transaction newTrans = new customer_transaction();
+            string idnow = null;
+            int code = 1;
+            while (true)
+            {
+                string codeStr = code.ToString("D4");
+                string customerStr = customerID.ToString("D3");
+                string dateStr = transDate.ToString("yyyyMMdd");
+                idnow = customerStr + "-" + dateStr + "-" + codeStr;
+                var checkID = from f in StockEntity.Entity.customer_transaction
+                              where f.Customer_Transaction_ID == idnow
+                              select f;
+                if (checkID.Count() > 0) code++;
+                else break;
+            }
+
+            newTrans.Customer_Transaction_ID = idnow;
             newTrans.Customer_ID = customerID;
             newTrans.Customer_Transaction_Date = transDate;
             newTrans.Customer_Transaction_Status = 1;

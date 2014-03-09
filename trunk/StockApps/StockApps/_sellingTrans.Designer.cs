@@ -34,6 +34,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this._cbsellNama = new System.Windows.Forms.ComboBox();
             this._dataCusTransaction = new System.Windows.Forms.DataGridView();
+            this.Product = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity_Kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price_Kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Package_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal_Dollar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal_Rupiah = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._bsellPay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,13 +50,7 @@
             this._dtTransDate = new System.Windows.Forms.DateTimePicker();
             this._tsellKurs = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.Product = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Quantity_Kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price_Kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Package_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal_Dollar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal_Rupiah = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._bsellDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataCusTransaction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // 
             this._lsellDollar.AutoSize = true;
             this._lsellDollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lsellDollar.Location = new System.Drawing.Point(172, 519);
+            this._lsellDollar.Location = new System.Drawing.Point(174, 540);
             this._lsellDollar.Name = "_lsellDollar";
             this._lsellDollar.Size = new System.Drawing.Size(26, 29);
             this._lsellDollar.TabIndex = 45;
@@ -67,7 +68,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 548);
+            this.label6.Location = new System.Drawing.Point(17, 569);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 29);
             this.label6.TabIndex = 44;
@@ -77,7 +78,7 @@
             // 
             this._lsellRp.AutoSize = true;
             this._lsellRp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lsellRp.Location = new System.Drawing.Point(172, 548);
+            this._lsellRp.Location = new System.Drawing.Point(174, 569);
             this._lsellRp.Name = "_lsellRp";
             this._lsellRp.Size = new System.Drawing.Size(26, 29);
             this._lsellRp.TabIndex = 43;
@@ -87,7 +88,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 519);
+            this.label3.Location = new System.Drawing.Point(35, 540);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 29);
             this.label3.TabIndex = 42;
@@ -119,14 +120,53 @@
             this._dataCusTransaction.TabIndex = 38;
             this._dataCusTransaction.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataCusTransaction_CellEndEdit);
             // 
+            // Product
+            // 
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            // 
+            // Quantity_Kg
+            // 
+            this.Quantity_Kg.HeaderText = "Quantity(Kgs)";
+            this.Quantity_Kg.Name = "Quantity_Kg";
+            // 
+            // Price_Kg
+            // 
+            this.Price_Kg.HeaderText = "Price Per Kgs(Dollar)";
+            this.Price_Kg.Name = "Price_Kg";
+            // 
+            // Package_Quantity
+            // 
+            this.Package_Quantity.HeaderText = "Package Quantity";
+            this.Package_Quantity.Name = "Package_Quantity";
+            this.Package_Quantity.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            // 
+            // Subtotal_Dollar
+            // 
+            this.Subtotal_Dollar.HeaderText = "Subtotal(Dollar)";
+            this.Subtotal_Dollar.Name = "Subtotal_Dollar";
+            this.Subtotal_Dollar.ReadOnly = true;
+            // 
+            // Subtotal_Rupiah
+            // 
+            this.Subtotal_Rupiah.HeaderText = "Subtotal(Rupiah)";
+            this.Subtotal_Rupiah.Name = "Subtotal_Rupiah";
+            this.Subtotal_Rupiah.ReadOnly = true;
+            // 
             // _bsellPay
             // 
             this._bsellPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bsellPay.Location = new System.Drawing.Point(575, 535);
+            this._bsellPay.Location = new System.Drawing.Point(601, 561);
             this._bsellPay.Name = "_bsellPay";
             this._bsellPay.Size = new System.Drawing.Size(162, 35);
             this._bsellPay.TabIndex = 37;
-            this._bsellPay.Text = "PAY";
+            this._bsellPay.Text = "PROCESS";
             this._bsellPay.UseVisualStyleBackColor = true;
             this._bsellPay.Click += new System.EventHandler(this._bsellPay_Click);
             // 
@@ -207,50 +247,23 @@
             this.label8.TabIndex = 46;
             this.label8.Text = "Kurs Rupiah :";
             // 
-            // Product
+            // _bsellDelete
             // 
-            this.Product.HeaderText = "Product";
-            this.Product.Name = "Product";
-            // 
-            // Quantity_Kg
-            // 
-            this.Quantity_Kg.HeaderText = "Quantity(Kgs)";
-            this.Quantity_Kg.Name = "Quantity_Kg";
-            // 
-            // Price_Kg
-            // 
-            this.Price_Kg.HeaderText = "Price Per Kgs(Dollar)";
-            this.Price_Kg.Name = "Price_Kg";
-            // 
-            // Package_Quantity
-            // 
-            this.Package_Quantity.HeaderText = "Package Quantity";
-            this.Package_Quantity.Name = "Package_Quantity";
-            this.Package_Quantity.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            // 
-            // Subtotal_Dollar
-            // 
-            this.Subtotal_Dollar.HeaderText = "Subtotal(Dollar)";
-            this.Subtotal_Dollar.Name = "Subtotal_Dollar";
-            this.Subtotal_Dollar.ReadOnly = true;
-            // 
-            // Subtotal_Rupiah
-            // 
-            this.Subtotal_Rupiah.HeaderText = "Subtotal(Rupiah)";
-            this.Subtotal_Rupiah.Name = "Subtotal_Rupiah";
-            this.Subtotal_Rupiah.ReadOnly = true;
+            this._bsellDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bsellDelete.Location = new System.Drawing.Point(601, 522);
+            this._bsellDelete.Name = "_bsellDelete";
+            this._bsellDelete.Size = new System.Drawing.Size(162, 35);
+            this._bsellDelete.TabIndex = 52;
+            this._bsellDelete.Text = "DELETE";
+            this._bsellDelete.UseVisualStyleBackColor = true;
+            this._bsellDelete.Click += new System.EventHandler(this._bsellDelete_Click);
             // 
             // _sellingTrans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 582);
+            this.ClientSize = new System.Drawing.Size(769, 608);
+            this.Controls.Add(this._bsellDelete);
             this.Controls.Add(this._tsellDescription);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
@@ -299,5 +312,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal_Dollar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal_Rupiah;
+        private System.Windows.Forms.Button _bsellDelete;
     }
 }

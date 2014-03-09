@@ -43,5 +43,10 @@ namespace StockApps
             _tadmPass.Text = "";
             _tadmUser.Text = "";
         }
+
+        private void _administrator_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,13 +15,14 @@ namespace StockModel
             StockEntity.Entity.SaveChanges();
             return newSupplier;
         }
-        public static supplier insertSupplier(string supplierName, string supplierAddress, string supplierEmail, string supplierPhone)
+        public static supplier insertSupplier(string supplierName, string supplierAddress, string supplierEmail, string supplierPhone,string supplierNPWP)
         {
             supplier newSupplier = new supplier();
             newSupplier.Supplier_Name = supplierName;
             newSupplier.Supplier_Address = supplierAddress;
             newSupplier.Supplier_Email = supplierEmail;
             newSupplier.Supplier_Phone = supplierPhone;
+            newSupplier.Supplier_NPWP = supplierNPWP;
             newSupplier.Supplier_Status = 1;
             StockEntity.Entity.AddTosuppliers(newSupplier);
             StockEntity.Entity.SaveChanges();
@@ -51,7 +52,7 @@ namespace StockModel
             return getSupplier().Where(a => a.Supplier_Name.Contains(supplierName) && a.Supplier_ID == supplierId);
         }
 
-        public static supplier editSupplier(int supplierId, string supplierName, string supplierAddress, string supplierEmail, string supplierPhone)
+        public static supplier editSupplier(int supplierId, string supplierName, string supplierAddress, string supplierEmail, string supplierPhone,string supplierNPWP)
         {
             supplier supplierNows = (from f in StockEntity.Entity.suppliers
                                     where f.Supplier_ID == supplierId
@@ -61,6 +62,7 @@ namespace StockModel
             supplierNows.Supplier_Address = supplierAddress;
             supplierNows.Supplier_Email = supplierEmail;
             supplierNows.Supplier_Phone = supplierPhone;
+            supplierNows.Supplier_NPWP = supplierNPWP;
             StockEntity.Entity.SaveChanges();
 
             return getSupplier(supplierId).First();

@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -34,6 +33,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("stockappsModel", "product_ibfk_4", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.currency), "product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.product), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_4", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "price_history", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.price_history), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "users_idfk_1", "user", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.user), "admin_history", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.admin_history), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "Bank_fk1", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.bank), true)]
 
 #endregion
 
@@ -324,9 +324,72 @@ namespace StockModel
             }
         }
         private ObjectSet<admin_history> _admin_history;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<bank> banks
+        {
+            get
+            {
+                if ((_banks == null))
+                {
+                    _banks = base.CreateObjectSet<bank>("banks");
+                }
+                return _banks;
+            }
+        }
+        private ObjectSet<bank> _banks;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<bank_transaction> bank_transaction
+        {
+            get
+            {
+                if ((_bank_transaction == null))
+                {
+                    _bank_transaction = base.CreateObjectSet<bank_transaction>("bank_transaction");
+                }
+                return _bank_transaction;
+            }
+        }
+        private ObjectSet<bank_transaction> _bank_transaction;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<payment_category> payment_category
+        {
+            get
+            {
+                if ((_payment_category == null))
+                {
+                    _payment_category = base.CreateObjectSet<payment_category>("payment_category");
+                }
+                return _payment_category;
+            }
+        }
+        private ObjectSet<payment_category> _payment_category;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<supplier_payment> supplier_payment
+        {
+            get
+            {
+                if ((_supplier_payment == null))
+                {
+                    _supplier_payment = base.CreateObjectSet<supplier_payment>("supplier_payment");
+                }
+                return _supplier_payment;
+            }
+        }
+        private ObjectSet<supplier_payment> _supplier_payment;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
@@ -448,13 +511,45 @@ namespace StockModel
         {
             base.AddObject("admin_history", admin_history);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the banks EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTobanks(bank bank)
+        {
+            base.AddObject("banks", bank);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the bank_transaction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTobank_transaction(bank_transaction bank_transaction)
+        {
+            base.AddObject("bank_transaction", bank_transaction);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the payment_category EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTopayment_category(payment_category payment_category)
+        {
+            base.AddObject("payment_category", payment_category);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the supplier_payment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTosupplier_payment(supplier_payment supplier_payment)
+        {
+            base.AddObject("supplier_payment", supplier_payment);
+        }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -479,7 +574,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -582,7 +676,6 @@ namespace StockModel
         partial void Ontime_logChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -625,7 +718,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -654,7 +746,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -733,7 +824,6 @@ namespace StockModel
         partial void OnAuthorization_StatusChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -760,7 +850,415 @@ namespace StockModel
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="bank")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class bank : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new bank object.
+        /// </summary>
+        /// <param name="bank_ID">Initial value of the Bank_ID property.</param>
+        /// <param name="bank_Name">Initial value of the Bank_Name property.</param>
+        /// <param name="currency_ID">Initial value of the Currency_ID property.</param>
+        /// <param name="bank_Current_Money">Initial value of the Bank_Current_Money property.</param>
+        /// <param name="bank_Status">Initial value of the Bank_Status property.</param>
+        public static bank Createbank(global::System.Int32 bank_ID, global::System.String bank_Name, global::System.Int32 currency_ID, global::System.Decimal bank_Current_Money, global::System.Int32 bank_Status)
+        {
+            bank bank = new bank();
+            bank.Bank_ID = bank_ID;
+            bank.Bank_Name = bank_Name;
+            bank.Currency_ID = currency_ID;
+            bank.Bank_Current_Money = bank_Current_Money;
+            bank.Bank_Status = bank_Status;
+            return bank;
+        }
 
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Bank_ID
+        {
+            get
+            {
+                return _Bank_ID;
+            }
+            set
+            {
+                if (_Bank_ID != value)
+                {
+                    OnBank_IDChanging(value);
+                    ReportPropertyChanging("Bank_ID");
+                    _Bank_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Bank_ID");
+                    OnBank_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Bank_ID;
+        partial void OnBank_IDChanging(global::System.Int32 value);
+        partial void OnBank_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Bank_Name
+        {
+            get
+            {
+                return _Bank_Name;
+            }
+            set
+            {
+                OnBank_NameChanging(value);
+                ReportPropertyChanging("Bank_Name");
+                _Bank_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Bank_Name");
+                OnBank_NameChanged();
+            }
+        }
+        private global::System.String _Bank_Name;
+        partial void OnBank_NameChanging(global::System.String value);
+        partial void OnBank_NameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Currency_ID
+        {
+            get
+            {
+                return _Currency_ID;
+            }
+            set
+            {
+                OnCurrency_IDChanging(value);
+                ReportPropertyChanging("Currency_ID");
+                _Currency_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Currency_ID");
+                OnCurrency_IDChanged();
+            }
+        }
+        private global::System.Int32 _Currency_ID;
+        partial void OnCurrency_IDChanging(global::System.Int32 value);
+        partial void OnCurrency_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Bank_Current_Money
+        {
+            get
+            {
+                return _Bank_Current_Money;
+            }
+            set
+            {
+                OnBank_Current_MoneyChanging(value);
+                ReportPropertyChanging("Bank_Current_Money");
+                _Bank_Current_Money = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Current_Money");
+                OnBank_Current_MoneyChanged();
+            }
+        }
+        private global::System.Decimal _Bank_Current_Money;
+        partial void OnBank_Current_MoneyChanging(global::System.Decimal value);
+        partial void OnBank_Current_MoneyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Bank_Status
+        {
+            get
+            {
+                return _Bank_Status;
+            }
+            set
+            {
+                OnBank_StatusChanging(value);
+                ReportPropertyChanging("Bank_Status");
+                _Bank_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Status");
+                OnBank_StatusChanged();
+            }
+        }
+        private global::System.Int32 _Bank_Status;
+        partial void OnBank_StatusChanging(global::System.Int32 value);
+        partial void OnBank_StatusChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "Bank_fk1", "currency")]
+        public currency currency
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.Bank_fk1", "currency").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.Bank_fk1", "currency").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<currency> currencyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.Bank_fk1", "currency");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<currency>("stockappsModel.Bank_fk1", "currency", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="bank_transaction")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class bank_transaction : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new bank_transaction object.
+        /// </summary>
+        /// <param name="bank_Transaction_ID">Initial value of the Bank_Transaction_ID property.</param>
+        /// <param name="bank_ID">Initial value of the Bank_ID property.</param>
+        /// <param name="bank_Transaction_Date">Initial value of the Bank_Transaction_Date property.</param>
+        /// <param name="bank_Transaction_Code">Initial value of the Bank_Transaction_Code property.</param>
+        /// <param name="bank_Transaction_Money">Initial value of the Bank_Transaction_Money property.</param>
+        /// <param name="bank_Transaction_Total_Now">Initial value of the Bank_Transaction_Total_Now property.</param>
+        public static bank_transaction Createbank_transaction(global::System.String bank_Transaction_ID, global::System.Int32 bank_ID, global::System.DateTime bank_Transaction_Date, global::System.Int32 bank_Transaction_Code, global::System.Decimal bank_Transaction_Money, global::System.Decimal bank_Transaction_Total_Now)
+        {
+            bank_transaction bank_transaction = new bank_transaction();
+            bank_transaction.Bank_Transaction_ID = bank_Transaction_ID;
+            bank_transaction.Bank_ID = bank_ID;
+            bank_transaction.Bank_Transaction_Date = bank_Transaction_Date;
+            bank_transaction.Bank_Transaction_Code = bank_Transaction_Code;
+            bank_transaction.Bank_Transaction_Money = bank_Transaction_Money;
+            bank_transaction.Bank_Transaction_Total_Now = bank_Transaction_Total_Now;
+            return bank_transaction;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Bank_Transaction_ID
+        {
+            get
+            {
+                return _Bank_Transaction_ID;
+            }
+            set
+            {
+                if (_Bank_Transaction_ID != value)
+                {
+                    OnBank_Transaction_IDChanging(value);
+                    ReportPropertyChanging("Bank_Transaction_ID");
+                    _Bank_Transaction_ID = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Bank_Transaction_ID");
+                    OnBank_Transaction_IDChanged();
+                }
+            }
+        }
+        private global::System.String _Bank_Transaction_ID;
+        partial void OnBank_Transaction_IDChanging(global::System.String value);
+        partial void OnBank_Transaction_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Bank_ID
+        {
+            get
+            {
+                return _Bank_ID;
+            }
+            set
+            {
+                OnBank_IDChanging(value);
+                ReportPropertyChanging("Bank_ID");
+                _Bank_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_ID");
+                OnBank_IDChanged();
+            }
+        }
+        private global::System.Int32 _Bank_ID;
+        partial void OnBank_IDChanging(global::System.Int32 value);
+        partial void OnBank_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Bank_Transaction_Date
+        {
+            get
+            {
+                return _Bank_Transaction_Date;
+            }
+            set
+            {
+                OnBank_Transaction_DateChanging(value);
+                ReportPropertyChanging("Bank_Transaction_Date");
+                _Bank_Transaction_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Transaction_Date");
+                OnBank_Transaction_DateChanged();
+            }
+        }
+        private global::System.DateTime _Bank_Transaction_Date;
+        partial void OnBank_Transaction_DateChanging(global::System.DateTime value);
+        partial void OnBank_Transaction_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Bank_Transaction_Code
+        {
+            get
+            {
+                return _Bank_Transaction_Code;
+            }
+            set
+            {
+                OnBank_Transaction_CodeChanging(value);
+                ReportPropertyChanging("Bank_Transaction_Code");
+                _Bank_Transaction_Code = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Transaction_Code");
+                OnBank_Transaction_CodeChanged();
+            }
+        }
+        private global::System.Int32 _Bank_Transaction_Code;
+        partial void OnBank_Transaction_CodeChanging(global::System.Int32 value);
+        partial void OnBank_Transaction_CodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Bank_Transaction_Money
+        {
+            get
+            {
+                return _Bank_Transaction_Money;
+            }
+            set
+            {
+                OnBank_Transaction_MoneyChanging(value);
+                ReportPropertyChanging("Bank_Transaction_Money");
+                _Bank_Transaction_Money = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Transaction_Money");
+                OnBank_Transaction_MoneyChanged();
+            }
+        }
+        private global::System.Decimal _Bank_Transaction_Money;
+        partial void OnBank_Transaction_MoneyChanging(global::System.Decimal value);
+        partial void OnBank_Transaction_MoneyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Bank_Transaction_Total_Now
+        {
+            get
+            {
+                return _Bank_Transaction_Total_Now;
+            }
+            set
+            {
+                OnBank_Transaction_Total_NowChanging(value);
+                ReportPropertyChanging("Bank_Transaction_Total_Now");
+                _Bank_Transaction_Total_Now = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Transaction_Total_Now");
+                OnBank_Transaction_Total_NowChanged();
+            }
+        }
+        private global::System.Decimal _Bank_Transaction_Total_Now;
+        partial void OnBank_Transaction_Total_NowChanging(global::System.Decimal value);
+        partial void OnBank_Transaction_Total_NowChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Bank_Transaction_Description
+        {
+            get
+            {
+                return _Bank_Transaction_Description;
+            }
+            set
+            {
+                OnBank_Transaction_DescriptionChanging(value);
+                ReportPropertyChanging("Bank_Transaction_Description");
+                _Bank_Transaction_Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Bank_Transaction_Description");
+                OnBank_Transaction_DescriptionChanged();
+            }
+        }
+        private global::System.String _Bank_Transaction_Description;
+        partial void OnBank_Transaction_DescriptionChanging(global::System.String value);
+        partial void OnBank_Transaction_DescriptionChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
@@ -787,7 +1285,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -842,7 +1339,6 @@ namespace StockModel
         partial void OnCurrency_NameChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -889,9 +1385,30 @@ namespace StockModel
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "Bank_fk1", "bank")]
+        public EntityCollection<bank> banks
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<bank>("stockappsModel.Bank_fk1", "bank");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<bank>("stockappsModel.Bank_fk1", "bank", value);
+                }
+            }
+        }
 
         #endregion
-
     }
     
     /// <summary>
@@ -920,7 +1437,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1069,9 +1585,32 @@ namespace StockModel
         private global::System.Int32 _Customer_Status;
         partial void OnCustomer_StatusChanging(global::System.Int32 value);
         partial void OnCustomer_StatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Customer_NPWP
+        {
+            get
+            {
+                return _Customer_NPWP;
+            }
+            set
+            {
+                OnCustomer_NPWPChanging(value);
+                ReportPropertyChanging("Customer_NPWP");
+                _Customer_NPWP = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Customer_NPWP");
+                OnCustomer_NPWPChanged();
+            }
+        }
+        private global::System.String _Customer_NPWP;
+        partial void OnCustomer_NPWPChanging(global::System.String value);
+        partial void OnCustomer_NPWPChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1098,7 +1637,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1117,7 +1655,7 @@ namespace StockModel
         /// <param name="customer_Transaction_ID">Initial value of the Customer_Transaction_ID property.</param>
         /// <param name="customer_Transaction_Date">Initial value of the Customer_Transaction_Date property.</param>
         /// <param name="customer_Transaction_Status">Initial value of the Customer_Transaction_Status property.</param>
-        public static customer_transaction Createcustomer_transaction(global::System.Int32 customer_Transaction_ID, global::System.DateTime customer_Transaction_Date, global::System.Int32 customer_Transaction_Status)
+        public static customer_transaction Createcustomer_transaction(global::System.String customer_Transaction_ID, global::System.DateTime customer_Transaction_Date, global::System.Int32 customer_Transaction_Status)
         {
             customer_transaction customer_transaction = new customer_transaction();
             customer_transaction.Customer_Transaction_ID = customer_Transaction_ID;
@@ -1127,7 +1665,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1135,7 +1672,7 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Customer_Transaction_ID
+        public global::System.String Customer_Transaction_ID
         {
             get
             {
@@ -1147,14 +1684,14 @@ namespace StockModel
                 {
                     OnCustomer_Transaction_IDChanging(value);
                     ReportPropertyChanging("Customer_Transaction_ID");
-                    _Customer_Transaction_ID = StructuralObject.SetValidValue(value);
+                    _Customer_Transaction_ID = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("Customer_Transaction_ID");
                     OnCustomer_Transaction_IDChanged();
                 }
             }
         }
-        private global::System.Int32 _Customer_Transaction_ID;
-        partial void OnCustomer_Transaction_IDChanging(global::System.Int32 value);
+        private global::System.String _Customer_Transaction_ID;
+        partial void OnCustomer_Transaction_IDChanging(global::System.String value);
         partial void OnCustomer_Transaction_IDChanged();
     
         /// <summary>
@@ -1302,7 +1839,6 @@ namespace StockModel
         partial void OnCustomer_Transaction_DescriptionChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1367,7 +1903,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1385,7 +1920,7 @@ namespace StockModel
         /// </summary>
         /// <param name="customer_Transaction_ID">Initial value of the Customer_Transaction_ID property.</param>
         /// <param name="product_ID">Initial value of the Product_ID property.</param>
-        public static customer_transaction_product Createcustomer_transaction_product(global::System.Int32 customer_Transaction_ID, global::System.Int32 product_ID)
+        public static customer_transaction_product Createcustomer_transaction_product(global::System.String customer_Transaction_ID, global::System.Int32 product_ID)
         {
             customer_transaction_product customer_transaction_product = new customer_transaction_product();
             customer_transaction_product.Customer_Transaction_ID = customer_Transaction_ID;
@@ -1394,7 +1929,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1402,7 +1936,7 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Customer_Transaction_ID
+        public global::System.String Customer_Transaction_ID
         {
             get
             {
@@ -1414,14 +1948,14 @@ namespace StockModel
                 {
                     OnCustomer_Transaction_IDChanging(value);
                     ReportPropertyChanging("Customer_Transaction_ID");
-                    _Customer_Transaction_ID = StructuralObject.SetValidValue(value);
+                    _Customer_Transaction_ID = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("Customer_Transaction_ID");
                     OnCustomer_Transaction_IDChanged();
                 }
             }
         }
-        private global::System.Int32 _Customer_Transaction_ID;
-        partial void OnCustomer_Transaction_IDChanging(global::System.Int32 value);
+        private global::System.String _Customer_Transaction_ID;
+        partial void OnCustomer_Transaction_IDChanging(global::System.String value);
         partial void OnCustomer_Transaction_IDChanged();
     
         /// <summary>
@@ -1524,7 +2058,6 @@ namespace StockModel
         partial void OnCustomer_Transaction_Product_Price_RupiahChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1605,7 +2138,87 @@ namespace StockModel
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="payment_category")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class payment_category : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new payment_category object.
+        /// </summary>
+        /// <param name="payment_Category_ID">Initial value of the Payment_Category_ID property.</param>
+        /// <param name="payment_Category_Name">Initial value of the Payment_Category_Name property.</param>
+        public static payment_category Createpayment_category(global::System.Int32 payment_Category_ID, global::System.String payment_Category_Name)
+        {
+            payment_category payment_category = new payment_category();
+            payment_category.Payment_Category_ID = payment_Category_ID;
+            payment_category.Payment_Category_Name = payment_Category_Name;
+            return payment_category;
+        }
 
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Payment_Category_ID
+        {
+            get
+            {
+                return _Payment_Category_ID;
+            }
+            set
+            {
+                if (_Payment_Category_ID != value)
+                {
+                    OnPayment_Category_IDChanging(value);
+                    ReportPropertyChanging("Payment_Category_ID");
+                    _Payment_Category_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Payment_Category_ID");
+                    OnPayment_Category_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Payment_Category_ID;
+        partial void OnPayment_Category_IDChanging(global::System.Int32 value);
+        partial void OnPayment_Category_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Payment_Category_Name
+        {
+            get
+            {
+                return _Payment_Category_Name;
+            }
+            set
+            {
+                OnPayment_Category_NameChanging(value);
+                ReportPropertyChanging("Payment_Category_Name");
+                _Payment_Category_Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Payment_Category_Name");
+                OnPayment_Category_NameChanged();
+            }
+        }
+        private global::System.String _Payment_Category_Name;
+        partial void OnPayment_Category_NameChanging(global::System.String value);
+        partial void OnPayment_Category_NameChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
@@ -1634,7 +2247,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1737,7 +2349,6 @@ namespace StockModel
         partial void OnCurrency_IDChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1818,7 +2429,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1845,7 +2455,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1900,7 +2509,6 @@ namespace StockModel
         partial void OnPrivilege_nameChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1949,7 +2557,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1978,7 +2585,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2060,7 +2666,6 @@ namespace StockModel
         partial void OnPrivilege_Authorization_StatusChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2141,7 +2746,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2174,7 +2778,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2421,7 +3024,6 @@ namespace StockModel
         partial void OnProduct_StatusChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2606,7 +3208,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2635,7 +3236,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2714,7 +3314,6 @@ namespace StockModel
         partial void OnProduct_Category_StatusChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2741,7 +3340,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2770,7 +3368,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2919,9 +3516,32 @@ namespace StockModel
         private global::System.Int32 _Supplier_Status;
         partial void OnSupplier_StatusChanging(global::System.Int32 value);
         partial void OnSupplier_StatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Supplier_NPWP
+        {
+            get
+            {
+                return _Supplier_NPWP;
+            }
+            set
+            {
+                OnSupplier_NPWPChanging(value);
+                ReportPropertyChanging("Supplier_NPWP");
+                _Supplier_NPWP = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Supplier_NPWP");
+                OnSupplier_NPWPChanged();
+            }
+        }
+        private global::System.String _Supplier_NPWP;
+        partial void OnSupplier_NPWPChanging(global::System.String value);
+        partial void OnSupplier_NPWPChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2970,7 +3590,135 @@ namespace StockModel
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="supplier_payment")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class supplier_payment : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new supplier_payment object.
+        /// </summary>
+        /// <param name="supplier_Payment_ID">Initial value of the Supplier_Payment_ID property.</param>
+        /// <param name="supplier_ID">Initial value of the Supplier_ID property.</param>
+        public static supplier_payment Createsupplier_payment(global::System.String supplier_Payment_ID, global::System.Int32 supplier_ID)
+        {
+            supplier_payment supplier_payment = new supplier_payment();
+            supplier_payment.Supplier_Payment_ID = supplier_Payment_ID;
+            supplier_payment.Supplier_ID = supplier_ID;
+            return supplier_payment;
+        }
 
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Supplier_Payment_ID
+        {
+            get
+            {
+                return _Supplier_Payment_ID;
+            }
+            set
+            {
+                if (_Supplier_Payment_ID != value)
+                {
+                    OnSupplier_Payment_IDChanging(value);
+                    ReportPropertyChanging("Supplier_Payment_ID");
+                    _Supplier_Payment_ID = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Supplier_Payment_ID");
+                    OnSupplier_Payment_IDChanged();
+                }
+            }
+        }
+        private global::System.String _Supplier_Payment_ID;
+        partial void OnSupplier_Payment_IDChanging(global::System.String value);
+        partial void OnSupplier_Payment_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Supplier_ID
+        {
+            get
+            {
+                return _Supplier_ID;
+            }
+            set
+            {
+                OnSupplier_IDChanging(value);
+                ReportPropertyChanging("Supplier_ID");
+                _Supplier_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_ID");
+                OnSupplier_IDChanged();
+            }
+        }
+        private global::System.Int32 _Supplier_ID;
+        partial void OnSupplier_IDChanging(global::System.Int32 value);
+        partial void OnSupplier_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Supplier_Payment_Total_Rupiah
+        {
+            get
+            {
+                return _Supplier_Payment_Total_Rupiah;
+            }
+            set
+            {
+                OnSupplier_Payment_Total_RupiahChanging(value);
+                ReportPropertyChanging("Supplier_Payment_Total_Rupiah");
+                _Supplier_Payment_Total_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_Total_Rupiah");
+                OnSupplier_Payment_Total_RupiahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Supplier_Payment_Total_Rupiah;
+        partial void OnSupplier_Payment_Total_RupiahChanging(Nullable<global::System.Decimal> value);
+        partial void OnSupplier_Payment_Total_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Supplier_Payment_Total_Dollar
+        {
+            get
+            {
+                return _Supplier_Payment_Total_Dollar;
+            }
+            set
+            {
+                OnSupplier_Payment_Total_DollarChanging(value);
+                ReportPropertyChanging("Supplier_Payment_Total_Dollar");
+                _Supplier_Payment_Total_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_Total_Dollar");
+                OnSupplier_Payment_Total_DollarChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Supplier_Payment_Total_Dollar;
+        partial void OnSupplier_Payment_Total_DollarChanging(Nullable<global::System.Decimal> value);
+        partial void OnSupplier_Payment_Total_DollarChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
@@ -2989,7 +3737,7 @@ namespace StockModel
         /// <param name="supplier_Transaction_ID">Initial value of the Supplier_Transaction_ID property.</param>
         /// <param name="supplier_Transaction_Date">Initial value of the Supplier_Transaction_Date property.</param>
         /// <param name="supplier_Transaction_Status">Initial value of the Supplier_Transaction_Status property.</param>
-        public static supplier_transaction Createsupplier_transaction(global::System.Int32 supplier_Transaction_ID, global::System.DateTime supplier_Transaction_Date, global::System.Int32 supplier_Transaction_Status)
+        public static supplier_transaction Createsupplier_transaction(global::System.String supplier_Transaction_ID, global::System.DateTime supplier_Transaction_Date, global::System.Int32 supplier_Transaction_Status)
         {
             supplier_transaction supplier_transaction = new supplier_transaction();
             supplier_transaction.Supplier_Transaction_ID = supplier_Transaction_ID;
@@ -2999,7 +3747,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -3031,7 +3778,7 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Supplier_Transaction_ID
+        public global::System.String Supplier_Transaction_ID
         {
             get
             {
@@ -3043,14 +3790,14 @@ namespace StockModel
                 {
                     OnSupplier_Transaction_IDChanging(value);
                     ReportPropertyChanging("Supplier_Transaction_ID");
-                    _Supplier_Transaction_ID = StructuralObject.SetValidValue(value);
+                    _Supplier_Transaction_ID = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("Supplier_Transaction_ID");
                     OnSupplier_Transaction_IDChanged();
                 }
             }
         }
-        private global::System.Int32 _Supplier_Transaction_ID;
-        partial void OnSupplier_Transaction_IDChanging(global::System.Int32 value);
+        private global::System.String _Supplier_Transaction_ID;
+        partial void OnSupplier_Transaction_IDChanging(global::System.String value);
         partial void OnSupplier_Transaction_IDChanged();
     
         /// <summary>
@@ -3174,7 +3921,6 @@ namespace StockModel
         partial void OnSupplier_Transaction_DescriptionChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -3239,7 +3985,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -3260,7 +4005,7 @@ namespace StockModel
         /// <param name="supplier_Transaction_Product_Quantity">Initial value of the Supplier_Transaction_Product_Quantity property.</param>
         /// <param name="supplier_Transaction_Product_Price_Dollar">Initial value of the Supplier_Transaction_Product_Price_Dollar property.</param>
         /// <param name="supplier_Transaction_Product_Price_Rupiah">Initial value of the Supplier_Transaction_Product_Price_Rupiah property.</param>
-        public static supplier_transaction_product Createsupplier_transaction_product(global::System.Int32 product_ID, global::System.Int32 supplier_Transaction_ID, global::System.Int32 supplier_Transaction_Product_Quantity, global::System.Decimal supplier_Transaction_Product_Price_Dollar, global::System.Decimal supplier_Transaction_Product_Price_Rupiah)
+        public static supplier_transaction_product Createsupplier_transaction_product(global::System.Int32 product_ID, global::System.String supplier_Transaction_ID, global::System.Int32 supplier_Transaction_Product_Quantity, global::System.Decimal supplier_Transaction_Product_Price_Dollar, global::System.Decimal supplier_Transaction_Product_Price_Rupiah)
         {
             supplier_transaction_product supplier_transaction_product = new supplier_transaction_product();
             supplier_transaction_product.Product_ID = product_ID;
@@ -3272,7 +4017,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -3307,7 +4051,7 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Supplier_Transaction_ID
+        public global::System.String Supplier_Transaction_ID
         {
             get
             {
@@ -3319,14 +4063,14 @@ namespace StockModel
                 {
                     OnSupplier_Transaction_IDChanging(value);
                     ReportPropertyChanging("Supplier_Transaction_ID");
-                    _Supplier_Transaction_ID = StructuralObject.SetValidValue(value);
+                    _Supplier_Transaction_ID = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("Supplier_Transaction_ID");
                     OnSupplier_Transaction_IDChanged();
                 }
             }
         }
-        private global::System.Int32 _Supplier_Transaction_ID;
-        partial void OnSupplier_Transaction_IDChanging(global::System.Int32 value);
+        private global::System.String _Supplier_Transaction_ID;
+        partial void OnSupplier_Transaction_IDChanging(global::System.String value);
         partial void OnSupplier_Transaction_IDChanged();
     
         /// <summary>
@@ -3402,7 +4146,6 @@ namespace StockModel
         partial void OnSupplier_Transaction_Product_Price_RupiahChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -3483,7 +4226,6 @@ namespace StockModel
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -3516,7 +4258,6 @@ namespace StockModel
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -3667,7 +4408,6 @@ namespace StockModel
         partial void Onusers_emailChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -3732,10 +4472,8 @@ namespace StockModel
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }
