@@ -41,6 +41,8 @@
             this._bspInsert = new System.Windows.Forms.Button();
             this._bspDelete = new System.Windows.Forms.Button();
             this._bspDetail = new System.Windows.Forms.Button();
+            this._tspNPWP = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dgvspListSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,7 +130,7 @@
             // 
             // _dgvspListSupplier
             // 
-            this._dgvspListSupplier.Location = new System.Drawing.Point(18, 241);
+            this._dgvspListSupplier.Location = new System.Drawing.Point(18, 278);
             this._dgvspListSupplier.MultiSelect = false;
             this._dgvspListSupplier.Name = "_dgvspListSupplier";
             this._dgvspListSupplier.Size = new System.Drawing.Size(722, 239);
@@ -138,10 +140,10 @@
             // _bspInsert
             // 
             this._bspInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspInsert.Location = new System.Drawing.Point(625, 186);
+            this._bspInsert.Location = new System.Drawing.Point(625, 227);
             this._bspInsert.Name = "_bspInsert";
             this._bspInsert.Size = new System.Drawing.Size(115, 35);
-            this._bspInsert.TabIndex = 5;
+            this._bspInsert.TabIndex = 6;
             this._bspInsert.Text = "INSERT";
             this._bspInsert.UseVisualStyleBackColor = true;
             this._bspInsert.Click += new System.EventHandler(this._bspInsert_Click);
@@ -149,7 +151,7 @@
             // _bspDelete
             // 
             this._bspDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDelete.Location = new System.Drawing.Point(625, 486);
+            this._bspDelete.Location = new System.Drawing.Point(625, 523);
             this._bspDelete.Name = "_bspDelete";
             this._bspDelete.Size = new System.Drawing.Size(115, 35);
             this._bspDelete.TabIndex = 8;
@@ -160,7 +162,7 @@
             // _bspDetail
             // 
             this._bspDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDetail.Location = new System.Drawing.Point(504, 486);
+            this._bspDetail.Location = new System.Drawing.Point(504, 523);
             this._bspDetail.Name = "_bspDetail";
             this._bspDetail.Size = new System.Drawing.Size(115, 35);
             this._bspDetail.TabIndex = 10;
@@ -168,11 +170,31 @@
             this._bspDetail.UseVisualStyleBackColor = true;
             this._bspDetail.Click += new System.EventHandler(this._bspDetail_Click);
             // 
+            // _tspNPWP
+            // 
+            this._tspNPWP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._tspNPWP.Location = new System.Drawing.Point(133, 227);
+            this._tspNPWP.Name = "_tspNPWP";
+            this._tspNPWP.Size = new System.Drawing.Size(463, 35);
+            this._tspNPWP.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(32, 224);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 29);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "NPWP :";
+            // 
             // _supplierList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 529);
+            this.ClientSize = new System.Drawing.Size(752, 564);
+            this.Controls.Add(this._tspNPWP);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this._bspDetail);
             this.Controls.Add(this._bspDelete);
             this.Controls.Add(this._bspInsert);
@@ -210,6 +232,8 @@
         private System.Windows.Forms.Button _bspInsert;
         private System.Windows.Forms.Button _bspDelete;
         private System.Windows.Forms.Button _bspDetail;
+        private System.Windows.Forms.TextBox _tspNPWP;
+        private System.Windows.Forms.Label label6;
 
     }
 }

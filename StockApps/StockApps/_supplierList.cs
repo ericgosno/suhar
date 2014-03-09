@@ -29,6 +29,7 @@ namespace StockApps
             _dgvspListSupplier.Columns["Supplier_Address"].HeaderText = "Address";
             _dgvspListSupplier.Columns["Supplier_Email"].HeaderText = "Email";
             _dgvspListSupplier.Columns["Supplier_Phone"].HeaderText = "Phone";
+            _dgvspListSupplier.Columns["Supplier_NPWP"].HeaderText = "NPWP";
 
             _dgvspListSupplier.Columns["Supplier_Status"].Visible = false;
             _dgvspListSupplier.Columns["Supplier_ID"].Visible = false;
@@ -41,7 +42,12 @@ namespace StockApps
 
         private void _bspInsert_Click(object sender, EventArgs e)
         {
-            SupplierController.insertSupplier(_tspName.Text, _tspAddress.Text, _tspEmail.Text, _tspPhone.Text);
+            if (_tspName.Text == "")
+            {
+                MessageBox.Show("Name cannot be null!");
+                return;
+            }
+            SupplierController.insertSupplier(_tspName.Text, _tspAddress.Text, _tspEmail.Text, _tspPhone.Text,_tspNPWP.Text);
             RefreshForm();
         }
 
@@ -61,7 +67,7 @@ namespace StockApps
         private void _dgvspListSupplier_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var rowNow = _dgvspListSupplier.Rows[e.RowIndex];
-            SupplierController.editSupplier((int)rowNow.Cells["Supplier_ID"].Value, rowNow.Cells["Supplier_Name"].Value.ToString(), rowNow.Cells["Supplier_Address"].Value.ToString(), rowNow.Cells["Supplier_Email"].Value.ToString(), rowNow.Cells["Supplier_Phone"].Value.ToString());
+            SupplierController.editSupplier((int)rowNow.Cells["Supplier_ID"].Value, rowNow.Cells["Supplier_Name"].Value.ToString(), rowNow.Cells["Supplier_Address"].Value.ToString(), rowNow.Cells["Supplier_Email"].Value.ToString(), rowNow.Cells["Supplier_Phone"].Value.ToString(),rowNow.Cells["Supplier_NPWP"].Value.ToString());
             _dgvspListSupplier.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 

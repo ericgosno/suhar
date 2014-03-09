@@ -10,6 +10,22 @@ namespace StockModel
         public static supplier_transaction insertSupplierTransaction(DateTime transDate,int supplierId,double totalDollar,double totalRupiah,string description, List<supplier_transaction_product> transProd)
         {
             supplier_transaction newTrans = new supplier_transaction();
+            string idnow = null;
+            int code = 1;
+            while (true)
+            {
+                string codeStr = code.ToString("D4");
+                string supplierStr = supplierId.ToString("D3");
+                string dateStr = transDate.ToString("yyyyMMdd");
+                idnow = supplierStr + "-" + dateStr + "-" + codeStr;
+                var checkID = from f in StockEntity.Entity.supplier_transaction
+                              where f.Supplier_Transaction_ID == idnow
+                              select f;
+                if (checkID.Count() > 0) code++;
+                else break;
+            }
+
+            newTrans.Supplier_Transaction_ID = idnow;
             newTrans.Supplier_ID = supplierId;
             newTrans.Supplier_Transaction_Date = transDate;
             newTrans.Supplier_Transaction_Status = 1;

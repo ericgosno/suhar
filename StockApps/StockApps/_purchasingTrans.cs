@@ -143,5 +143,18 @@ namespace StockApps
             SupplierTransaction.insertSupplierTransaction(_dtTransDate.Value,dictSupplier[_cbpurNama.SelectedItem.ToString()], totalDollar, totalRupiah, _tpurDescription.Text, prod);
             this.Close();
         }
+
+        private void _bpurDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _dataSupTransaction.Rows.Remove(_dataSupTransaction.SelectedRows[0]);
+                RefreshData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You must select a Row First!");
+            }
+        }
     }
 }

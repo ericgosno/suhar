@@ -109,6 +109,12 @@ namespace StockApps
                     _dataCusTransaction.Rows[i].Cells["Package_Quantity"].Value = Math.Ceiling(Convert.ToDouble(quantity) / Convert.ToDouble(prodNow.Product_Packing_Kilogram)).ToString() + " " + prodNow.Product_Packing_Name;
                     double dollar = priceperkg * quantity;
                     double rupiah = dollar * Convert.ToDouble(_tsellKurs.Text);
+
+                    if (quantity > prodNow.Product_Stock)
+                    {
+                        MessageBox.Show("Not Sufficient Quantity! Please Fix");
+                        return;
+                    }
                    
                     newProduct.Customer_Transaction_Product_Price_Dollar = Convert.ToDecimal(dollar);
                     newProduct.Customer_Transaction_Product_Price_Rupiah = Convert.ToDecimal(rupiah);
@@ -123,6 +129,19 @@ namespace StockApps
             }
             CustomerTransaction.insertCustomerTransaction(_dtTransDate.Value, dictCustomer[_cbsellNama.SelectedItem.ToString()], totalDollar, totalRupiah, _tsellDescription.Text, prod);
             this.Close();
+        }
+
+        private void _bsellDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _dataCusTransaction.Rows.Remove(_dataCusTransaction.SelectedRows[0]);
+                RefreshData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You must select a Row First!");
+            }
         }
     }
 }

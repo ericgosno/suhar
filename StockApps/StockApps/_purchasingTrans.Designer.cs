@@ -49,6 +49,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this._tpurDescription = new System.Windows.Forms.TextBox();
+            this._bpurDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataSupTransaction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,11 +106,11 @@
             // _bpurPay
             // 
             this._bpurPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bpurPay.Location = new System.Drawing.Point(560, 478);
+            this._bpurPay.Location = new System.Drawing.Point(563, 506);
             this._bpurPay.Name = "_bpurPay";
             this._bpurPay.Size = new System.Drawing.Size(162, 35);
             this._bpurPay.TabIndex = 21;
-            this._bpurPay.Text = "PAY";
+            this._bpurPay.Text = "PROCESS";
             this._bpurPay.UseVisualStyleBackColor = true;
             this._bpurPay.Click += new System.EventHandler(this._bpurPay_Click);
             // 
@@ -147,7 +148,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(40, 457);
+            this.label3.Location = new System.Drawing.Point(32, 473);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 29);
             this.label3.TabIndex = 31;
@@ -157,7 +158,7 @@
             // 
             this._lpurRp.AutoSize = true;
             this._lpurRp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lpurRp.Location = new System.Drawing.Point(159, 490);
+            this._lpurRp.Location = new System.Drawing.Point(151, 506);
             this._lpurRp.Name = "_lpurRp";
             this._lpurRp.Size = new System.Drawing.Size(26, 29);
             this._lpurRp.TabIndex = 32;
@@ -167,7 +168,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(22, 490);
+            this.label6.Location = new System.Drawing.Point(14, 506);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 29);
             this.label6.TabIndex = 33;
@@ -177,7 +178,7 @@
             // 
             this._lpurDollar.AutoSize = true;
             this._lpurDollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lpurDollar.Location = new System.Drawing.Point(159, 458);
+            this._lpurDollar.Location = new System.Drawing.Point(151, 474);
             this._lpurDollar.Name = "_lpurDollar";
             this._lpurDollar.Size = new System.Drawing.Size(26, 29);
             this._lpurDollar.TabIndex = 34;
@@ -240,11 +241,23 @@
             this._tpurDescription.Size = new System.Drawing.Size(386, 56);
             this._tpurDescription.TabIndex = 40;
             // 
+            // _bpurDelete
+            // 
+            this._bpurDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bpurDelete.Location = new System.Drawing.Point(563, 465);
+            this._bpurDelete.Name = "_bpurDelete";
+            this._bpurDelete.Size = new System.Drawing.Size(162, 35);
+            this._bpurDelete.TabIndex = 41;
+            this._bpurDelete.Text = "DELETE";
+            this._bpurDelete.UseVisualStyleBackColor = true;
+            this._bpurDelete.Click += new System.EventHandler(this._bpurDelete_Click);
+            // 
             // _purchasingTrans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 528);
+            this.ClientSize = new System.Drawing.Size(740, 553);
+            this.Controls.Add(this._bpurDelete);
             this.Controls.Add(this._tpurDescription);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
@@ -292,6 +305,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price_Kg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal_Dollar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal_Rupiah;
+        public System.Windows.Forms.Button _bpurDelete;
 
     }
 }

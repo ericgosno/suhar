@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._cbsellNama = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this._lsellDollar = new System.Windows.Forms.Label();
@@ -46,9 +45,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this._dateJatuhTempo = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this._bcusInsert = new System.Windows.Forms.Button();
@@ -61,16 +57,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this._lsellRpPPN = new System.Windows.Forms.Label();
+            this._lblSellName = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // _cbsellNama
-            // 
-            this._cbsellNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._cbsellNama.FormattingEnabled = true;
-            this._cbsellNama.Location = new System.Drawing.Point(156, 51);
-            this._cbsellNama.Name = "_cbsellNama";
-            this._cbsellNama.Size = new System.Drawing.Size(552, 37);
-            this._cbsellNama.TabIndex = 42;
             // 
             // label1
             // 
@@ -242,34 +230,6 @@
             this.label14.TabIndex = 61;
             this.label14.Text = ":";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(13, 384);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(175, 29);
-            this.label15.TabIndex = 62;
-            this.label15.Text = "Jumlah (Rp / $)";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(215, 384);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(19, 29);
-            this.label16.TabIndex = 63;
-            this.label16.Text = ":";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(231, 381);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(477, 35);
-            this.textBox1.TabIndex = 65;
-            // 
             // _dateJatuhTempo
             // 
             this._dateJatuhTempo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -291,11 +251,11 @@
             // _bcusInsert
             // 
             this._bcusInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusInsert.Location = new System.Drawing.Point(433, 446);
+            this._bcusInsert.Location = new System.Drawing.Point(554, 388);
             this._bcusInsert.Name = "_bcusInsert";
-            this._bcusInsert.Size = new System.Drawing.Size(275, 37);
+            this._bcusInsert.Size = new System.Drawing.Size(154, 37);
             this._bcusInsert.TabIndex = 68;
-            this._bcusInsert.Text = "LUNAS / BG";
+            this._bcusInsert.Text = "PROCESS";
             this._bcusInsert.UseVisualStyleBackColor = true;
             // 
             // label18
@@ -388,11 +348,22 @@
             this._lsellRpPPN.TabIndex = 77;
             this._lsellRpPPN.Text = "222000000";
             // 
+            // _lblSellName
+            // 
+            this._lblSellName.AutoSize = true;
+            this._lblSellName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lblSellName.Location = new System.Drawing.Point(152, 54);
+            this._lblSellName.Name = "_lblSellName";
+            this._lblSellName.Size = new System.Drawing.Size(78, 29);
+            this._lblSellName.TabIndex = 78;
+            this._lblSellName.Text = "Name";
+            // 
             // _sellingTransv2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 498);
+            this.ClientSize = new System.Drawing.Size(735, 432);
+            this.Controls.Add(this._lblSellName);
             this.Controls.Add(this._lsellRpPPN);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label24);
@@ -405,9 +376,6 @@
             this.Controls.Add(this._bcusInsert);
             this.Controls.Add(this.label17);
             this.Controls.Add(this._dateJatuhTempo);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -423,7 +391,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this._lsellRp);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this._cbsellNama);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "_sellingTransv2";
@@ -435,7 +402,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox _cbsellNama;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label _lsellDollar;
@@ -453,9 +419,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker _dateJatuhTempo;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button _bcusInsert;
@@ -468,5 +431,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label _lsellRpPPN;
+        private System.Windows.Forms.Label _lblSellName;
     }
 }

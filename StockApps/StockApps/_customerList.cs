@@ -28,6 +28,7 @@ namespace StockApps
             _dataCustomer.Columns["Customer_Address"].HeaderText = "Address";
             _dataCustomer.Columns["Customer_Email"].HeaderText = "Email";
             _dataCustomer.Columns["Customer_Phone"].HeaderText = "Phone";
+            _dataCustomer.Columns["Customer_NPWP"].HeaderText = "NPWP";
 
             _dataCustomer.Columns["Customer_Status"].Visible = false;
             _dataCustomer.Columns["Customer_ID"].Visible = false;
@@ -39,7 +40,13 @@ namespace StockApps
 
         private void _bcusInsert_Click(object sender, EventArgs e)
         {
-            CustomerController.insertCustomer(_tcusName.Text, _tcusAddress.Text, _tcusEmail.Text, _tcusPhone.Text);
+            if (_tcusName.Text == "")
+            {
+                MessageBox.Show("Name must not be null!");
+                return;
+            }
+
+            CustomerController.insertCustomer(_tcusName.Text, _tcusAddress.Text, _tcusEmail.Text, _tcusPhone.Text,_tcusNPWP.Text);
             RefreshForm();
         }
 
@@ -59,7 +66,7 @@ namespace StockApps
         private void _dataCustomer_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var rowNow = _dataCustomer.Rows[e.RowIndex];
-            CustomerController.editCustomer((int)rowNow.Cells["Customer_ID"].Value, rowNow.Cells["Customer_Name"].Value.ToString(), rowNow.Cells["Customer_Address"].Value.ToString(), rowNow.Cells["Customer_Email"].Value.ToString(), rowNow.Cells["Customer_Phone"].Value.ToString());
+            CustomerController.editCustomer((int)rowNow.Cells["Customer_ID"].Value, rowNow.Cells["Customer_Name"].Value.ToString(), rowNow.Cells["Customer_Address"].Value.ToString(), rowNow.Cells["Customer_Email"].Value.ToString(), rowNow.Cells["Customer_Phone"].Value.ToString(), rowNow.Cells["Customer_NPWP"].Value.ToString());
             _dataCustomer.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
