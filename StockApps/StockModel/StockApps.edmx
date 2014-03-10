@@ -107,7 +107,7 @@
           <Key>
             <PropertyRef Name="Bank_ID" />
           </Key>
-          <Property Name="Bank_ID" Type="int" Nullable="false" />
+          <Property Name="Bank_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Bank_Name" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="Currency_ID" Type="int" Nullable="false" />
           <Property Name="Bank_Current_Money" Type="decimal" Nullable="false" Precision="12" Scale="2" />
@@ -117,13 +117,15 @@
           <Key>
             <PropertyRef Name="Bank_Transaction_ID" />
           </Key>
-          <Property Name="Bank_Transaction_ID" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Bank_Transaction_ID" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Bank_ID" Type="int" Nullable="false" />
           <Property Name="Bank_Transaction_Date" Type="datetime" Nullable="false" />
-          <Property Name="Bank_Transaction_Code" Type="int" Nullable="false" />
+          <Property Name="Bank_Transaction_Code" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Bank_Transaction_IsDebit" Type="int" Nullable="false" />
           <Property Name="Bank_Transaction_Money" Type="decimal" Nullable="false" Precision="12" Scale="2" />
           <Property Name="Bank_Transaction_Total_Now" Type="decimal" Nullable="false" Precision="12" Scale="2" />
           <Property Name="Bank_Transaction_Description" Type="varchar" MaxLength="200" />
+          <Property Name="Bank_Transaction_IsLast" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="currency">
           <Key>
@@ -942,10 +944,12 @@
           <Property Type="String" Name="Bank_Transaction_ID" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Bank_ID" Nullable="false" />
           <Property Type="DateTime" Name="Bank_Transaction_Date" Nullable="false" />
-          <Property Type="Int32" Name="Bank_Transaction_Code" Nullable="false" />
+          <Property Type="String" Name="Bank_Transaction_Code" Nullable="false" />
           <Property Type="Decimal" Name="Bank_Transaction_Money" Nullable="false" />
           <Property Type="Decimal" Name="Bank_Transaction_Total_Now" Nullable="false" />
           <Property Type="String" Name="Bank_Transaction_Description" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Bank_Transaction_IsLast" Nullable="false" />
+          <Property Type="Int32" Name="Bank_Transaction_IsDebit" Nullable="false" />
         </EntityType>
         <EntityType Name="payment_category">
           <Key>
@@ -1124,6 +1128,8 @@
           <EntitySetMapping Name="bank_transaction">
             <EntityTypeMapping TypeName="stockappsModel.bank_transaction">
               <MappingFragment StoreEntitySet="bank_transaction">
+                <ScalarProperty Name="Bank_Transaction_IsDebit" ColumnName="Bank_Transaction_IsDebit" />
+                <ScalarProperty Name="Bank_Transaction_IsLast" ColumnName="Bank_Transaction_IsLast" />
                 <ScalarProperty Name="Bank_Transaction_Description" ColumnName="Bank_Transaction_Description" />
                 <ScalarProperty Name="Bank_Transaction_Total_Now" ColumnName="Bank_Transaction_Total_Now" />
                 <ScalarProperty Name="Bank_Transaction_Money" ColumnName="Bank_Transaction_Money" />

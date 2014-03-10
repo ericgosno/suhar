@@ -68,5 +68,11 @@ namespace StockApps
         {
 
         }
+
+        private void bankToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _bankList bankList = new _bankList();
+            bankList.Show();
+        }
     }
 }

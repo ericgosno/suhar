@@ -1071,7 +1071,9 @@ namespace StockModel
         /// <param name="bank_Transaction_Code">Initial value of the Bank_Transaction_Code property.</param>
         /// <param name="bank_Transaction_Money">Initial value of the Bank_Transaction_Money property.</param>
         /// <param name="bank_Transaction_Total_Now">Initial value of the Bank_Transaction_Total_Now property.</param>
-        public static bank_transaction Createbank_transaction(global::System.String bank_Transaction_ID, global::System.Int32 bank_ID, global::System.DateTime bank_Transaction_Date, global::System.Int32 bank_Transaction_Code, global::System.Decimal bank_Transaction_Money, global::System.Decimal bank_Transaction_Total_Now)
+        /// <param name="bank_Transaction_IsLast">Initial value of the Bank_Transaction_IsLast property.</param>
+        /// <param name="bank_Transaction_IsDebit">Initial value of the Bank_Transaction_IsDebit property.</param>
+        public static bank_transaction Createbank_transaction(global::System.String bank_Transaction_ID, global::System.Int32 bank_ID, global::System.DateTime bank_Transaction_Date, global::System.String bank_Transaction_Code, global::System.Decimal bank_Transaction_Money, global::System.Decimal bank_Transaction_Total_Now, global::System.Int32 bank_Transaction_IsLast, global::System.Int32 bank_Transaction_IsDebit)
         {
             bank_transaction bank_transaction = new bank_transaction();
             bank_transaction.Bank_Transaction_ID = bank_Transaction_ID;
@@ -1080,6 +1082,8 @@ namespace StockModel
             bank_transaction.Bank_Transaction_Code = bank_Transaction_Code;
             bank_transaction.Bank_Transaction_Money = bank_Transaction_Money;
             bank_transaction.Bank_Transaction_Total_Now = bank_Transaction_Total_Now;
+            bank_transaction.Bank_Transaction_IsLast = bank_Transaction_IsLast;
+            bank_transaction.Bank_Transaction_IsDebit = bank_Transaction_IsDebit;
             return bank_transaction;
         }
 
@@ -1166,7 +1170,7 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Bank_Transaction_Code
+        public global::System.String Bank_Transaction_Code
         {
             get
             {
@@ -1176,13 +1180,13 @@ namespace StockModel
             {
                 OnBank_Transaction_CodeChanging(value);
                 ReportPropertyChanging("Bank_Transaction_Code");
-                _Bank_Transaction_Code = StructuralObject.SetValidValue(value);
+                _Bank_Transaction_Code = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Bank_Transaction_Code");
                 OnBank_Transaction_CodeChanged();
             }
         }
-        private global::System.Int32 _Bank_Transaction_Code;
-        partial void OnBank_Transaction_CodeChanging(global::System.Int32 value);
+        private global::System.String _Bank_Transaction_Code;
+        partial void OnBank_Transaction_CodeChanging(global::System.String value);
         partial void OnBank_Transaction_CodeChanged();
     
         /// <summary>
@@ -1256,6 +1260,54 @@ namespace StockModel
         private global::System.String _Bank_Transaction_Description;
         partial void OnBank_Transaction_DescriptionChanging(global::System.String value);
         partial void OnBank_Transaction_DescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Bank_Transaction_IsLast
+        {
+            get
+            {
+                return _Bank_Transaction_IsLast;
+            }
+            set
+            {
+                OnBank_Transaction_IsLastChanging(value);
+                ReportPropertyChanging("Bank_Transaction_IsLast");
+                _Bank_Transaction_IsLast = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Transaction_IsLast");
+                OnBank_Transaction_IsLastChanged();
+            }
+        }
+        private global::System.Int32 _Bank_Transaction_IsLast;
+        partial void OnBank_Transaction_IsLastChanging(global::System.Int32 value);
+        partial void OnBank_Transaction_IsLastChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Bank_Transaction_IsDebit
+        {
+            get
+            {
+                return _Bank_Transaction_IsDebit;
+            }
+            set
+            {
+                OnBank_Transaction_IsDebitChanging(value);
+                ReportPropertyChanging("Bank_Transaction_IsDebit");
+                _Bank_Transaction_IsDebit = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Transaction_IsDebit");
+                OnBank_Transaction_IsDebitChanged();
+            }
+        }
+        private global::System.Int32 _Bank_Transaction_IsDebit;
+        partial void OnBank_Transaction_IsDebitChanging(global::System.Int32 value);
+        partial void OnBank_Transaction_IsDebitChanged();
 
         #endregion
     

@@ -49,6 +49,10 @@
             this.priceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cashFlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertBankCashTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +65,7 @@
             this.purchasingToolStripMenuItem,
             this.sellingToolStripMenuItem,
             this.productToolStripMenuItem,
+            this.cashFlowToolStripMenuItem,
             this.administratorToolStripMenuItem,
             this.historyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -161,7 +166,7 @@
             // stockToolStripMenuItem
             // 
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stockToolStripMenuItem.Text = "Stock";
             // 
             // administratorToolStripMenuItem
@@ -176,14 +181,14 @@
             // createUserToolStripMenuItem
             // 
             this.createUserToolStripMenuItem.Name = "createUserToolStripMenuItem";
-            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createUserToolStripMenuItem.Text = "Cr&eate";
             this.createUserToolStripMenuItem.Click += new System.EventHandler(this.createUserToolStripMenuItem_Click);
             // 
             // categoryUserToolStripMenuItem
             // 
             this.categoryUserToolStripMenuItem.Name = "categoryUserToolStripMenuItem";
-            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.categoryUserToolStripMenuItem.Text = "Catego&ry";
             this.categoryUserToolStripMenuItem.Click += new System.EventHandler(this.categoryUserToolStripMenuItem_Click);
             // 
@@ -215,6 +220,35 @@
             this.loginToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.loginToolStripMenuItem.Text = "User Login / Logout";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            // 
+            // cashFlowToolStripMenuItem
+            // 
+            this.cashFlowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cashToolStripMenuItem,
+            this.bankToolStripMenuItem,
+            this.insertBankCashTransactionToolStripMenuItem});
+            this.cashFlowToolStripMenuItem.Name = "cashFlowToolStripMenuItem";
+            this.cashFlowToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.cashFlowToolStripMenuItem.Text = "Cash Flow";
+            // 
+            // cashToolStripMenuItem
+            // 
+            this.cashToolStripMenuItem.Name = "cashToolStripMenuItem";
+            this.cashToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.cashToolStripMenuItem.Text = "Cash";
+            // 
+            // bankToolStripMenuItem
+            // 
+            this.bankToolStripMenuItem.Name = "bankToolStripMenuItem";
+            this.bankToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.bankToolStripMenuItem.Text = "Bank";
+            this.bankToolStripMenuItem.Click += new System.EventHandler(this.bankToolStripMenuItem_Click);
+            // 
+            // insertBankCashTransactionToolStripMenuItem
+            // 
+            this.insertBankCashTransactionToolStripMenuItem.Name = "insertBankCashTransactionToolStripMenuItem";
+            this.insertBankCashTransactionToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.insertBankCashTransactionToolStripMenuItem.Text = "Insert Bank/Cash Transaction";
             // 
             // _mainForm
             // 
@@ -257,6 +291,10 @@
         private System.Windows.Forms.ToolStripMenuItem transactionToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem productToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cashFlowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cashToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bankToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insertBankCashTransactionToolStripMenuItem;
     }
 }
 
