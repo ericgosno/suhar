@@ -98,6 +98,12 @@
     <Compile Include="_administratorList.Designer.cs">
       <DependentUpon>_administratorList.cs</DependentUpon>
     </Compile>
+    <Compile Include="_bankList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_bankList.Designer.cs">
+      <DependentUpon>_bankList.cs</DependentUpon>
+    </Compile>
     <Compile Include="_customerList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_administratorList.resx">
       <DependentUpon>_administratorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_bankList.resx">
+      <DependentUpon>_bankList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_customerList.resx">
       <DependentUpon>_customerList.cs</DependentUpon>
