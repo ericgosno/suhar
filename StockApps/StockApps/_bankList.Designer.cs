@@ -119,6 +119,7 @@
             this._cbankCurrency.Name = "_cbankCurrency";
             this._cbankCurrency.Size = new System.Drawing.Size(463, 37);
             this._cbankCurrency.TabIndex = 2;
+            //this._cbankCurrency.SelectedIndexChanged += new System.EventHandler(this._cbankCurrency_SelectedIndexChanged);
             // 
             // _bbankReset
             // 

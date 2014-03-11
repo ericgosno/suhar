@@ -36,7 +36,8 @@ namespace StockApps
             MySqlDataAdapter adapter;
             MySqlCommand cmd2 = new MySqlCommand();
             MySqlDataAdapter adapter2;
-            string query = "SELECT * from admin_history";
+            //string query = "SELECT * from admin_history";
+            string query = "SELECT a.users_id,u.users_username,a.log_type,a.time_log FROM stockapps.admin_history a,stockapps.users u where a.users_id = u.users_id";
             string query2 = "SELECT users_id,users_username from users";
             try
             {
@@ -66,8 +67,8 @@ namespace StockApps
             // Your .rpt file path will be below
             
             //rptDoc.Load(Application.StartupPath + @"adminReport.rpt");
-            //rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\adminReport.rpt");
-            rptDoc.Load(@"C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockApps\adminReport.rpt");
+            rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\adminReport.rpt");
+            //rptDoc.Load(@"C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockApps\adminReport.rpt");
 
             //set dataset to the report viewer.
             rptDoc.SetDataSource(ds);

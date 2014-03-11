@@ -20,5 +20,10 @@ namespace StockApps
         {
 
         }
+
+        private void _bcusInsert_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -124,5 +124,7 @@ namespace StockApps
                 MessageBox.Show("You must select a Row First!");
             }
         }
+
+    
     }
 }

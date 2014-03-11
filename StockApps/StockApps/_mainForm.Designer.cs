@@ -42,17 +42,22 @@
             this.transactionToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cashFlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertBankCashTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.priceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cashFlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertBankCashTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactionToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sellingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchasingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +72,8 @@
             this.productToolStripMenuItem,
             this.cashFlowToolStripMenuItem,
             this.administratorToolStripMenuItem,
-            this.historyToolStripMenuItem});
+            this.historyToolStripMenuItem,
+            this.reportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
@@ -168,58 +174,7 @@
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
             this.stockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stockToolStripMenuItem.Text = "Stock";
-            // 
-            // administratorToolStripMenuItem
-            // 
-            this.administratorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createUserToolStripMenuItem,
-            this.categoryUserToolStripMenuItem});
-            this.administratorToolStripMenuItem.Name = "administratorToolStripMenuItem";
-            this.administratorToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
-            this.administratorToolStripMenuItem.Text = "Administrator";
-            // 
-            // createUserToolStripMenuItem
-            // 
-            this.createUserToolStripMenuItem.Name = "createUserToolStripMenuItem";
-            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.createUserToolStripMenuItem.Text = "Cr&eate";
-            this.createUserToolStripMenuItem.Click += new System.EventHandler(this.createUserToolStripMenuItem_Click);
-            // 
-            // categoryUserToolStripMenuItem
-            // 
-            this.categoryUserToolStripMenuItem.Name = "categoryUserToolStripMenuItem";
-            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.categoryUserToolStripMenuItem.Text = "Catego&ry";
-            this.categoryUserToolStripMenuItem.Click += new System.EventHandler(this.categoryUserToolStripMenuItem_Click);
-            // 
-            // historyToolStripMenuItem
-            // 
-            this.historyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.priceToolStripMenuItem,
-            this.transactionToolStripMenuItem,
-            this.loginToolStripMenuItem});
-            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
-            this.historyToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.historyToolStripMenuItem.Text = "History";
-            // 
-            // priceToolStripMenuItem
-            // 
-            this.priceToolStripMenuItem.Name = "priceToolStripMenuItem";
-            this.priceToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.priceToolStripMenuItem.Text = "Price";
-            // 
-            // transactionToolStripMenuItem
-            // 
-            this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.transactionToolStripMenuItem.Text = "Transaction";
-            // 
-            // loginToolStripMenuItem
-            // 
-            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.loginToolStripMenuItem.Text = "User Login / Logout";
-            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            this.stockToolStripMenuItem.Click += new System.EventHandler(this.stockToolStripMenuItem_Click);
             // 
             // cashFlowToolStripMenuItem
             // 
@@ -250,6 +205,99 @@
             this.insertBankCashTransactionToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.insertBankCashTransactionToolStripMenuItem.Text = "Insert Bank/Cash Transaction";
             // 
+            // administratorToolStripMenuItem
+            // 
+            this.administratorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createUserToolStripMenuItem,
+            this.categoryUserToolStripMenuItem});
+            this.administratorToolStripMenuItem.Name = "administratorToolStripMenuItem";
+            this.administratorToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.administratorToolStripMenuItem.Text = "Administrator";
+            // 
+            // createUserToolStripMenuItem
+            // 
+            this.createUserToolStripMenuItem.Name = "createUserToolStripMenuItem";
+            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.createUserToolStripMenuItem.Text = "Cr&eate";
+            this.createUserToolStripMenuItem.Click += new System.EventHandler(this.createUserToolStripMenuItem_Click);
+            // 
+            // categoryUserToolStripMenuItem
+            // 
+            this.categoryUserToolStripMenuItem.Name = "categoryUserToolStripMenuItem";
+            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.categoryUserToolStripMenuItem.Text = "Catego&ry";
+            this.categoryUserToolStripMenuItem.Click += new System.EventHandler(this.categoryUserToolStripMenuItem_Click);
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.priceToolStripMenuItem,
+            this.loginToolStripMenuItem});
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.historyToolStripMenuItem.Text = "History";
+            // 
+            // priceToolStripMenuItem
+            // 
+            this.priceToolStripMenuItem.Name = "priceToolStripMenuItem";
+            this.priceToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.priceToolStripMenuItem.Text = "Price";
+            this.priceToolStripMenuItem.Click += new System.EventHandler(this.priceToolStripMenuItem_Click);
+            // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.loginToolStripMenuItem.Text = "User Login / Logout";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.transactionToolStripMenuItem3,
+            this.userToolStripMenuItem,
+            this.supplierToolStripMenuItem1});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // transactionToolStripMenuItem3
+            // 
+            this.transactionToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sellingToolStripMenuItem2,
+            this.purchasingToolStripMenuItem2});
+            this.transactionToolStripMenuItem3.Name = "transactionToolStripMenuItem3";
+            this.transactionToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.transactionToolStripMenuItem3.Text = "Transaction";
+            // 
+            // sellingToolStripMenuItem2
+            // 
+            this.sellingToolStripMenuItem2.Name = "sellingToolStripMenuItem2";
+            this.sellingToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.sellingToolStripMenuItem2.Text = "Selling";
+            this.sellingToolStripMenuItem2.Click += new System.EventHandler(this.sellingToolStripMenuItem2_Click);
+            // 
+            // purchasingToolStripMenuItem2
+            // 
+            this.purchasingToolStripMenuItem2.Name = "purchasingToolStripMenuItem2";
+            this.purchasingToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.purchasingToolStripMenuItem2.Text = "Purchasing";
+            this.purchasingToolStripMenuItem2.Click += new System.EventHandler(this.purchasingToolStripMenuItem2_Click);
+            // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.userToolStripMenuItem.Text = "Customer";
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            // 
+            // supplierToolStripMenuItem1
+            // 
+            this.supplierToolStripMenuItem1.Name = "supplierToolStripMenuItem1";
+            this.supplierToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.supplierToolStripMenuItem1.Text = "Supplier";
+            this.supplierToolStripMenuItem1.Click += new System.EventHandler(this.supplierToolStripMenuItem1_Click);
+            // 
             // _mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,7 +325,6 @@
         private System.Windows.Forms.ToolStripMenuItem createUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoryUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem priceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem transactionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
@@ -295,6 +342,12 @@
         private System.Windows.Forms.ToolStripMenuItem cashToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bankToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertBankCashTransactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transactionToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem sellingToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem purchasingToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem1;
     }
 }
 

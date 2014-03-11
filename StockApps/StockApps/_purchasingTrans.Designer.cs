@@ -209,7 +209,7 @@
             this._dtTransDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._dtTransDate.Location = new System.Drawing.Point(176, 86);
             this._dtTransDate.Name = "_dtTransDate";
-            this._dtTransDate.Size = new System.Drawing.Size(386, 35);
+            this._dtTransDate.Size = new System.Drawing.Size(389, 35);
             this._dtTransDate.TabIndex = 37;
             // 
             // label4
