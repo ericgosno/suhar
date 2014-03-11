@@ -42,6 +42,8 @@
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -73,11 +75,11 @@
       <DependentUpon>adminReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="customerReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customerReport.Designer.cs">
+      <DependentUpon>customerReport.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="dsAdmin.Designer.cs">
@@ -85,7 +87,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAdmin.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsSelling.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSelling.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="priceHistoryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="priceHistoryReport.Designer.cs">
+      <DependentUpon>priceHistoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="purchasingReporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="purchasingReporting.Designer.cs">
+      <DependentUpon>purchasingReporting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellingReport.Designer.cs">
+      <DependentUpon>sellingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellingReportSuratJalan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sellingReportSuratJalan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Session.cs" />
+    <Compile Include="supplierReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="supplierReport.Designer.cs">
+      <DependentUpon>supplierReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="_administratorCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +191,12 @@
     <Compile Include="_sellingTransv2.Designer.cs">
       <DependentUpon>_sellingTransv2.cs</DependentUpon>
     </Compile>
+    <Compile Include="_StockList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_StockList.Designer.cs">
+      <DependentUpon>_StockList.cs</DependentUpon>
+    </Compile>
     <Compile Include="_supplierList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,9 +228,24 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>adminReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
+    <EmbeddedResource Include="customerReport.resx">
+      <DependentUpon>customerReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="priceHistoryReport.resx">
+      <DependentUpon>priceHistoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="purchasingReporting.resx">
+      <DependentUpon>purchasingReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReport.resx">
+      <DependentUpon>sellingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReportSuratJalan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+      <LastGenOutput>sellingReportSuratJalan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supplierReport.resx">
+      <DependentUpon>supplierReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_administratorCategory.resx">
       <DependentUpon>_administratorCategory.cs</DependentUpon>
@@ -232,6 +290,9 @@
     <EmbeddedResource Include="_sellingTransv2.resx">
       <DependentUpon>_sellingTransv2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_StockList.resx">
+      <DependentUpon>_StockList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_supplierList.resx">
       <DependentUpon>_supplierList.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,6 +318,17 @@
     </None>
     <None Include="dsAdmin.xss">
       <DependentUpon>dsAdmin.xsd</DependentUpon>
+    </None>
+    <None Include="dsSelling.xsc">
+      <DependentUpon>dsSelling.xsd</DependentUpon>
+    </None>
+    <None Include="dsSelling.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSelling.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsSelling.xss">
+      <DependentUpon>dsSelling.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

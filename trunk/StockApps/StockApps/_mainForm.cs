@@ -19,7 +19,8 @@ namespace StockApps
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            adminHistoryR formAdminHistory = new adminHistoryR();
+            formAdminHistory.Show();
         }
 
         private void addCategoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +74,54 @@ namespace StockApps
         {
             _bankList bankList = new _bankList();
             bankList.Show();
+        }
+
+        private void sellingToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            sellingReport formReportSelling = new sellingReport();
+            formReportSelling.Show();
+        }
+
+        private void purchasingToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            purchasingReporting formReportPurchasing = new purchasingReporting();
+            formReportPurchasing.Show();
+        }
+
+        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _StockList formStockList = new _StockList();
+            formStockList.Show();
+        }
+
+        private void sellingToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            sellingReport formReportSelling = new sellingReport();
+            formReportSelling.Show();
+        }
+
+        private void purchasingToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            purchasingReporting formReportPurchasing = new purchasingReporting();
+            formReportPurchasing.Show();
+        }
+
+        private void supplierToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            supplierReport formReportSupplier = new supplierReport();
+            formReportSupplier.Show();
+        }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            customerReport formReportCustomer = new customerReport();
+            formReportCustomer.Show();
+        }
+
+        private void priceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            priceHistoryReport formReportPrice = new priceHistoryReport();
+            formReportPrice.Show();
         }
     }
 }

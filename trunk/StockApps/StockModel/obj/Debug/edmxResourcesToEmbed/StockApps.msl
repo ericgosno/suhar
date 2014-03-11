@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="stockappsModelStoreContainer" CdmEntityContainer="stockappsEntities">
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="stockappsModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="Customer_NPWP" ColumnName="Customer_NPWP" />
+          <ScalarProperty Name="Customer_Status" ColumnName="Customer_Status" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+          <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+          <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+          <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_transaction">
+      <EntityTypeMapping TypeName="stockappsModel.customer_transaction">
+        <MappingFragment StoreEntitySet="customer_transaction">
+          <ScalarProperty Name="Customer_Transaction_ID" ColumnName="Customer_Transaction_ID" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Customer_Transaction_Total_Rupiah" ColumnName="Customer_Transaction_Total_Rupiah" />
+          <ScalarProperty Name="Customer_Transaction_Total_Dollar" ColumnName="Customer_Transaction_Total_Dollar" />
+          <ScalarProperty Name="Customer_Transaction_Date" ColumnName="Customer_Transaction_Date" />
+          <ScalarProperty Name="Customer_Transaction_Status" ColumnName="Customer_Transaction_Status" />
+          <ScalarProperty Name="Customer_Transaction_Description" ColumnName="Customer_Transaction_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_transaction_product">
+      <EntityTypeMapping TypeName="stockappsModel.customer_transaction_product">
+        <MappingFragment StoreEntitySet="customer_transaction_product">
+          <ScalarProperty Name="Customer_Transaction_ID" ColumnName="Customer_Transaction_ID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Customer_Transaction_Product_Quantity" ColumnName="Customer_Transaction_Product_Quantity" />
+          <ScalarProperty Name="Customer_Transaction_Product_Price_Dollar" ColumnName="Customer_Transaction_Product_Price_Dollar" />
+          <ScalarProperty Name="Customer_Transaction_Product_Price_Rupiah" ColumnName="Customer_Transaction_Product_Price_Rupiah" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="price_history">
+      <EntityTypeMapping TypeName="stockappsModel.price_history">
+        <MappingFragment StoreEntitySet="price_history">
+          <ScalarProperty Name="Currency_ID" ColumnName="Currency_ID" />
+          <ScalarProperty Name="Price_History_ID" ColumnName="Price_History_ID" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Price_History_Price" ColumnName="Price_History_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="stockappsModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="Product_Status" ColumnName="Product_Status" />
+          <ScalarProperty Name="Product_Packing_Kilogram" ColumnName="Product_Packing_Kilogram" />
+          <ScalarProperty Name="Product_Packing_Name" ColumnName="Product_Packing_Name" />
+          <ScalarProperty Name="Currency_ID" ColumnName="Currency_ID" />
+          <ScalarProperty Name="Product_Buy_Price" ColumnName="Product_Buy_Price" />
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Product_Category_ID" ColumnName="Product_Category_ID" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Stock" ColumnName="Product_Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product_category">
+      <EntityTypeMapping TypeName="stockappsModel.product_category">
+        <MappingFragment StoreEntitySet="product_category">
+          <ScalarProperty Name="Product_Category_Status" ColumnName="Product_Category_Status" />
+          <ScalarProperty Name="Product_Category_ID" ColumnName="Product_Category_ID" />
+          <ScalarProperty Name="Product_Category_Name" ColumnName="Product_Category_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suppliers">
+      <EntityTypeMapping TypeName="stockappsModel.supplier">
+        <MappingFragment StoreEntitySet="supplier">
+          <ScalarProperty Name="Supplier_NPWP" ColumnName="Supplier_NPWP" />
+          <ScalarProperty Name="Supplier_Status" ColumnName="Supplier_Status" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
+          <ScalarProperty Name="Supplier_Address" ColumnName="Supplier_Address" />
+          <ScalarProperty Name="Supplier_Email" ColumnName="Supplier_Email" />
+          <ScalarProperty Name="Supplier_Phone" ColumnName="Supplier_Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="supplier_transaction">
+      <EntityTypeMapping TypeName="stockappsModel.supplier_transaction">
+        <MappingFragment StoreEntitySet="supplier_transaction">
+          <ScalarProperty Name="Supplier_Transaction_Total_Rupiah" ColumnName="Supplier_Transaction_Total_Rupiah" />
+          <ScalarProperty Name="Supplier_Transaction_ID" ColumnName="Supplier_Transaction_ID" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Supplier_Transaction_Total_Dollar" ColumnName="Supplier_Transaction_Total_Dollar" />
+          <ScalarProperty Name="Supplier_Transaction_Date" ColumnName="Supplier_Transaction_Date" />
+          <ScalarProperty Name="Supplier_Transaction_Status" ColumnName="Supplier_Transaction_Status" />
+          <ScalarProperty Name="Supplier_Transaction_Description" ColumnName="Supplier_Transaction_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="supplier_transaction_product">
+      <EntityTypeMapping TypeName="stockappsModel.supplier_transaction_product">
+        <MappingFragment StoreEntitySet="supplier_transaction_product">
+          <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+          <ScalarProperty Name="Supplier_Transaction_ID" ColumnName="Supplier_Transaction_ID" />
+          <ScalarProperty Name="Supplier_Transaction_Product_Quantity" ColumnName="Supplier_Transaction_Product_Quantity" />
+          <ScalarProperty Name="Supplier_Transaction_Product_Price_Dollar" ColumnName="Supplier_Transaction_Product_Price_Dollar" />
+          <ScalarProperty Name="Supplier_Transaction_Product_Price_Rupiah" ColumnName="Supplier_Transaction_Product_Price_Rupiah" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="stockappsModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="users_email" ColumnName="users_email" />
+          <ScalarProperty Name="Privilege_ID" ColumnName="Privilege_ID" />
+          <ScalarProperty Name="users_status" ColumnName="users_status" />
+          <ScalarProperty Name="users_password" ColumnName="users_password" />
+          <ScalarProperty Name="users_username" ColumnName="users_username" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="privileges">
+      <EntityTypeMapping TypeName="stockappsModel.privilege">
+        <MappingFragment StoreEntitySet="privilege">
+          <ScalarProperty Name="Privilege_name" ColumnName="Privilege_name" />
+          <ScalarProperty Name="Privilege_ID" ColumnName="Privilege_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="authorizations">
+      <EntityTypeMapping TypeName="stockappsModel.authorization">
+        <MappingFragment StoreEntitySet="authorization">
+          <ScalarProperty Name="Authorization_Status" ColumnName="Authorization_Status" />
+          <ScalarProperty Name="Authorization_Name" ColumnName="Authorization_Name" />
+          <ScalarProperty Name="Authorization_ID" ColumnName="Authorization_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="privilege_authorization">
+      <EntityTypeMapping TypeName="stockappsModel.privilege_authorization">
+        <MappingFragment StoreEntitySet="privilege_authorization">
+          <ScalarProperty Name="Privilege_Authorization_Status" ColumnName="Privilege_Authorization_Status" />
+          <ScalarProperty Name="Authorization_ID" ColumnName="Authorization_ID" />
+          <ScalarProperty Name="Privilege_ID" ColumnName="Privilege_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="currencies">
+      <EntityTypeMapping TypeName="stockappsModel.currency">
+        <MappingFragment StoreEntitySet="currency">
+          <ScalarProperty Name="Currency_Name" ColumnName="Currency_Name" />
+          <ScalarProperty Name="Currency_ID" ColumnName="Currency_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admin_history">
+      <EntityTypeMapping TypeName="stockappsModel.admin_history">
+        <MappingFragment StoreEntitySet="admin_history">
+          <ScalarProperty Name="time_log" ColumnName="time_log" />
+          <ScalarProperty Name="log_type" ColumnName="log_type" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="admin_history_id" ColumnName="admin_history_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="banks">
+      <EntityTypeMapping TypeName="stockappsModel.bank">
+        <MappingFragment StoreEntitySet="bank">
+          <ScalarProperty Name="Bank_Status" ColumnName="Bank_Status" />
+          <ScalarProperty Name="Bank_Current_Money" ColumnName="Bank_Current_Money" />
+          <ScalarProperty Name="Currency_ID" ColumnName="Currency_ID" />
+          <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+          <ScalarProperty Name="Bank_ID" ColumnName="Bank_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bank_transaction">
+      <EntityTypeMapping TypeName="stockappsModel.bank_transaction">
+        <MappingFragment StoreEntitySet="bank_transaction">
+          <ScalarProperty Name="Bank_Transaction_IsDebit" ColumnName="Bank_Transaction_IsDebit" />
+          <ScalarProperty Name="Bank_Transaction_IsLast" ColumnName="Bank_Transaction_IsLast" />
+          <ScalarProperty Name="Bank_Transaction_Description" ColumnName="Bank_Transaction_Description" />
+          <ScalarProperty Name="Bank_Transaction_Total_Now" ColumnName="Bank_Transaction_Total_Now" />
+          <ScalarProperty Name="Bank_Transaction_Money" ColumnName="Bank_Transaction_Money" />
+          <ScalarProperty Name="Bank_Transaction_Code" ColumnName="Bank_Transaction_Code" />
+          <ScalarProperty Name="Bank_Transaction_Date" ColumnName="Bank_Transaction_Date" />
+          <ScalarProperty Name="Bank_ID" ColumnName="Bank_ID" />
+          <ScalarProperty Name="Bank_Transaction_ID" ColumnName="Bank_Transaction_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment_category">
+      <EntityTypeMapping TypeName="stockappsModel.payment_category">
+        <MappingFragment StoreEntitySet="payment_category">
+          <ScalarProperty Name="Payment_Category_Name" ColumnName="Payment_Category_Name" />
+          <ScalarProperty Name="Payment_Category_ID" ColumnName="Payment_Category_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="supplier_payment">
+      <EntityTypeMapping TypeName="stockappsModel.supplier_payment">
+        <MappingFragment StoreEntitySet="supplier_payment">
+          <ScalarProperty Name="Supplier_Payment_Total_Dollar" ColumnName="Supplier_Payment_Total_Dollar" />
+          <ScalarProperty Name="Supplier_Payment_Total_Rupiah" ColumnName="Supplier_Payment_Total_Rupiah" />
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Supplier_Payment_ID" ColumnName="Supplier_Payment_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
