@@ -147,7 +147,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "_bankList";
-            this.Text = "_bankList";
+            this.Text = "CV. WARNA MURNI - Bank";
             ((System.ComponentModel.ISupportInitialize)(this._dataBank)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

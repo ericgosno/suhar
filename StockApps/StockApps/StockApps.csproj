@@ -153,6 +153,12 @@
     <Compile Include="_history.Designer.cs">
       <DependentUpon>_history.cs</DependentUpon>
     </Compile>
+    <Compile Include="_insertBankTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_insertBankTransaction.Designer.cs">
+      <DependentUpon>_insertBankTransaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="_mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_history.resx">
       <DependentUpon>_history.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_insertBankTransaction.resx">
+      <DependentUpon>_insertBankTransaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_mainForm.resx">
       <DependentUpon>_mainForm.cs</DependentUpon>
