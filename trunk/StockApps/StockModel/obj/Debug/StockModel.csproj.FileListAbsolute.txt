@@ -1,6 +1,0 @@
-C:\Users\Stefanus\Desktop\suhar\StockApps\StockModel\bin\Debug\StockModel.dll.config
-C:\Users\Stefanus\Desktop\suhar\StockApps\StockModel\bin\Debug\StockModel.dll
-C:\Users\Stefanus\Desktop\suhar\StockApps\StockModel\bin\Debug\StockModel.pdb
-C:\Users\Stefanus\Desktop\suhar\StockApps\StockModel\obj\Debug\StockModel.csprojResolveAssemblyReference.cache
-C:\Users\Stefanus\Desktop\suhar\StockApps\StockModel\obj\Debug\StockModel.dll
-C:\Users\Stefanus\Desktop\suhar\StockApps\StockModel\obj\Debug\StockModel.pdb

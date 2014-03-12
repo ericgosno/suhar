@@ -34,13 +34,30 @@ namespace StockModel
                        select e;
             return list;
         }
-
         public static IQueryable<bank> getBank(int bankId)
         {
             return getBank().Where(a => a.Bank_ID == bankId);
         }
 
         public static IQueryable<bank> getBank(string bankName)
+        {
+            return getBank().Where(a => a.Bank_Name.Contains(bankName));
+        }
+
+        public static IQueryable<bank> getBankWithCash()
+        {
+            var list = from e in StockEntity.Entity.banks
+                       where e.Bank_Status == 1 || e.Bank_Status == 2
+                       select e;
+            return list;
+        }
+
+        public static IQueryable<bank> getBankWithCash(int bankId)
+        {
+            return getBank().Where(a => a.Bank_ID == bankId);
+        }
+
+        public static IQueryable<bank> getBankWithCash(string bankName)
         {
             return getBank().Where(a => a.Bank_Name.Contains(bankName));
         }
@@ -145,6 +162,8 @@ namespace StockModel
                 newTrans.Bank_Transaction_Total_Now = totalNow - money; 
             }
             bankNow.First().Bank_Current_Money = newTrans.Bank_Transaction_Total_Now;
+            newTrans.Bank_Transaction_IsLast = 1;
+            StockEntity.Entity.AddTobank_transaction(newTrans);
             StockEntity.Entity.SaveChanges();
             return newTrans;
         }

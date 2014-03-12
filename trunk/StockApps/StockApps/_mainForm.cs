@@ -81,6 +81,11 @@ namespace StockApps
             sellingReport formReportSelling = new sellingReport();
             formReportSelling.Show();
         }
+        private void insertBankCashTransactionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _insertBankTransaction insertBankTrans = new _insertBankTransaction();
+            insertBankTrans.Show();
+        }
 
         private void purchasingToolStripMenuItem1_Click(object sender, EventArgs e)
         {

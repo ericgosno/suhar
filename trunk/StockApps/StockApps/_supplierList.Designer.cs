@@ -130,6 +130,8 @@
             // 
             // _dgvspListSupplier
             // 
+            this._dgvspListSupplier.AllowUserToAddRows = false;
+            this._dgvspListSupplier.AllowUserToDeleteRows = false;
             this._dgvspListSupplier.Location = new System.Drawing.Point(18, 278);
             this._dgvspListSupplier.MultiSelect = false;
             this._dgvspListSupplier.Name = "_dgvspListSupplier";
