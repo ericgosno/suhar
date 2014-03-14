@@ -24,6 +24,7 @@ namespace StockApps
             _tcusEmail.Text = "";
             _tcusPhone.Text = "";
             _dataCustomer.DataSource = CustomerController.getCustomer();
+            _dataCustomer.Columns["Customer_Company_Name"].HeaderText = "Company Name";
             _dataCustomer.Columns["Customer_Name"].HeaderText = "Name";
             _dataCustomer.Columns["Customer_Address"].HeaderText = "Address";
             _dataCustomer.Columns["Customer_Email"].HeaderText = "Email";
@@ -46,7 +47,7 @@ namespace StockApps
                 return;
             }
 
-            CustomerController.insertCustomer(_tcusName.Text, _tcusAddress.Text, _tcusEmail.Text, _tcusPhone.Text,_tcusNPWP.Text);
+            CustomerController.insertCustomer(_tcusName.Text, _tcusAddress.Text, _tcusEmail.Text, _tcusPhone.Text,_tcusNPWP.Text,_tcusCompany.Text);
             RefreshForm();
         }
 
@@ -66,7 +67,7 @@ namespace StockApps
         private void _dataCustomer_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var rowNow = _dataCustomer.Rows[e.RowIndex];
-            CustomerController.editCustomer((int)rowNow.Cells["Customer_ID"].Value, rowNow.Cells["Customer_Name"].Value.ToString(), rowNow.Cells["Customer_Address"].Value.ToString(), rowNow.Cells["Customer_Email"].Value.ToString(), rowNow.Cells["Customer_Phone"].Value.ToString(), rowNow.Cells["Customer_NPWP"].Value.ToString());
+            CustomerController.editCustomer((int)rowNow.Cells["Customer_ID"].Value, rowNow.Cells["Customer_Name"].Value.ToString(), rowNow.Cells["Customer_Address"].Value.ToString(), rowNow.Cells["Customer_Email"].Value.ToString(), rowNow.Cells["Customer_Phone"].Value.ToString(), rowNow.Cells["Customer_NPWP"].Value.ToString(), rowNow.Cells["Customer_Company_Name"].Value.ToString());
             _dataCustomer.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }

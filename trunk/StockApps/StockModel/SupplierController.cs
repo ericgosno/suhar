@@ -15,7 +15,7 @@ namespace StockModel
             StockEntity.Entity.SaveChanges();
             return newSupplier;
         }
-        public static supplier insertSupplier(string supplierName, string supplierAddress, string supplierEmail, string supplierPhone,string supplierNPWP)
+        public static supplier insertSupplier(string supplierName, string supplierAddress, string supplierEmail, string supplierPhone,string supplierNPWP, string supplierCompany)
         {
             supplier newSupplier = new supplier();
             newSupplier.Supplier_Name = supplierName;
@@ -23,6 +23,7 @@ namespace StockModel
             newSupplier.Supplier_Email = supplierEmail;
             newSupplier.Supplier_Phone = supplierPhone;
             newSupplier.Supplier_NPWP = supplierNPWP;
+            newSupplier.Supplier_Company_Name = supplierCompany;
             newSupplier.Supplier_Status = 1;
             StockEntity.Entity.AddTosuppliers(newSupplier);
             StockEntity.Entity.SaveChanges();
@@ -52,7 +53,7 @@ namespace StockModel
             return getSupplier().Where(a => a.Supplier_Name.Contains(supplierName) && a.Supplier_ID == supplierId);
         }
 
-        public static supplier editSupplier(int supplierId, string supplierName, string supplierAddress, string supplierEmail, string supplierPhone,string supplierNPWP)
+        public static supplier editSupplier(int supplierId, string supplierName, string supplierAddress, string supplierEmail, string supplierPhone,string supplierNPWP,string supplierCompany)
         {
             supplier supplierNows = (from f in StockEntity.Entity.suppliers
                                     where f.Supplier_ID == supplierId
@@ -63,6 +64,7 @@ namespace StockModel
             supplierNows.Supplier_Email = supplierEmail;
             supplierNows.Supplier_Phone = supplierPhone;
             supplierNows.Supplier_NPWP = supplierNPWP;
+            supplierNows.Supplier_Company_Name = supplierCompany;
             StockEntity.Entity.SaveChanges();
 
             return getSupplier(supplierId).First();

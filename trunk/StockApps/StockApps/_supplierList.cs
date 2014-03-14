@@ -30,6 +30,7 @@ namespace StockApps
             _dgvspListSupplier.Columns["Supplier_Email"].HeaderText = "Email";
             _dgvspListSupplier.Columns["Supplier_Phone"].HeaderText = "Phone";
             _dgvspListSupplier.Columns["Supplier_NPWP"].HeaderText = "NPWP";
+            _dgvspListSupplier.Columns["Supplier_Company_Name"].HeaderText = "Company Name";
 
             _dgvspListSupplier.Columns["Supplier_Status"].Visible = false;
             _dgvspListSupplier.Columns["Supplier_ID"].Visible = false;
@@ -47,7 +48,7 @@ namespace StockApps
                 MessageBox.Show("Name cannot be null!");
                 return;
             }
-            SupplierController.insertSupplier(_tspName.Text, _tspAddress.Text, _tspEmail.Text, _tspPhone.Text,_tspNPWP.Text);
+            SupplierController.insertSupplier(_tspName.Text, _tspAddress.Text, _tspEmail.Text, _tspPhone.Text,_tspNPWP.Text,_tspCompany.Text);
             RefreshForm();
         }
 
@@ -67,21 +68,21 @@ namespace StockApps
         private void _dgvspListSupplier_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var rowNow = _dgvspListSupplier.Rows[e.RowIndex];
-            SupplierController.editSupplier((int)rowNow.Cells["Supplier_ID"].Value, rowNow.Cells["Supplier_Name"].Value.ToString(), rowNow.Cells["Supplier_Address"].Value.ToString(), rowNow.Cells["Supplier_Email"].Value.ToString(), rowNow.Cells["Supplier_Phone"].Value.ToString(),rowNow.Cells["Supplier_NPWP"].Value.ToString());
+            SupplierController.editSupplier(Convert.ToInt32(rowNow.Cells["Supplier_ID"].Value), rowNow.Cells["Supplier_Name"].Value.ToString(), rowNow.Cells["Supplier_Address"].Value.ToString(), rowNow.Cells["Supplier_Email"].Value.ToString(), rowNow.Cells["Supplier_Phone"].Value.ToString(), rowNow.Cells["Supplier_NPWP"].Value.ToString(), rowNow.Cells["Supplier_Company_Name"].Value.ToString());
             _dgvspListSupplier.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private void _bspDetail_Click(object sender, EventArgs e)
         {
-           // try
-            //{
-                _supplierListPopUp1 detailSupplier = new _supplierListPopUp1(SupplierController.getSupplier((int)_dgvspListSupplier.SelectedRows[0].Cells["Supplier_ID"].Value).First());
+            try
+            {
+                _supplierListPopUp1 detailSupplier = new _supplierListPopUp1(SupplierController.getSupplier(Convert.ToInt32(_dgvspListSupplier.SelectedRows[0].Cells["Supplier_ID"].Value)).First());
                 detailSupplier.Show();
-           //}
-            //catch (Exception ex)
-           // {
-            //    MessageBox.Show("You must select a Row First!");
-           //}
+           }
+           catch (Exception ex)
+           {
+                MessageBox.Show("You must select a Row First!");
+           }
         }
     }
 }

@@ -42,13 +42,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this._tcusNPWP = new System.Windows.Forms.TextBox();
+            this._tcusCompany = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dataCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // _bcusDelete
             // 
             this._bcusDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusDelete.Location = new System.Drawing.Point(607, 496);
+            this._bcusDelete.Location = new System.Drawing.Point(611, 537);
             this._bcusDelete.Name = "_bcusDelete";
             this._bcusDelete.Size = new System.Drawing.Size(115, 35);
             this._bcusDelete.TabIndex = 21;
@@ -59,7 +61,7 @@
             // _bcusInsert
             // 
             this._bcusInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusInsert.Location = new System.Drawing.Point(602, 225);
+            this._bcusInsert.Location = new System.Drawing.Point(611, 266);
             this._bcusInsert.Name = "_bcusInsert";
             this._bcusInsert.Size = new System.Drawing.Size(115, 35);
             this._bcusInsert.TabIndex = 6;
@@ -70,7 +72,7 @@
             // _dataCustomer
             // 
             this._dataCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._dataCustomer.Location = new System.Drawing.Point(23, 266);
+            this._dataCustomer.Location = new System.Drawing.Point(27, 307);
             this._dataCustomer.Name = "_dataCustomer";
             this._dataCustomer.Size = new System.Drawing.Size(699, 224);
             this._dataCustomer.TabIndex = 19;
@@ -176,11 +178,31 @@
             this._tcusNPWP.Size = new System.Drawing.Size(463, 35);
             this._tcusNPWP.TabIndex = 5;
             // 
+            // _tcusCompany
+            // 
+            this._tcusCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._tcusCompany.Location = new System.Drawing.Point(133, 266);
+            this._tcusCompany.Name = "_tcusCompany";
+            this._tcusCompany.Size = new System.Drawing.Size(463, 35);
+            this._tcusCompany.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(0, 264);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 29);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Company :";
+            // 
             // _customerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 535);
+            this.ClientSize = new System.Drawing.Size(752, 579);
+            this.Controls.Add(this._tcusCompany);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this._tcusNPWP);
             this.Controls.Add(this.label6);
             this.Controls.Add(this._bcusDelete);
@@ -219,5 +241,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox _tcusNPWP;
+        private System.Windows.Forms.TextBox _tcusCompany;
+        private System.Windows.Forms.Label label7;
     }
 }

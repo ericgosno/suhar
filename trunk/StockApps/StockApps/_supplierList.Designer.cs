@@ -43,6 +43,8 @@
             this._bspDetail = new System.Windows.Forms.Button();
             this._tspNPWP = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this._tspCompany = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dgvspListSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,7 +134,7 @@
             // 
             this._dgvspListSupplier.AllowUserToAddRows = false;
             this._dgvspListSupplier.AllowUserToDeleteRows = false;
-            this._dgvspListSupplier.Location = new System.Drawing.Point(18, 278);
+            this._dgvspListSupplier.Location = new System.Drawing.Point(18, 313);
             this._dgvspListSupplier.MultiSelect = false;
             this._dgvspListSupplier.Name = "_dgvspListSupplier";
             this._dgvspListSupplier.Size = new System.Drawing.Size(722, 239);
@@ -142,7 +144,7 @@
             // _bspInsert
             // 
             this._bspInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspInsert.Location = new System.Drawing.Point(625, 227);
+            this._bspInsert.Location = new System.Drawing.Point(625, 265);
             this._bspInsert.Name = "_bspInsert";
             this._bspInsert.Size = new System.Drawing.Size(115, 35);
             this._bspInsert.TabIndex = 6;
@@ -153,7 +155,7 @@
             // _bspDelete
             // 
             this._bspDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDelete.Location = new System.Drawing.Point(625, 523);
+            this._bspDelete.Location = new System.Drawing.Point(625, 558);
             this._bspDelete.Name = "_bspDelete";
             this._bspDelete.Size = new System.Drawing.Size(115, 35);
             this._bspDelete.TabIndex = 8;
@@ -164,7 +166,7 @@
             // _bspDetail
             // 
             this._bspDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDetail.Location = new System.Drawing.Point(504, 523);
+            this._bspDetail.Location = new System.Drawing.Point(504, 558);
             this._bspDetail.Name = "_bspDetail";
             this._bspDetail.Size = new System.Drawing.Size(115, 35);
             this._bspDetail.TabIndex = 10;
@@ -190,11 +192,31 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "NPWP :";
             // 
+            // _tspCompany
+            // 
+            this._tspCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._tspCompany.Location = new System.Drawing.Point(133, 268);
+            this._tspCompany.Name = "_tspCompany";
+            this._tspCompany.Size = new System.Drawing.Size(463, 35);
+            this._tspCompany.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(-4, 265);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(133, 29);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Company  :";
+            // 
             // _supplierList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 564);
+            this.ClientSize = new System.Drawing.Size(752, 600);
+            this.Controls.Add(this._tspCompany);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this._tspNPWP);
             this.Controls.Add(this.label6);
             this.Controls.Add(this._bspDetail);
@@ -236,6 +258,8 @@
         private System.Windows.Forms.Button _bspDetail;
         private System.Windows.Forms.TextBox _tspNPWP;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox _tspCompany;
+        private System.Windows.Forms.Label label7;
 
     }
 }

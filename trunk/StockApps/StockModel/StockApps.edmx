@@ -14,6 +14,7 @@
           <EntitySet Name="customer" EntityType="stockappsModel.Store.customer" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="customer_transaction" EntityType="stockappsModel.Store.customer_transaction" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="customer_transaction_product" EntityType="stockappsModel.Store.customer_transaction_product" store:Type="Tables" Schema="stockapps" />
+          <EntitySet Name="identity" EntityType="stockappsModel.Store.identity" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="payment_category" EntityType="stockappsModel.Store.payment_category" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="price_history" EntityType="stockappsModel.Store.price_history" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="privilege" EntityType="stockappsModel.Store.privilege" store:Type="Tables" Schema="stockapps" />
@@ -31,6 +32,10 @@
           </AssociationSet>
           <AssociationSet Name="customer_transaction_ibfk_1" Association="stockappsModel.Store.customer_transaction_ibfk_1">
             <End Role="customer" EntitySet="customer" />
+            <End Role="customer_transaction" EntitySet="customer_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="customer_transaction_ibfk_2" Association="stockappsModel.Store.customer_transaction_ibfk_2">
+            <End Role="currency" EntitySet="currency" />
             <End Role="customer_transaction" EntitySet="customer_transaction" />
           </AssociationSet>
           <AssociationSet Name="customer_transaction_product_ibfk_1" Association="stockappsModel.Store.customer_transaction_product_ibfk_1">
@@ -120,7 +125,7 @@
           <Property Name="Bank_Transaction_ID" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Bank_ID" Type="int" Nullable="false" />
           <Property Name="Bank_Transaction_Date" Type="datetime" Nullable="false" />
-          <Property Name="Bank_Transaction_Code" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Bank_Transaction_Code" Type="varchar" MaxLength="10" />
           <Property Name="Bank_Transaction_IsDebit" Type="int" Nullable="false" />
           <Property Name="Bank_Transaction_Money" Type="decimal" Nullable="false" Precision="12" Scale="2" />
           <Property Name="Bank_Transaction_Total_Now" Type="decimal" Nullable="false" Precision="12" Scale="2" />
@@ -139,7 +144,8 @@
             <PropertyRef Name="Customer_ID" />
           </Key>
           <Property Name="Customer_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Customer_Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Customer_Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Customer_Company_Name" Type="varchar" MaxLength="100" />
           <Property Name="Customer_Address" Type="varchar" MaxLength="200" />
           <Property Name="Customer_Email" Type="varchar" MaxLength="50" />
           <Property Name="Customer_Phone" Type="varchar" MaxLength="12" />
@@ -151,12 +157,18 @@
             <PropertyRef Name="Customer_Transaction_ID" />
           </Key>
           <Property Name="Customer_Transaction_ID" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Customer_Transaction_Note_Number" Type="varchar" MaxLength="20" />
           <Property Name="Customer_ID" Type="int" />
+          <Property Name="Currency_ID" Type="int" Nullable="false" />
+          <Property Name="Customer_Transaction_Rupiah" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="Customer_Transaction_PPN_Rupiah" Type="decimal" Precision="12" Scale="2" />
           <Property Name="Customer_Transaction_Total_Rupiah" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="Customer_Transaction_Dollar" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="Customer_Transaction_PPN_Dollar" Type="decimal" Precision="12" Scale="2" />
           <Property Name="Customer_Transaction_Total_Dollar" Type="decimal" Precision="12" Scale="2" />
           <Property Name="Customer_Transaction_Date" Type="datetime" Nullable="false" />
-          <Property Name="Customer_Transaction_Status" Type="int" Nullable="false" />
           <Property Name="Customer_Transaction_Description" Type="varchar" MaxLength="200" />
+          <Property Name="Customer_Transaction_Status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="customer_transaction_product">
           <Key>
@@ -167,7 +179,20 @@
           <Property Name="Product_ID" Type="int" Nullable="false" />
           <Property Name="Customer_Transaction_Product_Quantity" Type="int" />
           <Property Name="Customer_Transaction_Product_Price_Dollar" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="Customer_Transaction_Product_Total_Dollar" Type="decimal" Precision="12" Scale="2" />
           <Property Name="Customer_Transaction_Product_Price_Rupiah" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="Customer_Transaction_Product_Total_Rupiah" Type="decimal" Precision="12" Scale="2" />
+        </EntityType>
+        <EntityType Name="identity">
+          <Key>
+            <PropertyRef Name="Identity_ID" />
+          </Key>
+          <Property Name="Identity_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Identity_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Identity_Company_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Identity_Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Identity_Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Identity_Address" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="payment_category">
           <Key>
@@ -229,7 +254,8 @@
             <PropertyRef Name="Supplier_ID" />
           </Key>
           <Property Name="Supplier_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Supplier_Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Supplier_Name" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Supplier_Company_Name" Type="varchar" MaxLength="100" />
           <Property Name="Supplier_Address" Type="varchar" MaxLength="250" />
           <Property Name="Supplier_Email" Type="varchar" MaxLength="200" />
           <Property Name="Supplier_Phone" Type="longtext" />
@@ -302,6 +328,18 @@
             </Principal>
             <Dependent Role="customer_transaction">
               <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="customer_transaction_ibfk_2">
+          <End Role="currency" Type="stockappsModel.Store.currency" Multiplicity="1" />
+          <End Role="customer_transaction" Type="stockappsModel.Store.customer_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="currency">
+              <PropertyRef Name="Currency_ID" />
+            </Principal>
+            <Dependent Role="customer_transaction">
+              <PropertyRef Name="Currency_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -561,6 +599,11 @@
             <End Role="currency" EntitySet="currencies" />
             <End Role="bank" EntitySet="banks" />
           </AssociationSet>
+          <EntitySet Name="identities" EntityType="stockappsModel.identity" />
+          <AssociationSet Name="customer_transaction_ibfk_2" Association="stockappsModel.customer_transaction_ibfk_2">
+            <End Role="currency" EntitySet="currencies" />
+            <End Role="customer_transaction" EntitySet="customer_transaction" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="customer">
           <Key>
@@ -574,6 +617,7 @@
           <NavigationProperty Name="customer_transaction" Relationship="stockappsModel.FK_Relationship_8" FromRole="customer" ToRole="customer_transaction" />
           <Property Type="Int32" Name="Customer_Status" Nullable="false" />
           <Property Type="String" Name="Customer_NPWP" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Customer_Company_Name" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="customer_transaction">
           <Key>
@@ -588,6 +632,13 @@
           <Property Name="Customer_Transaction_Description" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="customer" Relationship="stockappsModel.FK_Relationship_8" FromRole="customer_transaction" ToRole="customer" />
           <NavigationProperty Name="customer_transaction_product" Relationship="stockappsModel.FK_Relationship_10" FromRole="customer_transaction" ToRole="customer_transaction_product" />
+          <Property Type="String" Name="Customer_Transaction_Note_Number" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Currency_ID" Nullable="false" />
+          <Property Type="Decimal" Name="Customer_Transaction_Rupiah" />
+          <Property Type="Decimal" Name="Customer_Transaction_PPN_Rupiah" />
+          <Property Type="Decimal" Name="Customer_Transaction_Dollar" />
+          <Property Type="Decimal" Name="Customer_Transaction_PPN_Dollar" />
+          <NavigationProperty Name="currency" Relationship="stockappsModel.customer_transaction_ibfk_2" FromRole="customer_transaction" ToRole="currency" />
         </EntityType>
         <EntityType Name="customer_transaction_product">
           <Key>
@@ -601,6 +652,8 @@
           <Property Name="Customer_Transaction_Product_Price_Rupiah" Type="Decimal" />
           <NavigationProperty Name="customer_transaction" Relationship="stockappsModel.FK_Relationship_10" FromRole="customer_transaction_product" ToRole="customer_transaction" />
           <NavigationProperty Name="product" Relationship="stockappsModel.FK_Relationship_11" FromRole="customer_transaction_product" ToRole="product" />
+          <Property Type="Decimal" Name="Customer_Transaction_Product_Total_Dollar" />
+          <Property Type="Decimal" Name="Customer_Transaction_Product_Total_Rupiah" />
         </EntityType>
         <EntityType Name="price_history">
           <Key>
@@ -656,6 +709,7 @@
           <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.FK_Relationship_6" FromRole="supplier" ToRole="supplier_transaction" />
           <Property Type="Int32" Name="Supplier_Status" Nullable="false" />
           <Property Type="String" Name="Supplier_NPWP" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Supplier_Company_Name" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="supplier_transaction">
           <Key>
@@ -879,6 +933,7 @@
           <NavigationProperty Name="products" Relationship="stockappsModel.product_ibfk_4" FromRole="currency" ToRole="product" />
           <NavigationProperty Name="price_history" Relationship="stockappsModel.FK_Relationship_4" FromRole="currency" ToRole="price_history" />
           <NavigationProperty Name="banks" Relationship="stockappsModel.Bank_fk1" FromRole="currency" ToRole="bank" />
+          <NavigationProperty Name="customer_transaction" Relationship="stockappsModel.customer_transaction_ibfk_2" FromRole="currency" ToRole="customer_transaction" />
         </EntityType>
         <Association Name="product_ibfk_4">
           <End Type="stockappsModel.currency" Role="currency" Multiplicity="0..1" />
@@ -979,6 +1034,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="identity">
+          <Key>
+            <PropertyRef Name="Identity_ID" />
+          </Key>
+          <Property Type="Int32" Name="Identity_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Identity_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Identity_Company_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Identity_Phone" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Identity_Fax" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Identity_Address" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="customer_transaction_ibfk_2">
+          <End Type="stockappsModel.currency" Role="currency" Multiplicity="1" />
+          <End Type="stockappsModel.customer_transaction" Role="customer_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="currency">
+              <PropertyRef Name="Currency_ID" />
+            </Principal>
+            <Dependent Role="customer_transaction">
+              <PropertyRef Name="Currency_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -986,7 +1064,8 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="stockappsModelStoreContainer" CdmEntityContainer="stockappsEntities">
           <EntitySetMapping Name="customers"><EntityTypeMapping TypeName="stockappsModel.customer"><MappingFragment StoreEntitySet="customer">
-            <ScalarProperty Name="Customer_NPWP" ColumnName="Customer_NPWP" />
+            <ScalarProperty Name="Customer_Company_Name" ColumnName="Customer_Company_Name" />
+                <ScalarProperty Name="Customer_NPWP" ColumnName="Customer_NPWP" />
                 <ScalarProperty Name="Customer_Status" ColumnName="Customer_Status" />
                 <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
             <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
@@ -995,7 +1074,13 @@
             <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="customer_transaction"><EntityTypeMapping TypeName="stockappsModel.customer_transaction"><MappingFragment StoreEntitySet="customer_transaction">
-            <ScalarProperty Name="Customer_Transaction_ID" ColumnName="Customer_Transaction_ID" />
+            <ScalarProperty Name="Customer_Transaction_PPN_Dollar" ColumnName="Customer_Transaction_PPN_Dollar" />
+                <ScalarProperty Name="Customer_Transaction_Dollar" ColumnName="Customer_Transaction_Dollar" />
+                <ScalarProperty Name="Customer_Transaction_PPN_Rupiah" ColumnName="Customer_Transaction_PPN_Rupiah" />
+                <ScalarProperty Name="Customer_Transaction_Rupiah" ColumnName="Customer_Transaction_Rupiah" />
+                <ScalarProperty Name="Currency_ID" ColumnName="Currency_ID" />
+                <ScalarProperty Name="Customer_Transaction_Note_Number" ColumnName="Customer_Transaction_Note_Number" />
+                <ScalarProperty Name="Customer_Transaction_ID" ColumnName="Customer_Transaction_ID" />
                 <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
             <ScalarProperty Name="Customer_Transaction_Total_Rupiah" ColumnName="Customer_Transaction_Total_Rupiah" />
             <ScalarProperty Name="Customer_Transaction_Total_Dollar" ColumnName="Customer_Transaction_Total_Dollar" />
@@ -1004,7 +1089,9 @@
             <ScalarProperty Name="Customer_Transaction_Description" ColumnName="Customer_Transaction_Description" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="customer_transaction_product"><EntityTypeMapping TypeName="stockappsModel.customer_transaction_product"><MappingFragment StoreEntitySet="customer_transaction_product">
-            <ScalarProperty Name="Customer_Transaction_ID" ColumnName="Customer_Transaction_ID" />
+            <ScalarProperty Name="Customer_Transaction_Product_Total_Rupiah" ColumnName="Customer_Transaction_Product_Total_Rupiah" />
+                <ScalarProperty Name="Customer_Transaction_Product_Total_Dollar" ColumnName="Customer_Transaction_Product_Total_Dollar" />
+                <ScalarProperty Name="Customer_Transaction_ID" ColumnName="Customer_Transaction_ID" />
             <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
             <ScalarProperty Name="Customer_Transaction_Product_Quantity" ColumnName="Customer_Transaction_Product_Quantity" />
             <ScalarProperty Name="Customer_Transaction_Product_Price_Dollar" ColumnName="Customer_Transaction_Product_Price_Dollar" />
@@ -1034,7 +1121,8 @@
             <ScalarProperty Name="Product_Category_Name" ColumnName="Product_Category_Name" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="suppliers"><EntityTypeMapping TypeName="stockappsModel.supplier"><MappingFragment StoreEntitySet="supplier">
-            <ScalarProperty Name="Supplier_NPWP" ColumnName="Supplier_NPWP" />
+            <ScalarProperty Name="Supplier_Company_Name" ColumnName="Supplier_Company_Name" />
+                <ScalarProperty Name="Supplier_NPWP" ColumnName="Supplier_NPWP" />
                 <ScalarProperty Name="Supplier_Status" ColumnName="Supplier_Status" />
                 <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
             <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
@@ -1158,6 +1246,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="identities">
+            <EntityTypeMapping TypeName="stockappsModel.identity">
+              <MappingFragment StoreEntitySet="identity">
+                <ScalarProperty Name="Identity_Address" ColumnName="Identity_Address" />
+                <ScalarProperty Name="Identity_Fax" ColumnName="Identity_Fax" />
+                <ScalarProperty Name="Identity_Phone" ColumnName="Identity_Phone" />
+                <ScalarProperty Name="Identity_Company_Name" ColumnName="Identity_Company_Name" />
+                <ScalarProperty Name="Identity_Name" ColumnName="Identity_Name" />
+                <ScalarProperty Name="Identity_ID" ColumnName="Identity_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1189,17 +1289,17 @@
         <EntityTypeShape EntityType="stockappsModel.supplier_transaction" Width="1.5" PointX="3" PointY="12.25" Height="2.7494921874999996" IsExpanded="true" />
         <EntityTypeShape EntityType="stockappsModel.supplier_transaction_product" Width="1.5" PointX="8.25" PointY="9.875" Height="2.3648893229166674" IsExpanded="true" />
         <AssociationConnector Association="stockappsModel.FK_Relationship_8" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.74974609375" />
-          <ConnectorPoint PointX="3" PointY="2.74974609375" />
+          <ConnectorPoint PointX="2.25" PointY="3.37474609375" />
+          <ConnectorPoint PointX="3" PointY="3.37474609375" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_10" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="3.4345914713541665" />
-          <ConnectorPoint PointX="5.28125" PointY="3.4345914713541665" />
+          <ConnectorPoint PointX="4.5" PointY="4.107646484375" />
+          <ConnectorPoint PointX="5.28125" PointY="4.107646484375" />
           <ConnectorPoint PointX="5.28125" PointY="8" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_11" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.75" PointY="9.1824446614583337" />
-          <ConnectorPoint PointX="5.25" PointY="9.1824446614583337" />
+          <ConnectorPoint PointX="4.75" PointY="9.2318473307291669" />
+          <ConnectorPoint PointX="5.25" PointY="9.2318473307291669" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_3" ManuallyRouted="false">
           <ConnectorPoint PointX="4.75" PointY="10.77830078125" />
@@ -1253,15 +1353,15 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="stockappsModel.currency" Width="1.5" PointX="5.375" PointY="4.875" Height="1.5956835937500031" />
         <AssociationConnector Association="stockappsModel.product_ibfk_4" >
-          <ConnectorPoint PointX="5.375" PointY="5.8651432291666659" />
-          <ConnectorPoint PointX="5.364583333333333" PointY="5.865143229166665" />
-          <ConnectorPoint PointX="5.197916666666667" PointY="5.8651432291666659" />
-          <ConnectorPoint PointX="3.6562524999999972" PointY="5.8651432291666659" />
+          <ConnectorPoint PointX="5.375" PointY="5.8437474999999992" />
+          <ConnectorPoint PointX="5.364583333333333" PointY="5.8437474999999983" />
+          <ConnectorPoint PointX="5.197916666666667" PointY="5.8437474999999992" />
+          <ConnectorPoint PointX="3.6562524999999972" PointY="5.8437474999999992" />
           <ConnectorPoint PointX="3.6562524999999972" PointY="6.875" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_4" >
-          <ConnectorPoint PointX="6.8750000000000009" PointY="6.8552864583333326" />
-          <ConnectorPoint PointX="7.25" PointY="7.2302864583333317" />
+          <ConnectorPoint PointX="6.875" PointY="7.047587890625" />
+          <ConnectorPoint PointX="7.25" PointY="7.422587890625" />
           <ConnectorPoint PointX="7.25" PointY="10.875" />
           <ConnectorPoint PointX="7.1261528461538468" PointY="10.875" />
           <ConnectorPoint PointX="6.9026755650988783" PointY="11.098477281054967" />
@@ -1278,9 +1378,19 @@
         <EntityTypeShape EntityType="stockappsModel.payment_category" Width="1.5" PointX="10.375" PointY="9.75" Height="1.4033821614583388" />
         <EntityTypeShape EntityType="stockappsModel.supplier_payment" Width="1.5" PointX="11.375" PointY="6.75" Height="1.7879850260416674" />
         <AssociationConnector Association="stockappsModel.Bank_fk1" >
-          <ConnectorPoint PointX="6.84375" PointY="6.8552864583333326" />
+          <ConnectorPoint PointX="6.84375" PointY="7.047587890625" />
           <ConnectorPoint PointX="6.84375" PointY="14.836293945312502" />
           <ConnectorPoint PointX="7.625" PointY="14.836293945312502" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="stockappsModel.identity" Width="1.5" PointX="12.375" PointY="0.75" Height="2.1725878906250031" />
+        <AssociationConnector Association="stockappsModel.customer_transaction_ibfk_2" >
+          <ConnectorPoint PointX="5.375" PointY="4.875" />
+          <ConnectorPoint PointX="5.3401755650988791" PointY="4.8401755650988783" />
+          <ConnectorPoint PointX="5.2223244349011209" PointY="4.7223244349011209" />
+          <ConnectorPoint PointX="5" PointY="4.5" />
+          <ConnectorPoint PointX="4.875" PointY="4.5" />
+          <ConnectorPoint PointX="4.875" PointY="5.2206022135416656" />
+          <ConnectorPoint PointX="4.5" PointY="4.8456022135416656" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
