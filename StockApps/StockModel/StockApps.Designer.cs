@@ -34,6 +34,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_4", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "price_history", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.price_history), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "users_idfk_1", "user", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.user), "admin_history", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.admin_history), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "Bank_fk1", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.bank), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "customer_transaction_ibfk_2", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "customer_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_transaction), true)]
 
 #endregion
 
@@ -388,6 +389,22 @@ namespace StockModel
             }
         }
         private ObjectSet<supplier_payment> _supplier_payment;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<identity> identities
+        {
+            get
+            {
+                if ((_identities == null))
+                {
+                    _identities = base.CreateObjectSet<identity>("identities");
+                }
+                return _identities;
+            }
+        }
+        private ObjectSet<identity> _identities;
 
         #endregion
         #region AddTo Methods
@@ -542,6 +559,14 @@ namespace StockModel
         public void AddTosupplier_payment(supplier_payment supplier_payment)
         {
             base.AddObject("supplier_payment", supplier_payment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the identities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToidentities(identity identity)
+        {
+            base.AddObject("identities", identity);
         }
 
         #endregion
@@ -1459,6 +1484,28 @@ namespace StockModel
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_transaction_ibfk_2", "customer_transaction")]
+        public EntityCollection<customer_transaction> customer_transaction
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer_transaction>("stockappsModel.customer_transaction_ibfk_2", "customer_transaction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_transaction>("stockappsModel.customer_transaction_ibfk_2", "customer_transaction", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1661,6 +1708,30 @@ namespace StockModel
         private global::System.String _Customer_NPWP;
         partial void OnCustomer_NPWPChanging(global::System.String value);
         partial void OnCustomer_NPWPChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Customer_Company_Name
+        {
+            get
+            {
+                return _Customer_Company_Name;
+            }
+            set
+            {
+                OnCustomer_Company_NameChanging(value);
+                ReportPropertyChanging("Customer_Company_Name");
+                _Customer_Company_Name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Customer_Company_Name");
+                OnCustomer_Company_NameChanged();
+            }
+        }
+        private global::System.String _Customer_Company_Name;
+        partial void OnCustomer_Company_NameChanging(global::System.String value);
+        partial void OnCustomer_Company_NameChanged();
 
         #endregion
     
@@ -1707,12 +1778,14 @@ namespace StockModel
         /// <param name="customer_Transaction_ID">Initial value of the Customer_Transaction_ID property.</param>
         /// <param name="customer_Transaction_Date">Initial value of the Customer_Transaction_Date property.</param>
         /// <param name="customer_Transaction_Status">Initial value of the Customer_Transaction_Status property.</param>
-        public static customer_transaction Createcustomer_transaction(global::System.String customer_Transaction_ID, global::System.DateTime customer_Transaction_Date, global::System.Int32 customer_Transaction_Status)
+        /// <param name="currency_ID">Initial value of the Currency_ID property.</param>
+        public static customer_transaction Createcustomer_transaction(global::System.String customer_Transaction_ID, global::System.DateTime customer_Transaction_Date, global::System.Int32 customer_Transaction_Status, global::System.Int32 currency_ID)
         {
             customer_transaction customer_transaction = new customer_transaction();
             customer_transaction.Customer_Transaction_ID = customer_Transaction_ID;
             customer_transaction.Customer_Transaction_Date = customer_Transaction_Date;
             customer_transaction.Customer_Transaction_Status = customer_Transaction_Status;
+            customer_transaction.Currency_ID = currency_ID;
             return customer_transaction;
         }
 
@@ -1889,6 +1962,150 @@ namespace StockModel
         private global::System.String _Customer_Transaction_Description;
         partial void OnCustomer_Transaction_DescriptionChanging(global::System.String value);
         partial void OnCustomer_Transaction_DescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Customer_Transaction_Note_Number
+        {
+            get
+            {
+                return _Customer_Transaction_Note_Number;
+            }
+            set
+            {
+                OnCustomer_Transaction_Note_NumberChanging(value);
+                ReportPropertyChanging("Customer_Transaction_Note_Number");
+                _Customer_Transaction_Note_Number = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Customer_Transaction_Note_Number");
+                OnCustomer_Transaction_Note_NumberChanged();
+            }
+        }
+        private global::System.String _Customer_Transaction_Note_Number;
+        partial void OnCustomer_Transaction_Note_NumberChanging(global::System.String value);
+        partial void OnCustomer_Transaction_Note_NumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Currency_ID
+        {
+            get
+            {
+                return _Currency_ID;
+            }
+            set
+            {
+                OnCurrency_IDChanging(value);
+                ReportPropertyChanging("Currency_ID");
+                _Currency_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Currency_ID");
+                OnCurrency_IDChanged();
+            }
+        }
+        private global::System.Int32 _Currency_ID;
+        partial void OnCurrency_IDChanging(global::System.Int32 value);
+        partial void OnCurrency_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Customer_Transaction_Rupiah
+        {
+            get
+            {
+                return _Customer_Transaction_Rupiah;
+            }
+            set
+            {
+                OnCustomer_Transaction_RupiahChanging(value);
+                ReportPropertyChanging("Customer_Transaction_Rupiah");
+                _Customer_Transaction_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Transaction_Rupiah");
+                OnCustomer_Transaction_RupiahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Customer_Transaction_Rupiah;
+        partial void OnCustomer_Transaction_RupiahChanging(Nullable<global::System.Decimal> value);
+        partial void OnCustomer_Transaction_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Customer_Transaction_PPN_Rupiah
+        {
+            get
+            {
+                return _Customer_Transaction_PPN_Rupiah;
+            }
+            set
+            {
+                OnCustomer_Transaction_PPN_RupiahChanging(value);
+                ReportPropertyChanging("Customer_Transaction_PPN_Rupiah");
+                _Customer_Transaction_PPN_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Transaction_PPN_Rupiah");
+                OnCustomer_Transaction_PPN_RupiahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Customer_Transaction_PPN_Rupiah;
+        partial void OnCustomer_Transaction_PPN_RupiahChanging(Nullable<global::System.Decimal> value);
+        partial void OnCustomer_Transaction_PPN_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Customer_Transaction_Dollar
+        {
+            get
+            {
+                return _Customer_Transaction_Dollar;
+            }
+            set
+            {
+                OnCustomer_Transaction_DollarChanging(value);
+                ReportPropertyChanging("Customer_Transaction_Dollar");
+                _Customer_Transaction_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Transaction_Dollar");
+                OnCustomer_Transaction_DollarChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Customer_Transaction_Dollar;
+        partial void OnCustomer_Transaction_DollarChanging(Nullable<global::System.Decimal> value);
+        partial void OnCustomer_Transaction_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Customer_Transaction_PPN_Dollar
+        {
+            get
+            {
+                return _Customer_Transaction_PPN_Dollar;
+            }
+            set
+            {
+                OnCustomer_Transaction_PPN_DollarChanging(value);
+                ReportPropertyChanging("Customer_Transaction_PPN_Dollar");
+                _Customer_Transaction_PPN_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Transaction_PPN_Dollar");
+                OnCustomer_Transaction_PPN_DollarChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Customer_Transaction_PPN_Dollar;
+        partial void OnCustomer_Transaction_PPN_DollarChanging(Nullable<global::System.Decimal> value);
+        partial void OnCustomer_Transaction_PPN_DollarChanged();
 
         #endregion
     
@@ -1950,6 +2167,44 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_transaction_product>("stockappsModel.FK_Relationship_10", "customer_transaction_product", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_transaction_ibfk_2", "currency")]
+        public currency currency
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.customer_transaction_ibfk_2", "currency").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.customer_transaction_ibfk_2", "currency").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<currency> currencyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.customer_transaction_ibfk_2", "currency");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<currency>("stockappsModel.customer_transaction_ibfk_2", "currency", value);
                 }
             }
         }
@@ -2108,6 +2363,54 @@ namespace StockModel
         private Nullable<global::System.Decimal> _Customer_Transaction_Product_Price_Rupiah;
         partial void OnCustomer_Transaction_Product_Price_RupiahChanging(Nullable<global::System.Decimal> value);
         partial void OnCustomer_Transaction_Product_Price_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Customer_Transaction_Product_Total_Dollar
+        {
+            get
+            {
+                return _Customer_Transaction_Product_Total_Dollar;
+            }
+            set
+            {
+                OnCustomer_Transaction_Product_Total_DollarChanging(value);
+                ReportPropertyChanging("Customer_Transaction_Product_Total_Dollar");
+                _Customer_Transaction_Product_Total_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Transaction_Product_Total_Dollar");
+                OnCustomer_Transaction_Product_Total_DollarChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Customer_Transaction_Product_Total_Dollar;
+        partial void OnCustomer_Transaction_Product_Total_DollarChanging(Nullable<global::System.Decimal> value);
+        partial void OnCustomer_Transaction_Product_Total_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Customer_Transaction_Product_Total_Rupiah
+        {
+            get
+            {
+                return _Customer_Transaction_Product_Total_Rupiah;
+            }
+            set
+            {
+                OnCustomer_Transaction_Product_Total_RupiahChanging(value);
+                ReportPropertyChanging("Customer_Transaction_Product_Total_Rupiah");
+                _Customer_Transaction_Product_Total_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Transaction_Product_Total_Rupiah");
+                OnCustomer_Transaction_Product_Total_RupiahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Customer_Transaction_Product_Total_Rupiah;
+        partial void OnCustomer_Transaction_Product_Total_RupiahChanging(Nullable<global::System.Decimal> value);
+        partial void OnCustomer_Transaction_Product_Total_RupiahChanged();
 
         #endregion
     
@@ -2190,6 +2493,181 @@ namespace StockModel
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="identity")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class identity : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new identity object.
+        /// </summary>
+        /// <param name="identity_ID">Initial value of the Identity_ID property.</param>
+        public static identity Createidentity(global::System.Int32 identity_ID)
+        {
+            identity identity = new identity();
+            identity.Identity_ID = identity_ID;
+            return identity;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Identity_ID
+        {
+            get
+            {
+                return _Identity_ID;
+            }
+            set
+            {
+                if (_Identity_ID != value)
+                {
+                    OnIdentity_IDChanging(value);
+                    ReportPropertyChanging("Identity_ID");
+                    _Identity_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Identity_ID");
+                    OnIdentity_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Identity_ID;
+        partial void OnIdentity_IDChanging(global::System.Int32 value);
+        partial void OnIdentity_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Identity_Name
+        {
+            get
+            {
+                return _Identity_Name;
+            }
+            set
+            {
+                OnIdentity_NameChanging(value);
+                ReportPropertyChanging("Identity_Name");
+                _Identity_Name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Identity_Name");
+                OnIdentity_NameChanged();
+            }
+        }
+        private global::System.String _Identity_Name;
+        partial void OnIdentity_NameChanging(global::System.String value);
+        partial void OnIdentity_NameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Identity_Company_Name
+        {
+            get
+            {
+                return _Identity_Company_Name;
+            }
+            set
+            {
+                OnIdentity_Company_NameChanging(value);
+                ReportPropertyChanging("Identity_Company_Name");
+                _Identity_Company_Name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Identity_Company_Name");
+                OnIdentity_Company_NameChanged();
+            }
+        }
+        private global::System.String _Identity_Company_Name;
+        partial void OnIdentity_Company_NameChanging(global::System.String value);
+        partial void OnIdentity_Company_NameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Identity_Phone
+        {
+            get
+            {
+                return _Identity_Phone;
+            }
+            set
+            {
+                OnIdentity_PhoneChanging(value);
+                ReportPropertyChanging("Identity_Phone");
+                _Identity_Phone = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Identity_Phone");
+                OnIdentity_PhoneChanged();
+            }
+        }
+        private global::System.String _Identity_Phone;
+        partial void OnIdentity_PhoneChanging(global::System.String value);
+        partial void OnIdentity_PhoneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Identity_Fax
+        {
+            get
+            {
+                return _Identity_Fax;
+            }
+            set
+            {
+                OnIdentity_FaxChanging(value);
+                ReportPropertyChanging("Identity_Fax");
+                _Identity_Fax = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Identity_Fax");
+                OnIdentity_FaxChanged();
+            }
+        }
+        private global::System.String _Identity_Fax;
+        partial void OnIdentity_FaxChanging(global::System.String value);
+        partial void OnIdentity_FaxChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Identity_Address
+        {
+            get
+            {
+                return _Identity_Address;
+            }
+            set
+            {
+                OnIdentity_AddressChanging(value);
+                ReportPropertyChanging("Identity_Address");
+                _Identity_Address = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Identity_Address");
+                OnIdentity_AddressChanged();
+            }
+        }
+        private global::System.String _Identity_Address;
+        partial void OnIdentity_AddressChanging(global::System.String value);
+        partial void OnIdentity_AddressChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
@@ -3592,6 +4070,30 @@ namespace StockModel
         private global::System.String _Supplier_NPWP;
         partial void OnSupplier_NPWPChanging(global::System.String value);
         partial void OnSupplier_NPWPChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Supplier_Company_Name
+        {
+            get
+            {
+                return _Supplier_Company_Name;
+            }
+            set
+            {
+                OnSupplier_Company_NameChanging(value);
+                ReportPropertyChanging("Supplier_Company_Name");
+                _Supplier_Company_Name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Supplier_Company_Name");
+                OnSupplier_Company_NameChanged();
+            }
+        }
+        private global::System.String _Supplier_Company_Name;
+        partial void OnSupplier_Company_NameChanging(global::System.String value);
+        partial void OnSupplier_Company_NameChanged();
 
         #endregion
     

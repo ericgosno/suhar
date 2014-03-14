@@ -69,6 +69,7 @@
     <Compile Include="CustomerTransaction.cs" />
     <Compile Include="CurrencyController.cs" />
     <Compile Include="CustomerController.cs" />
+    <Compile Include="IdentityController.cs" />
     <Compile Include="MD5Function.cs" />
     <Compile Include="ProductController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

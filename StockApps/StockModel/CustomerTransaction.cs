@@ -7,7 +7,7 @@ namespace StockModel
 {
     public static class CustomerTransaction
     {
-        public static customer_transaction insertCustomerTransaction(DateTime transDate, int customerID, double totalDollar, double totalRupiah, string description, List<customer_transaction_product> transProd)
+        public static customer_transaction insertCustomerTransaction(DateTime transDate, int customerID, double totalDollar, double totalRupiah, string description, List<customer_transaction_product> transProd, string noteNumber, int currencyId)
         {
             customer_transaction newTrans = new customer_transaction();
             string idnow = null;
@@ -30,8 +30,16 @@ namespace StockModel
             newTrans.Customer_Transaction_Date = transDate;
             newTrans.Customer_Transaction_Status = 1;
             newTrans.Customer_Transaction_Description = description;
-            newTrans.Customer_Transaction_Total_Dollar = Convert.ToDecimal(totalDollar);
-            newTrans.Customer_Transaction_Total_Rupiah = Convert.ToDecimal(totalRupiah);
+            decimal dolar = Convert.ToDecimal(totalDollar);
+            decimal rupiah = Convert.ToDecimal(totalRupiah);
+            newTrans.Customer_Transaction_Dollar = dolar;
+            newTrans.Customer_Transaction_Rupiah = rupiah;
+            newTrans.Customer_Transaction_PPN_Dollar = 0.1M * dolar;
+            newTrans.Customer_Transaction_PPN_Rupiah = 0.1M * rupiah;
+            newTrans.Customer_Transaction_Total_Dollar = 1.1M * dolar;
+            newTrans.Customer_Transaction_Total_Rupiah = 1.1M * rupiah;
+            newTrans.Customer_Transaction_Note_Number = noteNumber;
+            newTrans.Currency_ID = currencyId;
             StockEntity.Entity.AddTocustomer_transaction(newTrans);
             StockEntity.Entity.SaveChanges();
             
