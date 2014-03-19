@@ -15,7 +15,7 @@ namespace StockModel
             StockEntity.Entity.SaveChanges();
             return newSupplier;
         }
-        public static supplier insertSupplier(string supplierName, string supplierAddress, string supplierEmail, string supplierPhone,string supplierNPWP, string supplierCompany)
+        public static supplier insertSupplier(string supplierName, string supplierAddress, string supplierEmail, string supplierPhone,string supplierNPWP, string supplierCompany, int supplierRegional)
         {
             supplier newSupplier = new supplier();
             newSupplier.Supplier_Name = supplierName;
@@ -25,6 +25,7 @@ namespace StockModel
             newSupplier.Supplier_NPWP = supplierNPWP;
             newSupplier.Supplier_Company_Name = supplierCompany;
             newSupplier.Supplier_Status = 1;
+            newSupplier.Supplier_Regional = supplierRegional;
             StockEntity.Entity.AddTosuppliers(newSupplier);
             StockEntity.Entity.SaveChanges();
             return newSupplier;
@@ -53,7 +54,7 @@ namespace StockModel
             return getSupplier().Where(a => a.Supplier_Name.Contains(supplierName) && a.Supplier_ID == supplierId);
         }
 
-        public static supplier editSupplier(int supplierId, string supplierName, string supplierAddress, string supplierEmail, string supplierPhone,string supplierNPWP,string supplierCompany)
+        public static supplier editSupplier(int supplierId, string supplierName, string supplierAddress, string supplierEmail, string supplierPhone, string supplierNPWP, string supplierCompany, int supplierRegional)
         {
             supplier supplierNows = (from f in StockEntity.Entity.suppliers
                                     where f.Supplier_ID == supplierId
@@ -65,6 +66,7 @@ namespace StockModel
             supplierNows.Supplier_Phone = supplierPhone;
             supplierNows.Supplier_NPWP = supplierNPWP;
             supplierNows.Supplier_Company_Name = supplierCompany;
+            supplierNows.Supplier_Regional = supplierRegional;
             StockEntity.Entity.SaveChanges();
 
             return getSupplier(supplierId).First();

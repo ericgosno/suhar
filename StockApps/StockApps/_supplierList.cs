@@ -33,6 +33,7 @@ namespace StockApps
             _dgvspListSupplier.Columns["Supplier_Phone"].HeaderText = "Phone";
             _dgvspListSupplier.Columns["Supplier_NPWP"].HeaderText = "NPWP";
             _dgvspListSupplier.Columns["Supplier_Company_Name"].HeaderText = "Company Name";
+            _dgvspListSupplier.Columns["Supplier_Regional"].HeaderText = "Regional";
 
             _dgvspListSupplier.Columns["Supplier_Status"].Visible = false;
             _dgvspListSupplier.Columns["Supplier_ID"].Visible = false;
@@ -50,7 +51,7 @@ namespace StockApps
                 MessageBox.Show("Name cannot be null!");
                 return;
             }
-            SupplierController.insertSupplier(_tspName.Text, _tspAddress.Text, _tspEmail.Text, _tspPhone.Text,_tspNPWP.Text,_tspCompany.Text);
+            SupplierController.insertSupplier(_tspName.Text, _tspAddress.Text, _tspEmail.Text, _tspPhone.Text, _tspNPWP.Text, _tspCompany.Text, _cbspRegional.SelectedIndex+1);
             RefreshForm();
         }
 
@@ -71,7 +72,7 @@ namespace StockApps
         private void _dgvspListSupplier_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var rowNow = _dgvspListSupplier.Rows[e.RowIndex];
-            SupplierController.editSupplier(Convert.ToInt32(rowNow.Cells["Supplier_ID"].Value), rowNow.Cells["Supplier_Name"].Value.ToString(), rowNow.Cells["Supplier_Address"].Value.ToString(), rowNow.Cells["Supplier_Email"].Value.ToString(), rowNow.Cells["Supplier_Phone"].Value.ToString(), rowNow.Cells["Supplier_NPWP"].Value.ToString(), rowNow.Cells["Supplier_Company_Name"].Value.ToString());
+            SupplierController.editSupplier(Convert.ToInt32(rowNow.Cells["Supplier_ID"].Value), rowNow.Cells["Supplier_Name"].Value.ToString(), rowNow.Cells["Supplier_Address"].Value.ToString(), rowNow.Cells["Supplier_Email"].Value.ToString(), rowNow.Cells["Supplier_Phone"].Value.ToString(), rowNow.Cells["Supplier_NPWP"].Value.ToString(), rowNow.Cells["Supplier_Company_Name"].Value.ToString(), _cbspRegional.SelectedIndex + 1);
             _dgvspListSupplier.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 

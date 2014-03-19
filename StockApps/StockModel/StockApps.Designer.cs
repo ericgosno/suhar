@@ -3888,12 +3888,14 @@ namespace StockModel
         /// <param name="supplier_ID">Initial value of the Supplier_ID property.</param>
         /// <param name="supplier_Name">Initial value of the Supplier_Name property.</param>
         /// <param name="supplier_Status">Initial value of the Supplier_Status property.</param>
-        public static supplier Createsupplier(global::System.Int32 supplier_ID, global::System.String supplier_Name, global::System.Int32 supplier_Status)
+        /// <param name="supplier_Regional">Initial value of the Supplier_Regional property.</param>
+        public static supplier Createsupplier(global::System.Int32 supplier_ID, global::System.String supplier_Name, global::System.Int32 supplier_Status, global::System.Int32 supplier_Regional)
         {
             supplier supplier = new supplier();
             supplier.Supplier_ID = supplier_ID;
             supplier.Supplier_Name = supplier_Name;
             supplier.Supplier_Status = supplier_Status;
+            supplier.Supplier_Regional = supplier_Regional;
             return supplier;
         }
 
@@ -4094,6 +4096,30 @@ namespace StockModel
         private global::System.String _Supplier_Company_Name;
         partial void OnSupplier_Company_NameChanging(global::System.String value);
         partial void OnSupplier_Company_NameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Supplier_Regional
+        {
+            get
+            {
+                return _Supplier_Regional;
+            }
+            set
+            {
+                OnSupplier_RegionalChanging(value);
+                ReportPropertyChanging("Supplier_Regional");
+                _Supplier_Regional = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Regional");
+                OnSupplier_RegionalChanged();
+            }
+        }
+        private global::System.Int32 _Supplier_Regional;
+        partial void OnSupplier_RegionalChanging(global::System.Int32 value);
+        partial void OnSupplier_RegionalChanged();
 
         #endregion
     

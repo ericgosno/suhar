@@ -124,6 +124,7 @@
             this.Name = "_supplierListPopUp1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - DETAIL SUPPLIER";
+            this.Load += new System.EventHandler(this._supplierListPopUp1_Load);
             ((System.ComponentModel.ISupportInitialize)(this._dataDetailSupplier)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

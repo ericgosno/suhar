@@ -46,8 +46,7 @@ namespace StockApps
                      Product_Category_Name = join.product_category.Product_Category_Name + "",
                      Product_Package = (join.join.product.Product_Stock / join.join.product.Product_Packing_Kilogram) + " " + join.join.product.Product_Packing_Name
                  }).ToList();
-                
-
+            
             _dataDetailSupplier.DataSource = list;
             _dataDetailSupplier.Columns["Product_Name"].HeaderText = "Name";
             _dataDetailSupplier.Columns["Product_Stock"].HeaderText = "Stock";
@@ -73,6 +72,7 @@ namespace StockApps
 
         private void _bspDDelete_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
             try
             {
                 ProductController.deleteProduct(Convert.ToInt32(_dataDetailSupplier.SelectedRows[0].Cells["Product_ID"].Value));
@@ -97,6 +97,11 @@ namespace StockApps
             {
                 MessageBox.Show("You must select a Row First!");
             }
+        }
+
+        private void _supplierListPopUp1_Load(object sender, EventArgs e)
+        {
+
         }
 
     }

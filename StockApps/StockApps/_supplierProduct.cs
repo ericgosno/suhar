@@ -17,11 +17,54 @@ namespace StockApps
         private Dictionary<string, int> dictPriceType;
         private Dictionary<string, int> dictStockType;
         private Dictionary<string, int> dictCategory;
+        private Dictionary<string, int> dictSupplier;
+
+        private void RefreshComboBox()
+        {
+            dictCategory = new Dictionary<string, int>();
+            dictPriceType = new Dictionary<string, int>();
+            dictStockType = new Dictionary<string, int>();
+
+            _cbspPPackageName.Items.Add("Sack");
+            _cbspPPackageName.Items.Add("Bags");
+            _cbspPPackageName.Items.Add("Drum");
+
+            var listCurrency = CurrencyController.getCurrency();
+            foreach (currency cur in listCurrency)
+            {
+                _cbspPTypePrice.Items.Add(cur.Currency_Name);
+                dictPriceType[cur.Currency_Name] = cur.Currency_ID;
+            }
+
+            var listCategory = ProductController.getProductCategory();
+            foreach (product_category pc in listCategory)
+            {
+                _cbspPCategory.Items.Add(pc.Product_Category_Name);
+                dictCategory[pc.Product_Category_Name] = pc.Product_Category_ID;
+            }
+        }
 
         public _SupplierProduct()
         {
             InitializeComponent();
             productId = -1;
+            supplierId = -1;
+            label5.Text = "Insert Product";
+            _bspPInsert.Visible = true;
+            _bspPUpdate.Visible = false;
+
+            _lspPSupplierName.Visible = false;
+            _cbspSupplierList.Visible = true;
+            dictSupplier = new Dictionary<string, int>();
+            var listSupplier = SupplierController.getSupplier();
+            _cbspSupplierList.Items.Clear();
+            foreach (supplier sup in listSupplier)
+            {
+                _cbspSupplierList.Items.Add(sup.Supplier_Name);
+                dictSupplier[sup.Supplier_Name] = sup.Supplier_ID;
+            }
+
+            RefreshComboBox();
         }
 
         public _SupplierProduct(supplier supp)
@@ -32,30 +75,12 @@ namespace StockApps
             _bspPInsert.Visible = true;
             _bspPUpdate.Visible = false;
 
-            dictCategory = new Dictionary<string, int>();
-            dictPriceType = new Dictionary<string, int>();
-            dictStockType = new Dictionary<string, int>();
-
             supplierId = supp.Supplier_ID;
+            _lspPSupplierName.Visible = true;
+            _cbspSupplierList.Visible = false;
             _lspPSupplierName.Text = supp.Supplier_Name;
 
-            _cbspPPackageName.Items.Add("Sack");
-            _cbspPPackageName.Items.Add("Bags");
-            _cbspPPackageName.Items.Add("Drum");
-
-            var listCurrency = CurrencyController.getCurrency();
-            foreach (currency cur in listCurrency)
-            {
-                _cbspPTypePrice.Items.Add(cur.Currency_Name);
-                dictPriceType[cur.Currency_Name] = cur.Currency_ID;
-            }
-
-            var listCategory = ProductController.getProductCategory();
-            foreach (product_category pc in listCategory)
-            {
-                _cbspPCategory.Items.Add(pc.Product_Category_Name);
-                dictCategory[pc.Product_Category_Name] = pc.Product_Category_ID;
-            }
+            RefreshComboBox();
         }
 
         public _SupplierProduct(supplier supp, product prod)
@@ -66,32 +91,15 @@ namespace StockApps
             _bspPUpdate.Visible = true;
 
             productId = prod.Product_ID;
-            dictCategory = new Dictionary<string, int>();
-            dictPriceType = new Dictionary<string, int>();
-            dictStockType = new Dictionary<string, int>();
-
             supplierId = supp.Supplier_ID;
+            _lspPSupplierName.Visible = true;
+            _cbspSupplierList.Visible = false;
             _lspPSupplierName.Text = supp.Supplier_Name;
 
-            _cbspPPackageName.Items.Add("Sack");
-            _cbspPPackageName.Items.Add("Bags");
-            _cbspPPackageName.Items.Add("Drum");
+            RefreshComboBox();
+
             _cbspPPackageName.SelectedItem = prod.Product_Packing_Name;
-
-            var listCurrency = CurrencyController.getCurrency();
-            foreach (currency cur in listCurrency)
-            {
-                _cbspPTypePrice.Items.Add(cur.Currency_Name);
-                dictPriceType[cur.Currency_Name] = cur.Currency_ID;
-            }
             _cbspPTypePrice.SelectedItem = prod.currency.Currency_Name;
-
-            var listCategory = ProductController.getProductCategory();
-            foreach (product_category pc in listCategory)
-            {
-                _cbspPCategory.Items.Add(pc.Product_Category_Name);
-                dictCategory[pc.Product_Category_Name] = pc.Product_Category_ID;
-            }
             _cbspPCategory.SelectedItem = prod.product_category.Product_Category_Name;
 
             _tspPName.Text = prod.Product_Name;
@@ -120,6 +128,35 @@ namespace StockApps
 
         }
 
+        private void _bspPAddCategory_Click(object sender, EventArgs e)
+        {
+            _supplierPCategory listCategory = new _supplierPCategory();
+            listCategory.Show();
+            listCategory.FormClosed += new FormClosedEventHandler(listCategory_FormClosed);
+        }
+
+        void listCategory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dictCategory = new Dictionary<string, int>();
+            var listCategory = ProductController.getProductCategory();
+            foreach (product_category pc in listCategory)
+            {
+                _cbspPCategory.Items.Add(pc.Product_Category_Name);
+                dictCategory[pc.Product_Category_Name] = pc.Product_Category_ID;
+            }
+        }
+
+        private void _cbspSupplierList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                supplierId = dictSupplier[_cbspSupplierList.SelectedItem.ToString()];
+            }
+            catch (Exception ex)
+            {
+ 
+            }
+        }
 
     }
 }

@@ -45,6 +45,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this._tspCompany = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this._cbspRegional = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dgvspListSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,7 +137,7 @@
             // 
             this._dgvspListSupplier.AllowUserToAddRows = false;
             this._dgvspListSupplier.AllowUserToDeleteRows = false;
-            this._dgvspListSupplier.Location = new System.Drawing.Point(18, 313);
+            this._dgvspListSupplier.Location = new System.Drawing.Point(18, 368);
             this._dgvspListSupplier.MultiSelect = false;
             this._dgvspListSupplier.Name = "_dgvspListSupplier";
             this._dgvspListSupplier.Size = new System.Drawing.Size(722, 239);
@@ -144,7 +147,7 @@
             // _bspInsert
             // 
             this._bspInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspInsert.Location = new System.Drawing.Point(625, 265);
+            this._bspInsert.Location = new System.Drawing.Point(625, 311);
             this._bspInsert.Name = "_bspInsert";
             this._bspInsert.Size = new System.Drawing.Size(115, 35);
             this._bspInsert.TabIndex = 6;
@@ -155,7 +158,7 @@
             // _bspDelete
             // 
             this._bspDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDelete.Location = new System.Drawing.Point(625, 558);
+            this._bspDelete.Location = new System.Drawing.Point(625, 613);
             this._bspDelete.Name = "_bspDelete";
             this._bspDelete.Size = new System.Drawing.Size(115, 35);
             this._bspDelete.TabIndex = 8;
@@ -166,7 +169,7 @@
             // _bspDetail
             // 
             this._bspDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDetail.Location = new System.Drawing.Point(504, 558);
+            this._bspDetail.Location = new System.Drawing.Point(504, 613);
             this._bspDetail.Name = "_bspDetail";
             this._bspDetail.Size = new System.Drawing.Size(115, 35);
             this._bspDetail.TabIndex = 10;
@@ -210,11 +213,46 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Company  :";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(1, 308);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 29);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Regional  :";
+            // 
+            // _cbspRegional
+            // 
+            this._cbspRegional.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._cbspRegional.FormattingEnabled = true;
+            this._cbspRegional.Items.AddRange(new object[] {
+            "International",
+            "Local"});
+            this._cbspRegional.Location = new System.Drawing.Point(133, 309);
+            this._cbspRegional.Name = "_cbspRegional";
+            this._cbspRegional.Size = new System.Drawing.Size(192, 37);
+            this._cbspRegional.TabIndex = 16;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(331, 312);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(259, 29);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "1. International/2. Local";
+            // 
             // _supplierList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 600);
+            this.ClientSize = new System.Drawing.Size(835, 750);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this._cbspRegional);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this._tspCompany);
             this.Controls.Add(this.label7);
             this.Controls.Add(this._tspNPWP);
@@ -260,6 +298,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox _tspCompany;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox _cbspRegional;
+        private System.Windows.Forms.Label label9;
 
     }
 }
