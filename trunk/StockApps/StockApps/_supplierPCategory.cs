@@ -42,6 +42,7 @@ namespace StockApps
 
         private void _bspPCDelete_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(this, "Warning!, deleting category will also delete products in this category, Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
             try
             {
                 ProductController.deleteProductCategory(_tspPCListCategory.SelectedItems[0].ImageIndex);

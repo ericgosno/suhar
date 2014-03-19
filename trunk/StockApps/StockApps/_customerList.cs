@@ -23,6 +23,8 @@ namespace StockApps
             _tcusAddress.Text = "";
             _tcusEmail.Text = "";
             _tcusPhone.Text = "";
+            _tcusNPWP.Text = "";
+            _tcusCompany.Text = "";
             _dataCustomer.DataSource = CustomerController.getCustomer();
             _dataCustomer.Columns["Customer_Company_Name"].HeaderText = "Company Name";
             _dataCustomer.Columns["Customer_Name"].HeaderText = "Name";
@@ -53,6 +55,7 @@ namespace StockApps
 
         private void _bcusDelete_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
             try
             {
                 CustomerController.deleteCustomer((int)_dataCustomer.SelectedRows[0].Cells["Customer_ID"].Value);

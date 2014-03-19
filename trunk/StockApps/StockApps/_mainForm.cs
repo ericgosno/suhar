@@ -128,5 +128,11 @@ namespace StockApps
             priceHistoryReport formReportPrice = new priceHistoryReport();
             formReportPrice.Show();
         }
+
+        private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _SupplierProduct suppProduct = new _SupplierProduct();
+            suppProduct.Show();
+        }
     }
 }
