@@ -24,6 +24,8 @@ namespace StockApps
             _tspAddress.Text = "";
             _tspEmail.Text = "";
             _tspPhone.Text = "";
+            _tspCompany.Text = "";
+            _tspNPWP.Text = "";
             _dgvspListSupplier.DataSource = SupplierController.getSupplier();
             _dgvspListSupplier.Columns["Supplier_Name"].HeaderText = "Name";
             _dgvspListSupplier.Columns["Supplier_Address"].HeaderText = "Address";
@@ -54,6 +56,7 @@ namespace StockApps
 
         private void _bspDelete_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
             try
             {
                 SupplierController.deleteSupplier((int)_dgvspListSupplier.SelectedRows[0].Cells["Supplier_ID"].Value);
