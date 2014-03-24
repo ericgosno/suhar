@@ -134,5 +134,11 @@ namespace StockApps
             _SupplierProduct suppProduct = new _SupplierProduct();
             suppProduct.Show();
         }
+
+        private void insertBankCashTransactionToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            _insertBankTransaction bankTrans = new _insertBankTransaction();
+            bankTrans.Show();
+        }
     }
 }
