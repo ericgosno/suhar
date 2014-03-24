@@ -125,7 +125,7 @@ namespace StockModel
                 if(isDebit)DebitCode = "D";
                 string codeStr = code.ToString("D3");
 
-                idnow = bankStr + "-" + dateStr + "-" + bankCode + "-" + DebitCode + "-" + codeStr;
+                idnow = bankStr + "-" + dateStr + "-" + (bankCode == "" ? "NULL" : bankCode)  + "-" + DebitCode + "-" + codeStr;
                 var checkID = from f in StockEntity.Entity.bank_transaction
                               where f.Bank_Transaction_ID == idnow
                               select f;

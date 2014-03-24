@@ -15,6 +15,37 @@ namespace StockApps
         public _mainForm()
         {
             InitializeComponent();
+            foreach (privilege_authorization auth in Session.UserLogin.privilege.privilege_authorization)
+            {
+                switch (auth.Authorization_ID)
+                {
+                    case 1:
+                        supplierToolStripMenuItem.Visible = true;
+                        supplierToolStripMenuItem1.Visible = true;
+                        break;
+                    case 2:
+                        userToolStripMenuItem.Visible = true;
+                        customerToolStripMenuItem.Visible = true;
+                        break;
+                    case 3:
+                        purchasingToolStripMenuItem2.Visible = true;
+                        purchasingToolStripMenuItem.Visible = true;
+                        break;
+                    case 4:
+                        sellingToolStripMenuItem2.Visible = true;
+                        sellingToolStripMenuItem.Visible = true;
+                        break;
+                    case 5:
+                        productToolStripMenuItem.Visible = true;
+                        break;
+                    case 6:
+                        administratorToolStripMenuItem.Visible = true;
+                        break;
+                    case 7:
+                        historyToolStripMenuItem.Visible = true;
+                        break;
+                }
+            }
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
