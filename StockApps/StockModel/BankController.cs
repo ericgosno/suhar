@@ -139,30 +139,56 @@ namespace StockModel
             newTrans.Bank_Transaction_Code = bankCode;
             newTrans.Bank_Transaction_Money = money;
             newTrans.Bank_Transaction_Description = description;
+            newTrans.Bank_Transaction_IsLast = 0;
 
-            var lastTrans = (from f in StockEntity.Entity.bank_transaction
-                             where f.Bank_ID == bankID && f.Bank_Transaction_IsLast == 1
-                             select f);
+            var afterTrans = (from f in StockEntity.Entity.bank_transaction
+                              where f.Bank_ID == bankID && (f.Bank_Transaction_Date.CompareTo(bankDate) > 0 || (f.Bank_Transaction_Date.CompareTo(bankDate) == 0 && f.Bank_Transaction_ID.CompareTo(idnow) > 0))
+                              select f).OrderBy(x => x.Bank_Transaction_Date).ThenBy(x => x.Bank_Transaction_ID);
+
+            var beforeTrans = (from f in StockEntity.Entity.bank_transaction
+                               where f.Bank_ID == bankID && (f.Bank_Transaction_Date.CompareTo(bankDate) < 0 || (f.Bank_Transaction_Date.CompareTo(bankDate) == 0 && f.Bank_Transaction_ID.CompareTo(idnow) < 0))
+                               select f).OrderByDescending(x => x.Bank_Transaction_Date).ThenBy(x => x.Bank_Transaction_ID);
             decimal totalNow = 0;
-            if (lastTrans.Count() > 0)
-            {
-                lastTrans.First().Bank_Transaction_IsLast = 0;
-                totalNow = lastTrans.First().Bank_Transaction_Total_Now;
-            }
-
+            if (beforeTrans.Count() > 0)totalNow = beforeTrans.First().Bank_Transaction_Total_Now;
             if (isDebit)
             {
                 newTrans.Bank_Transaction_IsDebit = 1;
-                newTrans.Bank_Transaction_Total_Now = totalNow + money;
+                totalNow = totalNow + newTrans.Bank_Transaction_Money;
+                newTrans.Bank_Transaction_Total_Now = totalNow;
             }
             else
             {
                 newTrans.Bank_Transaction_IsDebit = 0;
-                if (totalNow < money) return null;
-                newTrans.Bank_Transaction_Total_Now = totalNow - money; 
+                totalNow = totalNow - newTrans.Bank_Transaction_Money;
+                newTrans.Bank_Transaction_Total_Now = totalNow;
             }
-            bankNow.First().Bank_Current_Money = newTrans.Bank_Transaction_Total_Now;
-            newTrans.Bank_Transaction_IsLast = 1;
+
+
+            foreach (bank_transaction bank in afterTrans)
+            {
+                if (bank.Bank_Transaction_IsDebit == 1)
+                {
+                    totalNow = totalNow + bank.Bank_Transaction_Money;
+                    bank.Bank_Transaction_Total_Now = totalNow;
+                }
+                else
+                {
+                    totalNow = totalNow - bank.Bank_Transaction_Money;
+                    bank.Bank_Transaction_Total_Now = totalNow; 
+                }
+            }
+
+            if (afterTrans.Count() <= 0)
+            {
+                var lastTrans = (from f in StockEntity.Entity.bank_transaction
+                                 where f.Bank_ID == bankID && f.Bank_Transaction_IsLast == 1
+                                 select f);
+
+                if (lastTrans.Count() > 0)lastTrans.First().Bank_Transaction_IsLast = 0;
+                newTrans.Bank_Transaction_IsLast = 1;
+            }
+
+            bankNow.First().Bank_Current_Money = totalNow;
             StockEntity.Entity.AddTobank_transaction(newTrans);
             StockEntity.Entity.SaveChanges();
             return newTrans;

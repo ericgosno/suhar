@@ -99,21 +99,21 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.addToolStripMenuItem.Text = "Add Supplier";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // addProductToolStripMenuItem
             // 
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.addProductToolStripMenuItem.Text = "Add Product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
             // 
             // addCategoryToolStripMenuItem
             // 
             this.addCategoryToolStripMenuItem.Name = "addCategoryToolStripMenuItem";
-            this.addCategoryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addCategoryToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.addCategoryToolStripMenuItem.Text = "Add Category";
             this.addCategoryToolStripMenuItem.Click += new System.EventHandler(this.addCategoryToolStripMenuItem_Click);
             // 
@@ -205,6 +205,7 @@
             this.insertBankCashTransactionToolStripMenuItem.Name = "insertBankCashTransactionToolStripMenuItem";
             this.insertBankCashTransactionToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.insertBankCashTransactionToolStripMenuItem.Text = "Insert Bank/Cash Transaction";
+            this.insertBankCashTransactionToolStripMenuItem.Click += new System.EventHandler(this.insertBankCashTransactionToolStripMenuItem_Click_1);
             // 
             // administratorToolStripMenuItem
             // 
@@ -218,14 +219,14 @@
             // createUserToolStripMenuItem
             // 
             this.createUserToolStripMenuItem.Name = "createUserToolStripMenuItem";
-            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createUserToolStripMenuItem.Text = "Cr&eate";
             this.createUserToolStripMenuItem.Click += new System.EventHandler(this.createUserToolStripMenuItem_Click);
             // 
             // categoryUserToolStripMenuItem
             // 
             this.categoryUserToolStripMenuItem.Name = "categoryUserToolStripMenuItem";
-            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.categoryUserToolStripMenuItem.Text = "Catego&ry";
             this.categoryUserToolStripMenuItem.Click += new System.EventHandler(this.categoryUserToolStripMenuItem_Click);
             // 
