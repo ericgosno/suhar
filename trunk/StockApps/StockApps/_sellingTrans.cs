@@ -12,36 +12,21 @@ namespace StockApps
 {
     public partial class _sellingTrans : Form
     {
-        private Dictionary<string, int> dictCustomer;
-        private Dictionary<string, int> dictCurrency;
-        private Dictionary<string, int> dictProduct;
         public _sellingTrans()
         {
             InitializeComponent();
-            dictCustomer = new Dictionary<string, int>();
             var customerList = CustomerController.getCustomer();
-            foreach (customer cust in customerList)
-            {
-                _cbsellNama.Items.Add(cust.Customer_Name);
-                dictCustomer[cust.Customer_Name] = cust.Customer_ID;
-            }
+            _cbsellNama.DataSource = customerList;
+            _cbsellNama.DisplayMember = "Customer_Name";
+            _cbsellNama.ValueMember = "Customer_ID";
             var productList = ProductController.getProduct();
-            List<string> listProd = new List<string>();
-            dictProduct = new Dictionary<string, int>();
-            foreach (product prod in productList)
-            {
-                listProd.Add(prod.Product_Name);
-                dictProduct[prod.Product_Name] = prod.Product_ID;
-            }
-
-            dictCurrency = new Dictionary<string, int>();
+            (_dataCusTransaction.Columns["Product"] as DataGridViewComboBoxColumn).DataSource = productList;
+            (_dataCusTransaction.Columns["Product"] as DataGridViewComboBoxColumn).DisplayMember = "Product_Name";
+            (_dataCusTransaction.Columns["Product"] as DataGridViewComboBoxColumn).ValueMember = "Product_ID";
             var listCurrency = CurrencyController.getCurrency();
-            foreach (currency cur in listCurrency)
-            {
-                _cbsellKurs.Items.Add(cur.Currency_Name);
-                dictCurrency[cur.Currency_Name] = cur.Currency_ID;
-            }
-            (_dataCusTransaction.Columns["Product"] as DataGridViewComboBoxColumn).DataSource = listProd;
+            _cbsellKurs.DataSource = listCurrency;
+            _cbsellKurs.DisplayMember = "Currency_Name";
+            _cbsellKurs.ValueMember = "Currency_ID";
         }
 
         private void RefreshData()
@@ -53,7 +38,7 @@ namespace StockApps
                 try
                 {
                     if (_dataCusTransaction.Rows[i].Cells["Product"].Value == null) continue;
-                    int prodId = dictProduct[_dataCusTransaction.Rows[i].Cells["Product"].Value.ToString()];
+                    int prodId = Convert.ToInt32((_dataCusTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
                     var list = ProductController.getProductByProductID(prodId);
                     if (list.Count() <= 0) return;
                     var prodNow = list.First();
@@ -72,7 +57,7 @@ namespace StockApps
                     _dataCusTransaction.Rows[i].Cells["Package_Quantity"].Value = Math.Ceiling(Convert.ToDouble(quantity) / Convert.ToDouble(prodNow.Product_Packing_Kilogram)).ToString() + " " + prodNow.Product_Packing_Name;
                     double dollar;
                     double rupiah;
-                    if (dictCurrency[_cbsellKurs.SelectedItem.ToString()] == 1)
+                    if (Convert.ToInt32(_cbsellKurs.SelectedValue) == 1)
                     {
                         dollar = priceperkg * quantity;
                         rupiah = dollar * Convert.ToDouble(_tsellKurs.Text);
@@ -129,7 +114,7 @@ namespace StockApps
                 try
                 {
                     customer_transaction_product newProduct = new customer_transaction_product();
-                    newProduct.Product_ID = dictProduct[_dataCusTransaction.Rows[i].Cells["Product"].Value.ToString()];
+                    newProduct.Product_ID = Convert.ToInt32((_dataCusTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
                     var list = ProductController.getProductByProductID(newProduct.Product_ID);
                     if (list.Count() <= 0) continue;
                     var prodNow = list.First();
@@ -139,7 +124,7 @@ namespace StockApps
                     
                     double dollar;
                     double rupiah;
-                    if (dictCurrency[_cbsellKurs.SelectedItem.ToString()] == 1)
+                    if (Convert.ToInt32(_cbsellKurs.SelectedValue) == 1)
                     {
                         newProduct.Customer_Transaction_Product_Price_Dollar = Convert.ToDecimal(priceperkg);
                         newProduct.Customer_Transaction_Product_Price_Rupiah = Convert.ToDecimal(priceperkg) * Convert.ToDecimal(_tsellKurs.Text);
@@ -183,7 +168,15 @@ namespace StockApps
             double totalWithPPNDollar = 1.1 * totalDollar;
             _lsellTotalPPNDollar.Text = totalWithPPNDollar.ToString("C2");
             _lsellTotalPPNRupiah.Text = totalWithPPNRupiah.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
-            CustomerTransaction.insertCustomerTransaction(_dtTransDate.Value, dictCustomer[_cbsellNama.SelectedItem.ToString()], totalDollar, totalRupiah, _tsellDescription.Text, prod, _tsellNoteNum.Text, dictCurrency[_cbsellKurs.SelectedItem.ToString()]);
+            customer_transaction newTrans = CustomerTransaction.insertCustomerTransaction(_dtTransDate.Value, Convert.ToInt32(_cbsellNama.SelectedValue), totalDollar, totalRupiah, _tsellDescription.Text, prod, _tsellNoteNum.Text, Convert.ToInt32(_cbsellKurs.SelectedValue), Convert.ToDecimal(_tsellKurs.Text));
+            _sellingTransv2 nextForm = new _sellingTransv2(newTrans);
+            nextForm.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
+            nextForm.Show();
+            this.Hide();
+        }
+
+        void prodForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
             this.Close();
         }
 

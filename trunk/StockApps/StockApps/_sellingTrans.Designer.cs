@@ -34,6 +34,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this._cbsellNama = new System.Windows.Forms.ComboBox();
             this._dataCusTransaction = new System.Windows.Forms.DataGridView();
+            this.Product = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity_Kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price_Kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Package_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal_Dollar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal_Rupiah = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._bsellPay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,13 +63,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this._lsellPPNRupiah = new System.Windows.Forms.Label();
             this._lsellTotalPPNRupiah = new System.Windows.Forms.Label();
-            this.Product = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Quantity_Kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price_Kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Package_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal_Dollar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal_Rupiah = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dataCusTransaction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,6 +131,45 @@
             this._dataCusTransaction.Size = new System.Drawing.Size(751, 270);
             this._dataCusTransaction.TabIndex = 38;
             this._dataCusTransaction.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataCusTransaction_CellEndEdit);
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            // 
+            // Quantity_Kg
+            // 
+            this.Quantity_Kg.HeaderText = "Quantity(Kgs)";
+            this.Quantity_Kg.Name = "Quantity_Kg";
+            // 
+            // Price_Kg
+            // 
+            this.Price_Kg.HeaderText = "Price Per Kgs";
+            this.Price_Kg.Name = "Price_Kg";
+            // 
+            // Package_Quantity
+            // 
+            this.Package_Quantity.HeaderText = "Package Quantity";
+            this.Package_Quantity.Name = "Package_Quantity";
+            this.Package_Quantity.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            // 
+            // Subtotal_Dollar
+            // 
+            this.Subtotal_Dollar.HeaderText = "Subtotal(Dollar)";
+            this.Subtotal_Dollar.Name = "Subtotal_Dollar";
+            this.Subtotal_Dollar.ReadOnly = true;
+            // 
+            // Subtotal_Rupiah
+            // 
+            this.Subtotal_Rupiah.HeaderText = "Subtotal(Rupiah)";
+            this.Subtotal_Rupiah.Name = "Subtotal_Rupiah";
+            this.Subtotal_Rupiah.ReadOnly = true;
             // 
             // _bsellPay
             // 
@@ -255,9 +294,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(13, 161);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(158, 29);
+            this.label9.Size = new System.Drawing.Size(157, 29);
             this.label9.TabIndex = 55;
-            this.label9.Text = "Kurs               :";
+            this.label9.Text = "Currency       :";
             // 
             // _cbsellKurs
             // 
@@ -348,45 +387,6 @@
             this._lsellTotalPPNRupiah.Size = new System.Drawing.Size(26, 29);
             this._lsellTotalPPNRupiah.TabIndex = 64;
             this._lsellTotalPPNRupiah.Text = "0";
-            // 
-            // Product
-            // 
-            this.Product.HeaderText = "Product";
-            this.Product.Name = "Product";
-            // 
-            // Quantity_Kg
-            // 
-            this.Quantity_Kg.HeaderText = "Quantity(Kgs)";
-            this.Quantity_Kg.Name = "Quantity_Kg";
-            // 
-            // Price_Kg
-            // 
-            this.Price_Kg.HeaderText = "Price Per Kgs";
-            this.Price_Kg.Name = "Price_Kg";
-            // 
-            // Package_Quantity
-            // 
-            this.Package_Quantity.HeaderText = "Package Quantity";
-            this.Package_Quantity.Name = "Package_Quantity";
-            this.Package_Quantity.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            // 
-            // Subtotal_Dollar
-            // 
-            this.Subtotal_Dollar.HeaderText = "Subtotal(Dollar)";
-            this.Subtotal_Dollar.Name = "Subtotal_Dollar";
-            this.Subtotal_Dollar.ReadOnly = true;
-            // 
-            // Subtotal_Rupiah
-            // 
-            this.Subtotal_Rupiah.HeaderText = "Subtotal(Rupiah)";
-            this.Subtotal_Rupiah.Name = "Subtotal_Rupiah";
-            this.Subtotal_Rupiah.ReadOnly = true;
             // 
             // _sellingTrans
             // 

@@ -12,19 +12,15 @@ namespace StockApps
 {
     public partial class _bankList : Form
     {
-        private Dictionary<string, int> dictCurrency;
         private int selectedId;
         public _bankList()
         {
             InitializeComponent();
             selectedId = -1;
-            dictCurrency = new Dictionary<string, int>();
             var listCurrency = CurrencyController.getCurrency();
-            foreach (currency cur in listCurrency)
-            {
-                _cbankCurrency.Items.Add(cur.Currency_Name);
-                dictCurrency[cur.Currency_Name] = cur.Currency_ID;
-            }
+            _cbankCurrency.DataSource = listCurrency;
+            _cbankCurrency.DisplayMember = "Currency_Name";
+            _cbankCurrency.ValueMember = "Currency_ID";
             RefreshForm();
         }
 
@@ -78,11 +74,11 @@ namespace StockApps
             }
             if (selectedId == -1)
             {
-                BankController.insertBank(_tbankName.Text, dictCurrency[_cbankCurrency.SelectedItem.ToString()]);
+                BankController.insertBank(_tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedItem.ToString()));
             }
             else
             {
-                BankController.updateBank(selectedId,_tbankName.Text, dictCurrency[_cbankCurrency.SelectedItem.ToString()]);
+                BankController.updateBank(selectedId, _tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedItem.ToString()));
             }
             RefreshForm();
         }
@@ -94,7 +90,7 @@ namespace StockApps
                 var bankNow = BankController.getBank(Convert.ToInt32(_dataBank.SelectedRows[0].Cells["Bank_ID"].Value)).First();
                 selectedId = bankNow.Bank_ID;
                 _tbankName.Text = bankNow.Bank_Name;
-                _cbankCurrency.SelectedItem = bankNow.currency.Currency_Name;
+                _cbankCurrency.SelectedValue = bankNow.currency.Currency_ID;
                 _bbankInsert.Text = "UPDATE";
             }
             catch (Exception ex)

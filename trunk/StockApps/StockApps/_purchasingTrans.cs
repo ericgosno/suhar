@@ -12,22 +12,30 @@ namespace StockApps
 {
     public partial class _purchasingTrans : Form
     {
-        private Dictionary<string, int> dictProduct;
-        private Dictionary<string, int> dictSupplier;
         public _purchasingTrans()
         {
             InitializeComponent();
-            dictProduct = new Dictionary<string,int>();
             var listSupplier = SupplierController.getSupplier();
-            dictSupplier = new Dictionary<string, int>();
-            foreach (supplier supp in listSupplier)
-            {
-                _cbpurNama.Items.Add(supp.Supplier_Name);
-                dictSupplier[supp.Supplier_Name] = supp.Supplier_ID;
-            }            
+            _cbpurNama.DataSource = listSupplier;
+            _cbpurNama.DisplayMember = "Supplier_Company_Name";
+            _cbpurNama.ValueMember = "Supplier_ID";
+            refreshListProduct();
         }
 
-
+        private void refreshListProduct()
+        {
+            try
+            {
+                _dataSupTransaction.Rows.Clear();
+                _lpurDollar.Text = "0";
+                _lpurRp.Text = "0";
+                var listProduct = ProductController.getProductBySupplierID(Convert.ToInt32((_cbpurNama.SelectedValue)));
+                (_dataSupTransaction.Columns["Product"] as DataGridViewComboBoxColumn).DataSource = listProduct;
+                (_dataSupTransaction.Columns["Product"] as DataGridViewComboBoxColumn).DisplayMember = "Product_Name";
+                (_dataSupTransaction.Columns["Product"] as DataGridViewComboBoxColumn).ValueMember = "Product_ID";
+            }
+            catch (Exception ex) { }
+        }
         private void _purchasingTrans_Load(object sender, EventArgs e)
         {
 
@@ -35,18 +43,7 @@ namespace StockApps
 
         private void _cbpurNama_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dictProduct = new Dictionary<string,int>();
-            _dataSupTransaction.Rows.Clear();
-            _lpurDollar.Text = "0";
-            _lpurRp.Text = "0";
-            var listProduct = ProductController.getProductBySupplierID(dictSupplier[_cbpurNama.SelectedItem.ToString()]);
-            List<string> listprod = new List<string>();
-            foreach (product prod in listProduct)
-            {
-                listprod.Add(prod.Product_Name);
-                dictProduct[prod.Product_Name] = prod.Product_ID;
-            }
-            (_dataSupTransaction.Columns["Product"] as DataGridViewComboBoxColumn).DataSource = listprod;
+            refreshListProduct();
         }
 
         private void RefreshData()
@@ -57,7 +54,7 @@ namespace StockApps
             {
                 try
                 {
-                    int prodId = dictProduct[_dataSupTransaction.Rows[i].Cells["Product"].Value.ToString()];
+                    int prodId = Convert.ToInt32((_dataSupTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
                     var list = ProductController.getProductByProductID(prodId);
                     if (list.Count() <= 0) return;
                     var prodNow = list.First();
@@ -109,7 +106,7 @@ namespace StockApps
                 try
                 {
                     supplier_transaction_product newProduct = new supplier_transaction_product();
-                    newProduct.Product_ID  = dictProduct[_dataSupTransaction.Rows[i].Cells["Product"].Value.ToString()];
+                    newProduct.Product_ID = Convert.ToInt32((_dataSupTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
                     var list = ProductController.getProductByProductID(newProduct.Product_ID);
                     if (list.Count() <= 0) continue;
                     var prodNow = list.First();
@@ -140,7 +137,7 @@ namespace StockApps
                 }
                 catch (Exception ex) { continue; }
             }
-            SupplierTransaction.insertSupplierTransaction(_dtTransDate.Value,dictSupplier[_cbpurNama.SelectedItem.ToString()], totalDollar, totalRupiah, _tpurDescription.Text, prod);
+            SupplierTransaction.insertSupplierTransaction(_dtTransDate.Value,Convert.ToInt32(_cbpurNama.SelectedValue), totalDollar, totalRupiah, _tpurDescription.Text, prod);
             this.Close();
         }
 

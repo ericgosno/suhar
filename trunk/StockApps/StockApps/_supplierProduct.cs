@@ -14,34 +14,22 @@ namespace StockApps
     {
         private int supplierId;
         private int productId;
-        private Dictionary<string, int> dictPriceType;
-        private Dictionary<string, int> dictStockType;
-        private Dictionary<string, int> dictCategory;
-        private Dictionary<string, int> dictSupplier;
 
         private void RefreshComboBox()
         {
-            dictCategory = new Dictionary<string, int>();
-            dictPriceType = new Dictionary<string, int>();
-            dictStockType = new Dictionary<string, int>();
-
             _cbspPPackageName.Items.Add("Sack");
             _cbspPPackageName.Items.Add("Bags");
             _cbspPPackageName.Items.Add("Drum");
 
             var listCurrency = CurrencyController.getCurrency();
-            foreach (currency cur in listCurrency)
-            {
-                _cbspPTypePrice.Items.Add(cur.Currency_Name);
-                dictPriceType[cur.Currency_Name] = cur.Currency_ID;
-            }
+            _cbspPTypePrice.DataSource = listCurrency;
+            _cbspPTypePrice.DisplayMember = "Currency_Name";
+            _cbspPTypePrice.ValueMember = "Currency_ID";
 
             var listCategory = ProductController.getProductCategory();
-            foreach (product_category pc in listCategory)
-            {
-                _cbspPCategory.Items.Add(pc.Product_Category_Name);
-                dictCategory[pc.Product_Category_Name] = pc.Product_Category_ID;
-            }
+            _cbspPCategory.DataSource = listCategory;
+            _cbspPCategory.ValueMember = "Product_Category_ID";
+            _cbspPCategory.DisplayMember = "Product_Category_Name";
         }
 
         public _SupplierProduct()
@@ -55,14 +43,11 @@ namespace StockApps
 
             _lspPSupplierName.Visible = false;
             _cbspSupplierList.Visible = true;
-            dictSupplier = new Dictionary<string, int>();
+
             var listSupplier = SupplierController.getSupplier();
-            _cbspSupplierList.Items.Clear();
-            foreach (supplier sup in listSupplier)
-            {
-                _cbspSupplierList.Items.Add(sup.Supplier_Name);
-                dictSupplier[sup.Supplier_Name] = sup.Supplier_ID;
-            }
+            _cbspSupplierList.DataSource = listSupplier;
+            _cbspSupplierList.DisplayMember = "Supplier_Name";
+            _cbspSupplierList.ValueMember = "Supplier_ID";
 
             RefreshComboBox();
         }
@@ -99,8 +84,8 @@ namespace StockApps
             RefreshComboBox();
 
             _cbspPPackageName.SelectedItem = prod.Product_Packing_Name;
-            _cbspPTypePrice.SelectedItem = prod.currency.Currency_Name;
-            _cbspPCategory.SelectedItem = prod.product_category.Product_Category_Name;
+            _cbspPTypePrice.SelectedValue = prod.Currency_ID;
+            _cbspPCategory.SelectedValue = prod.Product_Category_ID;
 
             _tspPName.Text = prod.Product_Name;
             _tspPPackingKilogram.Text = prod.Product_Packing_Kilogram.ToString();
@@ -111,7 +96,7 @@ namespace StockApps
         {
             try
             {
-                ProductController.insertProduct(supplierId, dictCategory[_cbspPCategory.SelectedItem.ToString()], dictPriceType[_cbspPTypePrice.SelectedItem.ToString()], Convert.ToDouble(_tspPPrice.Text), _tspPName.Text,_cbspPPackageName.SelectedItem.ToString(),Convert.ToInt32(_tspPPackingKilogram.Text));
+                ProductController.insertProduct(supplierId, Convert.ToInt32(_cbspPCategory.SelectedValue), Convert.ToInt32(_cbspPTypePrice.SelectedValue), Convert.ToDouble(_tspPPrice.Text), _tspPName.Text,_cbspPPackageName.SelectedItem.ToString(),Convert.ToInt32(_tspPPackingKilogram.Text));
                 this.Close();
             }
             catch (Exception ex) { MessageBox.Show("Invalid Parameter"); }
@@ -121,7 +106,7 @@ namespace StockApps
         {
             try
             {
-                ProductController.updateProduct(productId,supplierId, dictCategory[_cbspPCategory.SelectedItem.ToString()], dictPriceType[_cbspPTypePrice.SelectedItem.ToString()], Convert.ToDouble(_tspPPrice.Text), _tspPName.Text, _cbspPPackageName.SelectedItem.ToString(), Convert.ToInt32(_tspPPackingKilogram.Text));
+                ProductController.updateProduct(productId, supplierId, Convert.ToInt32(_cbspPCategory.SelectedValue), Convert.ToInt32(_cbspPTypePrice.SelectedValue), Convert.ToDouble(_tspPPrice.Text), _tspPName.Text, _cbspPPackageName.SelectedItem.ToString(), Convert.ToInt32(_tspPPackingKilogram.Text));
                 this.Close();
             }
             catch (Exception ex) { MessageBox.Show("Invalid Parameter"); }
@@ -137,20 +122,17 @@ namespace StockApps
 
         void listCategory_FormClosed(object sender, FormClosedEventArgs e)
         {
-            dictCategory = new Dictionary<string, int>();
             var listCategory = ProductController.getProductCategory();
-            foreach (product_category pc in listCategory)
-            {
-                _cbspPCategory.Items.Add(pc.Product_Category_Name);
-                dictCategory[pc.Product_Category_Name] = pc.Product_Category_ID;
-            }
+            _cbspPCategory.DataSource = listCategory;
+            _cbspPCategory.ValueMember = "Product_Category_ID";
+            _cbspPCategory.DisplayMember = "Product_Category_Name";
         }
 
         private void _cbspSupplierList_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                supplierId = dictSupplier[_cbspSupplierList.SelectedItem.ToString()];
+                supplierId = Convert.ToInt32(_cbspSupplierList.SelectedValue);
             }
             catch (Exception ex)
             {
