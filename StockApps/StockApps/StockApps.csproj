@@ -173,6 +173,12 @@
     <Compile Include="_administrator.Designer.cs">
       <DependentUpon>_administrator.cs</DependentUpon>
     </Compile>
+    <Compile Include="_notificationPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_notificationPayment.Designer.cs">
+      <DependentUpon>_notificationPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="_productStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +292,9 @@
     </Compile>
     <EmbeddedResource Include="_administrator.resx">
       <DependentUpon>_administrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_notificationPayment.resx">
+      <DependentUpon>_notificationPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_productStock.resx">
       <DependentUpon>_productStock.cs</DependentUpon>

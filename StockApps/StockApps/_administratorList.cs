@@ -12,7 +12,6 @@ namespace StockApps
     public partial class _administratorList : Form
     {
         private int selectedID;
-        private Dictionary<string, int> DictPriv;
         public _administratorList()
         {
             InitializeComponent();
@@ -28,13 +27,9 @@ namespace StockApps
             _tadmCPassConf.Text = "";
             _cbadmCCategory.SelectedIndex=-1;
             var privList = UserController.getPrivilege();
-            DictPriv = new Dictionary<string, int>();
-            _cbadmCCategory.Items.Clear();
-            foreach (privilege priv in privList)
-            {
-                _cbadmCCategory.Items.Add(priv.Privilege_name);
-                DictPriv[priv.Privilege_name] = priv.Privilege_ID;
-            }
+            _cbadmCCategory.DataSource = privList;
+            _cbadmCCategory.DisplayMember = "Privilege_Name";
+            _cbadmCCategory.ValueMember = "Privilege_ID";
             
             var userList = UserController.getUser();
             
@@ -61,7 +56,7 @@ namespace StockApps
         {
             if (_tadmCPass.Text.Equals(_tadmCPassConf.Text))
             {
-                UserController.insertUser(_tadmCName.Text, _tadmCPass.Text, DictPriv[_cbadmCCategory.SelectedItem.ToString()], _tadmCEmail.Text);
+                UserController.insertUser(_tadmCName.Text, _tadmCPass.Text, Convert.ToInt32(_cbadmCCategory.SelectedValue), _tadmCEmail.Text);
                 RefreshForm();
             }
             else MessageBox.Show("Wrong Password Confirmation");
@@ -101,7 +96,7 @@ namespace StockApps
                 _tadmCEmail.Text = userNow.users_email;
                 _tadmCPass.Text = "";
                 _tadmCPassConf.Text = "";
-                _cbadmCCategory.SelectedItem = userNow.privilege.Privilege_name;
+                _cbadmCCategory.SelectedValue = userNow.privilege.Privilege_ID;
             }
             catch (Exception ex)
             {
@@ -117,7 +112,7 @@ namespace StockApps
             }
             if (_tadmCPass.Text == "" || _tadmCPass.Text.Equals(_tadmCPassConf.Text))
             {
-                UserController.updateUser(selectedID,_tadmCName.Text, _tadmCPass.Text,_tadmCEmail.Text, DictPriv[_cbadmCCategory.SelectedItem.ToString()]);
+                UserController.updateUser(selectedID, _tadmCName.Text, _tadmCPass.Text, _tadmCEmail.Text, Convert.ToInt32(_cbadmCCategory.SelectedValue));
                 RefreshForm();
             }
             else MessageBox.Show("Wrong Password Confirmation");

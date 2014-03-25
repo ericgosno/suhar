@@ -13,22 +13,18 @@ namespace StockApps
     public partial class _insertBankTransaction : Form
     {
         private int BankId;
-        private Dictionary<string, int> dictBank;
 
         public _insertBankTransaction()
         {
             InitializeComponent();
-            BankId = -1;
+            
             _cbtransBankName.Visible = true;
             _lbtransBankName.Visible = false;
-            dictBank = new Dictionary<string, int>();
-            var bankList = BankController.getBank().ToList();
-            bankList.Insert(0, BankController.getCash());
-            foreach (bank bankNow in bankList)
-            {
-                _cbtransBankName.Items.Add(bankNow.Bank_Name);
-                dictBank[bankNow.Bank_Name] = bankNow.Bank_ID;
-            }
+            var bankList = BankController.getBankWithCash();
+            _cbtransBankName.DataSource = bankList;
+            _cbtransBankName.DisplayMember = "Bank_Name";
+            _cbtransBankName.ValueMember = "Bank_ID";
+            BankId = Convert.ToInt32(_cbtransBankName.SelectedValue);
             _lbtransCurrency.Text = "";
         }
 
@@ -66,7 +62,7 @@ namespace StockApps
                     MessageBox.Show("You must select bank first!");
                     return;
                 }
-                else BankId = dictBank[_cbtransBankName.SelectedItem.ToString()];
+                else BankId = Convert.ToInt32(_cbtransBankName.SelectedValue);
             }
             bank_transaction newTrans = BankController.insertBankTransaction(BankId, _cbtransDate.Value, _tbtransCode.Text, (_cbtransDebitCredit.SelectedIndex == 0), nominal, _tbtransDescription.Text);
             if (newTrans != null)
@@ -80,7 +76,7 @@ namespace StockApps
         {
             if (_cbtransBankName.SelectedIndex == -1)
             {
-                int BankId = dictBank[_cbtransBankName.SelectedItem.ToString()];
+                int BankId = Convert.ToInt32(_cbtransBankName.SelectedValue);
                 bank bankNow = BankController.getBankWithCash(BankId).First();
                 _lbtransCurrency.Text = bankNow.currency.Currency_Name;
             }

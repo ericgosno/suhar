@@ -18,7 +18,7 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_8", "customer", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.customer), "customer_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_transaction), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_8", "customer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.customer), "customer_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_transaction), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_10", "customer_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.customer_transaction), "customer_transaction_product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_transaction_product), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_11", "product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.product), "customer_transaction_product", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_transaction_product), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "FK_Relationship_3", "product", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StockModel.product), "price_history", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.price_history), true)]
@@ -37,6 +37,16 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("stockappsModel", "customer_transaction_ibfk_2", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "customer_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_transaction), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "customer_debt_fk1", "customer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.customer), "customer_debt", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_debt), true)]
 [assembly: EdmRelationshipAttribute("stockappsModel", "supplier_credit_fk1", "supplier", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.supplier), "supplier_credit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_credit), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "supplier_payment_fk3", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.bank), "supplier_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_payment), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "supplier_payment_fk2", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "supplier_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_payment), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "supplier_payment_fk1", "supplier", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.supplier), "supplier_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_payment), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "bank_transaction_fk1", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.bank), "bank_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.bank_transaction), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "customer_payment_fk2", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.bank), "customer_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_payment), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "customer_payment_fk3", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.currency), "customer_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_payment), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "customer_payment_fk1", "customer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.customer), "customer_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_payment), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "customer_payment_transaction", "customer_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_transaction), "customer_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_payment))]
+[assembly: EdmRelationshipAttribute("stockappsModel", "supplier_payment_transaction", "supplier_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_transaction), "supplier_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_payment))]
+[assembly: EdmRelationshipAttribute("stockappsModel", "supplier_payment_fk4", "payment_category", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.payment_category), "supplier_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_payment), true)]
 
 #endregion
 
@@ -439,6 +449,22 @@ namespace StockModel
             }
         }
         private ObjectSet<supplier_credit> _supplier_credit;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<customer_payment> customer_payment
+        {
+            get
+            {
+                if ((_customer_payment == null))
+                {
+                    _customer_payment = base.CreateObjectSet<customer_payment>("customer_payment");
+                }
+                return _customer_payment;
+            }
+        }
+        private ObjectSet<customer_payment> _customer_payment;
 
         #endregion
         #region AddTo Methods
@@ -617,6 +643,14 @@ namespace StockModel
         public void AddTosupplier_credit(supplier_credit supplier_credit)
         {
             base.AddObject("supplier_credit", supplier_credit);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the customer_payment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTocustomer_payment(customer_payment customer_payment)
+        {
+            base.AddObject("customer_payment", customer_payment);
         }
 
         #endregion
@@ -1123,6 +1157,72 @@ namespace StockModel
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_fk3", "supplier_payment")]
+        public EntityCollection<supplier_payment> supplier_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_fk3", "supplier_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_fk3", "supplier_payment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "bank_transaction_fk1", "bank_transaction")]
+        public EntityCollection<bank_transaction> bank_transaction
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<bank_transaction>("stockappsModel.bank_transaction_fk1", "bank_transaction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<bank_transaction>("stockappsModel.bank_transaction_fk1", "bank_transaction", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_fk2", "customer_payment")]
+        public EntityCollection<customer_payment> customer_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer_payment>("stockappsModel.customer_payment_fk2", "customer_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_payment>("stockappsModel.customer_payment_fk2", "customer_payment", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1386,6 +1486,47 @@ namespace StockModel
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "bank_transaction_fk1", "bank")]
+        public bank bank
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("stockappsModel.bank_transaction_fk1", "bank").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("stockappsModel.bank_transaction_fk1", "bank").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<bank> bankReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("stockappsModel.bank_transaction_fk1", "bank");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<bank>("stockappsModel.bank_transaction_fk1", "bank", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -1553,6 +1694,50 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_transaction>("stockappsModel.customer_transaction_ibfk_2", "customer_transaction", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_fk2", "supplier_payment")]
+        public EntityCollection<supplier_payment> supplier_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_fk2", "supplier_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_fk2", "supplier_payment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_fk3", "customer_payment")]
+        public EntityCollection<customer_payment> customer_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer_payment>("stockappsModel.customer_payment_fk3", "customer_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_payment>("stockappsModel.customer_payment_fk3", "customer_payment", value);
                 }
             }
         }
@@ -1853,6 +2038,28 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_debt>("stockappsModel.customer_debt_fk1", "customer_debt", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_fk1", "customer_payment")]
+        public EntityCollection<customer_payment> customer_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer_payment>("stockappsModel.customer_payment_fk1", "customer_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_payment>("stockappsModel.customer_payment_fk1", "customer_payment", value);
                 }
             }
         }
@@ -2163,6 +2370,564 @@ namespace StockModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="customer_payment")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class customer_payment : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new customer_payment object.
+        /// </summary>
+        /// <param name="customer_Payment_ID">Initial value of the Customer_Payment_ID property.</param>
+        /// <param name="customer_ID">Initial value of the Customer_ID property.</param>
+        /// <param name="bank_ID">Initial value of the Bank_ID property.</param>
+        /// <param name="currency_ID">Initial value of the Currency_ID property.</param>
+        /// <param name="customer_Payment_Date">Initial value of the Customer_Payment_Date property.</param>
+        /// <param name="customer_Payment_Deadline_Date">Initial value of the Customer_Payment_Deadline_Date property.</param>
+        /// <param name="customer_Payment_Rupiah">Initial value of the Customer_Payment_Rupiah property.</param>
+        /// <param name="customer_Payment_Dollar">Initial value of the Customer_Payment_Dollar property.</param>
+        /// <param name="customer_Payment_PPN_Rupiah">Initial value of the Customer_Payment_PPN_Rupiah property.</param>
+        /// <param name="customer_Payment_PPN_Dollar">Initial value of the Customer_Payment_PPN_Dollar property.</param>
+        /// <param name="customer_Payment_Total_Rupiah">Initial value of the Customer_Payment_Total_Rupiah property.</param>
+        /// <param name="customer_Payment_Total_Dollar">Initial value of the Customer_Payment_Total_Dollar property.</param>
+        /// <param name="customer_Payment_Kurs">Initial value of the Customer_Payment_Kurs property.</param>
+        /// <param name="customer_Payment_Status">Initial value of the Customer_Payment_Status property.</param>
+        /// <param name="payment_Category_ID">Initial value of the Payment_Category_ID property.</param>
+        public static customer_payment Createcustomer_payment(global::System.String customer_Payment_ID, global::System.Int32 customer_ID, global::System.Int32 bank_ID, global::System.Int32 currency_ID, global::System.DateTime customer_Payment_Date, global::System.DateTime customer_Payment_Deadline_Date, global::System.Decimal customer_Payment_Rupiah, global::System.Decimal customer_Payment_Dollar, global::System.Decimal customer_Payment_PPN_Rupiah, global::System.Decimal customer_Payment_PPN_Dollar, global::System.Decimal customer_Payment_Total_Rupiah, global::System.Decimal customer_Payment_Total_Dollar, global::System.Decimal customer_Payment_Kurs, global::System.Int32 customer_Payment_Status, global::System.Int32 payment_Category_ID)
+        {
+            customer_payment customer_payment = new customer_payment();
+            customer_payment.Customer_Payment_ID = customer_Payment_ID;
+            customer_payment.Customer_ID = customer_ID;
+            customer_payment.Bank_ID = bank_ID;
+            customer_payment.Currency_ID = currency_ID;
+            customer_payment.Customer_Payment_Date = customer_Payment_Date;
+            customer_payment.Customer_Payment_Deadline_Date = customer_Payment_Deadline_Date;
+            customer_payment.Customer_Payment_Rupiah = customer_Payment_Rupiah;
+            customer_payment.Customer_Payment_Dollar = customer_Payment_Dollar;
+            customer_payment.Customer_Payment_PPN_Rupiah = customer_Payment_PPN_Rupiah;
+            customer_payment.Customer_Payment_PPN_Dollar = customer_Payment_PPN_Dollar;
+            customer_payment.Customer_Payment_Total_Rupiah = customer_Payment_Total_Rupiah;
+            customer_payment.Customer_Payment_Total_Dollar = customer_Payment_Total_Dollar;
+            customer_payment.Customer_Payment_Kurs = customer_Payment_Kurs;
+            customer_payment.Customer_Payment_Status = customer_Payment_Status;
+            customer_payment.Payment_Category_ID = payment_Category_ID;
+            return customer_payment;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Customer_Payment_ID
+        {
+            get
+            {
+                return _Customer_Payment_ID;
+            }
+            set
+            {
+                if (_Customer_Payment_ID != value)
+                {
+                    OnCustomer_Payment_IDChanging(value);
+                    ReportPropertyChanging("Customer_Payment_ID");
+                    _Customer_Payment_ID = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Customer_Payment_ID");
+                    OnCustomer_Payment_IDChanged();
+                }
+            }
+        }
+        private global::System.String _Customer_Payment_ID;
+        partial void OnCustomer_Payment_IDChanging(global::System.String value);
+        partial void OnCustomer_Payment_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Customer_ID
+        {
+            get
+            {
+                return _Customer_ID;
+            }
+            set
+            {
+                OnCustomer_IDChanging(value);
+                ReportPropertyChanging("Customer_ID");
+                _Customer_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_ID");
+                OnCustomer_IDChanged();
+            }
+        }
+        private global::System.Int32 _Customer_ID;
+        partial void OnCustomer_IDChanging(global::System.Int32 value);
+        partial void OnCustomer_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Bank_ID
+        {
+            get
+            {
+                return _Bank_ID;
+            }
+            set
+            {
+                OnBank_IDChanging(value);
+                ReportPropertyChanging("Bank_ID");
+                _Bank_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_ID");
+                OnBank_IDChanged();
+            }
+        }
+        private global::System.Int32 _Bank_ID;
+        partial void OnBank_IDChanging(global::System.Int32 value);
+        partial void OnBank_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Currency_ID
+        {
+            get
+            {
+                return _Currency_ID;
+            }
+            set
+            {
+                OnCurrency_IDChanging(value);
+                ReportPropertyChanging("Currency_ID");
+                _Currency_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Currency_ID");
+                OnCurrency_IDChanged();
+            }
+        }
+        private global::System.Int32 _Currency_ID;
+        partial void OnCurrency_IDChanging(global::System.Int32 value);
+        partial void OnCurrency_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Customer_Payment_Date
+        {
+            get
+            {
+                return _Customer_Payment_Date;
+            }
+            set
+            {
+                OnCustomer_Payment_DateChanging(value);
+                ReportPropertyChanging("Customer_Payment_Date");
+                _Customer_Payment_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_Date");
+                OnCustomer_Payment_DateChanged();
+            }
+        }
+        private global::System.DateTime _Customer_Payment_Date;
+        partial void OnCustomer_Payment_DateChanging(global::System.DateTime value);
+        partial void OnCustomer_Payment_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Customer_Payment_Deadline_Date
+        {
+            get
+            {
+                return _Customer_Payment_Deadline_Date;
+            }
+            set
+            {
+                OnCustomer_Payment_Deadline_DateChanging(value);
+                ReportPropertyChanging("Customer_Payment_Deadline_Date");
+                _Customer_Payment_Deadline_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_Deadline_Date");
+                OnCustomer_Payment_Deadline_DateChanged();
+            }
+        }
+        private global::System.DateTime _Customer_Payment_Deadline_Date;
+        partial void OnCustomer_Payment_Deadline_DateChanging(global::System.DateTime value);
+        partial void OnCustomer_Payment_Deadline_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Payment_Rupiah
+        {
+            get
+            {
+                return _Customer_Payment_Rupiah;
+            }
+            set
+            {
+                OnCustomer_Payment_RupiahChanging(value);
+                ReportPropertyChanging("Customer_Payment_Rupiah");
+                _Customer_Payment_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_Rupiah");
+                OnCustomer_Payment_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Payment_Rupiah;
+        partial void OnCustomer_Payment_RupiahChanging(global::System.Decimal value);
+        partial void OnCustomer_Payment_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Payment_Dollar
+        {
+            get
+            {
+                return _Customer_Payment_Dollar;
+            }
+            set
+            {
+                OnCustomer_Payment_DollarChanging(value);
+                ReportPropertyChanging("Customer_Payment_Dollar");
+                _Customer_Payment_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_Dollar");
+                OnCustomer_Payment_DollarChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Payment_Dollar;
+        partial void OnCustomer_Payment_DollarChanging(global::System.Decimal value);
+        partial void OnCustomer_Payment_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Payment_PPN_Rupiah
+        {
+            get
+            {
+                return _Customer_Payment_PPN_Rupiah;
+            }
+            set
+            {
+                OnCustomer_Payment_PPN_RupiahChanging(value);
+                ReportPropertyChanging("Customer_Payment_PPN_Rupiah");
+                _Customer_Payment_PPN_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_PPN_Rupiah");
+                OnCustomer_Payment_PPN_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Payment_PPN_Rupiah;
+        partial void OnCustomer_Payment_PPN_RupiahChanging(global::System.Decimal value);
+        partial void OnCustomer_Payment_PPN_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Payment_PPN_Dollar
+        {
+            get
+            {
+                return _Customer_Payment_PPN_Dollar;
+            }
+            set
+            {
+                OnCustomer_Payment_PPN_DollarChanging(value);
+                ReportPropertyChanging("Customer_Payment_PPN_Dollar");
+                _Customer_Payment_PPN_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_PPN_Dollar");
+                OnCustomer_Payment_PPN_DollarChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Payment_PPN_Dollar;
+        partial void OnCustomer_Payment_PPN_DollarChanging(global::System.Decimal value);
+        partial void OnCustomer_Payment_PPN_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Payment_Total_Rupiah
+        {
+            get
+            {
+                return _Customer_Payment_Total_Rupiah;
+            }
+            set
+            {
+                OnCustomer_Payment_Total_RupiahChanging(value);
+                ReportPropertyChanging("Customer_Payment_Total_Rupiah");
+                _Customer_Payment_Total_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_Total_Rupiah");
+                OnCustomer_Payment_Total_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Payment_Total_Rupiah;
+        partial void OnCustomer_Payment_Total_RupiahChanging(global::System.Decimal value);
+        partial void OnCustomer_Payment_Total_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Payment_Total_Dollar
+        {
+            get
+            {
+                return _Customer_Payment_Total_Dollar;
+            }
+            set
+            {
+                OnCustomer_Payment_Total_DollarChanging(value);
+                ReportPropertyChanging("Customer_Payment_Total_Dollar");
+                _Customer_Payment_Total_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_Total_Dollar");
+                OnCustomer_Payment_Total_DollarChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Payment_Total_Dollar;
+        partial void OnCustomer_Payment_Total_DollarChanging(global::System.Decimal value);
+        partial void OnCustomer_Payment_Total_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Payment_Kurs
+        {
+            get
+            {
+                return _Customer_Payment_Kurs;
+            }
+            set
+            {
+                OnCustomer_Payment_KursChanging(value);
+                ReportPropertyChanging("Customer_Payment_Kurs");
+                _Customer_Payment_Kurs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_Kurs");
+                OnCustomer_Payment_KursChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Payment_Kurs;
+        partial void OnCustomer_Payment_KursChanging(global::System.Decimal value);
+        partial void OnCustomer_Payment_KursChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Customer_Payment_Status
+        {
+            get
+            {
+                return _Customer_Payment_Status;
+            }
+            set
+            {
+                OnCustomer_Payment_StatusChanging(value);
+                ReportPropertyChanging("Customer_Payment_Status");
+                _Customer_Payment_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Payment_Status");
+                OnCustomer_Payment_StatusChanged();
+            }
+        }
+        private global::System.Int32 _Customer_Payment_Status;
+        partial void OnCustomer_Payment_StatusChanging(global::System.Int32 value);
+        partial void OnCustomer_Payment_StatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Payment_Category_ID
+        {
+            get
+            {
+                return _Payment_Category_ID;
+            }
+            set
+            {
+                OnPayment_Category_IDChanging(value);
+                ReportPropertyChanging("Payment_Category_ID");
+                _Payment_Category_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Payment_Category_ID");
+                OnPayment_Category_IDChanged();
+            }
+        }
+        private global::System.Int32 _Payment_Category_ID;
+        partial void OnPayment_Category_IDChanging(global::System.Int32 value);
+        partial void OnPayment_Category_IDChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_fk2", "bank")]
+        public bank bank
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("stockappsModel.customer_payment_fk2", "bank").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("stockappsModel.customer_payment_fk2", "bank").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<bank> bankReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("stockappsModel.customer_payment_fk2", "bank");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<bank>("stockappsModel.customer_payment_fk2", "bank", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_fk3", "currency")]
+        public currency currency
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.customer_payment_fk3", "currency").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.customer_payment_fk3", "currency").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<currency> currencyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.customer_payment_fk3", "currency");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<currency>("stockappsModel.customer_payment_fk3", "currency", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_fk1", "customer")]
+        public customer customer
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<customer>("stockappsModel.customer_payment_fk1", "customer").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<customer>("stockappsModel.customer_payment_fk1", "customer").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<customer> customerReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<customer>("stockappsModel.customer_payment_fk1", "customer");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<customer>("stockappsModel.customer_payment_fk1", "customer", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_transaction", "customer_transaction")]
+        public EntityCollection<customer_transaction> customer_transaction
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer_transaction>("stockappsModel.customer_payment_transaction", "customer_transaction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_transaction>("stockappsModel.customer_payment_transaction", "customer_transaction", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="customer_transaction")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2174,16 +2939,32 @@ namespace StockModel
         /// Create a new customer_transaction object.
         /// </summary>
         /// <param name="customer_Transaction_ID">Initial value of the Customer_Transaction_ID property.</param>
+        /// <param name="customer_ID">Initial value of the Customer_ID property.</param>
+        /// <param name="customer_Transaction_Total_Rupiah">Initial value of the Customer_Transaction_Total_Rupiah property.</param>
+        /// <param name="customer_Transaction_Total_Dollar">Initial value of the Customer_Transaction_Total_Dollar property.</param>
         /// <param name="customer_Transaction_Date">Initial value of the Customer_Transaction_Date property.</param>
         /// <param name="customer_Transaction_Status">Initial value of the Customer_Transaction_Status property.</param>
         /// <param name="currency_ID">Initial value of the Currency_ID property.</param>
-        public static customer_transaction Createcustomer_transaction(global::System.String customer_Transaction_ID, global::System.DateTime customer_Transaction_Date, global::System.Int32 customer_Transaction_Status, global::System.Int32 currency_ID)
+        /// <param name="customer_Transaction_Rupiah">Initial value of the Customer_Transaction_Rupiah property.</param>
+        /// <param name="customer_Transaction_PPN_Rupiah">Initial value of the Customer_Transaction_PPN_Rupiah property.</param>
+        /// <param name="customer_Transaction_Dollar">Initial value of the Customer_Transaction_Dollar property.</param>
+        /// <param name="customer_Transaction_PPN_Dollar">Initial value of the Customer_Transaction_PPN_Dollar property.</param>
+        /// <param name="customer_Transaction_Kurs">Initial value of the Customer_Transaction_Kurs property.</param>
+        public static customer_transaction Createcustomer_transaction(global::System.String customer_Transaction_ID, global::System.Int32 customer_ID, global::System.Decimal customer_Transaction_Total_Rupiah, global::System.Decimal customer_Transaction_Total_Dollar, global::System.DateTime customer_Transaction_Date, global::System.Int32 customer_Transaction_Status, global::System.Int32 currency_ID, global::System.Decimal customer_Transaction_Rupiah, global::System.Decimal customer_Transaction_PPN_Rupiah, global::System.Decimal customer_Transaction_Dollar, global::System.Decimal customer_Transaction_PPN_Dollar, global::System.Decimal customer_Transaction_Kurs)
         {
             customer_transaction customer_transaction = new customer_transaction();
             customer_transaction.Customer_Transaction_ID = customer_Transaction_ID;
+            customer_transaction.Customer_ID = customer_ID;
+            customer_transaction.Customer_Transaction_Total_Rupiah = customer_Transaction_Total_Rupiah;
+            customer_transaction.Customer_Transaction_Total_Dollar = customer_Transaction_Total_Dollar;
             customer_transaction.Customer_Transaction_Date = customer_Transaction_Date;
             customer_transaction.Customer_Transaction_Status = customer_Transaction_Status;
             customer_transaction.Currency_ID = currency_ID;
+            customer_transaction.Customer_Transaction_Rupiah = customer_Transaction_Rupiah;
+            customer_transaction.Customer_Transaction_PPN_Rupiah = customer_Transaction_PPN_Rupiah;
+            customer_transaction.Customer_Transaction_Dollar = customer_Transaction_Dollar;
+            customer_transaction.Customer_Transaction_PPN_Dollar = customer_Transaction_PPN_Dollar;
+            customer_transaction.Customer_Transaction_Kurs = customer_Transaction_Kurs;
             return customer_transaction;
         }
 
@@ -2220,9 +3001,9 @@ namespace StockModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Customer_ID
+        public global::System.Int32 Customer_ID
         {
             get
             {
@@ -2237,16 +3018,16 @@ namespace StockModel
                 OnCustomer_IDChanged();
             }
         }
-        private Nullable<global::System.Int32> _Customer_ID;
-        partial void OnCustomer_IDChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _Customer_ID;
+        partial void OnCustomer_IDChanging(global::System.Int32 value);
         partial void OnCustomer_IDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Customer_Transaction_Total_Rupiah
+        public global::System.Decimal Customer_Transaction_Total_Rupiah
         {
             get
             {
@@ -2261,16 +3042,16 @@ namespace StockModel
                 OnCustomer_Transaction_Total_RupiahChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Customer_Transaction_Total_Rupiah;
-        partial void OnCustomer_Transaction_Total_RupiahChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _Customer_Transaction_Total_Rupiah;
+        partial void OnCustomer_Transaction_Total_RupiahChanging(global::System.Decimal value);
         partial void OnCustomer_Transaction_Total_RupiahChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Customer_Transaction_Total_Dollar
+        public global::System.Decimal Customer_Transaction_Total_Dollar
         {
             get
             {
@@ -2285,8 +3066,8 @@ namespace StockModel
                 OnCustomer_Transaction_Total_DollarChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Customer_Transaction_Total_Dollar;
-        partial void OnCustomer_Transaction_Total_DollarChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _Customer_Transaction_Total_Dollar;
+        partial void OnCustomer_Transaction_Total_DollarChanging(global::System.Decimal value);
         partial void OnCustomer_Transaction_Total_DollarChanged();
     
         /// <summary>
@@ -2412,9 +3193,9 @@ namespace StockModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Customer_Transaction_Rupiah
+        public global::System.Decimal Customer_Transaction_Rupiah
         {
             get
             {
@@ -2429,16 +3210,16 @@ namespace StockModel
                 OnCustomer_Transaction_RupiahChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Customer_Transaction_Rupiah;
-        partial void OnCustomer_Transaction_RupiahChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _Customer_Transaction_Rupiah;
+        partial void OnCustomer_Transaction_RupiahChanging(global::System.Decimal value);
         partial void OnCustomer_Transaction_RupiahChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Customer_Transaction_PPN_Rupiah
+        public global::System.Decimal Customer_Transaction_PPN_Rupiah
         {
             get
             {
@@ -2453,16 +3234,16 @@ namespace StockModel
                 OnCustomer_Transaction_PPN_RupiahChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Customer_Transaction_PPN_Rupiah;
-        partial void OnCustomer_Transaction_PPN_RupiahChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _Customer_Transaction_PPN_Rupiah;
+        partial void OnCustomer_Transaction_PPN_RupiahChanging(global::System.Decimal value);
         partial void OnCustomer_Transaction_PPN_RupiahChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Customer_Transaction_Dollar
+        public global::System.Decimal Customer_Transaction_Dollar
         {
             get
             {
@@ -2477,16 +3258,16 @@ namespace StockModel
                 OnCustomer_Transaction_DollarChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Customer_Transaction_Dollar;
-        partial void OnCustomer_Transaction_DollarChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _Customer_Transaction_Dollar;
+        partial void OnCustomer_Transaction_DollarChanging(global::System.Decimal value);
         partial void OnCustomer_Transaction_DollarChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Customer_Transaction_PPN_Dollar
+        public global::System.Decimal Customer_Transaction_PPN_Dollar
         {
             get
             {
@@ -2501,9 +3282,33 @@ namespace StockModel
                 OnCustomer_Transaction_PPN_DollarChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Customer_Transaction_PPN_Dollar;
-        partial void OnCustomer_Transaction_PPN_DollarChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _Customer_Transaction_PPN_Dollar;
+        partial void OnCustomer_Transaction_PPN_DollarChanging(global::System.Decimal value);
         partial void OnCustomer_Transaction_PPN_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Transaction_Kurs
+        {
+            get
+            {
+                return _Customer_Transaction_Kurs;
+            }
+            set
+            {
+                OnCustomer_Transaction_KursChanging(value);
+                ReportPropertyChanging("Customer_Transaction_Kurs");
+                _Customer_Transaction_Kurs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Transaction_Kurs");
+                OnCustomer_Transaction_KursChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Transaction_Kurs;
+        partial void OnCustomer_Transaction_KursChanging(global::System.Decimal value);
+        partial void OnCustomer_Transaction_KursChanged();
 
         #endregion
     
@@ -2603,6 +3408,28 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<currency>("stockappsModel.customer_transaction_ibfk_2", "currency", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_transaction", "customer_payment")]
+        public EntityCollection<customer_payment> customer_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer_payment>("stockappsModel.customer_payment_transaction", "customer_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_payment>("stockappsModel.customer_payment_transaction", "customer_payment", value);
                 }
             }
         }
@@ -3147,6 +3974,31 @@ namespace StockModel
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_fk4", "supplier_payment")]
+        public EntityCollection<supplier_payment> supplier_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_fk4", "supplier_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_fk4", "supplier_payment", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -4614,6 +5466,28 @@ namespace StockModel
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_fk1", "supplier_payment")]
+        public EntityCollection<supplier_payment> supplier_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_fk1", "supplier_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_fk1", "supplier_payment", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -4933,11 +5807,37 @@ namespace StockModel
         /// </summary>
         /// <param name="supplier_Payment_ID">Initial value of the Supplier_Payment_ID property.</param>
         /// <param name="supplier_ID">Initial value of the Supplier_ID property.</param>
-        public static supplier_payment Createsupplier_payment(global::System.String supplier_Payment_ID, global::System.Int32 supplier_ID)
+        /// <param name="supplier_Payment_Total_Rupiah">Initial value of the Supplier_Payment_Total_Rupiah property.</param>
+        /// <param name="supplier_Payment_Total_Dollar">Initial value of the Supplier_Payment_Total_Dollar property.</param>
+        /// <param name="bank_ID">Initial value of the Bank_ID property.</param>
+        /// <param name="currency_ID">Initial value of the Currency_ID property.</param>
+        /// <param name="supplier_Payment_Date">Initial value of the Supplier_Payment_Date property.</param>
+        /// <param name="supplier_Payment_Deadline_Date">Initial value of the Supplier_Payment_Deadline_Date property.</param>
+        /// <param name="supplier_Payment_Rupiah">Initial value of the Supplier_Payment_Rupiah property.</param>
+        /// <param name="supplier_Payment_Dollar">Initial value of the Supplier_Payment_Dollar property.</param>
+        /// <param name="supplier_Payment_PPN_Rupiah">Initial value of the Supplier_Payment_PPN_Rupiah property.</param>
+        /// <param name="supplier_Payment_PPN_Dollar">Initial value of the Supplier_Payment_PPN_Dollar property.</param>
+        /// <param name="supplier_Payment_Kurs">Initial value of the Supplier_Payment_Kurs property.</param>
+        /// <param name="supplier_Payment_Status">Initial value of the Supplier_Payment_Status property.</param>
+        /// <param name="payment_Category_ID">Initial value of the Payment_Category_ID property.</param>
+        public static supplier_payment Createsupplier_payment(global::System.String supplier_Payment_ID, global::System.Int32 supplier_ID, global::System.Decimal supplier_Payment_Total_Rupiah, global::System.Decimal supplier_Payment_Total_Dollar, global::System.Int32 bank_ID, global::System.Int32 currency_ID, global::System.DateTime supplier_Payment_Date, global::System.DateTime supplier_Payment_Deadline_Date, global::System.Decimal supplier_Payment_Rupiah, global::System.Decimal supplier_Payment_Dollar, global::System.Decimal supplier_Payment_PPN_Rupiah, global::System.Decimal supplier_Payment_PPN_Dollar, global::System.Decimal supplier_Payment_Kurs, global::System.Int32 supplier_Payment_Status, global::System.Int32 payment_Category_ID)
         {
             supplier_payment supplier_payment = new supplier_payment();
             supplier_payment.Supplier_Payment_ID = supplier_Payment_ID;
             supplier_payment.Supplier_ID = supplier_ID;
+            supplier_payment.Supplier_Payment_Total_Rupiah = supplier_Payment_Total_Rupiah;
+            supplier_payment.Supplier_Payment_Total_Dollar = supplier_Payment_Total_Dollar;
+            supplier_payment.Bank_ID = bank_ID;
+            supplier_payment.Currency_ID = currency_ID;
+            supplier_payment.Supplier_Payment_Date = supplier_Payment_Date;
+            supplier_payment.Supplier_Payment_Deadline_Date = supplier_Payment_Deadline_Date;
+            supplier_payment.Supplier_Payment_Rupiah = supplier_Payment_Rupiah;
+            supplier_payment.Supplier_Payment_Dollar = supplier_Payment_Dollar;
+            supplier_payment.Supplier_Payment_PPN_Rupiah = supplier_Payment_PPN_Rupiah;
+            supplier_payment.Supplier_Payment_PPN_Dollar = supplier_Payment_PPN_Dollar;
+            supplier_payment.Supplier_Payment_Kurs = supplier_Payment_Kurs;
+            supplier_payment.Supplier_Payment_Status = supplier_Payment_Status;
+            supplier_payment.Payment_Category_ID = payment_Category_ID;
             return supplier_payment;
         }
 
@@ -4998,9 +5898,9 @@ namespace StockModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Supplier_Payment_Total_Rupiah
+        public global::System.Decimal Supplier_Payment_Total_Rupiah
         {
             get
             {
@@ -5015,16 +5915,16 @@ namespace StockModel
                 OnSupplier_Payment_Total_RupiahChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Supplier_Payment_Total_Rupiah;
-        partial void OnSupplier_Payment_Total_RupiahChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _Supplier_Payment_Total_Rupiah;
+        partial void OnSupplier_Payment_Total_RupiahChanging(global::System.Decimal value);
         partial void OnSupplier_Payment_Total_RupiahChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Supplier_Payment_Total_Dollar
+        public global::System.Decimal Supplier_Payment_Total_Dollar
         {
             get
             {
@@ -5039,12 +5939,453 @@ namespace StockModel
                 OnSupplier_Payment_Total_DollarChanged();
             }
         }
-        private Nullable<global::System.Decimal> _Supplier_Payment_Total_Dollar;
-        partial void OnSupplier_Payment_Total_DollarChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _Supplier_Payment_Total_Dollar;
+        partial void OnSupplier_Payment_Total_DollarChanging(global::System.Decimal value);
         partial void OnSupplier_Payment_Total_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Bank_ID
+        {
+            get
+            {
+                return _Bank_ID;
+            }
+            set
+            {
+                OnBank_IDChanging(value);
+                ReportPropertyChanging("Bank_ID");
+                _Bank_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_ID");
+                OnBank_IDChanged();
+            }
+        }
+        private global::System.Int32 _Bank_ID;
+        partial void OnBank_IDChanging(global::System.Int32 value);
+        partial void OnBank_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Currency_ID
+        {
+            get
+            {
+                return _Currency_ID;
+            }
+            set
+            {
+                OnCurrency_IDChanging(value);
+                ReportPropertyChanging("Currency_ID");
+                _Currency_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Currency_ID");
+                OnCurrency_IDChanged();
+            }
+        }
+        private global::System.Int32 _Currency_ID;
+        partial void OnCurrency_IDChanging(global::System.Int32 value);
+        partial void OnCurrency_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Supplier_Payment_Date
+        {
+            get
+            {
+                return _Supplier_Payment_Date;
+            }
+            set
+            {
+                OnSupplier_Payment_DateChanging(value);
+                ReportPropertyChanging("Supplier_Payment_Date");
+                _Supplier_Payment_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_Date");
+                OnSupplier_Payment_DateChanged();
+            }
+        }
+        private global::System.DateTime _Supplier_Payment_Date;
+        partial void OnSupplier_Payment_DateChanging(global::System.DateTime value);
+        partial void OnSupplier_Payment_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Supplier_Payment_Deadline_Date
+        {
+            get
+            {
+                return _Supplier_Payment_Deadline_Date;
+            }
+            set
+            {
+                OnSupplier_Payment_Deadline_DateChanging(value);
+                ReportPropertyChanging("Supplier_Payment_Deadline_Date");
+                _Supplier_Payment_Deadline_Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_Deadline_Date");
+                OnSupplier_Payment_Deadline_DateChanged();
+            }
+        }
+        private global::System.DateTime _Supplier_Payment_Deadline_Date;
+        partial void OnSupplier_Payment_Deadline_DateChanging(global::System.DateTime value);
+        partial void OnSupplier_Payment_Deadline_DateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Payment_Rupiah
+        {
+            get
+            {
+                return _Supplier_Payment_Rupiah;
+            }
+            set
+            {
+                OnSupplier_Payment_RupiahChanging(value);
+                ReportPropertyChanging("Supplier_Payment_Rupiah");
+                _Supplier_Payment_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_Rupiah");
+                OnSupplier_Payment_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Payment_Rupiah;
+        partial void OnSupplier_Payment_RupiahChanging(global::System.Decimal value);
+        partial void OnSupplier_Payment_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Payment_Dollar
+        {
+            get
+            {
+                return _Supplier_Payment_Dollar;
+            }
+            set
+            {
+                OnSupplier_Payment_DollarChanging(value);
+                ReportPropertyChanging("Supplier_Payment_Dollar");
+                _Supplier_Payment_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_Dollar");
+                OnSupplier_Payment_DollarChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Payment_Dollar;
+        partial void OnSupplier_Payment_DollarChanging(global::System.Decimal value);
+        partial void OnSupplier_Payment_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Payment_PPN_Rupiah
+        {
+            get
+            {
+                return _Supplier_Payment_PPN_Rupiah;
+            }
+            set
+            {
+                OnSupplier_Payment_PPN_RupiahChanging(value);
+                ReportPropertyChanging("Supplier_Payment_PPN_Rupiah");
+                _Supplier_Payment_PPN_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_PPN_Rupiah");
+                OnSupplier_Payment_PPN_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Payment_PPN_Rupiah;
+        partial void OnSupplier_Payment_PPN_RupiahChanging(global::System.Decimal value);
+        partial void OnSupplier_Payment_PPN_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Payment_PPN_Dollar
+        {
+            get
+            {
+                return _Supplier_Payment_PPN_Dollar;
+            }
+            set
+            {
+                OnSupplier_Payment_PPN_DollarChanging(value);
+                ReportPropertyChanging("Supplier_Payment_PPN_Dollar");
+                _Supplier_Payment_PPN_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_PPN_Dollar");
+                OnSupplier_Payment_PPN_DollarChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Payment_PPN_Dollar;
+        partial void OnSupplier_Payment_PPN_DollarChanging(global::System.Decimal value);
+        partial void OnSupplier_Payment_PPN_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Payment_Kurs
+        {
+            get
+            {
+                return _Supplier_Payment_Kurs;
+            }
+            set
+            {
+                OnSupplier_Payment_KursChanging(value);
+                ReportPropertyChanging("Supplier_Payment_Kurs");
+                _Supplier_Payment_Kurs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_Kurs");
+                OnSupplier_Payment_KursChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Payment_Kurs;
+        partial void OnSupplier_Payment_KursChanging(global::System.Decimal value);
+        partial void OnSupplier_Payment_KursChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Supplier_Payment_Status
+        {
+            get
+            {
+                return _Supplier_Payment_Status;
+            }
+            set
+            {
+                OnSupplier_Payment_StatusChanging(value);
+                ReportPropertyChanging("Supplier_Payment_Status");
+                _Supplier_Payment_Status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Payment_Status");
+                OnSupplier_Payment_StatusChanged();
+            }
+        }
+        private global::System.Int32 _Supplier_Payment_Status;
+        partial void OnSupplier_Payment_StatusChanging(global::System.Int32 value);
+        partial void OnSupplier_Payment_StatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Payment_Category_ID
+        {
+            get
+            {
+                return _Payment_Category_ID;
+            }
+            set
+            {
+                OnPayment_Category_IDChanging(value);
+                ReportPropertyChanging("Payment_Category_ID");
+                _Payment_Category_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Payment_Category_ID");
+                OnPayment_Category_IDChanged();
+            }
+        }
+        private global::System.Int32 _Payment_Category_ID;
+        partial void OnPayment_Category_IDChanging(global::System.Int32 value);
+        partial void OnPayment_Category_IDChanged();
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_fk3", "bank")]
+        public bank bank
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("stockappsModel.supplier_payment_fk3", "bank").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("stockappsModel.supplier_payment_fk3", "bank").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<bank> bankReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("stockappsModel.supplier_payment_fk3", "bank");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<bank>("stockappsModel.supplier_payment_fk3", "bank", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_fk2", "currency")]
+        public currency currency
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.supplier_payment_fk2", "currency").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.supplier_payment_fk2", "currency").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<currency> currencyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("stockappsModel.supplier_payment_fk2", "currency");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<currency>("stockappsModel.supplier_payment_fk2", "currency", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_fk1", "supplier")]
+        public supplier supplier
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<supplier>("stockappsModel.supplier_payment_fk1", "supplier").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<supplier>("stockappsModel.supplier_payment_fk1", "supplier").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<supplier> supplierReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<supplier>("stockappsModel.supplier_payment_fk1", "supplier");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<supplier>("stockappsModel.supplier_payment_fk1", "supplier", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_transaction", "supplier_transaction")]
+        public EntityCollection<supplier_transaction> supplier_transaction
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<supplier_transaction>("stockappsModel.supplier_payment_transaction", "supplier_transaction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_transaction>("stockappsModel.supplier_payment_transaction", "supplier_transaction", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_fk4", "payment_category")]
+        public payment_category payment_category
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment_category>("stockappsModel.supplier_payment_fk4", "payment_category").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment_category>("stockappsModel.supplier_payment_fk4", "payment_category").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<payment_category> payment_categoryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment_category>("stockappsModel.supplier_payment_fk4", "payment_category");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<payment_category>("stockappsModel.supplier_payment_fk4", "payment_category", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -5306,6 +6647,28 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_transaction_product>("stockappsModel.FK_Relationship_9", "supplier_transaction_product", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_payment_transaction", "supplier_payment")]
+        public EntityCollection<supplier_payment> supplier_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_transaction", "supplier_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_transaction", "supplier_payment", value);
                 }
             }
         }

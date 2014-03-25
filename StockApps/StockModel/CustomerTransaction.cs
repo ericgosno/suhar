@@ -7,7 +7,7 @@ namespace StockModel
 {
     public static class CustomerTransaction
     {
-        public static customer_transaction insertCustomerTransaction(DateTime transDate, int customerID, double totalDollar, double totalRupiah, string description, List<customer_transaction_product> transProd, string noteNumber, int currencyId)
+        public static customer_transaction insertCustomerTransaction(DateTime transDate, int customerID, double totalDollar, double totalRupiah, string description, List<customer_transaction_product> transProd, string noteNumber, int currencyId,decimal kurs)
         {
             customer_transaction newTrans = new customer_transaction();
             string idnow = null;
@@ -39,6 +39,7 @@ namespace StockModel
             newTrans.Customer_Transaction_Total_Dollar = 1.1M * dolar;
             newTrans.Customer_Transaction_Total_Rupiah = 1.1M * rupiah;
             newTrans.Customer_Transaction_Note_Number = noteNumber;
+            newTrans.Customer_Transaction_Kurs = kurs;
             newTrans.Currency_ID = currencyId;
             StockEntity.Entity.AddTocustomer_transaction(newTrans);
             StockEntity.Entity.SaveChanges();
@@ -51,6 +52,30 @@ namespace StockModel
             }
             StockEntity.Entity.SaveChanges();
             return newTrans;
+        }
+
+        public static customer_payment insertCustomerPayment(customer_transaction transactionNows,int bankId, DateTime deadlineDate,int paymentCategory)
+        {
+            customer_payment newPayment = new customer_payment();
+            newPayment.Customer_Payment_ID = transactionNows.Customer_Transaction_ID;
+            newPayment.Bank_ID = bankId;
+            newPayment.Currency_ID = transactionNows.Currency_ID;
+            newPayment.Customer_ID = transactionNows.Customer_ID;
+            newPayment.Payment_Category_ID = paymentCategory;
+            newPayment.Customer_Payment_Date = transactionNows.Customer_Transaction_Date;
+            newPayment.Customer_Payment_Deadline_Date = deadlineDate;
+            newPayment.Customer_Payment_Dollar = transactionNows.Customer_Transaction_Dollar;
+            newPayment.Customer_Payment_Kurs = transactionNows.Customer_Transaction_Kurs;
+            newPayment.Customer_Payment_PPN_Dollar = transactionNows.Customer_Transaction_PPN_Dollar;
+            newPayment.Customer_Payment_PPN_Rupiah = transactionNows.Customer_Transaction_PPN_Rupiah;
+            newPayment.Customer_Payment_Rupiah = transactionNows.Customer_Transaction_Rupiah;
+            newPayment.Customer_Payment_Total_Dollar = transactionNows.Customer_Transaction_Total_Dollar;
+            newPayment.Customer_Payment_Total_Rupiah = transactionNows.Customer_Transaction_Total_Rupiah;
+            newPayment.Customer_Payment_Status = 1;
+            newPayment.customer_transaction.Add(transactionNows);
+            StockEntity.Entity.AddTocustomer_payment(newPayment);
+            StockEntity.Entity.SaveChanges();
+            return newPayment;
         }
     }
 }
