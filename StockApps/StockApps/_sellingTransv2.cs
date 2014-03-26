@@ -58,7 +58,7 @@ namespace StockApps
         private void _bcusInsert_Click_1(object sender, EventArgs e)
         {
             CustomerTransaction.insertCustomerPayment(transNow, Convert.ToInt32(_cbsellBank.SelectedValue), _dateJatuhTempo.Value,Convert.ToInt32(_cbsellPayWith.SelectedValue));
-            CustomerController.insertCustomerDebt(transNow.Customer_ID, _dateJatuhTempo.Value, "DBT", true, transNow.Customer_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbsellPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")));
+            CustomerController.insertCustomerDebt(transNow.Customer_ID, transNow.Customer_Transaction_Date, "DBT", true, transNow.Customer_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbsellPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")));
             MessageBox.Show("Transaction Inserted Succesfully");
             this.Close();
         }
