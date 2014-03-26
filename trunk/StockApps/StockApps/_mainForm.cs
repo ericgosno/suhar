@@ -34,6 +34,7 @@ namespace StockApps
                     case 4:
                         sellingToolStripMenuItem2.Visible = true;
                         sellingToolStripMenuItem.Visible = true;
+                        CheckSellingNotification();
                         break;
                     case 5:
                         productToolStripMenuItem.Visible = true;
@@ -45,6 +46,17 @@ namespace StockApps
                         historyToolStripMenuItem.Visible = true;
                         break;
                 }
+            }
+        }
+
+        private void CheckSellingNotification()
+        {
+            var list = CustomerTransaction.getDeadlinePayment().ToList();
+            foreach (customer_payment payment in list)
+            {
+                _notificationPayment sellingNotif = new _notificationPayment(payment);
+                sellingNotif.Show();
+                sellingNotif.Focus();
             }
         }
 

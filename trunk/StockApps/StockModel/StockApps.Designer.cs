@@ -47,6 +47,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("stockappsModel", "customer_payment_transaction", "customer_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_transaction), "customer_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_payment))]
 [assembly: EdmRelationshipAttribute("stockappsModel", "supplier_payment_transaction", "supplier_transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_transaction), "supplier_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_payment))]
 [assembly: EdmRelationshipAttribute("stockappsModel", "supplier_payment_fk4", "payment_category", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.payment_category), "supplier_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.supplier_payment), true)]
+[assembly: EdmRelationshipAttribute("stockappsModel", "customer_payment_fk4", "payment_category", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StockModel.payment_category), "customer_payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StockModel.customer_payment), true)]
 
 #endregion
 
@@ -2921,6 +2922,44 @@ namespace StockModel
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_fk4", "payment_category")]
+        public payment_category payment_category
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment_category>("stockappsModel.customer_payment_fk4", "payment_category").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment_category>("stockappsModel.customer_payment_fk4", "payment_category").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<payment_category> payment_categoryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment_category>("stockappsModel.customer_payment_fk4", "payment_category");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<payment_category>("stockappsModel.customer_payment_fk4", "payment_category", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -3994,6 +4033,28 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_payment>("stockappsModel.supplier_payment_fk4", "supplier_payment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "customer_payment_fk4", "customer_payment")]
+        public EntityCollection<customer_payment> customer_payment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<customer_payment>("stockappsModel.customer_payment_fk4", "customer_payment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<customer_payment>("stockappsModel.customer_payment_fk4", "customer_payment", value);
                 }
             }
         }

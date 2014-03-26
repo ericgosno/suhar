@@ -77,5 +77,36 @@ namespace StockModel
             StockEntity.Entity.SaveChanges();
             return newPayment;
         }
+
+        public static IQueryable<customer_payment> getDeadlinePayment()
+        {
+            var list = (from f in StockEntity.Entity.customer_payment
+                        where f.Customer_Payment_Status == 1 && f.Customer_Payment_Deadline_Date.CompareTo(DateTime.Now) <= 0
+                        select f);
+            return list;
+        }
+
+        public static bool confirmPayment(string paymentID)
+        {
+            var payment = (from f in StockEntity.Entity.customer_payment
+                           where f.Customer_Payment_ID == paymentID
+                           select f);
+            if (payment.Count() <= 0) return false;
+            var paymentNow = payment.First();
+            paymentNow.Customer_Payment_Status = 2;
+            StockEntity.Entity.SaveChanges();
+            return true;
+        }
+        public static bool delayPayment(string paymentID, DateTime newDeadline)
+        {
+            var payment = (from f in StockEntity.Entity.customer_payment
+                           where f.Customer_Payment_ID == paymentID
+                           select f);
+            if (payment.Count() <= 0) return false;
+            var paymentNow = payment.First();
+            paymentNow.Customer_Payment_Deadline_Date = newDeadline;
+            StockEntity.Entity.SaveChanges();
+            return true; 
+        }
     }
 }
