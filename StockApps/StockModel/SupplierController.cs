@@ -80,5 +80,91 @@ namespace StockModel
             supplierNows.Supplier_Status = 0;
             StockEntity.Entity.SaveChanges();
         }
+
+        public static supplier_credit insertSupplierCredit(int supplierID, DateTime creditDate, string creditCode, bool isDebit, decimal money, string description)
+        {
+            supplier_credit newTrans = new supplier_credit();
+            var supplierNow = (from f in StockEntity.Entity.suppliers
+                               where f.Supplier_ID == supplierID
+                               select f);
+            if (supplierNow.Count() <= 0) return null;
+            string idnow;
+            int code = 1;
+            while (true)
+            {
+                string bankStr = supplierID.ToString("D3");
+                string dateStr = creditDate.ToString("yyyyMMdd");
+                string DebitCode = "C";
+                if (isDebit) DebitCode = "D";
+                string codeStr = code.ToString("D3");
+
+                idnow = bankStr + "-" + dateStr + "-" + (creditCode == "" ? "NULL" : creditCode) + "-" + DebitCode + "-" + codeStr;
+                var checkID = from f in StockEntity.Entity.supplier_credit
+                              where f.Supplier_Credit_ID == idnow
+                              select f;
+                if (checkID.Count() > 0) code++;
+                else break;
+            }
+
+            newTrans.Supplier_Credit_ID = idnow;
+            newTrans.Supplier_ID = supplierID;
+            newTrans.Supplier_Credit_Date = creditDate;
+            newTrans.Supplier_Credit_Code = creditCode;
+            newTrans.Supplier_Credit_Money = money;
+            newTrans.Supplier_Credit_Description = description;
+            newTrans.Supplier_Credit_IsLast = 0;
+
+            var afterTrans = (from f in StockEntity.Entity.supplier_credit
+                              where f.Supplier_ID == supplierID && (f.Supplier_Credit_Date.CompareTo(creditDate) > 0 || (f.Supplier_Credit_Date.CompareTo(creditDate) == 0 && f.Supplier_Credit_ID.CompareTo(idnow) > 0))
+                              select f).OrderBy(x => x.Supplier_Credit_Date).ThenBy(x => x.Supplier_Credit_ID);
+
+            var beforeTrans = (from f in StockEntity.Entity.supplier_credit
+                               where f.Supplier_ID == supplierID && (f.Supplier_Credit_Date.CompareTo(creditDate) < 0 || (f.Supplier_Credit_Date.CompareTo(creditDate) == 0 && f.Supplier_Credit_ID.CompareTo(idnow) < 0))
+                               select f).OrderByDescending(x => x.Supplier_Credit_Date).ThenBy(x => x.Supplier_Credit_ID);
+            decimal totalNow = 0;
+            if (beforeTrans.Count() > 0) totalNow = beforeTrans.First().Supplier_Credit_Total_Now;
+            if (isDebit)
+            {
+                newTrans.Supplier_Credit_IsDebit = 1;
+                totalNow = totalNow + newTrans.Supplier_Credit_Money;
+                newTrans.Supplier_Credit_Total_Now = totalNow;
+            }
+            else
+            {
+                newTrans.Supplier_Credit_IsDebit = 0;
+                totalNow = totalNow - newTrans.Supplier_Credit_Money;
+                newTrans.Supplier_Credit_Total_Now = totalNow;
+            }
+
+
+            foreach (supplier_credit cust in afterTrans)
+            {
+                if (cust.Supplier_Credit_IsDebit == 1)
+                {
+                    totalNow = totalNow + cust.Supplier_Credit_Money;
+                    cust.Supplier_Credit_Total_Now = totalNow;
+                }
+                else
+                {
+                    totalNow = totalNow - cust.Supplier_Credit_Money;
+                    cust.Supplier_Credit_Total_Now = totalNow;
+                }
+            }
+
+            if (afterTrans.Count() <= 0)
+            {
+                var lastTrans = (from f in StockEntity.Entity.supplier_credit
+                                 where f.Supplier_ID == supplierID && f.Supplier_Credit_IsLast == 1
+                                 select f);
+
+                if (lastTrans.Count() > 0) lastTrans.First().Supplier_Credit_IsLast = 0;
+                newTrans.Supplier_Credit_IsLast = 1;
+            }
+
+            supplierNow.First().Supplier_Credit = totalNow;
+            StockEntity.Entity.AddTosupplier_credit(newTrans);
+            StockEntity.Entity.SaveChanges();
+            return newTrans;
+        }
     }
 }

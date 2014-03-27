@@ -341,7 +341,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "_notificationPayment";
-            this.Text = "_notificationPayment";
+            this.Text = "Customer Payment Notification";
             this.Load += new System.EventHandler(this._notificationPayment_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

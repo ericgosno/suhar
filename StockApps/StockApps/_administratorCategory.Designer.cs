@@ -44,6 +44,7 @@
             this._chAC7 = new System.Windows.Forms.CheckBox();
             this._chACAll = new System.Windows.Forms.CheckBox();
             this._badmACReset = new System.Windows.Forms.Button();
+            this._chAC8 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this._dataCategoryProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,7 +190,7 @@
             // 
             this._chAC7.AutoSize = true;
             this._chAC7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._chAC7.Location = new System.Drawing.Point(452, 104);
+            this._chAC7.Location = new System.Drawing.Point(463, 104);
             this._chAC7.Name = "_chAC7";
             this._chAC7.Size = new System.Drawing.Size(86, 28);
             this._chAC7.TabIndex = 22;
@@ -200,7 +201,7 @@
             // 
             this._chACAll.AutoSize = true;
             this._chACAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._chACAll.Location = new System.Drawing.Point(452, 144);
+            this._chACAll.Location = new System.Drawing.Point(564, 104);
             this._chACAll.Name = "_chACAll";
             this._chACAll.Size = new System.Drawing.Size(109, 28);
             this._chACAll.TabIndex = 23;
@@ -219,11 +220,23 @@
             this._badmACReset.UseVisualStyleBackColor = true;
             this._badmACReset.Click += new System.EventHandler(this._badmACReset_Click);
             // 
+            // _chAC8
+            // 
+            this._chAC8.AutoSize = true;
+            this._chAC8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._chAC8.Location = new System.Drawing.Point(463, 138);
+            this._chAC8.Name = "_chAC8";
+            this._chAC8.Size = new System.Drawing.Size(119, 28);
+            this._chAC8.TabIndex = 25;
+            this._chAC8.Text = "Cash/Bank";
+            this._chAC8.UseVisualStyleBackColor = true;
+            // 
             // _administratorCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 510);
+            this.ClientSize = new System.Drawing.Size(685, 510);
+            this.Controls.Add(this._chAC8);
             this.Controls.Add(this._badmACReset);
             this.Controls.Add(this._chACAll);
             this.Controls.Add(this._chAC7);
@@ -266,5 +279,6 @@
         private System.Windows.Forms.CheckBox _chAC7;
         private System.Windows.Forms.CheckBox _chACAll;
         private System.Windows.Forms.Button _badmACReset;
+        private System.Windows.Forms.CheckBox _chAC8;
     }
 }

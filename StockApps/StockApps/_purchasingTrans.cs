@@ -19,6 +19,9 @@ namespace StockApps
             _cbpurNama.DataSource = listSupplier;
             _cbpurNama.DisplayMember = "Supplier_Company_Name";
             _cbpurNama.ValueMember = "Supplier_ID";
+            _cbpurKurs.DataSource = CurrencyController.getCurrency();
+            _cbpurKurs.DisplayMember = "Currency_Name";
+            _cbpurKurs.ValueMember = "Currency_ID";
             refreshListProduct();
         }
 
@@ -56,7 +59,8 @@ namespace StockApps
                 {
                     int prodId = Convert.ToInt32((_dataSupTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
                     var list = ProductController.getProductByProductID(prodId);
-                    if (list.Count() <= 0) return;
+                    if (list.Count() <= 0) 
+                        continue;
                     var prodNow = list.First();
                     int quantity = Convert.ToInt32(_dataSupTransaction.Rows[i].Cells["Quantity_Kg"].Value);
                     double priceperkg = Convert.ToDouble(prodNow.Product_Buy_Price);
@@ -84,6 +88,10 @@ namespace StockApps
             }
             _lpurRp.Text = totalRupiah.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")); 
             _lpurDollar.Text = totalDollar.ToString("C2");
+            _lpurPPNRupiah.Text = (totalRupiah * 0.1).ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
+            _lpurPPNDollar.Text = (totalDollar * 0.1).ToString("C2");
+            _lpurTotalPPNDollar.Text = (totalDollar * 1.1).ToString("C2");
+            _lpurTotalPPNRupiah.Text = (totalRupiah * 1.1).ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
         }
         private void _dataSupTransaction_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -137,7 +145,24 @@ namespace StockApps
                 }
                 catch (Exception ex) { continue; }
             }
-            SupplierTransaction.insertSupplierTransaction(_dtTransDate.Value,Convert.ToInt32(_cbpurNama.SelectedValue), totalDollar, totalRupiah, _tpurDescription.Text, prod);
+            try
+            {
+                decimal kurs = Convert.ToDecimal(_tpurKurs.Text);
+            }
+            catch(Exception ex) 
+            { 
+                MessageBox.Show("Kurs must be nominal!");
+                return;
+            }
+            supplier_transaction newTrans = SupplierTransaction.insertSupplierTransaction(_dtTransDate.Value,Convert.ToInt32(_cbpurNama.SelectedValue), totalDollar, totalRupiah, _tpurDescription.Text, prod,_tpurNoteNum.Text,_tpurInvoice.Text,Convert.ToInt32(_cbpurKurs.SelectedValue),Convert.ToDecimal(_tpurKurs.Text));
+            _purchasingTrans2 nextForm = new _purchasingTrans2(newTrans);
+            nextForm.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
+            nextForm.Show();
+            this.Hide();
+        }
+        
+        void prodForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
             this.Close();
         }
 

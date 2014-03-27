@@ -40,7 +40,7 @@ namespace StockApps
                     if (_dataCusTransaction.Rows[i].Cells["Product"].Value == null) continue;
                     int prodId = Convert.ToInt32((_dataCusTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
                     var list = ProductController.getProductByProductID(prodId);
-                    if (list.Count() <= 0) return;
+                    if (list.Count() <= 0) continue;
                     var prodNow = list.First();
                     int quantity = Convert.ToInt32(_dataCusTransaction.Rows[i].Cells["Quantity_Kg"].Value);
                     if (quantity > prodNow.Product_Stock)

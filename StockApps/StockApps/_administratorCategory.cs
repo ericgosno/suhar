@@ -28,6 +28,7 @@ namespace StockApps
             _chAC5.Checked = false;
             _chAC6.Checked = false;
             _chAC7.Checked = false;
+            _chAC8.Checked = false;
             _chACAll.Checked = false;
             selectedID = -1;
             _tadmACName.Text = "";
@@ -84,6 +85,7 @@ namespace StockApps
                 _chAC5.Checked = false;
                 _chAC6.Checked = false;
                 _chAC7.Checked = false;
+                _chAC8.Checked = false;
             }
             else
             {
@@ -94,6 +96,7 @@ namespace StockApps
                 _chAC5.Checked = true;
                 _chAC6.Checked = true;
                 _chAC7.Checked = true;
+                _chAC8.Checked = true;
             }
         }
 
@@ -107,6 +110,7 @@ namespace StockApps
             if (_chAC5.Checked) listPrivileges.Add(5);
             if (_chAC6.Checked) listPrivileges.Add(6);
             if (_chAC7.Checked) listPrivileges.Add(7);
+            if (_chAC8.Checked) listPrivileges.Add(8);
             UserController.insertPrivilege(_tadmACName.Text, listPrivileges);
             RefreshForm();
         }
@@ -138,6 +142,7 @@ namespace StockApps
                 _chAC5.Checked = false;
                 _chAC6.Checked = false;
                 _chAC7.Checked = false;
+                _chAC8.Checked = false;
                 _chACAll.Checked = false;
                 foreach (privilege_authorization privAuth in privNow.privilege_authorization)
                 {
@@ -148,6 +153,7 @@ namespace StockApps
                     if (privAuth.Authorization_ID == 5) _chAC5.Checked = true;
                     if (privAuth.Authorization_ID == 6) _chAC6.Checked = true;
                     if (privAuth.Authorization_ID == 7) _chAC7.Checked = true;
+                    if (privAuth.Authorization_ID == 8) _chAC8.Checked = true;
                 }
 
             }
@@ -165,6 +171,7 @@ namespace StockApps
             _chAC5.Checked = false;
             _chAC6.Checked = false;
             _chAC7.Checked = false;
+            _chAC8.Checked = false;
             _chACAll.Checked = false;
             selectedID = -1;
             _tadmACName.Text = "";
@@ -185,6 +192,7 @@ namespace StockApps
             if (_chAC5.Checked) listPrivileges.Add(5);
             if (_chAC6.Checked) listPrivileges.Add(6);
             if (_chAC7.Checked) listPrivileges.Add(7);
+            if (_chAC8.Checked) listPrivileges.Add(8);
             UserController.updatePrivilege(selectedID, _tadmACName.Text, listPrivileges);
             RefreshForm();
         }
