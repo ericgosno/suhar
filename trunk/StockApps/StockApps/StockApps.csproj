@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -177,11 +177,23 @@
     <Compile Include="_notificationPayment.Designer.cs">
       <DependentUpon>_notificationPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="_notificationPaymentSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_notificationPaymentSupplier.Designer.cs">
+      <DependentUpon>_notificationPaymentSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="_productStock.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="_productStock.Designer.cs">
       <DependentUpon>_productStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_purchasingTrans2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_purchasingTrans2.Designer.cs">
+      <DependentUpon>_purchasingTrans2.cs</DependentUpon>
     </Compile>
     <Compile Include="_purchasingTrans.cs">
       <SubType>Form</SubType>
@@ -294,8 +306,14 @@
     <EmbeddedResource Include="_notificationPayment.resx">
       <DependentUpon>_notificationPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_notificationPaymentSupplier.resx">
+      <DependentUpon>_notificationPaymentSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_productStock.resx">
       <DependentUpon>_productStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_purchasingTrans2.resx">
+      <DependentUpon>_purchasingTrans2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_purchasingTrans.resx">
       <DependentUpon>_purchasingTrans.cs</DependentUpon>

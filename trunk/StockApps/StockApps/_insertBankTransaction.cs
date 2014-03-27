@@ -74,12 +74,13 @@ namespace StockApps
 
         private void _cbtransBankName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_cbtransBankName.SelectedIndex == -1)
+            try
             {
-                int BankId = Convert.ToInt32(_cbtransBankName.SelectedValue);
+                BankId = Convert.ToInt32(_cbtransBankName.SelectedValue);
                 bank bankNow = BankController.getBankWithCash(BankId).First();
                 _lbtransCurrency.Text = bankNow.currency.Currency_Name;
             }
+            catch (Exception ex) { }
         }
     }
 }
