@@ -147,6 +147,94 @@ namespace StockApps
             RefreshForm();
         }
 
+        private void _bProSUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                DataGridViewRow rowNow = null;
+                if (_dataDetailSupplier.CurrentCell != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedCells[0].OwningRow;
+                }
+                else if (_dataDetailSupplier.CurrentRow != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedRows[0];
+                }
+                
+                int productId = Convert.ToInt32(rowNow.Cells["Product_ID"].Value);
+                product prodNow = ProductController.getProductByProductID(productId).First();
+                _SupplierProduct suppProd = new _SupplierProduct(prodNow.supplier,prodNow);
+                suppProd.Show(this);
+                suppProd.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You Must Select Row First!");
+            }
+
+        }
+
+        void prodForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            RefreshForm();
+        }
+
+        private void _bProSPriceHistory_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                DataGridViewRow rowNow = null;
+                if (_dataDetailSupplier.CurrentCell != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedCells[0].OwningRow;
+                }
+                else if (_dataDetailSupplier.CurrentRow != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedRows[0];
+                }
+                int productId = Convert.ToInt32(rowNow.Cells["Product_ID"].Value);
+                product prodNow = ProductController.getProductByProductID(productId).First();
+                _priceHistory priceHistory = new _priceHistory(prodNow);
+                priceHistory.Show(this);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("You Must Select Row First!");
+            }
+        }
+
+        private void _bProSInsert_Click(object sender, EventArgs e)
+        {
+            _SupplierProduct suppProd = new _SupplierProduct();
+            suppProd.Show(this);
+            suppProd.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
+        }
+
+        private void _bProSDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
+            try
+            {
+                DataGridViewRow rowNow = null;
+                if (_dataDetailSupplier.CurrentCell != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedCells[0].OwningRow;
+                }
+                else if (_dataDetailSupplier.CurrentRow != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedRows[0];
+                }
+                ProductController.deleteProduct(Convert.ToInt32(rowNow.Cells["Product_ID"].Value));
+                RefreshForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You must select a Row First!");
+            }
+        }
+
    
     }
 }

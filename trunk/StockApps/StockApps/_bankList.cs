@@ -87,7 +87,16 @@ namespace StockApps
         {
             try
             {
-                var bankNow = BankController.getBank(Convert.ToInt32(_dataBank.SelectedRows[0].Cells["Bank_ID"].Value)).First();
+                DataGridViewRow rowNow = null;
+                if (_dataBank.CurrentCell != null)
+                {
+                    rowNow = _dataBank.SelectedCells[0].OwningRow;
+                }
+                else if (_dataBank.CurrentRow != null)
+                {
+                    rowNow = _dataBank.SelectedRows[0];
+                }
+                var bankNow = BankController.getBank(Convert.ToInt32(rowNow.Cells["Bank_ID"].Value)).First();
                 selectedId = bankNow.Bank_ID;
                 _tbankName.Text = bankNow.Bank_Name;
                 _cbankCurrency.SelectedValue = bankNow.currency.Currency_ID;
@@ -112,7 +121,16 @@ namespace StockApps
         {
             try
             {
-                BankController.deleteBank(Convert.ToInt32(_dataBank.SelectedRows[0].Cells["Bank_ID"].Value));
+                DataGridViewRow rowNow = null;
+                if (_dataBank.CurrentCell != null)
+                {
+                    rowNow = _dataBank.SelectedCells[0].OwningRow;
+                }
+                else if (_dataBank.CurrentRow != null)
+                {
+                    rowNow = _dataBank.SelectedRows[0];
+                }
+                BankController.deleteBank(Convert.ToInt32(rowNow.Cells["Bank_ID"].Value));
                 RefreshForm();
             }
             catch (Exception ex)

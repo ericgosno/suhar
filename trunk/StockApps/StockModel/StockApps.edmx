@@ -318,10 +318,15 @@
           <Key>
             <PropertyRef Name="Price_History_ID" />
           </Key>
-          <Property Name="Price_History_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Product_ID" Type="int" />
+          <Property Name="Price_History_ID" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="Price_History_Date" Type="datetime" Nullable="false" />
+          <Property Name="Product_ID" Type="int" Nullable="false" />
           <Property Name="Price_History_Price" Type="decimal" Nullable="false" Scale="2" />
           <Property Name="Currency_ID" Type="int" Nullable="false" />
+          <Property Name="Price_History_Stock" Type="int" Nullable="false" />
+          <Property Name="Price_History_Used_Stock" Type="int" Nullable="false" />
+          <Property Name="Price_History_IsLast" Type="int" Nullable="false" />
+          <Property Name="Price_History_Status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="privilege">
           <Key>
@@ -423,7 +428,7 @@
           <Key>
             <PropertyRef Name="Supplier_Transaction_ID" />
           </Key>
-          <Property Name="Supplier_Transaction_ID" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Supplier_Transaction_ID" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Supplier_ID" Type="int" Nullable="false" />
           <Property Name="Supplier_Transaction_Note_Number" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="Supplier_Transaction_Invoice_Number" Type="varchar" Nullable="false" MaxLength="45" />
@@ -632,7 +637,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Relationship_3">
-          <End Role="product" Type="stockappsModel.Store.product" Multiplicity="0..1" />
+          <End Role="product" Type="stockappsModel.Store.product" Multiplicity="1" />
           <End Role="price_history" Type="stockappsModel.Store.price_history" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="product">
@@ -891,7 +896,6 @@
           <EntitySet Name="products" EntityType="stockappsModel.product" />
           <EntitySet Name="product_category" EntityType="stockappsModel.product_category" />
           <EntitySet Name="suppliers" EntityType="stockappsModel.supplier" />
-          <EntitySet Name="supplier_transaction" EntityType="stockappsModel.supplier_transaction" />
           <EntitySet Name="supplier_transaction_product" EntityType="stockappsModel.supplier_transaction_product" />
           <AssociationSet Name="FK_Relationship_8" Association="stockappsModel.FK_Relationship_8">
             <End Role="customer" EntitySet="customers" />
@@ -919,14 +923,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Relationship_7" Association="stockappsModel.FK_Relationship_7">
             <End Role="product" EntitySet="products" />
-            <End Role="supplier_transaction_product" EntitySet="supplier_transaction_product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Relationship_6" Association="stockappsModel.FK_Relationship_6">
-            <End Role="supplier" EntitySet="suppliers" />
-            <End Role="supplier_transaction" EntitySet="supplier_transaction" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Relationship_9" Association="stockappsModel.FK_Relationship_9">
-            <End Role="supplier_transaction" EntitySet="supplier_transaction" />
             <End Role="supplier_transaction_product" EntitySet="supplier_transaction_product" />
           </AssociationSet>
           <EntitySet Name="users" EntityType="stockappsModel.user" />
@@ -1015,10 +1011,6 @@
             <End Role="customer_transaction" EntitySet="customer_transaction" />
             <End Role="customer_payment" EntitySet="customer_payment" />
           </AssociationSet>
-          <AssociationSet Name="supplier_payment_transaction" Association="stockappsModel.supplier_payment_transaction">
-            <End Role="supplier_transaction" EntitySet="supplier_transaction" />
-            <End Role="supplier_payment" EntitySet="supplier_payment" />
-          </AssociationSet>
           <AssociationSet Name="supplier_payment_fk4" Association="stockappsModel.supplier_payment_fk4">
             <End Role="payment_category" EntitySet="payment_category" />
             <End Role="supplier_payment" EntitySet="supplier_payment" />
@@ -1027,9 +1019,22 @@
             <End Role="payment_category" EntitySet="payment_category" />
             <End Role="customer_payment" EntitySet="customer_payment" />
           </AssociationSet>
+          <EntitySet Name="supplier_transaction" EntityType="stockappsModel.supplier_transaction" />
           <AssociationSet Name="supplier_transaction_ibfk_2" Association="stockappsModel.supplier_transaction_ibfk_2">
             <End Role="currency" EntitySet="currencies" />
             <End Role="supplier_transaction" EntitySet="supplier_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="supplier_transaction_ibfk_1" Association="stockappsModel.supplier_transaction_ibfk_1">
+            <End Role="supplier" EntitySet="suppliers" />
+            <End Role="supplier_transaction" EntitySet="supplier_transaction" />
+          </AssociationSet>
+          <AssociationSet Name="supplier_transaction_product_ibfk_1" Association="stockappsModel.supplier_transaction_product_ibfk_1">
+            <End Role="supplier_transaction" EntitySet="supplier_transaction" />
+            <End Role="supplier_transaction_product" EntitySet="supplier_transaction_product" />
+          </AssociationSet>
+          <AssociationSet Name="supplier_payment_transaction" Association="stockappsModel.supplier_payment_transaction">
+            <End Role="supplier_transaction" EntitySet="supplier_transaction" />
+            <End Role="supplier_payment" EntitySet="supplier_payment" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="customer">
@@ -1091,12 +1096,17 @@
           <Key>
             <PropertyRef Name="Price_History_ID" />
           </Key>
-          <Property Name="Price_History_ID" Type="Int32" Nullable="false" />
-          <Property Name="Product_ID" Type="Int32" />
+          <Property Name="Price_History_ID" Type="String" Nullable="false" />
+          <Property Name="Product_ID" Type="Int32" Nullable="false" />
           <Property Name="Price_History_Price" Type="Decimal" Nullable="false" />
           <NavigationProperty Name="product" Relationship="stockappsModel.FK_Relationship_3" FromRole="price_history" ToRole="product" />
           <Property Type="Int32" Name="Currency_ID" Nullable="false" />
           <NavigationProperty Name="currency" Relationship="stockappsModel.FK_Relationship_4" FromRole="price_history" ToRole="currency" />
+          <Property Type="DateTime" Name="Price_History_Date" Nullable="false" />
+          <Property Type="Int32" Name="Price_History_Stock" Nullable="false" />
+          <Property Type="Int32" Name="Price_History_Used_Stock" Nullable="false" />
+          <Property Type="Int32" Name="Price_History_IsLast" Nullable="false" />
+          <Property Type="Int32" Name="Price_History_Status" Nullable="false" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -1138,7 +1148,6 @@
           <Property Name="Supplier_Email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="Supplier_Phone" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="products" Relationship="stockappsModel.FK_Relationship_1" FromRole="supplier" ToRole="product" />
-          <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.FK_Relationship_6" FromRole="supplier" ToRole="supplier_transaction" />
           <Property Type="Int32" Name="Supplier_Status" Nullable="false" />
           <Property Type="String" Name="Supplier_NPWP" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Supplier_Company_Name" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -1146,30 +1155,7 @@
           <Property Type="Decimal" Name="Supplier_Credit" Nullable="false" />
           <NavigationProperty Name="supplier_credit1" Relationship="stockappsModel.supplier_credit_fk1" FromRole="supplier" ToRole="supplier_credit" />
           <NavigationProperty Name="supplier_payment" Relationship="stockappsModel.supplier_payment_fk1" FromRole="supplier" ToRole="supplier_payment" />
-        </EntityType>
-        <EntityType Name="supplier_transaction">
-          <Key>
-            <PropertyRef Name="Supplier_Transaction_ID" />
-          </Key>
-          <Property Name="Supplier_Transaction_Total_Rupiah" Type="Decimal" Nullable="false" />
-          <Property Name="Supplier_Transaction_ID" Type="String" Nullable="false" />
-          <Property Name="Supplier_ID" Type="Int32" Nullable="false" />
-          <Property Name="Supplier_Transaction_Total_Dollar" Type="Decimal" Nullable="false" />
-          <Property Name="Supplier_Transaction_Date" Type="DateTime" Nullable="false" />
-          <Property Name="Supplier_Transaction_Status" Type="Int32" Nullable="false" />
-          <Property Name="Supplier_Transaction_Description" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="supplier" Relationship="stockappsModel.FK_Relationship_6" FromRole="supplier_transaction" ToRole="supplier" />
-          <NavigationProperty Name="supplier_transaction_product" Relationship="stockappsModel.FK_Relationship_9" FromRole="supplier_transaction" ToRole="supplier_transaction_product" />
-          <NavigationProperty Name="supplier_payment" Relationship="stockappsModel.supplier_payment_transaction" FromRole="supplier_transaction" ToRole="supplier_payment" />
-          <Property Type="String" Name="Supplier_Transaction_Note_Number" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Supplier_Transaction_Invoice_Number" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="Supplier_Transaction_Rupiah" Nullable="false" />
-          <Property Type="Decimal" Name="Supplier_Transaction_Dollar" Nullable="false" />
-          <Property Type="Decimal" Name="Supplier_Transaction_PPN_Rupiah" Nullable="false" />
-          <Property Type="Decimal" Name="Supplier_Transaction_PPN_Dollar" Nullable="false" />
-          <Property Type="Int32" Name="Currency_ID" Nullable="false" />
-          <Property Type="Decimal" Name="Supplier_Transaction_Kurs" Nullable="false" />
-          <NavigationProperty Name="currency" Relationship="stockappsModel.supplier_transaction_ibfk_2" FromRole="supplier_transaction" ToRole="currency" />
+          <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.supplier_transaction_ibfk_1" FromRole="supplier" ToRole="supplier_transaction" />
         </EntityType>
         <EntityType Name="supplier_transaction_product">
           <Key>
@@ -1182,7 +1168,7 @@
           <Property Name="Supplier_Transaction_Product_Price_Dollar" Type="Decimal" Nullable="false" />
           <Property Name="Supplier_Transaction_Product_Price_Rupiah" Type="Decimal" Nullable="false" />
           <NavigationProperty Name="product" Relationship="stockappsModel.FK_Relationship_7" FromRole="supplier_transaction_product" ToRole="product" />
-          <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.FK_Relationship_9" FromRole="supplier_transaction_product" ToRole="supplier_transaction" />
+          <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.supplier_transaction_product_ibfk_1" FromRole="supplier_transaction_product" ToRole="supplier_transaction" />
         </EntityType>
         <Association Name="FK_Relationship_8">
           <End Role="customer" Type="stockappsModel.customer" Multiplicity="1" />
@@ -1221,7 +1207,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Relationship_3">
-          <End Role="product" Type="stockappsModel.product" Multiplicity="0..1" />
+          <End Role="product" Type="stockappsModel.product" Multiplicity="1" />
           <End Role="price_history" Type="stockappsModel.price_history" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="product">
@@ -1265,30 +1251,6 @@
             </Principal>
             <Dependent Role="supplier_transaction_product">
               <PropertyRef Name="Product_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Relationship_6">
-          <End Role="supplier" Type="stockappsModel.supplier" Multiplicity="1" />
-          <End Role="supplier_transaction" Type="stockappsModel.supplier_transaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="supplier">
-              <PropertyRef Name="Supplier_ID" />
-            </Principal>
-            <Dependent Role="supplier_transaction">
-              <PropertyRef Name="Supplier_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Relationship_9">
-          <End Role="supplier_transaction" Type="stockappsModel.supplier_transaction" Multiplicity="1" />
-          <End Role="supplier_transaction_product" Type="stockappsModel.supplier_transaction_product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="supplier_transaction">
-              <PropertyRef Name="Supplier_Transaction_ID" />
-            </Principal>
-            <Dependent Role="supplier_transaction_product">
-              <PropertyRef Name="Supplier_Transaction_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1488,10 +1450,10 @@
           <NavigationProperty Name="currency" Relationship="stockappsModel.supplier_payment_fk2" FromRole="supplier_payment" ToRole="currency" />
           <NavigationProperty Name="supplier" Relationship="stockappsModel.supplier_payment_fk1" FromRole="supplier_payment" ToRole="supplier" />
           <Property Type="Decimal" Name="Supplier_Payment_Kurs" Nullable="false" />
-          <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.supplier_payment_transaction" FromRole="supplier_payment" ToRole="supplier_transaction" />
           <Property Type="Int32" Name="Supplier_Payment_Status" Nullable="false" />
           <Property Type="Int32" Name="Payment_Category_ID" Nullable="false" />
           <NavigationProperty Name="payment_category" Relationship="stockappsModel.supplier_payment_fk4" FromRole="supplier_payment" ToRole="payment_category" />
+          <NavigationProperty Name="supplier_transaction" Relationship="stockappsModel.supplier_payment_transaction" FromRole="supplier_payment" ToRole="supplier_transaction" />
         </EntityType>
         <Association Name="Bank_fk1">
           <End Type="stockappsModel.currency" Role="currency" Multiplicity="1" />
@@ -1695,10 +1657,6 @@
           <End Type="stockappsModel.customer_transaction" Role="customer_transaction" Multiplicity="*" />
           <End Type="stockappsModel.customer_payment" Role="customer_payment" Multiplicity="*" />
         </Association>
-        <Association Name="supplier_payment_transaction">
-          <End Type="stockappsModel.supplier_transaction" Role="supplier_transaction" Multiplicity="*" />
-          <End Type="stockappsModel.supplier_payment" Role="supplier_payment" Multiplicity="*" />
-        </Association>
         <Association Name="supplier_payment_fk4">
           <End Type="stockappsModel.payment_category" Role="payment_category" Multiplicity="1" />
           <End Type="stockappsModel.supplier_payment" Role="supplier_payment" Multiplicity="*" />
@@ -1723,6 +1681,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="supplier_transaction">
+          <Key>
+            <PropertyRef Name="Supplier_Transaction_ID" />
+          </Key>
+          <Property Type="String" Name="Supplier_Transaction_ID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Supplier_ID" Nullable="false" />
+          <Property Type="String" Name="Supplier_Transaction_Note_Number" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Supplier_Transaction_Invoice_Number" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Currency_ID" Nullable="false" />
+          <Property Type="Decimal" Name="Supplier_Transaction_Kurs" Nullable="false" />
+          <Property Type="Decimal" Name="Supplier_Transaction_Rupiah" Nullable="false" />
+          <Property Type="Decimal" Name="Supplier_Transaction_Dollar" Nullable="false" />
+          <Property Type="Decimal" Name="Supplier_Transaction_PPN_Rupiah" Nullable="false" />
+          <Property Type="Decimal" Name="Supplier_Transaction_PPN_Dollar" Nullable="false" />
+          <Property Type="Decimal" Name="Supplier_Transaction_Total_Rupiah" Nullable="false" />
+          <Property Type="Decimal" Name="Supplier_Transaction_Total_Dollar" Nullable="false" />
+          <Property Type="DateTime" Name="Supplier_Transaction_Date" Nullable="false" />
+          <Property Type="Int32" Name="Supplier_Transaction_Status" Nullable="false" />
+          <Property Type="String" Name="Supplier_Transaction_Description" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="currency" Relationship="stockappsModel.supplier_transaction_ibfk_2" FromRole="supplier_transaction" ToRole="currency" />
+          <NavigationProperty Name="supplier" Relationship="stockappsModel.supplier_transaction_ibfk_1" FromRole="supplier_transaction" ToRole="supplier" />
+          <NavigationProperty Name="supplier_transaction_product" Relationship="stockappsModel.supplier_transaction_product_ibfk_1" FromRole="supplier_transaction" ToRole="supplier_transaction_product" />
+          <NavigationProperty Name="supplier_payment" Relationship="stockappsModel.supplier_payment_transaction" FromRole="supplier_transaction" ToRole="supplier_payment" />
+        </EntityType>
         <Association Name="supplier_transaction_ibfk_2">
           <End Type="stockappsModel.currency" Role="currency" Multiplicity="1" />
           <End Type="stockappsModel.supplier_transaction" Role="supplier_transaction" Multiplicity="*" />
@@ -1734,6 +1716,34 @@
               <PropertyRef Name="Currency_ID" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="supplier_transaction_ibfk_1">
+          <End Type="stockappsModel.supplier" Role="supplier" Multiplicity="1" />
+          <End Type="stockappsModel.supplier_transaction" Role="supplier_transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier">
+              <PropertyRef Name="Supplier_ID" />
+            </Principal>
+            <Dependent Role="supplier_transaction">
+              <PropertyRef Name="Supplier_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="supplier_transaction_product_ibfk_1">
+          <End Type="stockappsModel.supplier_transaction" Role="supplier_transaction" Multiplicity="1" />
+          <End Type="stockappsModel.supplier_transaction_product" Role="supplier_transaction_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="supplier_transaction">
+              <PropertyRef Name="Supplier_Transaction_ID" />
+            </Principal>
+            <Dependent Role="supplier_transaction_product">
+              <PropertyRef Name="Supplier_Transaction_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="supplier_payment_transaction">
+          <End Type="stockappsModel.supplier_transaction" Role="supplier_transaction" Multiplicity="*" />
+          <End Type="stockappsModel.supplier_payment" Role="supplier_payment" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1778,7 +1788,12 @@
             <ScalarProperty Name="Customer_Transaction_Product_Price_Rupiah" ColumnName="Customer_Transaction_Product_Price_Rupiah" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="price_history"><EntityTypeMapping TypeName="stockappsModel.price_history"><MappingFragment StoreEntitySet="price_history">
-            <ScalarProperty Name="Currency_ID" ColumnName="Currency_ID" />
+            <ScalarProperty Name="Price_History_Status" ColumnName="Price_History_Status" />
+                <ScalarProperty Name="Price_History_IsLast" ColumnName="Price_History_IsLast" />
+                <ScalarProperty Name="Price_History_Used_Stock" ColumnName="Price_History_Used_Stock" />
+                <ScalarProperty Name="Price_History_Stock" ColumnName="Price_History_Stock" />
+                <ScalarProperty Name="Price_History_Date" ColumnName="Price_History_Date" />
+                <ScalarProperty Name="Currency_ID" ColumnName="Currency_ID" />
                 <ScalarProperty Name="Price_History_ID" ColumnName="Price_History_ID" />
             <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
             <ScalarProperty Name="Price_History_Price" ColumnName="Price_History_Price" />
@@ -1811,23 +1826,6 @@
             <ScalarProperty Name="Supplier_Address" ColumnName="Supplier_Address" />
             <ScalarProperty Name="Supplier_Email" ColumnName="Supplier_Email" />
             <ScalarProperty Name="Supplier_Phone" ColumnName="Supplier_Phone" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="supplier_transaction"><EntityTypeMapping TypeName="stockappsModel.supplier_transaction"><MappingFragment StoreEntitySet="supplier_transaction">
-            <ScalarProperty Name="Supplier_Transaction_Kurs" ColumnName="Supplier_Transaction_Kurs" />
-                <ScalarProperty Name="Currency_ID" ColumnName="Currency_ID" />
-                <ScalarProperty Name="Supplier_Transaction_PPN_Dollar" ColumnName="Supplier_Transaction_PPN_Dollar" />
-                <ScalarProperty Name="Supplier_Transaction_PPN_Rupiah" ColumnName="Supplier_Transaction_PPN_Rupiah" />
-                <ScalarProperty Name="Supplier_Transaction_Dollar" ColumnName="Supplier_Transaction_Dollar" />
-                <ScalarProperty Name="Supplier_Transaction_Rupiah" ColumnName="Supplier_Transaction_Rupiah" />
-                <ScalarProperty Name="Supplier_Transaction_Invoice_Number" ColumnName="Supplier_Transaction_Invoice_Number" />
-                <ScalarProperty Name="Supplier_Transaction_Note_Number" ColumnName="Supplier_Transaction_Note_Number" />
-                <ScalarProperty Name="Supplier_Transaction_Total_Rupiah" ColumnName="Supplier_Transaction_Total_Rupiah" />
-            <ScalarProperty Name="Supplier_Transaction_ID" ColumnName="Supplier_Transaction_ID" />
-            <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
-            <ScalarProperty Name="Supplier_Transaction_Total_Dollar" ColumnName="Supplier_Transaction_Total_Dollar" />
-            <ScalarProperty Name="Supplier_Transaction_Date" ColumnName="Supplier_Transaction_Date" />
-            <ScalarProperty Name="Supplier_Transaction_Status" ColumnName="Supplier_Transaction_Status" />
-            <ScalarProperty Name="Supplier_Transaction_Description" ColumnName="Supplier_Transaction_Description" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="supplier_transaction_product"><EntityTypeMapping TypeName="stockappsModel.supplier_transaction_product"><MappingFragment StoreEntitySet="supplier_transaction_product">
             <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
@@ -2018,6 +2016,27 @@
               <ScalarProperty Name="Customer_Transaction_ID" ColumnName="Customer_Transaction_ID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="supplier_transaction">
+            <EntityTypeMapping TypeName="stockappsModel.supplier_transaction">
+              <MappingFragment StoreEntitySet="supplier_transaction">
+                <ScalarProperty Name="Supplier_Transaction_Description" ColumnName="Supplier_Transaction_Description" />
+                <ScalarProperty Name="Supplier_Transaction_Status" ColumnName="Supplier_Transaction_Status" />
+                <ScalarProperty Name="Supplier_Transaction_Date" ColumnName="Supplier_Transaction_Date" />
+                <ScalarProperty Name="Supplier_Transaction_Total_Dollar" ColumnName="Supplier_Transaction_Total_Dollar" />
+                <ScalarProperty Name="Supplier_Transaction_Total_Rupiah" ColumnName="Supplier_Transaction_Total_Rupiah" />
+                <ScalarProperty Name="Supplier_Transaction_PPN_Dollar" ColumnName="Supplier_Transaction_PPN_Dollar" />
+                <ScalarProperty Name="Supplier_Transaction_PPN_Rupiah" ColumnName="Supplier_Transaction_PPN_Rupiah" />
+                <ScalarProperty Name="Supplier_Transaction_Dollar" ColumnName="Supplier_Transaction_Dollar" />
+                <ScalarProperty Name="Supplier_Transaction_Rupiah" ColumnName="Supplier_Transaction_Rupiah" />
+                <ScalarProperty Name="Supplier_Transaction_Kurs" ColumnName="Supplier_Transaction_Kurs" />
+                <ScalarProperty Name="Currency_ID" ColumnName="Currency_ID" />
+                <ScalarProperty Name="Supplier_Transaction_Invoice_Number" ColumnName="Supplier_Transaction_Invoice_Number" />
+                <ScalarProperty Name="Supplier_Transaction_Note_Number" ColumnName="Supplier_Transaction_Note_Number" />
+                <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+                <ScalarProperty Name="Supplier_Transaction_ID" ColumnName="Supplier_Transaction_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <AssociationSetMapping Name="supplier_payment_transaction" TypeName="stockappsModel.supplier_payment_transaction" StoreEntitySet="supplier_payment_transaction">
             <EndProperty Name="supplier_payment">
               <ScalarProperty Name="Supplier_Payment_ID" ColumnName="Supplier_Payment_ID" />
@@ -2054,29 +2073,28 @@
         <EntityTypeShape EntityType="stockappsModel.product" Width="2.25" PointX="2.5" PointY="6.875" Height="3.9033007812499996" IsExpanded="true" />
         <EntityTypeShape EntityType="stockappsModel.product_category" Width="1.5" PointX="0.75" PointY="5" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="stockappsModel.supplier" Width="1.5" PointX="0.75" PointY="8" Height="2.3648893229166665" IsExpanded="true" />
-        <EntityTypeShape EntityType="stockappsModel.supplier_transaction" Width="2.25" PointX="3" PointY="12.25" Height="4.0956022135416674" IsExpanded="true" />
         <EntityTypeShape EntityType="stockappsModel.supplier_transaction_product" Width="1.5" PointX="8.25" PointY="9.875" Height="2.3648893229166674" IsExpanded="true" />
         <AssociationConnector Association="stockappsModel.FK_Relationship_8" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="3.015746692708333" />
           <ConnectorPoint PointX="3" PointY="3.015746692708333" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_10" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.25" PointY="4.308180743018923" />
-          <ConnectorPoint PointX="5.041666666666667" PointY="4.3081807430189221" />
-          <ConnectorPoint PointX="5.208333333333333" PointY="4.308180743018923" />
-          <ConnectorPoint PointX="5.28125" PointY="4.308180743018923" />
+          <ConnectorPoint PointX="4.25" PointY="4.2979509049479176" />
+          <ConnectorPoint PointX="5.041666666666667" PointY="4.2979509049479168" />
+          <ConnectorPoint PointX="5.208333333333333" PointY="4.2979509049479176" />
+          <ConnectorPoint PointX="5.28125" PointY="4.2979509049479176" />
           <ConnectorPoint PointX="5.28125" PointY="8" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_11" ManuallyRouted="false">
           <ConnectorPoint PointX="4.75" PointY="9.37474609375" />
-          <ConnectorPoint PointX="4.916666666666667" PointY="9.37474609375" />
-          <ConnectorPoint PointX="5.083333333333333" PointY="9.37474609375" />
+          <ConnectorPoint PointX="4.947916666666667" PointY="9.37474609375" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="9.37474609375" />
           <ConnectorPoint PointX="5.25" PointY="9.37474609375" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_3" ManuallyRouted="false">
           <ConnectorPoint PointX="4.75" PointY="10.970602213541666" />
           <ConnectorPoint PointX="4.9272538437948938" PointY="11.069650876736715" />
-          <ConnectorPoint PointX="5.0727461562051062" PointY="11.150951336804951" />
+          <ConnectorPoint PointX="5.1352461562051062" PointY="11.185876060112243" />
           <ConnectorPoint PointX="5.25" PointY="11.25" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_1" ManuallyRouted="false">
@@ -2091,23 +2109,13 @@
           <ConnectorPoint PointX="4.75" PointY="10.860044700520831" />
           <ConnectorPoint PointX="4.916666666666667" PointY="10.860044700520831" />
           <ConnectorPoint PointX="5.083333333333333" PointY="10.860044700520831" />
-          <ConnectorPoint PointX="6.744791666666667" PointY="10.860044700520829" />
+          <ConnectorPoint PointX="6.760416666666667" PointY="10.860044700520829" />
           <ConnectorPoint PointX="7.083333333333333" PointY="10.860044700520831" />
-          <ConnectorPoint PointX="7.70844356608073" PointY="10.860044700520831" />
-          <ConnectorPoint PointX="7.8751102327473959" PointY="10.860044700520831" />
-          <ConnectorPoint PointX="7.9375576163736978" PointY="10.860044700520831" />
-          <ConnectorPoint PointX="8.1042242830403648" PointY="10.860044700520831" />
+          <ConnectorPoint PointX="7.7369779166666675" PointY="10.860044700520831" />
+          <ConnectorPoint PointX="7.9036445833333335" PointY="10.860044700520831" />
+          <ConnectorPoint PointX="7.9947941666666678" PointY="10.860044700520831" />
+          <ConnectorPoint PointX="8.1614608333333347" PointY="10.860044700520831" />
           <ConnectorPoint PointX="8.25" PointY="10.860044700520831" />
-        </AssociationConnector>
-        <AssociationConnector Association="stockappsModel.FK_Relationship_6" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="11.511752174479167" />
-          <ConnectorPoint PointX="4.90625" PointY="11.511752174479167" />
-          <ConnectorPoint PointX="4.90625" PointY="12.25" />
-        </AssociationConnector>
-        <AssociationConnector Association="stockappsModel.FK_Relationship_9" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="16.742249348958335" />
-          <ConnectorPoint PointX="9.46875" PointY="16.742249348958335" />
-          <ConnectorPoint PointX="9.46875" PointY="12.239889322916667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="stockappsModel.user" Width="1.5" PointX="5.375" PointY="0.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="stockappsModel.privilege" Width="1.5" PointX="8.75" PointY="4.25" Height="1.4033821614583326" />
@@ -2118,10 +2126,10 @@
           <ConnectorPoint PointX="10.37857443490112" PointY="6.8714255650988783" />
           <ConnectorPoint PointX="10.496425565098878" PointY="6.7535744349011209" />
           <ConnectorPoint PointX="10.625" PointY="6.625" />
-          <ConnectorPoint PointX="10.625" PointY="4.6580026131184908" />
-          <ConnectorPoint PointX="10.666666666666666" PointY="4.65800261311849" />
-          <ConnectorPoint PointX="10.833333333333334" PointY="4.6580026131184908" />
-          <ConnectorPoint PointX="11" PointY="4.6580026131184908" />
+          <ConnectorPoint PointX="10.625" PointY="4.6595702678629571" />
+          <ConnectorPoint PointX="10.666666666666666" PointY="4.6595702678629562" />
+          <ConnectorPoint PointX="10.833333333333334" PointY="4.6595702678629571" />
+          <ConnectorPoint PointX="11" PointY="4.6595702678629571" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.privilege_authorization_ibfk_1" >
           <ConnectorPoint PointX="10.25" PointY="5.3785092262369822" />
@@ -2152,8 +2160,8 @@
           <ConnectorPoint PointX="7.125" PointY="10.625" />
           <ConnectorPoint PointX="7.0428165604723079" PointY="10.762225052178602" />
           <ConnectorPoint PointX="6.9571834395276912" PointY="10.905210178590625" />
-          <ConnectorPoint PointX="6.8865665604723079" PointY="11.023122071409372" />
-          <ConnectorPoint PointX="6.7853084395276912" PointY="11.192196899744474" />
+          <ConnectorPoint PointX="6.9021915604723079" PointY="10.997032369486295" />
+          <ConnectorPoint PointX="6.8009334395276912" PointY="11.166107197821397" />
           <ConnectorPoint PointX="6.75" PointY="11.251152846153847" />
         </AssociationConnector>
         <EntityTypeShape EntityType="stockappsModel.admin_history" Width="1.5" PointX="7.625" PointY="1" Height="1.9802864583333388" />
@@ -2167,8 +2175,8 @@
         <EntityTypeShape EntityType="stockappsModel.supplier_payment" Width="1.5" PointX="11.375" PointY="6.75" Height="1.7879850260416674" />
         <AssociationConnector Association="stockappsModel.Bank_fk1" >
           <ConnectorPoint PointX="6.84375" PointY="7.6244921875" />
-          <ConnectorPoint PointX="6.84375" PointY="15.124746093750002" />
-          <ConnectorPoint PointX="7.625" PointY="15.124746093750002" />
+          <ConnectorPoint PointX="6.84375" PointY="15.473043619791667" />
+          <ConnectorPoint PointX="7.625" PointY="15.473043619791667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="stockappsModel.identity" Width="1.5" PointX="12.375" PointY="0.75" Height="2.1725878906250031" />
         <AssociationConnector Association="stockappsModel.customer_transaction_ibfk_2" >
@@ -2180,40 +2188,34 @@
         <EntityTypeShape EntityType="stockappsModel.customer_debt" Width="1.5" PointX="3" PointY="20.125" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="stockappsModel.supplier_credit" Width="1.5" PointX="3" PointY="16.25" Height="2.9417936197916674" />
         <AssociationConnector Association="stockappsModel.customer_debt_fk1" >
-          <ConnectorPoint PointX="2.25" PointY="3.7144161673787428" />
-          <ConnectorPoint PointX="2.75" PointY="3.7144161673787428" />
+          <ConnectorPoint PointX="2.25" PointY="4.0918042840321851" />
+          <ConnectorPoint PointX="2.75" PointY="4.0918042840321851" />
           <ConnectorPoint PointX="2.75" PointY="6.6250000000000018" />
           <ConnectorPoint PointX="5" PointY="6.6250000000000018" />
-          <ConnectorPoint PointX="5" PointY="12" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="12" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="12" />
-          <ConnectorPoint PointX="2.75" PointY="12" />
-          <ConnectorPoint PointX="2.75" PointY="19.75" />
+          <ConnectorPoint PointX="5" PointY="19.75" />
           <ConnectorPoint PointX="3.75" PointY="19.75" />
           <ConnectorPoint PointX="3.75" PointY="20.125" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_credit_fk1" >
-          <ConnectorPoint PointX="1.9010342543945313" PointY="11.710999348958332" />
-          <ConnectorPoint PointX="1.9010342543945313" PointY="17.720896809895834" />
-          <ConnectorPoint PointX="2.6666666666666665" PointY="17.720896809895834" />
-          <ConnectorPoint PointX="2.8333333333333335" PointY="17.720896809895834" />
+          <ConnectorPoint PointX="1.328126" PointY="11.710999348958332" />
+          <ConnectorPoint PointX="1.328126" PointY="17.720896809895834" />
           <ConnectorPoint PointX="3" PointY="17.720896809895834" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_payment_fk3" >
-          <ConnectorPoint PointX="7.7917768994140628" PointY="13.75" />
-          <ConnectorPoint PointX="7.7917768994140628" PointY="9.3314925130208337" />
-          <ConnectorPoint PointX="7.9375576163736978" PointY="9.3314925130208337" />
-          <ConnectorPoint PointX="8.1042242830403648" PointY="9.3314925130208337" />
-          <ConnectorPoint PointX="10.354166666666666" PointY="9.3314925130208337" />
-          <ConnectorPoint PointX="10.520833333333334" PointY="9.3314925130208337" />
-          <ConnectorPoint PointX="10.760416666666666" PointY="9.3314925130208337" />
-          <ConnectorPoint PointX="10.927083333333334" PointY="9.3314925130208337" />
-          <ConnectorPoint PointX="11.375" PointY="9.3314925130208337" />
+          <ConnectorPoint PointX="7.8203112500000005" PointY="13.75" />
+          <ConnectorPoint PointX="7.8203112500000005" PointY="9.1908179094023161" />
+          <ConnectorPoint PointX="7.9947941666666678" PointY="9.1908179094023161" />
+          <ConnectorPoint PointX="8.1614608333333347" PointY="9.1908179094023161" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="9.1908179094023161" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="9.1908179094023161" />
+          <ConnectorPoint PointX="10.760416666666666" PointY="9.1908179094023161" />
+          <ConnectorPoint PointX="10.927083333333334" PointY="9.1908179094023161" />
+          <ConnectorPoint PointX="11.375" PointY="9.1908179094023161" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_payment_fk2" >
           <ConnectorPoint PointX="6.875" PointY="6.84375" />
-          <ConnectorPoint PointX="7.9375576163736978" PointY="6.8437499999999991" />
-          <ConnectorPoint PointX="8.1042242830403648" PointY="6.84375" />
+          <ConnectorPoint PointX="7.9947941666666678" PointY="6.8437499999999991" />
+          <ConnectorPoint PointX="8.1614608333333347" PointY="6.84375" />
           <ConnectorPoint PointX="10.322916666666666" PointY="6.8437499999999991" />
           <ConnectorPoint PointX="10.520833333333334" PointY="6.84375" />
           <ConnectorPoint PointX="10.760416666666666" PointY="6.8437499999999991" />
@@ -2221,62 +2223,58 @@
           <ConnectorPoint PointX="11.375" PointY="6.84375" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_payment_fk1" >
-          <ConnectorPoint PointX="1.2454405317993165" PointY="11.710999348958332" />
-          <ConnectorPoint PointX="1.2454405317993165" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="1.7200517302652998" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="1.8867183969319663" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="5" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="5" PointY="10.9994921875" />
-          <ConnectorPoint PointX="6.744791666666667" PointY="10.9994921875" />
+          <ConnectorPoint PointX="1.820315" PointY="11.710999348958332" />
+          <ConnectorPoint PointX="1.820315" PointY="11.960999348958332" />
+          <ConnectorPoint PointX="5.0625" PointY="11.960999348958332" />
+          <ConnectorPoint PointX="5.0625" PointY="10.9994921875" />
+          <ConnectorPoint PointX="6.760416666666667" PointY="10.9994921875" />
           <ConnectorPoint PointX="6.9840517203451933" PointY="10.9994921875" />
           <ConnectorPoint PointX="7" PointY="10.9994921875" />
-          <ConnectorPoint PointX="7" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="7.166666666666667" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="7.333333333333333" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="7.70844356608073" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="7.8751102327473959" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="7.9375576163736978" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="8.1042242830403648" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="10.354166666666666" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="10.520833333333334" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="10.760416666666666" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="10.927083333333334" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="11.375" PointY="9.60324875651041" />
+          <ConnectorPoint PointX="7" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="7.7369779166666675" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="7.9036445833333335" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="7.9947941666666678" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="8.1614608333333347" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="10.760416666666666" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="10.927083333333334" PointY="9.5329114547011518" />
+          <ConnectorPoint PointX="11.375" PointY="9.5329114547011518" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.bank_transaction_fk1" >
           <ConnectorPoint PointX="9.125" PointY="16.237488606770835" />
-          <ConnectorPoint PointX="9.3854166666666661" PointY="16.237488606770835" />
-          <ConnectorPoint PointX="9.5520833333333339" PointY="16.237488606770835" />
           <ConnectorPoint PointX="10.4375" PointY="16.237488606770835" />
           <ConnectorPoint PointX="10.4375" PointY="3.4417936197916665" />
         </AssociationConnector>
         <EntityTypeShape EntityType="stockappsModel.customer_payment" Width="1.5" PointX="13.875" PointY="5.5" Height="4.2879036458333246" />
         <AssociationConnector Association="stockappsModel.customer_payment_fk2" >
-          <ConnectorPoint PointX="8.02089094970703" PointY="13.75" />
-          <ConnectorPoint PointX="8.02089094970703" PointY="6.5743877302045366" />
-          <ConnectorPoint PointX="10.354166666666666" PointY="6.5743877302045357" />
-          <ConnectorPoint PointX="10.520833333333334" PointY="6.5743877302045366" />
-          <ConnectorPoint PointX="10.760416666666666" PointY="6.5743877302045357" />
-          <ConnectorPoint PointX="10.927083333333334" PointY="6.5743877302045366" />
-          <ConnectorPoint PointX="13.875" PointY="6.5743877302045366" />
+          <ConnectorPoint PointX="8.0781275" PointY="13.75" />
+          <ConnectorPoint PointX="8.0781275" PointY="6.3443161079816592" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="6.3443161079816583" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="6.3443161079816592" />
+          <ConnectorPoint PointX="10.541666666666666" PointY="6.3443161079816583" />
+          <ConnectorPoint PointX="10.708333333333334" PointY="6.3443161079816592" />
+          <ConnectorPoint PointX="10.760416666666666" PointY="6.3443161079816583" />
+          <ConnectorPoint PointX="10.927083333333334" PointY="6.3443161079816592" />
+          <ConnectorPoint PointX="13.875" PointY="6.3443161079816592" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.customer_payment_fk3" >
-          <ConnectorPoint PointX="6.875" PointY="6.4023370942689377" />
-          <ConnectorPoint PointX="10.354166666666666" PointY="6.4023370942689368" />
-          <ConnectorPoint PointX="10.520833333333334" PointY="6.4023370942689377" />
-          <ConnectorPoint PointX="10.541666666666666" PointY="6.4023370942689368" />
-          <ConnectorPoint PointX="10.708333333333334" PointY="6.4023370942689377" />
-          <ConnectorPoint PointX="10.760416666666666" PointY="6.4023370942689368" />
-          <ConnectorPoint PointX="10.927083333333334" PointY="6.4023370942689377" />
-          <ConnectorPoint PointX="13.875" PointY="6.4023370942689377" />
+          <ConnectorPoint PointX="6.875" PointY="6.5784080539908292" />
+          <ConnectorPoint PointX="7.9947941666666678" PointY="6.5784080539908283" />
+          <ConnectorPoint PointX="8.1614608333333347" PointY="6.5784080539908292" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="6.5784080539908283" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="6.5784080539908292" />
+          <ConnectorPoint PointX="10.760416666666666" PointY="6.5784080539908283" />
+          <ConnectorPoint PointX="10.927083333333334" PointY="6.5784080539908292" />
+          <ConnectorPoint PointX="13.875" PointY="6.5784080539908292" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.customer_payment_fk1" >
-          <ConnectorPoint PointX="2.25" PointY="4.551658325876871" />
-          <ConnectorPoint PointX="2.6666666666666665" PointY="4.55165832587687" />
-          <ConnectorPoint PointX="2.8333333333333335" PointY="4.551658325876871" />
-          <ConnectorPoint PointX="2.875" PointY="4.551658325876871" />
+          <ConnectorPoint PointX="2.25" PointY="4.7403523842035922" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="4.7403523842035913" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="4.7403523842035922" />
+          <ConnectorPoint PointX="2.875" PointY="4.7403523842035922" />
           <ConnectorPoint PointX="2.875" PointY="5.480205078125" />
           <ConnectorPoint PointX="5.125" PointY="5.480205078125" />
           <ConnectorPoint PointX="5.125" PointY="4" />
@@ -2285,13 +2283,11 @@
           <ConnectorPoint PointX="10.354166666666666" PointY="3.9999999999999996" />
           <ConnectorPoint PointX="10.520833333333334" PointY="4" />
           <ConnectorPoint PointX="10.75" PointY="4" />
-          <ConnectorPoint PointX="10.75" PointY="6.2302864583333388" />
-          <ConnectorPoint PointX="10.760416666666666" PointY="6.2302864583333379" />
-          <ConnectorPoint PointX="10.927083333333334" PointY="6.2302864583333388" />
-          <ConnectorPoint PointX="13.625" PointY="6.2302864583333388" />
+          <ConnectorPoint PointX="10.75" PointY="6.1052864583333388" />
+          <ConnectorPoint PointX="13.625" PointY="6.1052864583333388" />
           <ConnectorPoint PointX="13.625" PointY="5.25" />
-          <ConnectorPoint PointX="14.385682653320313" PointY="5.25" />
-          <ConnectorPoint PointX="14.385682653320313" PointY="5.5" />
+          <ConnectorPoint PointX="14.362044913330077" PointY="5.25" />
+          <ConnectorPoint PointX="14.362044913330077" PointY="5.5" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.customer_payment_transaction" >
           <ConnectorPoint PointX="4.25" PointY="3.7208968098958333" />
@@ -2302,40 +2298,61 @@
           <ConnectorPoint PointX="14.896364306640624" PointY="3.7208968098958333" />
           <ConnectorPoint PointX="14.896364306640624" PointY="5.5" />
         </AssociationConnector>
-        <AssociationConnector Association="stockappsModel.supplier_payment_transaction" >
-          <ConnectorPoint PointX="5.25" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="6.744791666666667" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="6.927083333333333" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="7.70844356608073" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="7.8751102327473959" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="7.9375576163736978" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="8.1042242830403648" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="9.3854166666666661" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="9.5520833333333339" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="10.354166666666666" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="10.520833333333334" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="10.760416666666666" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="10.927083333333334" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="11.666666666666666" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="11.833333333333334" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="12.53125" PointY="13.5862939453125" />
-          <ConnectorPoint PointX="12.53125" PointY="11.614807942708334" />
-        </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_payment_fk4" >
           <ConnectorPoint PointX="11.75" PointY="14.125" />
           <ConnectorPoint PointX="11.75" PointY="11.614807942708334" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.customer_payment_fk4" >
           <ConnectorPoint PointX="10.84375" PointY="14.125" />
-          <ConnectorPoint PointX="10.84375" PointY="6.1365364583333388" />
-          <ConnectorPoint PointX="13.541666666666666" PointY="6.1365364583333379" />
-          <ConnectorPoint PointX="13.708333333333334" PointY="6.1365364583333388" />
-          <ConnectorPoint PointX="13.875" PointY="6.1365364583333388" />
+          <ConnectorPoint PointX="10.84375" PointY="6.1935487831575049" />
+          <ConnectorPoint PointX="13.875" PointY="6.1935487831575049" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="stockappsModel.supplier_transaction" Width="1.5" PointX="13.625" PointY="12" Height="4.6725065104166674" />
         <AssociationConnector Association="stockappsModel.supplier_transaction_ibfk_2" >
-          <ConnectorPoint PointX="6.828125" PointY="7.6244921875" />
-          <ConnectorPoint PointX="6.828125" PointY="15.902245221354168" />
-          <ConnectorPoint PointX="5.25" PointY="15.902245221354168" />
+          <ConnectorPoint PointX="6.859375" PointY="7.6244921875" />
+          <ConnectorPoint PointX="6.859375" PointY="16.617249348958335" />
+          <ConnectorPoint PointX="13.625" PointY="16.617249348958335" />
+        </AssociationConnector>
+        <AssociationConnector Association="stockappsModel.supplier_transaction_ibfk_1" >
+          <ConnectorPoint PointX="1.007811" PointY="11.710999348958332" />
+          <ConnectorPoint PointX="1.007811" PointY="14.634095052083332" />
+          <ConnectorPoint PointX="1.2447926666666667" PointY="14.634095052083332" />
+          <ConnectorPoint PointX="1.4114593333333332" PointY="14.634095052083332" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="14.634095052083332" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="14.634095052083332" />
+          <ConnectorPoint PointX="6.760416666666667" PointY="14.634095052083332" />
+          <ConnectorPoint PointX="6.942708333333333" PointY="14.634095052083332" />
+          <ConnectorPoint PointX="7.375" PointY="14.634095052083332" />
+          <ConnectorPoint PointX="7.375" PointY="13.5" />
+          <ConnectorPoint PointX="7.7369779166666675" PointY="13.5" />
+          <ConnectorPoint PointX="7.9036445833333335" PointY="13.5" />
+          <ConnectorPoint PointX="7.9947941666666678" PointY="13.5" />
+          <ConnectorPoint PointX="8.1614608333333347" PointY="13.5" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="13.5" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="13.5" />
+          <ConnectorPoint PointX="10.760416666666666" PointY="13.5" />
+          <ConnectorPoint PointX="10.927083333333334" PointY="13.5" />
+          <ConnectorPoint PointX="11.666666666666666" PointY="13.5" />
+          <ConnectorPoint PointX="11.833333333333334" PointY="13.5" />
+          <ConnectorPoint PointX="13.25" PointY="13.5" />
+          <ConnectorPoint PointX="13.25" PointY="14.277372674479175" />
+          <ConnectorPoint PointX="13.625" PointY="14.277372674479175" />
+        </AssociationConnector>
+        <AssociationConnector Association="stockappsModel.supplier_transaction_product_ibfk_1" >
+          <ConnectorPoint PointX="13.625" PointY="12.869945161458332" />
+          <ConnectorPoint PointX="11.833333333333334" PointY="12.869945161458332" />
+          <ConnectorPoint PointX="11.666666666666666" PointY="12.869945161458332" />
+          <ConnectorPoint PointX="10.927083333333334" PointY="12.869945161458332" />
+          <ConnectorPoint PointX="10.760416666666666" PointY="12.869945161458332" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="12.869945161458332" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="12.869945161458332" />
+          <ConnectorPoint PointX="9.46875" PointY="12.869945161458332" />
+          <ConnectorPoint PointX="9.46875" PointY="12.239889322916667" />
+        </AssociationConnector>
+        <AssociationConnector Association="stockappsModel.supplier_payment_transaction" >
+          <ConnectorPoint PointX="13.625" PointY="12.403720080729173" />
+          <ConnectorPoint PointX="12.53125" PointY="12.403720080729173" />
+          <ConnectorPoint PointX="12.53125" PointY="11.614807942708334" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

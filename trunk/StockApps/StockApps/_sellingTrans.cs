@@ -114,10 +114,11 @@ namespace StockApps
                 try
                 {
                     customer_transaction_product newProduct = new customer_transaction_product();
-                    newProduct.Product_ID = Convert.ToInt32((_dataCusTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
-                    var list = ProductController.getProductByProductID(newProduct.Product_ID);
+                    int prodID = Convert.ToInt32((_dataCusTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
+                    var list = ProductController.getProductByProductID(prodID);
                     if (list.Count() <= 0) continue;
                     var prodNow = list.First();
+                    newProduct.Product_ID = prodID;
                     int quantity = Convert.ToInt32(_dataCusTransaction.Rows[i].Cells["Quantity_Kg"].Value);
                     double priceperkg = Convert.ToDouble(_dataCusTransaction.Rows[i].Cells["Price_Kg"].Value);
                     _dataCusTransaction.Rows[i].Cells["Package_Quantity"].Value = Math.Ceiling(Convert.ToDouble(quantity) / Convert.ToDouble(prodNow.Product_Packing_Kilogram)).ToString() + " " + prodNow.Product_Packing_Name;
@@ -154,6 +155,7 @@ namespace StockApps
                     totalDollar += dollar;
                     _dataCusTransaction.Rows[i].Cells["Subtotal_Dollar"].Value = dollar.ToString("C2");
                     _dataCusTransaction.Rows[i].Cells["Subtotal_Rupiah"].Value = rupiah.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
+                    
                     prod.Add(newProduct);
                 }
                 catch (Exception ex) { continue; }
@@ -169,6 +171,11 @@ namespace StockApps
             _lsellTotalPPNDollar.Text = totalWithPPNDollar.ToString("C2");
             _lsellTotalPPNRupiah.Text = totalWithPPNRupiah.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
             customer_transaction newTrans = CustomerTransaction.insertCustomerTransaction(_dtTransDate.Value, Convert.ToInt32(_cbsellNama.SelectedValue), totalDollar, totalRupiah, _tsellDescription.Text, prod, _tsellNoteNum.Text, Convert.ToInt32(_cbsellKurs.SelectedValue), Convert.ToDecimal(_tsellKurs.Text));
+            foreach (customer_transaction_product ctp in prod)
+            {
+                PriceHistoryController.reduceAmountHistory(ctp.Product_ID, Convert.ToInt32(ctp.Customer_Transaction_Product_Quantity));
+            }
+
             _sellingTransv2 nextForm = new _sellingTransv2(newTrans);
             nextForm.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
             nextForm.Show();
@@ -184,7 +191,16 @@ namespace StockApps
         {
             try
             {
-                _dataCusTransaction.Rows.Remove(_dataCusTransaction.SelectedRows[0]);
+                DataGridViewRow rowNow = null;
+                if (_dataCusTransaction.CurrentCell != null)
+                {
+                    rowNow = _dataCusTransaction.SelectedCells[0].OwningRow;
+                }
+                else if (_dataCusTransaction.CurrentRow != null)
+                {
+                    rowNow = _dataCusTransaction.SelectedRows[0];
+                }
+                _dataCusTransaction.Rows.Remove(rowNow);
                 RefreshData();
             }
             catch (Exception ex)

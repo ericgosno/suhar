@@ -58,7 +58,16 @@ namespace StockApps
             if (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
             try
             {
-                CustomerController.deleteCustomer((int)_dataCustomer.SelectedRows[0].Cells["Customer_ID"].Value);
+                DataGridViewRow rowNow = null;
+                if (_dataCustomer.CurrentCell != null)
+                {
+                    rowNow = _dataCustomer.SelectedCells[0].OwningRow;
+                }
+                else if (_dataCustomer.CurrentRow != null)
+                {
+                    rowNow = _dataCustomer.SelectedRows[0];
+                }
+                CustomerController.deleteCustomer((int)rowNow.Cells["Customer_ID"].Value);
                 RefreshForm();
             }
             catch (Exception ex)

@@ -35,6 +35,7 @@
             this._bspDUpdate = new System.Windows.Forms.Button();
             this._bspDDelete = new System.Windows.Forms.Button();
             this._bspDInsert = new System.Windows.Forms.Button();
+            this._bProSPriceHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataDetailSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,11 +110,23 @@
             this._bspDInsert.UseVisualStyleBackColor = true;
             this._bspDInsert.Click += new System.EventHandler(this._bspDInsert_Click);
             // 
+            // _bProSPriceHistory
+            // 
+            this._bProSPriceHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bProSPriceHistory.Location = new System.Drawing.Point(385, 422);
+            this._bProSPriceHistory.Name = "_bProSPriceHistory";
+            this._bProSPriceHistory.Size = new System.Drawing.Size(209, 35);
+            this._bProSPriceHistory.TabIndex = 49;
+            this._bProSPriceHistory.Text = "PRICE HISTORY";
+            this._bProSPriceHistory.UseVisualStyleBackColor = true;
+            this._bProSPriceHistory.Click += new System.EventHandler(this._bProSPriceHistory_Click);
+            // 
             // _supplierListPopUp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 432);
+            this.ClientSize = new System.Drawing.Size(621, 464);
+            this.Controls.Add(this._bProSPriceHistory);
             this.Controls.Add(this._bspDInsert);
             this.Controls.Add(this._bspDUpdate);
             this.Controls.Add(this._bspDDelete);
@@ -140,5 +153,6 @@
         private System.Windows.Forms.Button _bspDUpdate;
         private System.Windows.Forms.Button _bspDDelete;
         private System.Windows.Forms.Button _bspDInsert;
+        private System.Windows.Forms.Button _bProSPriceHistory;
     }
 }

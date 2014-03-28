@@ -44,6 +44,7 @@ namespace StockModel
             newTrans.Supplier_Transaction_Kurs = kurs;
             StockEntity.Entity.AddTosupplier_transaction(newTrans);
             StockEntity.Entity.SaveChanges();
+            
             foreach (supplier_transaction_product prod in transProd)
             {
                 prod.supplier_transaction = newTrans;

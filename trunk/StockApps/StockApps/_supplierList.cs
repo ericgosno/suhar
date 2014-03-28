@@ -60,7 +60,16 @@ namespace StockApps
             if (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
             try
             {
-                SupplierController.deleteSupplier((int)_dgvspListSupplier.SelectedRows[0].Cells["Supplier_ID"].Value);
+                DataGridViewRow rowNow = null;
+                if (_dgvspListSupplier.CurrentCell != null)
+                {
+                    rowNow = _dgvspListSupplier.SelectedCells[0].OwningRow;
+                }
+                else if (_dgvspListSupplier.CurrentRow != null)
+                {
+                    rowNow = _dgvspListSupplier.SelectedRows[0];
+                }
+                SupplierController.deleteSupplier((int)rowNow.Cells["Supplier_ID"].Value);
                 RefreshForm();
             }
             catch (Exception ex)
@@ -80,7 +89,16 @@ namespace StockApps
         {
             try
             {
-                _supplierListPopUp1 detailSupplier = new _supplierListPopUp1(SupplierController.getSupplier(Convert.ToInt32(_dgvspListSupplier.SelectedRows[0].Cells["Supplier_ID"].Value)).First());
+                DataGridViewRow rowNow = null;
+                if (_dgvspListSupplier.CurrentCell != null)
+                {
+                    rowNow = _dgvspListSupplier.SelectedCells[0].OwningRow;
+                }
+                else if (_dgvspListSupplier.CurrentRow != null)
+                {
+                    rowNow = _dgvspListSupplier.SelectedRows[0];
+                }
+                _supplierListPopUp1 detailSupplier = new _supplierListPopUp1(SupplierController.getSupplier(Convert.ToInt32(rowNow.Cells["Supplier_ID"].Value)).First());
                 detailSupplier.Show();
            }
            catch (Exception ex)
