@@ -183,6 +183,12 @@
     <Compile Include="_notificationPaymentSupplier.Designer.cs">
       <DependentUpon>_notificationPaymentSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="_priceHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_priceHistory.Designer.cs">
+      <DependentUpon>_priceHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="_productStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_notificationPaymentSupplier.resx">
       <DependentUpon>_notificationPaymentSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_priceHistory.resx">
+      <DependentUpon>_priceHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_productStock.resx">
       <DependentUpon>_productStock.cs</DependentUpon>

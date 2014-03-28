@@ -119,7 +119,16 @@ namespace StockApps
         {
             try
             {
-                UserController.deletePrivilege((int)_dataCategoryProduct.SelectedRows[0].Cells["Privilege_ID"].Value);
+                DataGridViewRow rowNow = null;
+                if (_dataCategoryProduct.CurrentCell != null)
+                {
+                    rowNow = _dataCategoryProduct.SelectedCells[0].OwningRow;
+                }
+                else if (_dataCategoryProduct.CurrentRow != null)
+                {
+                    rowNow = _dataCategoryProduct.SelectedRows[0];
+                }
+                UserController.deletePrivilege((int)rowNow.Cells["Privilege_ID"].Value);
                 RefreshForm();
             }
             catch (Exception ex)
@@ -132,7 +141,16 @@ namespace StockApps
         {
             try
             {
-                var privNow = UserController.getPrivilege((int)_dataCategoryProduct.SelectedRows[0].Cells["Privilege_ID"].Value).First();
+                DataGridViewRow rowNow = null;
+                if (_dataCategoryProduct.CurrentCell != null)
+                {
+                    rowNow = _dataCategoryProduct.SelectedCells[0].OwningRow;
+                }
+                else if (_dataCategoryProduct.CurrentRow != null)
+                {
+                    rowNow = _dataCategoryProduct.SelectedRows[0];
+                }
+                var privNow = UserController.getPrivilege((int)rowNow.Cells["Privilege_ID"].Value).First();
                 selectedID = privNow.Privilege_ID;
                 _tadmACName.Text = privNow.Privilege_name;
                  _chAC1.Checked = false;

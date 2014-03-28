@@ -114,10 +114,11 @@ namespace StockApps
                 try
                 {
                     supplier_transaction_product newProduct = new supplier_transaction_product();
-                    newProduct.Product_ID = Convert.ToInt32((_dataSupTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
-                    var list = ProductController.getProductByProductID(newProduct.Product_ID);
+                    int prodID = Convert.ToInt32((_dataSupTransaction.Rows[i].Cells["Product"] as DataGridViewComboBoxCell).Value);
+                    var list = ProductController.getProductByProductID(prodID);
                     if (list.Count() <= 0) continue;
                     var prodNow = list.First();
+                    newProduct.Product_ID = prodID;
                     int quantity = Convert.ToInt32(_dataSupTransaction.Rows[i].Cells["Quantity_Kg"].Value);
                     double priceperkg = Convert.ToDouble(prodNow.Product_Buy_Price);
                     _dataSupTransaction.Rows[i].Cells["Package_Quantity"].Value = Math.Ceiling(Convert.ToDouble(quantity) / Convert.ToDouble(prodNow.Product_Packing_Kilogram)).ToString() + " " + prodNow.Product_Packing_Name;
@@ -135,7 +136,7 @@ namespace StockApps
                         dollar = rupiah / Convert.ToDouble(_tpurKurs.Text);
                     }
                     newProduct.Supplier_Transaction_Product_Price_Dollar = Convert.ToDecimal(dollar);
-                    newProduct.Supplier_Transaction_Product_Price_Rupiah = Convert.ToDecimal(rupiah);
+                    newProduct.Supplier_Transaction_Product_Price_Rupiah = Convert.ToDecimal(dollar);;
                     newProduct.Supplier_Transaction_Product_Quantity = quantity;
                     totalRupiah += rupiah;
                     totalDollar += dollar;
@@ -154,7 +155,13 @@ namespace StockApps
                 MessageBox.Show("Kurs must be nominal!");
                 return;
             }
+
             supplier_transaction newTrans = SupplierTransaction.insertSupplierTransaction(_dtTransDate.Value,Convert.ToInt32(_cbpurNama.SelectedValue), totalDollar, totalRupiah, _tpurDescription.Text, prod,_tpurNoteNum.Text,_tpurInvoice.Text,Convert.ToInt32(_cbpurKurs.SelectedValue),Convert.ToDecimal(_tpurKurs.Text));
+            foreach (supplier_transaction_product stp in prod)
+            {
+                product productStp = ProductController.getProductByProductID(stp.Product_ID).First();
+                PriceHistoryController.insertPriceHistory(stp.Product_ID, Convert.ToDecimal(productStp.Product_Buy_Price), _dtTransDate.Value, stp.Supplier_Transaction_Product_Quantity, Convert.ToInt32(productStp.Currency_ID));
+            }
             _purchasingTrans2 nextForm = new _purchasingTrans2(newTrans);
             nextForm.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
             nextForm.Show();
@@ -170,13 +177,27 @@ namespace StockApps
         {
             try
             {
-                _dataSupTransaction.Rows.Remove(_dataSupTransaction.SelectedRows[0]);
+                DataGridViewRow rowNow = null;
+                if (_dataSupTransaction.CurrentCell != null)
+                {
+                    rowNow = _dataSupTransaction.SelectedCells[0].OwningRow;
+                }
+                else if (_dataSupTransaction.CurrentRow != null)
+                {
+                    rowNow = _dataSupTransaction.SelectedRows[0];
+                }
+                _dataSupTransaction.Rows.Remove(rowNow);
                 RefreshData();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("You must select a Row First!");
             }
+        }
+
+        private void _cbpurKurs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

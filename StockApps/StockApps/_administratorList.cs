@@ -67,7 +67,16 @@ namespace StockApps
         {
             try
             {
-                UserController.deleteUser((int)_dataAdministrator.SelectedRows[0].Cells["users_id"].Value);
+                DataGridViewRow rowNow = null;
+                if (_dataAdministrator.CurrentCell != null)
+                {
+                    rowNow = _dataAdministrator.SelectedCells[0].OwningRow;
+                }
+                else if (_dataAdministrator.CurrentRow != null)
+                {
+                    rowNow = _dataAdministrator.SelectedRows[0];
+                }
+                UserController.deleteUser((int)rowNow.Cells["users_id"].Value);
                 RefreshForm();
             }
             catch (Exception ex)
@@ -90,7 +99,16 @@ namespace StockApps
         {
             try
             {
-                var userNow = UserController.getUser((int)_dataAdministrator.SelectedRows[0].Cells["users_id"].Value).First();
+                DataGridViewRow rowNow = null;
+                if (_dataAdministrator.CurrentCell != null)
+                {
+                    rowNow = _dataAdministrator.SelectedCells[0].OwningRow;
+                }
+                else if (_dataAdministrator.CurrentRow != null)
+                {
+                    rowNow = _dataAdministrator.SelectedRows[0];
+                }
+                var userNow = UserController.getUser((int)rowNow.Cells["users_id"].Value).First();
                 selectedID = userNow.users_id;
                 _tadmCName.Text = userNow.users_username;
                 _tadmCEmail.Text = userNow.users_email;

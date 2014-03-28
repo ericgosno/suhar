@@ -75,7 +75,16 @@ namespace StockApps
             if (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
             try
             {
-                ProductController.deleteProduct(Convert.ToInt32(_dataDetailSupplier.SelectedRows[0].Cells["Product_ID"].Value));
+                DataGridViewRow rowNow = null;
+                if (_dataDetailSupplier.CurrentCell != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedCells[0].OwningRow;
+                }
+                else if (_dataDetailSupplier.CurrentRow != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedRows[0];
+                }
+                ProductController.deleteProduct(Convert.ToInt32(rowNow.Cells["Product_ID"].Value));
                 RefreshForm();
             }
             catch (Exception ex)
@@ -88,7 +97,16 @@ namespace StockApps
         {
             try
             {
-                var prodnow = ProductController.getProductByProductID(Convert.ToInt32(_dataDetailSupplier.SelectedRows[0].Cells["Product_ID"].Value)).First();
+                DataGridViewRow rowNow = null;
+                if (_dataDetailSupplier.CurrentCell != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedCells[0].OwningRow;
+                }
+                else if (_dataDetailSupplier.CurrentRow != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedRows[0];
+                }
+                var prodnow = ProductController.getProductByProductID(Convert.ToInt32(rowNow.Cells["Product_ID"].Value)).First();
                 _SupplierProduct prodForm = new _SupplierProduct(supplierNow,prodnow);
                 prodForm.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
                 prodForm.Show();
@@ -102,6 +120,31 @@ namespace StockApps
         private void _supplierListPopUp1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void _bProSPriceHistory_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                DataGridViewRow rowNow = null;
+                if (_dataDetailSupplier.CurrentCell != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedCells[0].OwningRow;
+                }
+                else if (_dataDetailSupplier.CurrentRow != null)
+                {
+                    rowNow = _dataDetailSupplier.SelectedRows[0];
+                }
+                int productId = Convert.ToInt32(rowNow.Cells["Product_ID"].Value);
+                product prodNow = ProductController.getProductByProductID(productId).First();
+                _priceHistory priceHistory = new _priceHistory(prodNow);
+                priceHistory.Show(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("You Must Select Row First!");
+            }
         }
 
     }
