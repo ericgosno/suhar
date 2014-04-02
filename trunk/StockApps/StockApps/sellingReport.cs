@@ -45,9 +45,12 @@ namespace StockApps
             //string query = "SELECT a.users_id,u.users_username,a.log_type,a.time_log FROM stockapps.admin_history a,stockapps.users u where a.users_id = u.users_id";
             //string query2 = "SELECT users_id,users_username from users";
             string query3="";
+            _cbDateTrans.Format = DateTimePickerFormat.Custom;
+            _cbDateTrans.CustomFormat = "dd-MM-yyyy";
             if (_cbCus.Checked == true && _cbDateChecker.Checked == true)
             {
-               
+                query3 = "SELECT * FROM stockapps.customer_transaction where Customer_ID =" + _cbNama.SelectedValue.ToString() + " and DATE_FORMAT(Customer_Transaction_Date,'%d-%m-%Y') = '" + _cbDateTrans.Text + "'";
+          
             }
             else if (_cbCus.Checked == true && _cbDateChecker.Checked == false)
             {
@@ -56,14 +59,14 @@ namespace StockApps
             }
             else if (_cbCus.Checked == false && _cbDateChecker.Checked == true)
             {
-                _cbDateTrans.Format = DateTimePickerFormat.Custom;
-                _cbDateTrans.CustomFormat = "dd-MM-yyyy";
+               
                 query3 = "SELECT * FROM stockapps.customer_transaction where DATE_FORMAT(Customer_Transaction_Date,'%d-%m-%Y') = '" + _cbDateTrans.Text + "'";
           
             }
             else
             {
-              
+                query3 = "SELECT * FROM stockapps.customer_transaction where Customer_ID =" + _cbNama.SelectedValue.ToString() + " and DATE_FORMAT(Customer_Transaction_Date,'%d-%m-%Y') = '" + _cbDateTrans.Text + "'";
+          
             }
             
             
