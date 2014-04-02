@@ -139,6 +139,11 @@ namespace StockApps
             }
         }
 
+        private void _bankList_Load(object sender, EventArgs e)
+        {
+
+        }
+
     
     }
 }

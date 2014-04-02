@@ -219,6 +219,7 @@
             this.Controls.Add(this.label1);
             this.Name = "_customerList";
             this.Text = "CV. WARNA MURNI - CUSTOMER";
+            this.Load += new System.EventHandler(this._customerList_Load);
             ((System.ComponentModel.ISupportInitialize)(this._dataCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

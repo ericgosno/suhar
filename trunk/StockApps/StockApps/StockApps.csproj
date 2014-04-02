@@ -85,6 +85,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAdmin.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsSelling.cs">
+      <DependentUpon>dsSelling.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="dsSelling.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -82,5 +82,10 @@ namespace StockApps
             CustomerController.editCustomer((int)rowNow.Cells["Customer_ID"].Value, rowNow.Cells["Customer_Name"].Value.ToString(), rowNow.Cells["Customer_Address"].Value.ToString(), rowNow.Cells["Customer_Email"].Value.ToString(), rowNow.Cells["Customer_Phone"].Value.ToString(), rowNow.Cells["Customer_NPWP"].Value.ToString(), rowNow.Cells["Customer_Company_Name"].Value.ToString());
             _dataCustomer.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
+
+        private void _customerList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
