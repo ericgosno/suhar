@@ -119,7 +119,6 @@
             this._cbankCurrency.Name = "_cbankCurrency";
             this._cbankCurrency.Size = new System.Drawing.Size(463, 37);
             this._cbankCurrency.TabIndex = 2;
-            //this._cbankCurrency.SelectedIndexChanged += new System.EventHandler(this._cbankCurrency_SelectedIndexChanged);
             // 
             // _bbankReset
             // 
@@ -148,6 +147,7 @@
             this.Controls.Add(this.label1);
             this.Name = "_bankList";
             this.Text = "CV. WARNA MURNI - Bank";
+            this.Load += new System.EventHandler(this._bankList_Load);
             ((System.ComponentModel.ISupportInitialize)(this._dataBank)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

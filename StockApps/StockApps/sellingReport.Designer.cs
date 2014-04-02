@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this._dtTransDate = new System.Windows.Forms.DateTimePicker();
-            this._lbsellNama = new System.Windows.Forms.ComboBox();
+            this._cbDateTrans = new System.Windows.Forms.DateTimePicker();
+            this._cbNama = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this._bsellView = new System.Windows.Forms.Button();
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this._radioSJ = new System.Windows.Forms.RadioButton();
+            this._rptSelling = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this._radioAll = new System.Windows.Forms.RadioButton();
             this._radioFPenjualan = new System.Windows.Forms.RadioButton();
             this._radioFPajak = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this._radioSJ = new System.Windows.Forms.RadioButton();
+            this._cbDateChecker = new System.Windows.Forms.CheckBox();
+            this._cbCus = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,22 +57,22 @@
             this.label4.TabIndex = 54;
             this.label4.Text = "Date";
             // 
-            // _dtTransDate
+            // _cbDateTrans
             // 
-            this._dtTransDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._dtTransDate.Location = new System.Drawing.Point(129, 93);
-            this._dtTransDate.Name = "_dtTransDate";
-            this._dtTransDate.Size = new System.Drawing.Size(389, 35);
-            this._dtTransDate.TabIndex = 2;
+            this._cbDateTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._cbDateTrans.Location = new System.Drawing.Point(129, 93);
+            this._cbDateTrans.Name = "_cbDateTrans";
+            this._cbDateTrans.Size = new System.Drawing.Size(389, 35);
+            this._cbDateTrans.TabIndex = 2;
             // 
-            // _lbsellNama
+            // _cbNama
             // 
-            this._lbsellNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lbsellNama.FormattingEnabled = true;
-            this._lbsellNama.Location = new System.Drawing.Point(129, 55);
-            this._lbsellNama.Name = "_lbsellNama";
-            this._lbsellNama.Size = new System.Drawing.Size(389, 37);
-            this._lbsellNama.TabIndex = 1;
+            this._cbNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._cbNama.FormattingEnabled = true;
+            this._cbNama.Location = new System.Drawing.Point(129, 55);
+            this._cbNama.Name = "_cbNama";
+            this._cbNama.Size = new System.Drawing.Size(389, 37);
+            this._cbNama.TabIndex = 1;
             // 
             // label1
             // 
@@ -114,39 +117,40 @@
             // _bsellView
             // 
             this._bsellView.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bsellView.Location = new System.Drawing.Point(18, 146);
+            this._bsellView.Location = new System.Drawing.Point(18, 158);
             this._bsellView.Name = "_bsellView";
             this._bsellView.Size = new System.Drawing.Size(500, 35);
             this._bsellView.TabIndex = 7;
             this._bsellView.Text = "VIEW REPORT";
             this._bsellView.UseVisualStyleBackColor = true;
+            this._bsellView.Click += new System.EventHandler(this._bsellView_Click);
             // 
-            // crystalReportViewer1
+            // _rptSelling
             // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(18, 202);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(846, 460);
-            this.crystalReportViewer1.TabIndex = 8;
+            this._rptSelling.ActiveViewIndex = -1;
+            this._rptSelling.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._rptSelling.Cursor = System.Windows.Forms.Cursors.Default;
+            this._rptSelling.Location = new System.Drawing.Point(18, 202);
+            this._rptSelling.Name = "_rptSelling";
+            this._rptSelling.Size = new System.Drawing.Size(1114, 460);
+            this._rptSelling.TabIndex = 8;
             // 
-            // _radioSJ
+            // _radioAll
             // 
-            this._radioSJ.AutoSize = true;
-            this._radioSJ.Checked = true;
-            this._radioSJ.Location = new System.Drawing.Point(17, 27);
-            this._radioSJ.Name = "_radioSJ";
-            this._radioSJ.Size = new System.Drawing.Size(120, 28);
-            this._radioSJ.TabIndex = 4;
-            this._radioSJ.TabStop = true;
-            this._radioSJ.Text = "Surat Jalan";
-            this._radioSJ.UseVisualStyleBackColor = true;
+            this._radioAll.AutoSize = true;
+            this._radioAll.Checked = true;
+            this._radioAll.Location = new System.Drawing.Point(17, 27);
+            this._radioAll.Name = "_radioAll";
+            this._radioAll.Size = new System.Drawing.Size(171, 28);
+            this._radioAll.TabIndex = 4;
+            this._radioAll.TabStop = true;
+            this._radioAll.Text = "Selling Customer";
+            this._radioAll.UseVisualStyleBackColor = true;
             // 
             // _radioFPenjualan
             // 
             this._radioFPenjualan.AutoSize = true;
-            this._radioFPenjualan.Location = new System.Drawing.Point(17, 53);
+            this._radioFPenjualan.Location = new System.Drawing.Point(17, 81);
             this._radioFPenjualan.Name = "_radioFPenjualan";
             this._radioFPenjualan.Size = new System.Drawing.Size(169, 28);
             this._radioFPenjualan.TabIndex = 5;
@@ -156,43 +160,83 @@
             // _radioFPajak
             // 
             this._radioFPajak.AutoSize = true;
-            this._radioFPajak.Location = new System.Drawing.Point(17, 80);
+            this._radioFPajak.Location = new System.Drawing.Point(198, 27);
             this._radioFPajak.Name = "_radioFPajak";
             this._radioFPajak.Size = new System.Drawing.Size(130, 28);
-            this._radioFPajak.TabIndex = 6;
+            this._radioFPajak.TabIndex = 7;
             this._radioFPajak.Text = "Faktur Pajak";
             this._radioFPajak.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this._radioSJ);
+            this.groupBox1.Controls.Add(this._radioAll);
             this.groupBox1.Controls.Add(this._radioFPajak);
             this.groupBox1.Controls.Add(this._radioFPenjualan);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(530, 55);
+            this.groupBox1.Location = new System.Drawing.Point(530, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(334, 126);
+            this.groupBox1.Size = new System.Drawing.Size(334, 152);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List Report";
+            // 
+            // _radioSJ
+            // 
+            this._radioSJ.AutoSize = true;
+            this._radioSJ.Location = new System.Drawing.Point(17, 54);
+            this._radioSJ.Name = "_radioSJ";
+            this._radioSJ.Size = new System.Drawing.Size(120, 28);
+            this._radioSJ.TabIndex = 6;
+            this._radioSJ.Text = "Surat Jalan";
+            this._radioSJ.UseVisualStyleBackColor = true;
+            // 
+            // _cbDateChecker
+            // 
+            this._cbDateChecker.AutoSize = true;
+            this._cbDateChecker.Location = new System.Drawing.Point(421, 135);
+            this._cbDateChecker.Name = "_cbDateChecker";
+            this._cbDateChecker.Size = new System.Drawing.Size(100, 17);
+            this._cbDateChecker.TabIndex = 57;
+            this._cbDateChecker.Text = "Search by Date";
+            this._cbDateChecker.UseVisualStyleBackColor = true;
+            this._cbDateChecker.CheckedChanged += new System.EventHandler(this._cbDateChecker_CheckedChanged);
+            // 
+            // _cbCus
+            // 
+            this._cbCus.AutoSize = true;
+            this._cbCus.Checked = true;
+            this._cbCus.CheckState = System.Windows.Forms.CheckState.Checked;
+            this._cbCus.Location = new System.Drawing.Point(293, 135);
+            this._cbCus.Name = "_cbCus";
+            this._cbCus.Size = new System.Drawing.Size(121, 17);
+            this._cbCus.TabIndex = 58;
+            this._cbCus.Text = "Search by Customer";
+            this._cbCus.UseVisualStyleBackColor = true;
+            this._cbCus.CheckedChanged += new System.EventHandler(this._cbCus_CheckedChanged);
             // 
             // sellingReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 674);
+            this.ClientSize = new System.Drawing.Size(1144, 674);
+            this.Controls.Add(this._cbCus);
+            this.Controls.Add(this._cbDateChecker);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.crystalReportViewer1);
+            this.Controls.Add(this._rptSelling);
             this.Controls.Add(this._bsellView);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this._dtTransDate);
-            this.Controls.Add(this._lbsellNama);
+            this.Controls.Add(this._cbDateTrans);
+            this.Controls.Add(this._cbNama);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "sellingReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "sellingReport";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.sellingReport_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -203,17 +247,20 @@
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker _dtTransDate;
-        private System.Windows.Forms.ComboBox _lbsellNama;
+        private System.Windows.Forms.DateTimePicker _cbDateTrans;
+        private System.Windows.Forms.ComboBox _cbNama;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button _bsellView;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private System.Windows.Forms.RadioButton _radioSJ;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer _rptSelling;
+        private System.Windows.Forms.RadioButton _radioAll;
         private System.Windows.Forms.RadioButton _radioFPenjualan;
         private System.Windows.Forms.RadioButton _radioFPajak;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton _radioSJ;
+        private System.Windows.Forms.CheckBox _cbDateChecker;
+        private System.Windows.Forms.CheckBox _cbCus;
     }
 }
