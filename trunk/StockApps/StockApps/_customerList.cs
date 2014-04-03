@@ -83,9 +83,6 @@ namespace StockApps
             _dataCustomer.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
-        private void _customerList_Load(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

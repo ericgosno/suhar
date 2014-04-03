@@ -48,5 +48,6 @@ namespace StockApps
             MessageBox.Show("Transaction Inserted Succesfully");
             this.Close();
         }
+
     }
 }

@@ -112,6 +112,12 @@
     <Compile Include="sellingReport.Designer.cs">
       <DependentUpon>sellingReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="sellingReportSJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellingReportSJ.Designer.cs">
+      <DependentUpon>sellingReportSJ.cs</DependentUpon>
+    </Compile>
     <Compile Include="sellingReportSuratJalan.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -271,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sellingReport.resx">
       <DependentUpon>sellingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReportSJ.resx">
+      <DependentUpon>sellingReportSJ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sellingReportSuratJalan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
