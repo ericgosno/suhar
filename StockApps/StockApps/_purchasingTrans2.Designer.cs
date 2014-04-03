@@ -394,6 +394,7 @@
             this.Controls.Add(this.label5);
             this.Name = "_purchasingTrans2";
             this.Text = "Supplier Transaction";
+            //this.Load += new System.EventHandler(this._purchasingTrans2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

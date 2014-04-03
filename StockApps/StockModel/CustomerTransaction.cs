@@ -86,6 +86,14 @@ namespace StockModel
             return list;
         }
 
+        public static IQueryable<customer_transaction> getCustomer(int Id)
+        {
+            var list = (from f in StockEntity.Entity.customer_transaction
+                        where f.Customer_ID == Id
+                        select f);
+            return list;
+        }
+
         public static bool confirmPayment(string paymentID)
         {
             var payment = (from f in StockEntity.Entity.customer_payment
