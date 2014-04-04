@@ -94,7 +94,7 @@ namespace StockModel
             bank bankNow = list.First();
             bankNow.Bank_Current_Money = totalNow;
             StockEntity.Entity.SaveChanges();
-            return bankNow.Bank_Current_Money; 
+            return bankNow.Bank_Current_Money;
         }
 
         public static void deleteBank(int bankId)
@@ -108,6 +108,17 @@ namespace StockModel
             StockEntity.Entity.SaveChanges();
         }
 
+        public static IQueryable<bank_transaction> getBankTransaction()
+        {
+            var list = (from f in StockEntity.Entity.bank_transaction
+                        select f);
+            return list;
+        }
+
+        public static IQueryable<bank_transaction> getBankTransaction(int BankID, DateTime from, DateTime to)
+        {
+            return getBankTransaction().Where(x => x.Bank_ID == BankID && x.Bank_Transaction_Date.CompareTo(from) >= 0 && x.Bank_Transaction_Date.CompareTo(to) <= 0);
+        }
         public static bank_transaction insertBankTransaction(int bankID, DateTime bankDate,string bankCode, bool isDebit, decimal money, string description)
         {
             bank_transaction newTrans = new bank_transaction();
