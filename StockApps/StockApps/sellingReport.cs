@@ -18,6 +18,7 @@ namespace StockApps
 {
     public partial class sellingReport : Form
     {
+        public string suratJalanID;
         public sellingReport()
         {
             InitializeComponent();
@@ -26,12 +27,17 @@ namespace StockApps
         {
             this.Close();
         }
-
+        void suratJalan_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //MessageBox.Show(_cbNama.SelectedValue.ToString());
+            
+        }
         private void _bsellView_Click(object sender, EventArgs e)
         {
             if (_radioSJ.Checked == true)
             {
-                sellingReportSJ nextForm = new sellingReportSJ(_cbNama.SelectedValue.ToString());
+                sellingReportListSJ nextForm = new sellingReportListSJ(_cbNama.SelectedValue.ToString(),this);
+                //nextForm.FormClosed += new FormClosedEventHandler(suratJalan_FormClosed);
                 nextForm.Show();
             }
             else
@@ -121,7 +127,7 @@ namespace StockApps
                 // Your .rpt file path will be below
 
                 //rptDoc.Load(Application.StartupPath + @"adminReport.rpt");
-                rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\sellingReportSuratJalan.rpt");
+                rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\sellingReportCustomer.rpt");
                 //rptDoc.Load(@"C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockApps\adminReport.rpt");
 
                 //set dataset to the report viewer.
