@@ -105,6 +105,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSelling.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsSellingSuratJalan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSellingSuratJalan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="priceHistoryReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,16 +134,28 @@
     <Compile Include="sellingReport.Designer.cs">
       <DependentUpon>sellingReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="sellingReportSJ.cs">
+    <Compile Include="sellingReportSJ_bForm_RptViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sellingReportSJ.Designer.cs">
-      <DependentUpon>sellingReportSJ.cs</DependentUpon>
+    <Compile Include="sellingReportSJ_bForm_RptViewer.Designer.cs">
+      <DependentUpon>sellingReportSJ_bForm_RptViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="sellingReportSuratJalan.cs">
+    <Compile Include="sellingReportSJ_aList_Nota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellingReportSJ_aList_Nota.Designer.cs">
+      <DependentUpon>sellingReportSJ_aList_Nota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellingReportSJ_cViewer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>sellingReportSuratJalan.rpt</DependentUpon>
+      <DependentUpon>sellingReportSJ_cViewer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sellingReportSCViewer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sellingReportSCViewer.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Session.cs" />
@@ -302,12 +319,19 @@
     <EmbeddedResource Include="sellingReport.resx">
       <DependentUpon>sellingReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sellingReportSJ.resx">
-      <DependentUpon>sellingReportSJ.cs</DependentUpon>
+    <EmbeddedResource Include="sellingReportSJ_aList_Nota.resx">
+      <DependentUpon>sellingReportSJ_aList_Nota.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sellingReportSuratJalan.rpt">
+    <EmbeddedResource Include="sellingReportSJ_bForm_RptViewer.resx">
+      <DependentUpon>sellingReportSJ_bForm_RptViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReportSJ_cViewer.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>sellingReportSuratJalan.cs</LastGenOutput>
+      <LastGenOutput>sellingReportSJ_cViewer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReportSCViewer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>sellingReportSCViewer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="supplierReport.resx">
       <DependentUpon>supplierReport.cs</DependentUpon>
@@ -420,6 +444,17 @@
     </None>
     <None Include="dsSelling.xss">
       <DependentUpon>dsSelling.xsd</DependentUpon>
+    </None>
+    <None Include="dsSellingSuratJalan.xsc">
+      <DependentUpon>dsSellingSuratJalan.xsd</DependentUpon>
+    </None>
+    <None Include="dsSellingSuratJalan.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSellingSuratJalan.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsSellingSuratJalan.xss">
+      <DependentUpon>dsSellingSuratJalan.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
