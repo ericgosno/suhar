@@ -36,7 +36,7 @@ namespace StockApps
         {
             if (_radioSJ.Checked == true)
             {
-                sellingReportListSJ nextForm = new sellingReportListSJ(_cbNama.SelectedValue.ToString(),this);
+                sellingReportSJ_aList_Nota nextForm = new sellingReportSJ_aList_Nota(_cbNama.SelectedValue.ToString(), this);
                 //nextForm.FormClosed += new FormClosedEventHandler(suratJalan_FormClosed);
                 nextForm.Show();
             }
