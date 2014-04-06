@@ -16,14 +16,14 @@ namespace StockApps {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class sellingReportSJ_cViewer : ReportClass {
+    public class sellingReportFP_cViewer : ReportClass {
         
-        public sellingReportSJ_cViewer() {
+        public sellingReportFP_cViewer() {
         }
         
         public override string ResourceName {
             get {
-                return "sellingReportSJ_cViewer.rpt";
+                return "sellingReportFP_cViewer.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace StockApps {
         
         public override string FullResourceName {
             get {
-                return "StockApps.sellingReportSJ_cViewer.rpt";
+                return "StockApps.sellingReportFP_cViewer.rpt";
             }
             set {
                 // Do nothing
@@ -90,7 +90,7 @@ namespace StockApps {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_identityCompany {
+        public CrystalDecisions.Shared.IParameterField Parameter_identityCity {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,7 +98,7 @@ namespace StockApps {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_identityCity {
+        public CrystalDecisions.Shared.IParameterField Parameter_identityCompany {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -114,7 +114,7 @@ namespace StockApps {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CustomerCompany {
+        public CrystalDecisions.Shared.IParameterField Parameter_IdentityName {
             get {
                 return this.DataDefinition.ParameterFields[3];
             }
@@ -122,7 +122,7 @@ namespace StockApps {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CustomerAddress {
+        public CrystalDecisions.Shared.IParameterField Parameter_TransactionNoteNumber {
             get {
                 return this.DataDefinition.ParameterFields[4];
             }
@@ -130,7 +130,7 @@ namespace StockApps {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_TransactionNoteNumber {
+        public CrystalDecisions.Shared.IParameterField Parameter_CustomerCompany {
             get {
                 return this.DataDefinition.ParameterFields[5];
             }
@@ -138,7 +138,7 @@ namespace StockApps {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_IdentityName {
+        public CrystalDecisions.Shared.IParameterField Parameter_CustomerAddress {
             get {
                 return this.DataDefinition.ParameterFields[6];
             }
@@ -146,9 +146,9 @@ namespace StockApps {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedsellingReportSJ_cViewer : Component, ICachedReport {
+    public class CachedsellingReportFP_cViewer : Component, ICachedReport {
         
-        public CachedsellingReportSJ_cViewer() {
+        public CachedsellingReportFP_cViewer() {
         }
         
         [Browsable(false)]
@@ -185,7 +185,7 @@ namespace StockApps {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            sellingReportSJ_cViewer rpt = new sellingReportSJ_cViewer();
+            sellingReportFP_cViewer rpt = new sellingReportFP_cViewer();
             rpt.Site = this.Site;
             return rpt;
         }

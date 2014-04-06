@@ -15,10 +15,12 @@ namespace StockApps
     {
         sellingReport parent;
         String Cus_ID;
-        public sellingReportSJ_aList_Nota(String Customer_ID, sellingReport parent)
+        int Status_Check;
+        public sellingReportSJ_aList_Nota(String Customer_ID, int Status, sellingReport parent)
         {
             InitializeComponent();
             Cus_ID = Customer_ID;
+            Status_Check = Status;
             var transList = CustomerTransaction.getCustomer(int.Parse(Customer_ID));
             listBox1.DataSource = transList;
             listBox1.DisplayMember = "Customer_Transaction_Note_Number";
@@ -28,11 +30,25 @@ namespace StockApps
 
         private void _btnProcess_Click(object sender, EventArgs e)
         {
-            //this.parent.suratJalanID = listBox1.SelectedValue.ToString();
-            //this.Close();
-            sellingReportSJ_bForm_RptViewer nextForm = new sellingReportSJ_bForm_RptViewer(listBox1.SelectedValue.ToString());
-            //nextForm.FormClosed += new FormClosedEventHandler(suratJalan_FormClosed);
-            nextForm.Show();
+            if (Status_Check == 0)
+            {
+                //this.parent.suratJalanID = listBox1.SelectedValue.ToString();
+                //this.Close();
+                sellingReportSJ_bForm_RptViewer nextForm = new sellingReportSJ_bForm_RptViewer(listBox1.SelectedValue.ToString());
+                //nextForm.FormClosed += new FormClosedEventHandler(suratJalan_FormClosed);
+                nextForm.Show();
+            }
+            else if (Status_Check == 1)
+            {
+                sellingReportFP_bForm_RptViewer nextForm = new sellingReportFP_bForm_RptViewer(listBox1.SelectedValue.ToString());
+                nextForm.Show();
+            }
+     
+        }
+
+        private void sellingReportSJ_aList_Nota_Load(object sender, EventArgs e)
+        {
+
         }
 
     

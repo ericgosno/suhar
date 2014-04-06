@@ -36,9 +36,19 @@ namespace StockApps
         {
             if (_radioSJ.Checked == true)
             {
-                sellingReportSJ_aList_Nota nextForm = new sellingReportSJ_aList_Nota(_cbNama.SelectedValue.ToString(), this);
+                sellingReportSJ_aList_Nota nextForm = new sellingReportSJ_aList_Nota(_cbNama.SelectedValue.ToString(),0, this);
                 //nextForm.FormClosed += new FormClosedEventHandler(suratJalan_FormClosed);
                 nextForm.Show();
+            }
+            else if (_radioFPenjualan.Checked == true)
+            {
+                sellingReportSJ_aList_Nota nextForm = new sellingReportSJ_aList_Nota(_cbNama.SelectedValue.ToString(),1, this);
+                //nextForm.FormClosed += new FormClosedEventHandler(suratJalan_FormClosed);
+                nextForm.Show();
+            }
+            else if (_radioFPajak.Checked == true)
+            {
+
             }
             else
             {
@@ -124,7 +134,7 @@ namespace StockApps
                 ds.Tables[0].Merge(dt);
                 ds.Tables[1].Merge(dt2);
                 ds.Tables[2].Merge(dt3);
-                
+
                 sellingReportCustomer rptCustomer = new sellingReportCustomer();
                 rptCustomer.SetDataSource(ds);
                 _rptSelling.ReportSource = rptCustomer;
