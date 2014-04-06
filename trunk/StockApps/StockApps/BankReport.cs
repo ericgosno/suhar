@@ -21,7 +21,6 @@ namespace StockApps
             _cbtransBankName.ValueMember = "Bank_ID";
             _ttransBankTo.Value = DateTime.Now;
             _ttransBankFrom.Value = DateTime.Now.AddDays(-30);
-            RefreshReport();
         }
 
         private void RefreshReport()
@@ -29,10 +28,14 @@ namespace StockApps
             try
             {
                 rptBankTransaction rpt = new rptBankTransaction();
-                var list = BankController.getBankTransaction(Convert.ToInt32(_cbtransBankName.SelectedValue), _ttransBankFrom.Value, _ttransBankTo.Value).ToList();
-                rpt.SetDataSource(list);
-
-                rpt.SetParameterValue("Bank", (_cbtransBankName.SelectedItem as bank).Bank_Name);
+                var list = BankController.getBankTransaction(Convert.ToInt32(_cbtransBankName.SelectedValue), _ttransBankFrom.Value, _ttransBankTo.Value)
+                    .OrderByDescending(x => x.Bank_Transaction_Date).ToList();
+                if (list.Count() > 0)rpt.SetDataSource(list);
+                
+                bank bankNow = _cbtransBankName.SelectedItem as bank;
+                string bankTitle = bankNow.Bank_Name + " Account Report";
+                rpt.SetParameterValue("Bank", bankTitle);
+                rpt.SetParameterValue("DateFromTo", _ttransBankFrom.Value.ToString("D") + " - " + _ttransBankTo.Value.ToString("D"));
                 _rptBank.ReportSource = rpt;
             }
             catch (Exception ex) { }
@@ -40,15 +43,17 @@ namespace StockApps
 
         private void _cbtransBankName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshReport();
         }
 
         private void _ttransBankFrom_ValueChanged(object sender, EventArgs e)
         {
-            RefreshReport();
         }
 
         private void _ttransBankTo_ValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void _bbankView_Click(object sender, EventArgs e)
         {
             RefreshReport();
         }

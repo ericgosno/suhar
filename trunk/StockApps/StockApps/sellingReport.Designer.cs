@@ -130,10 +130,11 @@
             this._rptSelling.ActiveViewIndex = -1;
             this._rptSelling.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._rptSelling.Cursor = System.Windows.Forms.Cursors.Default;
-            this._rptSelling.Location = new System.Drawing.Point(18, 202);
+            this._rptSelling.Location = new System.Drawing.Point(18, 199);
             this._rptSelling.Name = "_rptSelling";
-            this._rptSelling.Size = new System.Drawing.Size(1114, 460);
+            this._rptSelling.Size = new System.Drawing.Size(1114, 463);
             this._rptSelling.TabIndex = 8;
+            this._rptSelling.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // _radioAll
             // 

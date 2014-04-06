@@ -15,8 +15,9 @@ namespace StockApps
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new _sellingTransactionList());
+            //Application.Run(new BankReport());
             //Application.Run(new sellingReport());
-            Application.Run(new sellingReport());
         }
     }
 }

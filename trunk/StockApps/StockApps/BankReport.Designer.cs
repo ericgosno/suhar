@@ -39,6 +39,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this._ttransBankTo = new System.Windows.Forms.DateTimePicker();
+            this._bbankView = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _rptBank
@@ -46,10 +47,11 @@
             this._rptBank.ActiveViewIndex = -1;
             this._rptBank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._rptBank.Cursor = System.Windows.Forms.Cursors.Default;
-            this._rptBank.Location = new System.Drawing.Point(12, 177);
+            this._rptBank.Location = new System.Drawing.Point(12, 220);
             this._rptBank.Name = "_rptBank";
-            this._rptBank.Size = new System.Drawing.Size(1114, 481);
+            this._rptBank.Size = new System.Drawing.Size(1114, 438);
             this._rptBank.TabIndex = 63;
+            this._rptBank.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // label3
             // 
@@ -149,11 +151,23 @@
             this._ttransBankTo.TabIndex = 69;
             this._ttransBankTo.ValueChanged += new System.EventHandler(this._ttransBankTo_ValueChanged);
             // 
+            // _bbankView
+            // 
+            this._bbankView.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bbankView.Location = new System.Drawing.Point(12, 179);
+            this._bbankView.Name = "_bbankView";
+            this._bbankView.Size = new System.Drawing.Size(500, 35);
+            this._bbankView.TabIndex = 72;
+            this._bbankView.Text = "VIEW REPORT";
+            this._bbankView.UseVisualStyleBackColor = true;
+            this._bbankView.Click += new System.EventHandler(this._bbankView_Click);
+            // 
             // BankReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1139, 670);
+            this.Controls.Add(this._bbankView);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this._ttransBankTo);
@@ -185,5 +199,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker _ttransBankTo;
+        private System.Windows.Forms.Button _bbankView;
     }
 }
