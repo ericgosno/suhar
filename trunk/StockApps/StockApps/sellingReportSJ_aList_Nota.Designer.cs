@@ -75,6 +75,7 @@
             this.Name = "sellingReportSJ_aList_Nota";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - LIST SURAT JALAN";
+            this.Load += new System.EventHandler(this.sellingReportSJ_aList_Nota_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
