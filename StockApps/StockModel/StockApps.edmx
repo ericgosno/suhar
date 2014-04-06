@@ -306,6 +306,8 @@
           <Property Name="Identity_Phone" Type="varchar" MaxLength="20" />
           <Property Name="Identity_Fax" Type="varchar" MaxLength="20" />
           <Property Name="Identity_Address" Type="varchar" MaxLength="100" />
+          <Property Name="Identity_City" Type="varchar" MaxLength="45" />
+          <Property Name="Identity_Postal_Code" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="payment_category">
           <Key>
@@ -1477,6 +1479,8 @@
           <Property Type="String" Name="Identity_Phone" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Identity_Fax" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Identity_Address" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Identity_City" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Identity_Postal_Code" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="customer_transaction_ibfk_2">
           <End Type="stockappsModel.currency" Role="currency" Multiplicity="1" />
@@ -1948,6 +1952,8 @@
           <EntitySetMapping Name="identities">
             <EntityTypeMapping TypeName="stockappsModel.identity">
               <MappingFragment StoreEntitySet="identity">
+                <ScalarProperty Name="Identity_Postal_Code" ColumnName="Identity_Postal_Code" />
+                <ScalarProperty Name="Identity_City" ColumnName="Identity_City" />
                 <ScalarProperty Name="Identity_Address" ColumnName="Identity_Address" />
                 <ScalarProperty Name="Identity_Fax" ColumnName="Identity_Fax" />
                 <ScalarProperty Name="Identity_Phone" ColumnName="Identity_Phone" />

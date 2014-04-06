@@ -116,5 +116,22 @@ namespace StockModel
             StockEntity.Entity.SaveChanges();
             return true; 
         }
+
+        public static IQueryable<customer_transaction> getCustomerTransaction()
+        {
+            var list = (from f in StockEntity.Entity.customer_transaction
+                        select f);
+            return list;
+        }
+        public static IQueryable<customer_transaction> getCustomerTransaction(string TransID)
+        {
+            return getCustomerTransaction().Where(x => x.Customer_Transaction_ID == TransID); 
+        }
+        public static IQueryable<customer_transaction> getCustomerTransaction(int CustomerID, DateTime from, DateTime to)
+        {
+            var list = getCustomerTransaction().Where(x => x.Customer_Transaction_Date.CompareTo(from) >= 0 && x.Customer_Transaction_Date.CompareTo(to) <= 0);
+            if (CustomerID != -1) list = list.Where(x => x.Customer_ID == CustomerID);
+            return list;
+        }
     }
 }

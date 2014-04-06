@@ -41,6 +41,7 @@
             this._rptSRSuratJalan.Name = "_rptSRSuratJalan";
             this._rptSRSuratJalan.Size = new System.Drawing.Size(1008, 730);
             this._rptSRSuratJalan.TabIndex = 0;
+            this._rptSRSuratJalan.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // sellingReportSJ_bForm_RptViewer
             // 

@@ -3952,6 +3952,54 @@ namespace StockModel
         private global::System.String _Identity_Address;
         partial void OnIdentity_AddressChanging(global::System.String value);
         partial void OnIdentity_AddressChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Identity_City
+        {
+            get
+            {
+                return _Identity_City;
+            }
+            set
+            {
+                OnIdentity_CityChanging(value);
+                ReportPropertyChanging("Identity_City");
+                _Identity_City = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Identity_City");
+                OnIdentity_CityChanged();
+            }
+        }
+        private global::System.String _Identity_City;
+        partial void OnIdentity_CityChanging(global::System.String value);
+        partial void OnIdentity_CityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Identity_Postal_Code
+        {
+            get
+            {
+                return _Identity_Postal_Code;
+            }
+            set
+            {
+                OnIdentity_Postal_CodeChanging(value);
+                ReportPropertyChanging("Identity_Postal_Code");
+                _Identity_Postal_Code = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Identity_Postal_Code");
+                OnIdentity_Postal_CodeChanged();
+            }
+        }
+        private global::System.String _Identity_Postal_Code;
+        partial void OnIdentity_Postal_CodeChanging(global::System.String value);
+        partial void OnIdentity_Postal_CodeChanged();
 
         #endregion
     

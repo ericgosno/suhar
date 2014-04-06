@@ -134,6 +134,12 @@
     <Compile Include="sellingReport.Designer.cs">
       <DependentUpon>sellingReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="sellingReportCustomer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sellingReportCustomer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="sellingReportSJ_bForm_RptViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,11 +257,23 @@
     <Compile Include="_purchasingTrans.Designer.cs">
       <DependentUpon>_purchasingTrans.cs</DependentUpon>
     </Compile>
+    <Compile Include="_sellingReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_sellingReportViewer.Designer.cs">
+      <DependentUpon>_sellingReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="_sellingTrans.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="_sellingTrans.Designer.cs">
       <DependentUpon>_sellingTrans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_sellingTransactionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_sellingTransactionList.Designer.cs">
+      <DependentUpon>_sellingTransactionList.cs</DependentUpon>
     </Compile>
     <Compile Include="_sellingTransv2.cs">
       <SubType>Form</SubType>
@@ -318,6 +336,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sellingReport.resx">
       <DependentUpon>sellingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReportCustomer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>sellingReportCustomer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="sellingReportSJ_aList_Nota.resx">
       <DependentUpon>sellingReportSJ_aList_Nota.cs</DependentUpon>
@@ -388,8 +410,14 @@
     <EmbeddedResource Include="_purchasingTrans.resx">
       <DependentUpon>_purchasingTrans.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_sellingReportViewer.resx">
+      <DependentUpon>_sellingReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_sellingTrans.resx">
       <DependentUpon>_sellingTrans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_sellingTransactionList.resx">
+      <DependentUpon>_sellingTransactionList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_sellingTransv2.resx">
       <DependentUpon>_sellingTransv2.cs</DependentUpon>

@@ -30,7 +30,7 @@ namespace StockApps
         {
             //this.parent.suratJalanID = listBox1.SelectedValue.ToString();
             //this.Close();
-            sellingReportSJ_bForm_RptViewer nextForm = new sellingReportSJ_bForm_RptViewer(listBox1.SelectedValue.ToString(), Cus_ID);
+            sellingReportSJ_bForm_RptViewer nextForm = new sellingReportSJ_bForm_RptViewer(listBox1.SelectedValue.ToString());
             //nextForm.FormClosed += new FormClosedEventHandler(suratJalan_FormClosed);
             nextForm.Show();
         }
