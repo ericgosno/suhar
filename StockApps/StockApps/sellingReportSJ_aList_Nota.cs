@@ -43,6 +43,11 @@ namespace StockApps
                 sellingReportFP_bForm_RptViewer nextForm = new sellingReportFP_bForm_RptViewer(listBox1.SelectedValue.ToString());
                 nextForm.Show();
             }
+            else if (Status_Check == 2)
+            {
+                sellingReportFPajak_bForm_RptViewer nextForm = new sellingReportFPajak_bForm_RptViewer(listBox1.SelectedValue.ToString());
+                nextForm.Show();
+            }
      
         }
 

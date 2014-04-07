@@ -14,21 +14,20 @@ using System.Configuration;
 using MySql.Data.MySqlClient;
 using StockModel;
 
-
 namespace StockApps
 {
-    public partial class sellingReportFP_bForm_RptViewer : Form
+    public partial class sellingReportFPajak_bForm_RptViewer : Form
     {
         public String ID_Trans;
-        public sellingReportFP_bForm_RptViewer(String Trans_ID)
+        public sellingReportFPajak_bForm_RptViewer(String Trans_ID)
         {
             InitializeComponent();
             ID_Trans = Trans_ID;
         }
 
-        private void sellingReportFP_bForm_RptViewer_Load(object sender, EventArgs e)
+        private void sellingReportFPajak_bForm_RptViewer_Load(object sender, EventArgs e)
         {
-            sellingReportFP_cViewer rptFP = new sellingReportFP_cViewer();
+            sellingReportFPajak_cViewer rptFP = new sellingReportFPajak_cViewer();
             identity identityNow = IdentityController.getIdentity();
 
             customer_transaction transNow = CustomerTransaction.getCustomerTransaction(ID_Trans).First();
@@ -42,7 +41,7 @@ namespace StockApps
 
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataAdapter adapter;
-            string query = "SELECT DISTINCT a.Customer_Transaction_ID,a. Product_ID, u.Product_Name, a.Customer_Transaction_Product_Quantity,u.Product_Packing_Name,u.Product_Packing_Kilogram, a.Customer_Transaction_Product_Price_Dollar, a.Customer_Transaction_Product_Total_Dollar FROM stockapps.customer_transaction_product a, stockapps.product u where a.Customer_Transaction_ID = '" + ID_Trans + "' and a.Product_ID = u.Product_ID;";
+            string query = "SELECT DISTINCT a.Customer_Transaction_ID,a. Product_ID, u.Product_Name, a.Customer_Transaction_Product_Quantity,u.Product_Packing_Name,u.Product_Packing_Kilogram, a.Customer_Transaction_Product_Price_Dollar, a.Customer_Transaction_Product_Total_Dollar,a.Customer_Transaction_Product_Total_Rupiah FROM stockapps.customer_transaction_product a, stockapps.product u where a.Customer_Transaction_ID = '" + ID_Trans + "' and a.Product_ID = u.Product_ID;";
             try
             {
                 connection.Open();
@@ -88,17 +87,14 @@ namespace StockApps
              * */
             rptFP.SetParameterValue("identityCompany", identityNow.Identity_Company_Name);
             rptFP.SetParameterValue("identityCity", identityNow.Identity_City);
-            rptFP.SetParameterValue("IdentityName", identityNow.Identity_Name);
+            rptFP.SetParameterValue("identityName", identityNow.Identity_Name);
+            rptFP.SetParameterValue("identityAddress", identityNow.Identity_Address);
             rptFP.SetParameterValue("TransactionDate", transNow.Customer_Transaction_Date.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")));
             rptFP.SetParameterValue("TransactionNoteNumber", transNow.Customer_Transaction_Note_Number);
             rptFP.SetParameterValue("CustomerCompany", custNow.Customer_Company_Name);
             rptFP.SetParameterValue("CustomerAddress", custNow.Customer_Address);
-            _rptSRFakturPenjualan.ReportSource = rptFP;
-        }
-
-        private void _rptSRFakturPenjualan_Load(object sender, EventArgs e)
-        {
-
+            rptFP.SetParameterValue("CustomerNpwp", custNow.Customer_NPWP);
+            _rptSRFakturPajak.ReportSource = rptFP;
         }
     }
 }

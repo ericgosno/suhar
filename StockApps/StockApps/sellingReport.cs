@@ -48,7 +48,9 @@ namespace StockApps
             }
             else if (_radioFPajak.Checked == true)
             {
-
+                sellingReportSJ_aList_Nota nextForm = new sellingReportSJ_aList_Nota(_cbNama.SelectedValue.ToString(), 2, this);
+                //nextForm.FormClosed += new FormClosedEventHandler(suratJalan_FormClosed);
+                nextForm.Show();
             }
             else
             {
