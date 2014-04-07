@@ -42,6 +42,8 @@
             this._bSellTransPrint = new System.Windows.Forms.Button();
             this._bSellTransSJ = new System.Windows.Forms.Button();
             this._lShowAll = new System.Windows.Forms.CheckBox();
+            this._bSellTransFP = new System.Windows.Forms.Button();
+            this._bSellTransFPAJAK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataPriceHistory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,7 +164,7 @@
             this._bSellTransPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._bSellTransPrint.Location = new System.Drawing.Point(13, 446);
             this._bSellTransPrint.Name = "_bSellTransPrint";
-            this._bSellTransPrint.Size = new System.Drawing.Size(105, 35);
+            this._bSellTransPrint.Size = new System.Drawing.Size(105, 70);
             this._bSellTransPrint.TabIndex = 73;
             this._bSellTransPrint.Text = "PRINT";
             this._bSellTransPrint.UseVisualStyleBackColor = true;
@@ -173,7 +175,7 @@
             this._bSellTransSJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._bSellTransSJ.Location = new System.Drawing.Point(124, 446);
             this._bSellTransSJ.Name = "_bSellTransSJ";
-            this._bSellTransSJ.Size = new System.Drawing.Size(186, 35);
+            this._bSellTransSJ.Size = new System.Drawing.Size(115, 70);
             this._bSellTransSJ.TabIndex = 74;
             this._bSellTransSJ.Text = "SURAT JALAN";
             this._bSellTransSJ.UseVisualStyleBackColor = true;
@@ -191,11 +193,35 @@
             this._lShowAll.UseVisualStyleBackColor = true;
             this._lShowAll.CheckedChanged += new System.EventHandler(this._lShowAll_CheckedChanged);
             // 
+            // _bSellTransFP
+            // 
+            this._bSellTransFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bSellTransFP.Location = new System.Drawing.Point(245, 446);
+            this._bSellTransFP.Name = "_bSellTransFP";
+            this._bSellTransFP.Size = new System.Drawing.Size(163, 70);
+            this._bSellTransFP.TabIndex = 76;
+            this._bSellTransFP.Text = "FAKTUR PENJUALAN";
+            this._bSellTransFP.UseVisualStyleBackColor = true;
+            this._bSellTransFP.Click += new System.EventHandler(this._bSellTransFP_Click);
+            // 
+            // _bSellTransFPAJAK
+            // 
+            this._bSellTransFPAJAK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bSellTransFPAJAK.Location = new System.Drawing.Point(414, 446);
+            this._bSellTransFPAJAK.Name = "_bSellTransFPAJAK";
+            this._bSellTransFPAJAK.Size = new System.Drawing.Size(163, 70);
+            this._bSellTransFPAJAK.TabIndex = 77;
+            this._bSellTransFPAJAK.Text = "FAKTUR PAJAK";
+            this._bSellTransFPAJAK.UseVisualStyleBackColor = true;
+            this._bSellTransFPAJAK.Click += new System.EventHandler(this._bSellTransFPAJAK_Click);
+            // 
             // _sellingTransactionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 486);
+            this.ClientSize = new System.Drawing.Size(618, 523);
+            this.Controls.Add(this._bSellTransFPAJAK);
+            this.Controls.Add(this._bSellTransFP);
             this.Controls.Add(this._lShowAll);
             this.Controls.Add(this._bSellTransSJ);
             this.Controls.Add(this._bSellTransPrint);
@@ -234,5 +260,7 @@
         private System.Windows.Forms.Button _bSellTransPrint;
         private System.Windows.Forms.Button _bSellTransSJ;
         private System.Windows.Forms.CheckBox _lShowAll;
+        private System.Windows.Forms.Button _bSellTransFP;
+        private System.Windows.Forms.Button _bSellTransFPAJAK;
     }
 }

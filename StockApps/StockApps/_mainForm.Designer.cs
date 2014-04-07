@@ -40,6 +40,7 @@
             this.sellingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cashFlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,7 @@
             this.purchasingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bankAccountReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,7 +123,7 @@
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
             this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
@@ -168,6 +169,12 @@
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Visible = false;
             // 
+            // addProductToolStripMenuItem
+            // 
+            this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.addProductToolStripMenuItem.Text = "Add New Product";
+            // 
             // stockToolStripMenuItem
             // 
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
@@ -180,7 +187,8 @@
             this.cashFlowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cashToolStripMenuItem,
             this.bankToolStripMenuItem,
-            this.insertBankCashTransactionToolStripMenuItem});
+            this.insertBankCashTransactionToolStripMenuItem,
+            this.bankAccountReportToolStripMenuItem});
             this.cashFlowToolStripMenuItem.Name = "cashFlowToolStripMenuItem";
             this.cashFlowToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.cashFlowToolStripMenuItem.Text = "Cash Flow";
@@ -219,14 +227,14 @@
             // createUserToolStripMenuItem
             // 
             this.createUserToolStripMenuItem.Name = "createUserToolStripMenuItem";
-            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.createUserToolStripMenuItem.Text = "Cr&eate";
             this.createUserToolStripMenuItem.Click += new System.EventHandler(this.createUserToolStripMenuItem_Click);
             // 
             // categoryUserToolStripMenuItem
             // 
             this.categoryUserToolStripMenuItem.Name = "categoryUserToolStripMenuItem";
-            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.categoryUserToolStripMenuItem.Text = "Catego&ry";
             this.categoryUserToolStripMenuItem.Click += new System.EventHandler(this.categoryUserToolStripMenuItem_Click);
             // 
@@ -276,7 +284,7 @@
             // sellingToolStripMenuItem2
             // 
             this.sellingToolStripMenuItem2.Name = "sellingToolStripMenuItem2";
-            this.sellingToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.sellingToolStripMenuItem2.Size = new System.Drawing.Size(133, 22);
             this.sellingToolStripMenuItem2.Text = "Selling";
             this.sellingToolStripMenuItem2.Visible = false;
             this.sellingToolStripMenuItem2.Click += new System.EventHandler(this.sellingToolStripMenuItem2_Click);
@@ -284,7 +292,7 @@
             // purchasingToolStripMenuItem2
             // 
             this.purchasingToolStripMenuItem2.Name = "purchasingToolStripMenuItem2";
-            this.purchasingToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.purchasingToolStripMenuItem2.Size = new System.Drawing.Size(133, 22);
             this.purchasingToolStripMenuItem2.Text = "Purchasing";
             this.purchasingToolStripMenuItem2.Visible = false;
             this.purchasingToolStripMenuItem2.Click += new System.EventHandler(this.purchasingToolStripMenuItem2_Click);
@@ -305,11 +313,12 @@
             this.supplierToolStripMenuItem1.Visible = false;
             this.supplierToolStripMenuItem1.Click += new System.EventHandler(this.supplierToolStripMenuItem1_Click);
             // 
-            // addProductToolStripMenuItem
+            // bankAccountReportToolStripMenuItem
             // 
-            this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.addProductToolStripMenuItem.Text = "Add New Product";
+            this.bankAccountReportToolStripMenuItem.Name = "bankAccountReportToolStripMenuItem";
+            this.bankAccountReportToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.bankAccountReportToolStripMenuItem.Text = "Bank Account Report";
+            this.bankAccountReportToolStripMenuItem.Click += new System.EventHandler(this.bankAccountReportToolStripMenuItem_Click);
             // 
             // _mainForm
             // 
@@ -361,6 +370,7 @@
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bankAccountReportToolStripMenuItem;
     }
 }
 

@@ -23,47 +23,12 @@ namespace StockApps
         {
             InitializeComponent();
             ID_Trans = Trans_ID;
-        }
-
-        private void sellingReportFPajak_bForm_RptViewer_Load(object sender, EventArgs e)
-        {
             sellingReportFPajak_cViewer rptFP = new sellingReportFPajak_cViewer();
             identity identityNow = IdentityController.getIdentity();
-
+            var listTrans = CustomerTransaction.getCustomerTransaction();
             customer_transaction transNow = CustomerTransaction.getCustomerTransaction(ID_Trans).First();
             var custNow = transNow.customer;
 
-            string connectionString = "server=119.235.248.242; database=stockapps; uid=eric; pwd=eric;";
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            dsSellingFakturPenjualan ds = new dsSellingFakturPenjualan(); // .xsd file name
-            DataTable dt = new DataTable();
-
-            MySqlCommand cmd = new MySqlCommand();
-            MySqlDataAdapter adapter;
-            string query = "SELECT DISTINCT a.Customer_Transaction_ID,a. Product_ID, u.Product_Name, a.Customer_Transaction_Product_Quantity,u.Product_Packing_Name,u.Product_Packing_Kilogram, a.Customer_Transaction_Product_Price_Dollar, a.Customer_Transaction_Product_Total_Dollar,a.Customer_Transaction_Product_Total_Rupiah FROM stockapps.customer_transaction_product a, stockapps.product u where a.Customer_Transaction_ID = '" + ID_Trans + "' and a.Product_ID = u.Product_ID;";
-            try
-            {
-                connection.Open();
-                cmd = new MySqlCommand(query, connection);
-                adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                cmd.Dispose();
-                if (connection.State != ConnectionState.Closed)
-                    connection.Close();
-            }
-
-            ds.Tables[0].Merge(dt);
-            rptFP.SetDataSource(ds);
-
-            /*
             var listProduct = ProductController.getProduct();
             var listTransProd = transNow.customer_transaction_product;
 
@@ -72,19 +37,34 @@ namespace StockApps
                 customer_transaction_product => customer_transaction_product.Product_ID,
                 product => product.Product_ID,
                 (customer_transaction_product, product) => new { customer_transaction_product = customer_transaction_product, product = product })
+                .Join(listTrans,
+                join => join.customer_transaction_product.Customer_Transaction_ID,
+                customer_transaction => customer_transaction.Customer_Transaction_ID,
+                (join, customer_transaction) => new { join = join, customer_transaction = customer_transaction })
                 .AsEnumerable()
                 .Select(join => new
                 {
-                    Customer_Transaction_ID = join.customer_transaction_product.Customer_Transaction_ID + "",
-                    Product_ID = join.customer_transaction_product.Product_ID + "",
-                    Product_Name = join.product.Product_Name + "",
-                    Customer_Transaction_Product_Quantity = join.customer_transaction_product.Customer_Transaction_Product_Quantity + "",
-                    Product_Packing_Name = join.product.Product_Packing_Name + "",
-                    Product_Packing_Kilogram = join.product.Product_Packing_Kilogram + "",
-                });
+                    Product_ID = join.join.customer_transaction_product.Product_ID + "",
+                    Product_Name = join.join.product.Product_Name + "",
+                    Product_Packing_Name = join.join.product.Product_Packing_Name + "",
+                    Product_Packing_Kilogram = join.join.product.Product_Packing_Kilogram + "",
+                    Customer_Transaction_ID = join.join.customer_transaction_product.Customer_Transaction_ID + "",
+                    Customer_Transaction_Product_Quantity = join.join.customer_transaction_product.Customer_Transaction_Product_Quantity + "",
+                    Customer_Transaction_Product_Price_Dollar = join.join.customer_transaction_product.Customer_Transaction_Product_Price_Dollar + "",
+                    Customer_Transaction_Product_Total_Dollar = join.join.customer_transaction_product.Customer_Transaction_Product_Total_Dollar + "",
+                    Customer_Transaction_Product_Price_Rupiah = join.join.customer_transaction_product.Customer_Transaction_Product_Price_Rupiah + "",
+                    Customer_Transaction_Product_Total_Rupiah = join.join.customer_transaction_product.Customer_Transaction_Product_Total_Rupiah + "",
+                    Currency_ID = join.customer_transaction.Currency_ID + "",
+                    Customer_Transaction_Kurs = join.customer_transaction.Customer_Transaction_Kurs + "",
+                    Customer_Transaction_Dollar = join.customer_transaction.Customer_Transaction_Dollar + "",
+                    Customer_Transaction_Rupiah = join.customer_transaction.Customer_Transaction_Rupiah + "",
+                    Customer_Transaction_PPN_Dollar = join.customer_transaction.Customer_Transaction_PPN_Dollar + "",
+                    Customer_Transaction_PPN_Rupiah = join.customer_transaction.Customer_Transaction_PPN_Rupiah + "",
+                    Customer_Transaction_Total_Dollar = join.customer_transaction.Customer_Transaction_Total_Dollar + "",
+                    Customer_Transaction_Total_Rupiah = join.customer_transaction.Customer_Transaction_Total_Rupiah + ""
+                }).ToList();
 
             rptFP.SetDataSource(transprod);
-             * */
             rptFP.SetParameterValue("identityCompany", identityNow.Identity_Company_Name);
             rptFP.SetParameterValue("identityCity", identityNow.Identity_City);
             rptFP.SetParameterValue("identityName", identityNow.Identity_Name);
@@ -94,7 +74,13 @@ namespace StockApps
             rptFP.SetParameterValue("CustomerCompany", custNow.Customer_Company_Name);
             rptFP.SetParameterValue("CustomerAddress", custNow.Customer_Address);
             rptFP.SetParameterValue("CustomerNpwp", custNow.Customer_NPWP);
+            rptFP.SetParameterValue("identityNPWP",identityNow.Identity_NPWP);
             _rptSRFakturPajak.ReportSource = rptFP;
+        }
+
+        private void sellingReportFPajak_bForm_RptViewer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

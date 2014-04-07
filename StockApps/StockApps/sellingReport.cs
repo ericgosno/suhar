@@ -140,7 +140,6 @@ namespace StockApps
                 sellingReportCustomer rptCustomer = new sellingReportCustomer();
                 rptCustomer.SetDataSource(ds);
                 _rptSelling.ReportSource = rptCustomer;
-
             }
         }
 

@@ -4000,6 +4000,30 @@ namespace StockModel
         private global::System.String _Identity_Postal_Code;
         partial void OnIdentity_Postal_CodeChanging(global::System.String value);
         partial void OnIdentity_Postal_CodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Identity_NPWP
+        {
+            get
+            {
+                return _Identity_NPWP;
+            }
+            set
+            {
+                OnIdentity_NPWPChanging(value);
+                ReportPropertyChanging("Identity_NPWP");
+                _Identity_NPWP = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Identity_NPWP");
+                OnIdentity_NPWPChanged();
+            }
+        }
+        private global::System.String _Identity_NPWP;
+        partial void OnIdentity_NPWPChanging(global::System.String value);
+        partial void OnIdentity_NPWPChanged();
 
         #endregion
     
