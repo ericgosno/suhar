@@ -295,6 +295,8 @@ namespace StockApps {
             
             private global::System.Data.DataColumn columnCustomer_Transaction_Product_Total_Dollar;
             
+            private global::System.Data.DataColumn columnCustomer_Transaction_Product_Total_Rupiah;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -394,6 +396,14 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Customer_Transaction_Product_Total_RupiahColumn {
+                get {
+                    return this.columnCustomer_Transaction_Product_Total_Rupiah;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +439,7 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Customer_Transaction_ID, int Product_ID, string Product_Name, int Customer_Transaction_Product_Quantity, string Product_Packing_Name, int Product_Packing_Kilogram, decimal Customer_Transaction_Product_Price_Dollar, decimal Customer_Transaction_Product_Total_Dollar) {
+            public DataTable1Row AddDataTable1Row(string Customer_Transaction_ID, int Product_ID, string Product_Name, int Customer_Transaction_Product_Quantity, string Product_Packing_Name, int Product_Packing_Kilogram, decimal Customer_Transaction_Product_Price_Dollar, decimal Customer_Transaction_Product_Total_Dollar, decimal Customer_Transaction_Product_Total_Rupiah) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Customer_Transaction_ID,
@@ -439,7 +449,8 @@ namespace StockApps {
                         Product_Packing_Name,
                         Product_Packing_Kilogram,
                         Customer_Transaction_Product_Price_Dollar,
-                        Customer_Transaction_Product_Total_Dollar};
+                        Customer_Transaction_Product_Total_Dollar,
+                        Customer_Transaction_Product_Total_Rupiah};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -470,6 +481,7 @@ namespace StockApps {
                 this.columnProduct_Packing_Kilogram = base.Columns["Product_Packing_Kilogram"];
                 this.columnCustomer_Transaction_Product_Price_Dollar = base.Columns["Customer_Transaction_Product_Price_Dollar"];
                 this.columnCustomer_Transaction_Product_Total_Dollar = base.Columns["Customer_Transaction_Product_Total_Dollar"];
+                this.columnCustomer_Transaction_Product_Total_Rupiah = base.Columns["Customer_Transaction_Product_Total_Rupiah"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,6 +503,8 @@ namespace StockApps {
                 base.Columns.Add(this.columnCustomer_Transaction_Product_Price_Dollar);
                 this.columnCustomer_Transaction_Product_Total_Dollar = new global::System.Data.DataColumn("Customer_Transaction_Product_Total_Dollar", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer_Transaction_Product_Total_Dollar);
+                this.columnCustomer_Transaction_Product_Total_Rupiah = new global::System.Data.DataColumn("Customer_Transaction_Product_Total_Rupiah", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Transaction_Product_Total_Rupiah);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -764,6 +778,23 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Customer_Transaction_Product_Total_Rupiah {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.Customer_Transaction_Product_Total_RupiahColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Transaction_Product_Total_Rupiah\' in table \'DataTa" +
+                                "ble1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.Customer_Transaction_Product_Total_RupiahColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomer_Transaction_IDNull() {
                 return this.IsNull(this.tableDataTable1.Customer_Transaction_IDColumn);
             }
@@ -856,6 +887,18 @@ namespace StockApps {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCustomer_Transaction_Product_Total_DollarNull() {
                 this[this.tableDataTable1.Customer_Transaction_Product_Total_DollarColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomer_Transaction_Product_Total_RupiahNull() {
+                return this.IsNull(this.tableDataTable1.Customer_Transaction_Product_Total_RupiahColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomer_Transaction_Product_Total_RupiahNull() {
+                this[this.tableDataTable1.Customer_Transaction_Product_Total_RupiahColumn] = global::System.Convert.DBNull;
             }
         }
         

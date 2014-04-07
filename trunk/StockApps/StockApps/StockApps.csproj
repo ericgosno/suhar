@@ -143,6 +143,18 @@
     <Compile Include="sellingReport.Designer.cs">
       <DependentUpon>sellingReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="sellingReportFPajak_bForm_RptViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellingReportFPajak_bForm_RptViewer.Designer.cs">
+      <DependentUpon>sellingReportFPajak_bForm_RptViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sellingReportFPajak_cViewer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sellingReportFPajak_cViewer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="sellingReportFP_cViewer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -357,6 +369,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sellingReport.resx">
       <DependentUpon>sellingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReportFPajak_bForm_RptViewer.resx">
+      <DependentUpon>sellingReportFPajak_bForm_RptViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReportFPajak_cViewer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>sellingReportFPajak_cViewer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="sellingReportFP_cViewer.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
