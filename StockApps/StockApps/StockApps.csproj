@@ -234,6 +234,12 @@
     <Compile Include="_history.Designer.cs">
       <DependentUpon>_history.cs</DependentUpon>
     </Compile>
+    <Compile Include="_identityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_identityForm.Designer.cs">
+      <DependentUpon>_identityForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="_insertBankTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -419,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_history.resx">
       <DependentUpon>_history.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_identityForm.resx">
+      <DependentUpon>_identityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_insertBankTransaction.resx">
       <DependentUpon>_insertBankTransaction.cs</DependentUpon>

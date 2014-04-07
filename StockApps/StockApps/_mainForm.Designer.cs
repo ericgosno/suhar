@@ -46,6 +46,7 @@
             this.cashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertBankCashTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bankAccountReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +59,7 @@
             this.purchasingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bankAccountReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ownerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,11 +215,19 @@
             this.insertBankCashTransactionToolStripMenuItem.Text = "Insert Bank/Cash Transaction";
             this.insertBankCashTransactionToolStripMenuItem.Click += new System.EventHandler(this.insertBankCashTransactionToolStripMenuItem_Click_1);
             // 
+            // bankAccountReportToolStripMenuItem
+            // 
+            this.bankAccountReportToolStripMenuItem.Name = "bankAccountReportToolStripMenuItem";
+            this.bankAccountReportToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.bankAccountReportToolStripMenuItem.Text = "Bank Account Report";
+            this.bankAccountReportToolStripMenuItem.Click += new System.EventHandler(this.bankAccountReportToolStripMenuItem_Click);
+            // 
             // administratorToolStripMenuItem
             // 
             this.administratorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createUserToolStripMenuItem,
-            this.categoryUserToolStripMenuItem});
+            this.categoryUserToolStripMenuItem,
+            this.ownerToolStripMenuItem});
             this.administratorToolStripMenuItem.Name = "administratorToolStripMenuItem";
             this.administratorToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
             this.administratorToolStripMenuItem.Text = "Administrator";
@@ -227,14 +236,14 @@
             // createUserToolStripMenuItem
             // 
             this.createUserToolStripMenuItem.Name = "createUserToolStripMenuItem";
-            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.createUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createUserToolStripMenuItem.Text = "Cr&eate";
             this.createUserToolStripMenuItem.Click += new System.EventHandler(this.createUserToolStripMenuItem_Click);
             // 
             // categoryUserToolStripMenuItem
             // 
             this.categoryUserToolStripMenuItem.Name = "categoryUserToolStripMenuItem";
-            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.categoryUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.categoryUserToolStripMenuItem.Text = "Catego&ry";
             this.categoryUserToolStripMenuItem.Click += new System.EventHandler(this.categoryUserToolStripMenuItem_Click);
             // 
@@ -313,12 +322,12 @@
             this.supplierToolStripMenuItem1.Visible = false;
             this.supplierToolStripMenuItem1.Click += new System.EventHandler(this.supplierToolStripMenuItem1_Click);
             // 
-            // bankAccountReportToolStripMenuItem
+            // ownerToolStripMenuItem
             // 
-            this.bankAccountReportToolStripMenuItem.Name = "bankAccountReportToolStripMenuItem";
-            this.bankAccountReportToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.bankAccountReportToolStripMenuItem.Text = "Bank Account Report";
-            this.bankAccountReportToolStripMenuItem.Click += new System.EventHandler(this.bankAccountReportToolStripMenuItem_Click);
+            this.ownerToolStripMenuItem.Name = "ownerToolStripMenuItem";
+            this.ownerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ownerToolStripMenuItem.Text = "Owner";
+            this.ownerToolStripMenuItem.Click += new System.EventHandler(this.ownerToolStripMenuItem_Click);
             // 
             // _mainForm
             // 
@@ -371,6 +380,7 @@
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bankAccountReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ownerToolStripMenuItem;
     }
 }
 

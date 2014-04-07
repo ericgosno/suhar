@@ -203,5 +203,11 @@ namespace StockApps
             BankReport bankReport = new BankReport();
             bankReport.Show();
         }
+
+        private void ownerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _identityForm createOwner = new _identityForm();
+            createOwner.Show();
+        }
     }
 }
