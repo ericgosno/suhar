@@ -58,6 +58,9 @@
             this._lsellBank1 = new System.Windows.Forms.Label();
             this._lsellBank2 = new System.Windows.Forms.Label();
             this._cbsellBank = new System.Windows.Forms.ComboBox();
+            this._bSellTransFP = new System.Windows.Forms.Button();
+            this._bSellTransSJ = new System.Windows.Forms.Button();
+            this._bSellTransFPAJAK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -252,7 +255,7 @@
             // _bcusInsert
             // 
             this._bcusInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusInsert.Location = new System.Drawing.Point(559, 377);
+            this._bcusInsert.Location = new System.Drawing.Point(559, 402);
             this._bcusInsert.Name = "_bcusInsert";
             this._bcusInsert.Size = new System.Drawing.Size(154, 37);
             this._bcusInsert.TabIndex = 68;
@@ -359,11 +362,46 @@
             this._cbsellBank.Size = new System.Drawing.Size(477, 37);
             this._cbsellBank.TabIndex = 81;
             // 
+            // _bSellTransFP
+            // 
+            this._bSellTransFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bSellTransFP.Location = new System.Drawing.Point(226, 359);
+            this._bSellTransFP.Name = "_bSellTransFP";
+            this._bSellTransFP.Size = new System.Drawing.Size(291, 37);
+            this._bSellTransFP.TabIndex = 83;
+            this._bSellTransFP.Text = "FAKTUR PENJUALAN";
+            this._bSellTransFP.UseVisualStyleBackColor = true;
+            this._bSellTransFP.Click += new System.EventHandler(this._bSellTransFP_Click);
+            // 
+            // _bSellTransSJ
+            // 
+            this._bSellTransSJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bSellTransSJ.Location = new System.Drawing.Point(12, 359);
+            this._bSellTransSJ.Name = "_bSellTransSJ";
+            this._bSellTransSJ.Size = new System.Drawing.Size(208, 37);
+            this._bSellTransSJ.TabIndex = 82;
+            this._bSellTransSJ.Text = "SURAT JALAN";
+            this._bSellTransSJ.UseVisualStyleBackColor = true;
+            this._bSellTransSJ.Click += new System.EventHandler(this._bSellTransSJ_Click);
+            // 
+            // _bSellTransFPAJAK
+            // 
+            this._bSellTransFPAJAK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._bSellTransFPAJAK.Location = new System.Drawing.Point(523, 361);
+            this._bSellTransFPAJAK.Name = "_bSellTransFPAJAK";
+            this._bSellTransFPAJAK.Size = new System.Drawing.Size(201, 35);
+            this._bSellTransFPAJAK.TabIndex = 84;
+            this._bSellTransFPAJAK.Text = "FAKTUR PAJAK";
+            this._bSellTransFPAJAK.UseVisualStyleBackColor = true;
+            // 
             // _sellingTransv2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 423);
+            this.ClientSize = new System.Drawing.Size(735, 445);
+            this.Controls.Add(this._bSellTransFPAJAK);
+            this.Controls.Add(this._bSellTransFP);
+            this.Controls.Add(this._bSellTransSJ);
             this.Controls.Add(this._cbsellBank);
             this.Controls.Add(this._lsellBank2);
             this.Controls.Add(this._lsellBank1);
@@ -433,5 +471,8 @@
         private System.Windows.Forms.Label _lsellBank1;
         private System.Windows.Forms.Label _lsellBank2;
         private System.Windows.Forms.ComboBox _cbsellBank;
+        private System.Windows.Forms.Button _bSellTransFP;
+        private System.Windows.Forms.Button _bSellTransSJ;
+        private System.Windows.Forms.Button _bSellTransFPAJAK;
     }
 }

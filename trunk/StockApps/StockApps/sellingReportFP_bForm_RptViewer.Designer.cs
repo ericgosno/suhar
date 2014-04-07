@@ -41,7 +41,7 @@
             this._rptSRFakturPenjualan.Name = "_rptSRFakturPenjualan";
             this._rptSRFakturPenjualan.Size = new System.Drawing.Size(1008, 730);
             this._rptSRFakturPenjualan.TabIndex = 0;
-            this._rptSRFakturPenjualan.Load += new System.EventHandler(this._rptSRFakturPenjualan_Load);
+            this._rptSRFakturPenjualan.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // sellingReportFP_bForm_RptViewer
             // 

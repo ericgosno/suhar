@@ -36,10 +36,10 @@ Global
 		{A27E7E72-EF72-413E-AF40-FF4EACDE48DC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A27E7E72-EF72-413E-AF40-FF4EACDE48DC}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = StockApps\StockApps.csproj
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = StockApps\StockApps.csproj
 	EndGlobalSection
 EndGlobal

@@ -63,5 +63,17 @@ namespace StockApps
             this.Close();
         }
 
+        private void _bSellTransFP_Click(object sender, EventArgs e)
+        {
+            sellingReportFP_bForm_RptViewer nextForm = new sellingReportFP_bForm_RptViewer(transNow.Customer_Transaction_ID);
+            nextForm.Show();
+        }
+
+        private void _bSellTransSJ_Click(object sender, EventArgs e)
+        {
+            sellingReportSJ_bForm_RptViewer nextForm = new sellingReportSJ_bForm_RptViewer(transNow.Customer_Transaction_ID);
+            nextForm.Show();
+        }
+
     }
 }

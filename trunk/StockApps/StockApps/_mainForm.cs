@@ -158,8 +158,8 @@ namespace StockApps
 
         private void sellingToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            sellingReport formReportSelling = new sellingReport();
-            formReportSelling.Show(this);
+            _sellingTransactionList formSellingreport = new _sellingTransactionList();
+            formSellingreport.Show(this);
         }
 
         private void purchasingToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -196,6 +196,12 @@ namespace StockApps
         {
             _insertBankTransaction bankTrans = new _insertBankTransaction();
             bankTrans.Show(this);
+        }
+
+        private void bankAccountReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BankReport bankReport = new BankReport();
+            bankReport.Show();
         }
     }
 }

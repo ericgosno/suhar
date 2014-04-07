@@ -45,7 +45,7 @@ namespace StockApps
                         {
                             Customer_Transaction_Note_Number = join.customer_transaction.Customer_Transaction_Note_Number + "",
                             Customer_Transaction_ID = join.customer_transaction.Customer_Transaction_ID + "",
-                            Customer_Transaction_Date = join.customer_transaction.Customer_Transaction_Date + "",
+                            Customer_Transaction_Date = join.customer_transaction.Customer_Transaction_Date.ToString("MMMM dd, yyyy") + "",
                             Customer_Transaction_Price = (join.customer_transaction.Currency_ID == 1 ? join.customer_transaction.Customer_Transaction_Total_Dollar.ToString("C2") : join.customer_transaction.Customer_Transaction_Total_Rupiah.ToString("C2",System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"))) + "",
                         })
                         .ToList();
@@ -86,31 +86,79 @@ namespace StockApps
 
         private void _bSellTransSJ_Click(object sender, EventArgs e)
         {
-            //try
-          //  {
-                DataGridViewRow rowNow = null;
-                if (_dataPriceHistory.CurrentCell != null)
-                {
-                    rowNow = _dataPriceHistory.SelectedCells[0].OwningRow;
-                }
-                else if (_dataPriceHistory.CurrentRow != null)
-                {
-                    rowNow = _dataPriceHistory.SelectedRows[0];
-                }
-                string transID = rowNow.Cells["Customer_Transaction_ID"].Value.ToString();
-                customer_transaction transNow = CustomerTransaction.getCustomerTransaction(transID).First();
-                sellingReportSJ_bForm_RptViewer nextForm = new sellingReportSJ_bForm_RptViewer(transID);
-                nextForm.Show();
-           // }
-            //catch (Exception ex)
-           // {
-             //   MessageBox.Show("You must select a Row First!");
-           // }
+            DataGridViewRow rowNow = null;
+            if (_dataPriceHistory.CurrentCell != null)
+            {
+                rowNow = _dataPriceHistory.SelectedCells[0].OwningRow;
+            }
+            else if (_dataPriceHistory.CurrentRow != null)
+            {
+                rowNow = _dataPriceHistory.SelectedRows[0];
+            }
+            else
+            {
+                MessageBox.Show("You must select a Row First!");
+                return;
+            }
+            string transID = rowNow.Cells["Customer_Transaction_ID"].Value.ToString();
+            customer_transaction transNow = CustomerTransaction.getCustomerTransaction(transID).First();
+            sellingReportSJ_bForm_RptViewer nextForm = new sellingReportSJ_bForm_RptViewer(transID);
+            nextForm.Show();
         }
 
         private void _bSellTransPrint_Click(object sender, EventArgs e)
         {
-
+            int customerID = -1;
+            if (!_lShowAll.Checked) 
+                customerID = Convert.ToInt32(_cbSellTransNama.SelectedValue);
+            _sellingReportViewer nextForm = new _sellingReportViewer(customerID, _cbSellTransFrom.Value, _cbSellTransTo.Value);
+            nextForm.Show();
         }
+
+        private void _bSellTransFP_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow rowNow = null;
+            if (_dataPriceHistory.CurrentCell != null)
+            {
+                rowNow = _dataPriceHistory.SelectedCells[0].OwningRow;
+            }
+            else if (_dataPriceHistory.CurrentRow != null)
+            {
+                rowNow = _dataPriceHistory.SelectedRows[0];
+            }
+            else
+            {
+                MessageBox.Show("You must select a Row First!");
+                return;
+            }
+            string transID = rowNow.Cells["Customer_Transaction_ID"].Value.ToString();
+            customer_transaction transNow = CustomerTransaction.getCustomerTransaction(transID).First();
+            sellingReportFP_bForm_RptViewer nextForm = new sellingReportFP_bForm_RptViewer(transID);
+            nextForm.Show();
+        }
+
+        private void _bSellTransFPAJAK_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow rowNow = null;
+            if (_dataPriceHistory.CurrentCell != null)
+            {
+                rowNow = _dataPriceHistory.SelectedCells[0].OwningRow;
+            }
+            else if (_dataPriceHistory.CurrentRow != null)
+            {
+                rowNow = _dataPriceHistory.SelectedRows[0];
+            }
+            else
+            {
+                MessageBox.Show("You must select a Row First!");
+                return;
+            }
+            string transID = rowNow.Cells["Customer_Transaction_ID"].Value.ToString();
+            customer_transaction transNow = CustomerTransaction.getCustomerTransaction(transID).First();
+            sellingReportFPajak_bForm_RptViewer nextForm = new sellingReportFPajak_bForm_RptViewer(transID);
+            nextForm.Show();
+        }
+
+
     }
 }
