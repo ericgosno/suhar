@@ -393,6 +393,7 @@
             this._bSellTransFPAJAK.TabIndex = 84;
             this._bSellTransFPAJAK.Text = "FAKTUR PAJAK";
             this._bSellTransFPAJAK.UseVisualStyleBackColor = true;
+            this._bSellTransFPAJAK.Click += new System.EventHandler(this._bSellTransFPAJAK_Click);
             // 
             // _sellingTransv2
             // 

@@ -75,5 +75,11 @@ namespace StockApps
             nextForm.Show();
         }
 
+        private void _bSellTransFPAJAK_Click(object sender, EventArgs e)
+        {
+            sellingReportFPajak_bForm_RptViewer nextForm = new sellingReportFPajak_bForm_RptViewer(transNow.Customer_Transaction_ID);
+            nextForm.Show();
+        }
+
     }
 }
