@@ -80,6 +80,18 @@ namespace StockModel
             supplierNows.Supplier_Status = 0;
             StockEntity.Entity.SaveChanges();
         }
+        
+        public static IQueryable<supplier_credit> getSupplierCredit()
+        {
+            var list = (from f in StockEntity.Entity.supplier_credit
+                        select f);
+            return list;
+        }
+
+        public static IQueryable<supplier_credit> getSupplierCredit(int supplierID, DateTime from, DateTime to)
+        {
+            return getSupplierCredit().Where(x => x.Supplier_ID == supplierID && x.Supplier_Credit_Date.CompareTo(from) >= 0 && x.Supplier_Credit_Date.CompareTo(to) <= 0);
+        }
 
         public static supplier_credit insertSupplierCredit(int supplierID, DateTime creditDate, string creditCode, bool isDebit, decimal money, string description)
         {

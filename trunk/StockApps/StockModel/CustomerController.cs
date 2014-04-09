@@ -80,6 +80,18 @@ namespace StockModel
             StockEntity.Entity.SaveChanges();
         }
 
+        public static IQueryable<customer_debt> getCustomerDebt()
+        {
+            var list = (from f in StockEntity.Entity.customer_debt
+                        select f);
+            return list;
+        }
+
+        public static IQueryable<customer_debt> getCustomerDebt(int customerID, DateTime from, DateTime to)
+        {
+            return getCustomerDebt().Where(x => x.Customer_ID == customerID && x.Customer_Debt_Date.CompareTo(from) >= 0 && x.Customer_Debt_Date.CompareTo(to) <= 0);
+        }
+
         public static customer_debt insertCustomerDebt(int customerID, DateTime debtDate, string debtCode, bool isDebit, decimal money, string description)
         {
             customer_debt newTrans = new customer_debt();

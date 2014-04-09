@@ -201,13 +201,25 @@ namespace StockApps
         private void bankAccountReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BankReport bankReport = new BankReport();
-            bankReport.Show();
+            bankReport.Show(this);
         }
 
         private void ownerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _identityForm createOwner = new _identityForm();
-            createOwner.Show();
+            createOwner.Show(this);
+        }
+
+        private void customerDebtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CustomerDebtReportViewer nextForm = new _CustomerDebtReportViewer();
+            nextForm.Show(this);
+        }
+
+        private void supplierCreditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _SupplierCreditReportViewer nextForm = new _SupplierCreditReportViewer();
+            nextForm.Show(this);
         }
     }
 }
