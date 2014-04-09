@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._tOwnerReset = new System.Windows.Forms.Button();
             this._tOwnerFax = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this._tOwnerUpdate = new System.Windows.Forms.Button();
-            this._dataOwner = new System.Windows.Forms.DataGridView();
-            this._tOwnerInsert = new System.Windows.Forms.Button();
             this._tOwnerPhone = new System.Windows.Forms.TextBox();
             this._tOwnerComp = new System.Windows.Forms.TextBox();
             this._tOwnerName = new System.Windows.Forms.TextBox();
@@ -49,25 +46,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this._tOwnerNPWP = new System.Windows.Forms.TextBox();
             this._tOwnerAdd = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this._dataOwner)).BeginInit();
             this.SuspendLayout();
-            // 
-            // _tOwnerReset
-            // 
-            this._tOwnerReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tOwnerReset.Location = new System.Drawing.Point(662, 257);
-            this._tOwnerReset.Name = "_tOwnerReset";
-            this._tOwnerReset.Size = new System.Drawing.Size(165, 35);
-            this._tOwnerReset.TabIndex = 45;
-            this._tOwnerReset.Text = "RESET";
-            this._tOwnerReset.UseVisualStyleBackColor = true;
             // 
             // _tOwnerFax
             // 
             this._tOwnerFax.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tOwnerFax.Location = new System.Drawing.Point(243, 176);
             this._tOwnerFax.Name = "_tOwnerFax";
-            this._tOwnerFax.PasswordChar = '*';
             this._tOwnerFax.Size = new System.Drawing.Size(413, 35);
             this._tOwnerFax.TabIndex = 34;
             // 
@@ -84,37 +69,19 @@
             // _tOwnerUpdate
             // 
             this._tOwnerUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tOwnerUpdate.Location = new System.Drawing.Point(662, 334);
+            this._tOwnerUpdate.Location = new System.Drawing.Point(672, 393);
             this._tOwnerUpdate.Name = "_tOwnerUpdate";
             this._tOwnerUpdate.Size = new System.Drawing.Size(165, 35);
             this._tOwnerUpdate.TabIndex = 38;
             this._tOwnerUpdate.Text = "UPDATE";
             this._tOwnerUpdate.UseVisualStyleBackColor = true;
-            // 
-            // _dataOwner
-            // 
-            this._dataOwner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._dataOwner.Location = new System.Drawing.Point(18, 382);
-            this._dataOwner.Name = "_dataOwner";
-            this._dataOwner.Size = new System.Drawing.Size(798, 270);
-            this._dataOwner.TabIndex = 37;
-            // 
-            // _tOwnerInsert
-            // 
-            this._tOwnerInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tOwnerInsert.Location = new System.Drawing.Point(662, 296);
-            this._tOwnerInsert.Name = "_tOwnerInsert";
-            this._tOwnerInsert.Size = new System.Drawing.Size(165, 35);
-            this._tOwnerInsert.TabIndex = 36;
-            this._tOwnerInsert.Text = "INSERT";
-            this._tOwnerInsert.UseVisualStyleBackColor = true;
+            this._tOwnerUpdate.Click += new System.EventHandler(this._tOwnerUpdate_Click);
             // 
             // _tOwnerPhone
             // 
             this._tOwnerPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tOwnerPhone.Location = new System.Drawing.Point(243, 138);
             this._tOwnerPhone.Name = "_tOwnerPhone";
-            this._tOwnerPhone.PasswordChar = '*';
             this._tOwnerPhone.Size = new System.Drawing.Size(413, 35);
             this._tOwnerPhone.TabIndex = 33;
             // 
@@ -188,7 +155,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(172, 259);
+            this.label7.Location = new System.Drawing.Point(172, 317);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 29);
             this.label7.TabIndex = 46;
@@ -197,18 +164,16 @@
             // _tOwnerCity
             // 
             this._tOwnerCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tOwnerCity.Location = new System.Drawing.Point(243, 256);
+            this._tOwnerCity.Location = new System.Drawing.Point(243, 314);
             this._tOwnerCity.Name = "_tOwnerCity";
-            this._tOwnerCity.PasswordChar = '*';
             this._tOwnerCity.Size = new System.Drawing.Size(413, 35);
             this._tOwnerCity.TabIndex = 47;
             // 
             // _tOwnerPostal
             // 
             this._tOwnerPostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tOwnerPostal.Location = new System.Drawing.Point(243, 297);
+            this._tOwnerPostal.Location = new System.Drawing.Point(243, 355);
             this._tOwnerPostal.Name = "_tOwnerPostal";
-            this._tOwnerPostal.PasswordChar = '*';
             this._tOwnerPostal.Size = new System.Drawing.Size(413, 35);
             this._tOwnerPostal.TabIndex = 48;
             // 
@@ -216,7 +181,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(80, 300);
+            this.label8.Location = new System.Drawing.Point(80, 358);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(157, 29);
             this.label8.TabIndex = 49;
@@ -226,7 +191,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(140, 338);
+            this.label9.Location = new System.Drawing.Point(140, 396);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 29);
             this.label9.TabIndex = 50;
@@ -235,9 +200,8 @@
             // _tOwnerNPWP
             // 
             this._tOwnerNPWP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tOwnerNPWP.Location = new System.Drawing.Point(243, 335);
+            this._tOwnerNPWP.Location = new System.Drawing.Point(243, 393);
             this._tOwnerNPWP.Name = "_tOwnerNPWP";
-            this._tOwnerNPWP.PasswordChar = '*';
             this._tOwnerNPWP.Size = new System.Drawing.Size(413, 35);
             this._tOwnerNPWP.TabIndex = 51;
             // 
@@ -245,16 +209,16 @@
             // 
             this._tOwnerAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tOwnerAdd.Location = new System.Drawing.Point(243, 215);
+            this._tOwnerAdd.Multiline = true;
             this._tOwnerAdd.Name = "_tOwnerAdd";
-            this._tOwnerAdd.PasswordChar = '*';
-            this._tOwnerAdd.Size = new System.Drawing.Size(413, 35);
+            this._tOwnerAdd.Size = new System.Drawing.Size(413, 93);
             this._tOwnerAdd.TabIndex = 52;
             // 
             // _identityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 674);
+            this.ClientSize = new System.Drawing.Size(849, 440);
             this.Controls.Add(this._tOwnerAdd);
             this.Controls.Add(this._tOwnerNPWP);
             this.Controls.Add(this.label9);
@@ -262,12 +226,9 @@
             this.Controls.Add(this._tOwnerPostal);
             this.Controls.Add(this._tOwnerCity);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this._tOwnerReset);
             this.Controls.Add(this._tOwnerFax);
             this.Controls.Add(this.label6);
             this.Controls.Add(this._tOwnerUpdate);
-            this.Controls.Add(this._dataOwner);
-            this.Controls.Add(this._tOwnerInsert);
             this.Controls.Add(this._tOwnerPhone);
             this.Controls.Add(this._tOwnerComp);
             this.Controls.Add(this._tOwnerName);
@@ -278,7 +239,6 @@
             this.Controls.Add(this.label5);
             this.Name = "_identityForm";
             this.Text = "_identityForm";
-            ((System.ComponentModel.ISupportInitialize)(this._dataOwner)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,12 +246,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button _tOwnerReset;
         private System.Windows.Forms.TextBox _tOwnerFax;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button _tOwnerUpdate;
-        private System.Windows.Forms.DataGridView _dataOwner;
-        private System.Windows.Forms.Button _tOwnerInsert;
         private System.Windows.Forms.TextBox _tOwnerPhone;
         private System.Windows.Forms.TextBox _tOwnerComp;
         private System.Windows.Forms.TextBox _tOwnerName;

@@ -15,7 +15,7 @@ namespace StockModel
             StockEntity.Entity.SaveChanges();
             return newCustomer;
         }
-        public static customer insertCustomer(string customerName, string customerAddress, string customerEmail, string customerPhone,string customerNPWP,string customerCompany)
+        public static customer insertCustomer(string customerName, string customerAddress, string customerEmail, string customerPhone,string customerNPWP,string customerCompany, string customerCity)
         {
             customer newCustomer = new customer();
             newCustomer.Customer_Name = customerName;
@@ -25,6 +25,7 @@ namespace StockModel
             newCustomer.Customer_Status = 1;
             newCustomer.Customer_NPWP = customerNPWP;
             newCustomer.Customer_Company_Name = customerCompany;
+            newCustomer.Customer_City = customerCity;
             StockEntity.Entity.AddTocustomers(newCustomer);
             StockEntity.Entity.SaveChanges();
             return newCustomer;
@@ -53,7 +54,7 @@ namespace StockModel
             return getCustomer().Where(a => a.Customer_Name.Contains(customerName) && a.Customer_ID == customerId);
         }
 
-        public static customer editCustomer(int customerId, string customerName, string customerAddress, string customerEmail, string customerPhone,string customerNPWP,string customerCompany)
+        public static customer editCustomer(int customerId, string customerName, string customerAddress, string customerEmail, string customerPhone,string customerNPWP,string customerCompany,string customerCity)
         {
             customer customerNows = (from f in StockEntity.Entity.customers
                                     where f.Customer_ID == customerId
@@ -65,6 +66,7 @@ namespace StockModel
             customerNows.Customer_Phone = customerPhone;
             customerNows.Customer_NPWP = customerNPWP;
             customerNows.Customer_Company_Name = customerCompany;
+            customerNows.Customer_City = customerCity;
             StockEntity.Entity.SaveChanges();
             return getCustomer(customerId).First();
         }

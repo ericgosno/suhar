@@ -96,6 +96,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsBank.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsPurchasing.cs">
+      <DependentUpon>dsPurchasing.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsPurchasing.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPurchasing.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsSelling.cs">
       <DependentUpon>dsSelling.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -125,11 +134,23 @@
     <Compile Include="priceHistoryReport.Designer.cs">
       <DependentUpon>priceHistoryReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="_PurchasingReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_PurchasingReportViewer.Designer.cs">
+      <DependentUpon>_PurchasingReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="purchasingReporting.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="purchasingReporting.Designer.cs">
       <DependentUpon>purchasingReporting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="purchasingSupplierReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>purchasingSupplierReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptBankTransaction.cs">
       <AutoGen>True</AutoGen>
@@ -296,6 +317,12 @@
     <Compile Include="_purchasingTrans.Designer.cs">
       <DependentUpon>_purchasingTrans.cs</DependentUpon>
     </Compile>
+    <Compile Include="_purchasingTransactionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_purchasingTransactionList.Designer.cs">
+      <DependentUpon>_purchasingTransactionList.cs</DependentUpon>
+    </Compile>
     <Compile Include="_sellingReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +395,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="purchasingReporting.resx">
       <DependentUpon>purchasingReporting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="purchasingSupplierReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>purchasingSupplierReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptBankTransaction.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -460,11 +491,17 @@
     <EmbeddedResource Include="_productStock.resx">
       <DependentUpon>_productStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_PurchasingReportViewer.resx">
+      <DependentUpon>_PurchasingReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_purchasingTrans2.resx">
       <DependentUpon>_purchasingTrans2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_purchasingTrans.resx">
       <DependentUpon>_purchasingTrans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_purchasingTransactionList.resx">
+      <DependentUpon>_purchasingTransactionList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_sellingReportViewer.resx">
       <DependentUpon>_sellingReportViewer.cs</DependentUpon>
@@ -517,6 +554,17 @@
     </None>
     <None Include="dsBank.xss">
       <DependentUpon>dsBank.xsd</DependentUpon>
+    </None>
+    <None Include="dsPurchasing.xsc">
+      <DependentUpon>dsPurchasing.xsd</DependentUpon>
+    </None>
+    <None Include="dsPurchasing.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPurchasing.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsPurchasing.xss">
+      <DependentUpon>dsPurchasing.xsd</DependentUpon>
     </None>
     <None Include="dsSelling.xsc">
       <DependentUpon>dsSelling.xsd</DependentUpon>

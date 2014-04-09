@@ -215,6 +215,7 @@
           <Property Name="Customer_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Customer_Name" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="Customer_Company_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Customer_City" Type="varchar" MaxLength="45" />
           <Property Name="Customer_Address" Type="varchar" MaxLength="200" />
           <Property Name="Customer_Email" Type="varchar" MaxLength="100" />
           <Property Name="Customer_Phone" Type="varchar" MaxLength="100" />
@@ -1056,6 +1057,7 @@
           <Property Type="Decimal" Name="Customer_Debt" Nullable="false" />
           <NavigationProperty Name="customer_debt1" Relationship="stockappsModel.customer_debt_fk1" FromRole="customer" ToRole="customer_debt" />
           <NavigationProperty Name="customer_payment" Relationship="stockappsModel.customer_payment_fk1" FromRole="customer" ToRole="customer_payment" />
+          <Property Type="String" Name="Customer_City" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="customer_transaction">
           <Key>
@@ -1758,7 +1760,8 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="stockappsModelStoreContainer" CdmEntityContainer="stockappsEntities">
           <EntitySetMapping Name="customers"><EntityTypeMapping TypeName="stockappsModel.customer"><MappingFragment StoreEntitySet="customer">
-            <ScalarProperty Name="Customer_Debt" ColumnName="Customer_Debt" />
+            <ScalarProperty Name="Customer_City" ColumnName="Customer_City" />
+                <ScalarProperty Name="Customer_Debt" ColumnName="Customer_Debt" />
                 <ScalarProperty Name="Customer_Company_Name" ColumnName="Customer_Company_Name" />
                 <ScalarProperty Name="Customer_NPWP" ColumnName="Customer_NPWP" />
                 <ScalarProperty Name="Customer_Status" ColumnName="Customer_Status" />

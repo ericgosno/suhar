@@ -15,7 +15,7 @@ namespace StockModel
             return identityNow;
         }
 
-        public static identity updateIdentity(string name, string companyName, string address, string phone, string fax, string city)
+        public static identity updateIdentity(string name, string companyName, string address, string phone, string fax, string city,string npwp, string postalCode)
         {
             identity identityNow = (from f in StockEntity.Entity.identities
                                     where f.Identity_ID == 1
@@ -25,6 +25,9 @@ namespace StockModel
             identityNow.Identity_Phone = phone;
             identityNow.Identity_Fax = fax;
             identityNow.Identity_Address = address;
+            identityNow.Identity_City = city;
+            identityNow.Identity_NPWP = npwp;
+            identityNow.Identity_Postal_Code = postalCode;
             StockEntity.Entity.SaveChanges();
             return identityNow;
         }

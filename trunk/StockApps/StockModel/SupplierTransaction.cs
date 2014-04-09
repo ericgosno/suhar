@@ -110,5 +110,21 @@ namespace StockModel
             return true;
         }
 
+        public static IQueryable<supplier_transaction> getSupplierTransaction()
+        {
+            var list = (from f in StockEntity.Entity.supplier_transaction
+                        select f);
+            return list;
+        }
+        public static IQueryable<supplier_transaction> getSupplierTransaction(string TransID)
+        {
+            return getSupplierTransaction().Where(x => x.Supplier_Transaction_ID == TransID);
+        }
+        public static IQueryable<supplier_transaction> getSupplierTransaction(int SupplierID, DateTime from, DateTime to)
+        {
+            var list = getSupplierTransaction().Where(x => x.Supplier_Transaction_Date.CompareTo(from) >= 0 && x.Supplier_Transaction_Date.CompareTo(to) <= 0);
+            if (SupplierID != -1) list = list.Where(x => x.Supplier_ID == SupplierID);
+            return list;
+        }
     }
 }
