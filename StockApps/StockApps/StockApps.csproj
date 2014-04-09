@@ -96,6 +96,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsBank.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsCustomerDebt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCustomerDebt.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsPurchasing.cs">
       <DependentUpon>dsPurchasing.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -128,11 +133,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSellingSuratJalan.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsSupplierCredit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSupplierCredit.xsd</DependentUpon>
+    </Compile>
     <Compile Include="priceHistoryReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="priceHistoryReport.Designer.cs">
       <DependentUpon>priceHistoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptCustomerDebt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCustomerDebt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptSupplierCredit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSupplierCredit.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_CustomerDebtReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_CustomerDebtReportViewer.Designer.cs">
+      <DependentUpon>_CustomerDebtReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="_PurchasingReportViewer.cs">
       <SubType>Form</SubType>
@@ -353,6 +381,12 @@
     <Compile Include="_StockList.Designer.cs">
       <DependentUpon>_StockList.cs</DependentUpon>
     </Compile>
+    <Compile Include="_SupplierCreditReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_SupplierCreditReportViewer.Designer.cs">
+      <DependentUpon>_SupplierCreditReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="_supplierList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -404,6 +438,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptBankTransaction.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptCustomerDebt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCustomerDebt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSupplierCredit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSupplierCredit.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="sellingReport.resx">
       <DependentUpon>sellingReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -450,6 +492,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_bankList.resx">
       <DependentUpon>_bankList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_CustomerDebtReportViewer.resx">
+      <DependentUpon>_CustomerDebtReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_customerList.resx">
       <DependentUpon>_customerList.cs</DependentUpon>
@@ -518,6 +563,9 @@
     <EmbeddedResource Include="_StockList.resx">
       <DependentUpon>_StockList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_SupplierCreditReportViewer.resx">
+      <DependentUpon>_SupplierCreditReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_supplierList.resx">
       <DependentUpon>_supplierList.cs</DependentUpon>
     </EmbeddedResource>
@@ -554,6 +602,17 @@
     </None>
     <None Include="dsBank.xss">
       <DependentUpon>dsBank.xsd</DependentUpon>
+    </None>
+    <None Include="dsCustomerDebt.xsc">
+      <DependentUpon>dsCustomerDebt.xsd</DependentUpon>
+    </None>
+    <None Include="dsCustomerDebt.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCustomerDebt.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsCustomerDebt.xss">
+      <DependentUpon>dsCustomerDebt.xsd</DependentUpon>
     </None>
     <None Include="dsPurchasing.xsc">
       <DependentUpon>dsPurchasing.xsd</DependentUpon>
@@ -598,6 +657,17 @@
     </None>
     <None Include="dsSellingSuratJalan.xss">
       <DependentUpon>dsSellingSuratJalan.xsd</DependentUpon>
+    </None>
+    <None Include="dsSupplierCredit.xsc">
+      <DependentUpon>dsSupplierCredit.xsd</DependentUpon>
+    </None>
+    <None Include="dsSupplierCredit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSupplierCredit.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsSupplierCredit.xss">
+      <DependentUpon>dsSupplierCredit.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
