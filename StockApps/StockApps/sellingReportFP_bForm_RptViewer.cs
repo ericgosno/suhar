@@ -72,8 +72,7 @@ namespace StockApps
             rptFP.SetParameterValue("IdentityName", identityNow.Identity_Name);
             rptFP.SetParameterValue("TransactionDate", identityNow.Identity_City + ", " + transNow.Customer_Transaction_Date.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")));
             rptFP.SetParameterValue("TransactionNoteNumber", transNow.Customer_Transaction_Note_Number);
-            rptFP.SetParameterValue("CustomerCompany", custNow.Customer_Company_Name);
-            rptFP.SetParameterValue("CustomerAddress", custNow.Customer_Address);
+            rptFP.SetParameterValue("CustomerCompany", custNow.Customer_Company_Name+"\n" +custNow.Customer_Address + "\n" + custNow.Customer_City);
             rptFP.SetParameterValue("terbilang", "Terbilang : " + (transNow.Currency_ID == 1 ? CurrencyController.decryptMoney(transNow.Customer_Transaction_Total_Dollar,1) : CurrencyController.decryptMoney(transNow.Customer_Transaction_Total_Rupiah,2)));
             _rptSRFakturPenjualan.ReportSource = rptFP;
         }

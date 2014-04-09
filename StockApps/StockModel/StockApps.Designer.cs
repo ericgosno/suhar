@@ -2017,6 +2017,30 @@ namespace StockModel
         private global::System.Decimal _Customer_Debt;
         partial void OnCustomer_DebtChanging(global::System.Decimal value);
         partial void OnCustomer_DebtChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Customer_City
+        {
+            get
+            {
+                return _Customer_City;
+            }
+            set
+            {
+                OnCustomer_CityChanging(value);
+                ReportPropertyChanging("Customer_City");
+                _Customer_City = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Customer_City");
+                OnCustomer_CityChanged();
+            }
+        }
+        private global::System.String _Customer_City;
+        partial void OnCustomer_CityChanging(global::System.String value);
+        partial void OnCustomer_CityChanged();
 
         #endregion
     

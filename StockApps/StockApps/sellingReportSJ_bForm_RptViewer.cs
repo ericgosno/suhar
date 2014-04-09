@@ -60,6 +60,7 @@ namespace StockApps
             rptSJ.SetParameterValue("TransactionNoteNumber", transNow.Customer_Transaction_Note_Number);
             rptSJ.SetParameterValue("CustomerCompany", custNow.Customer_Company_Name);
             rptSJ.SetParameterValue("CustomerAddress", custNow.Customer_Address);
+            rptSJ.SetParameterValue("CustomerCity", custNow.Customer_City);
            _rptSRSuratJalan.ReportSource = rptSJ;
         }
     }

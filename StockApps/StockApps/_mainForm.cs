@@ -164,7 +164,7 @@ namespace StockApps
 
         private void purchasingToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            purchasingReporting formReportPurchasing = new purchasingReporting();
+            _purchasingTransactionList formReportPurchasing = new _purchasingTransactionList();
             formReportPurchasing.Show(this);
         }
 

@@ -133,5 +133,6 @@ namespace StockModel
             if (CustomerID != -1) list = list.Where(x => x.Customer_ID == CustomerID);
             return list;
         }
+
     }
 }

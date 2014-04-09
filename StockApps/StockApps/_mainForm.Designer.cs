@@ -50,6 +50,7 @@
             this.administratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ownerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.priceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,6 @@
             this.purchasingToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ownerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,6 +247,13 @@
             this.categoryUserToolStripMenuItem.Text = "Catego&ry";
             this.categoryUserToolStripMenuItem.Click += new System.EventHandler(this.categoryUserToolStripMenuItem_Click);
             // 
+            // ownerToolStripMenuItem
+            // 
+            this.ownerToolStripMenuItem.Name = "ownerToolStripMenuItem";
+            this.ownerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ownerToolStripMenuItem.Text = "Owner Info";
+            this.ownerToolStripMenuItem.Click += new System.EventHandler(this.ownerToolStripMenuItem_Click);
+            // 
             // historyToolStripMenuItem
             // 
             this.historyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -321,13 +328,6 @@
             this.supplierToolStripMenuItem1.Text = "Supplier";
             this.supplierToolStripMenuItem1.Visible = false;
             this.supplierToolStripMenuItem1.Click += new System.EventHandler(this.supplierToolStripMenuItem1_Click);
-            // 
-            // ownerToolStripMenuItem
-            // 
-            this.ownerToolStripMenuItem.Name = "ownerToolStripMenuItem";
-            this.ownerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ownerToolStripMenuItem.Text = "Owner";
-            this.ownerToolStripMenuItem.Click += new System.EventHandler(this.ownerToolStripMenuItem_Click);
             // 
             // _mainForm
             // 
