@@ -69,7 +69,13 @@ namespace StockApps
                 {
                     rowNow = _dataCustomer.SelectedRows[0];
                 }
-                CustomerController.deleteCustomer((int)rowNow.Cells["Customer_ID"].Value);
+                int CustID = (int)rowNow.Cells["Customer_ID"].Value;
+                if (CustomerTransaction.getCustomerTransaction(CustID).Count() > 0)
+                {
+                    MessageBox.Show("Can't delete this customer, Only customer with no transaction can be deleted!");
+                    return;
+                }
+                CustomerController.deleteCustomer(CustID);
                 RefreshForm();
             }
             catch (Exception ex)

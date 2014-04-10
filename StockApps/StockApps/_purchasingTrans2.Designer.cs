@@ -394,7 +394,7 @@
             this.Controls.Add(this.label5);
             this.Name = "_purchasingTrans2";
             this.Text = "Supplier Transaction";
-            //this.Load += new System.EventHandler(this._purchasingTrans2_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this._purchasingTrans2_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

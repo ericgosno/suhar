@@ -42,9 +42,15 @@ namespace StockApps
 
         private void _bspPCDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(this, "Warning!, deleting category will also delete products in this category, Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
+            if (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
             try
             {
+                product_category catNow = ProductController.getProductCategory(_tspPCListCategory.SelectedItems[0].ImageIndex).First();
+                if (catNow.products.Count() > 0)
+                {
+                    MessageBox.Show("Can't delete product category, Only product category with no product inside can be deleted!");
+                    return;
+                }
                 ProductController.deleteProductCategory(_tspPCListCategory.SelectedItems[0].ImageIndex);
             }
             catch (Exception ex)

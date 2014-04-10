@@ -435,6 +435,7 @@
             this.Controls.Add(this.label5);
             this.Name = "_sellingTransv2";
             this.Text = "CV. WARNA MURNI - SELLING -> PAYMENT";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this._sellingTransv2_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
