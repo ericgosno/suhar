@@ -77,7 +77,7 @@
             this._dataCategoryProduct.MultiSelect = false;
             this._dataCategoryProduct.Name = "_dataCategoryProduct";
             this._dataCategoryProduct.ReadOnly = true;
-            this._dataCategoryProduct.Size = new System.Drawing.Size(564, 202);
+            this._dataCategoryProduct.Size = new System.Drawing.Size(647, 202);
             this._dataCategoryProduct.TabIndex = 11;
             this._dataCategoryProduct.SelectionChanged += new System.EventHandler(this._dataCategoryProduct_SelectionChanged);
             // 

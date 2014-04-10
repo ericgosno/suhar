@@ -69,7 +69,13 @@ namespace StockApps
                 {
                     rowNow = _dgvspListSupplier.SelectedRows[0];
                 }
-                SupplierController.deleteSupplier((int)rowNow.Cells["Supplier_ID"].Value);
+                int SupplierID = (int)rowNow.Cells["Supplier_ID"].Value;
+                if (SupplierTransaction.getSupplierTransaction(SupplierID).Count() > 0)
+                {
+                    MessageBox.Show("Can't delete supplier, Only supplier with no transaction can be deleted!");
+                    return;
+                }
+                SupplierController.deleteSupplier(SupplierID);
                 RefreshForm();
             }
             catch (Exception ex)

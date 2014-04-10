@@ -12,10 +12,12 @@ namespace StockApps
 {
     public partial class _sellingTransv2 : Form
     {
+        private bool isFinished;
         private customer_transaction transNow;
         public _sellingTransv2(customer_transaction transNow)
         {
             InitializeComponent();
+            isFinished = false;
             _lblSellName.Text = transNow.customer.Customer_Company_Name;
             _lblSellNPWP.Text = transNow.customer.Customer_NPWP;
             _lsellKurs.Text = transNow.Customer_Transaction_Kurs.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
@@ -60,6 +62,7 @@ namespace StockApps
             CustomerTransaction.insertCustomerPayment(transNow, Convert.ToInt32(_cbsellBank.SelectedValue), _dateJatuhTempo.Value,Convert.ToInt32(_cbsellPayWith.SelectedValue));
             CustomerController.insertCustomerDebt(transNow.Customer_ID, transNow.Customer_Transaction_Date, "DBT", true, transNow.Customer_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbsellPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")));
             MessageBox.Show("Transaction Inserted Succesfully");
+            isFinished = true;
             this.Close();
         }
 
@@ -79,6 +82,16 @@ namespace StockApps
         {
             sellingReportFPajak_bForm_RptViewer nextForm = new sellingReportFPajak_bForm_RptViewer(transNow.Customer_Transaction_ID);
             nextForm.Show();
+        }
+
+        private void _sellingTransv2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isFinished == false)
+            {
+                MessageBox.Show("You must finish the transaction!");
+                e.Cancel = true;
+                return;
+            }
         }
 
     }

@@ -133,6 +133,21 @@ namespace StockModel
             if (CustomerID != -1) list = list.Where(x => x.Customer_ID == CustomerID);
             return list;
         }
+        public static IQueryable<customer_transaction> getCustomerTransaction(int CustomerID)
+        {
+            var list = getCustomerTransaction().Where(x => x.Customer_ID == CustomerID);
+            return list;
+        }
 
+        public static IQueryable<customer_transaction_product> getCustomerTransactionProduct()
+        {
+            var list = (from f in StockEntity.Entity.customer_transaction_product
+                       select f);
+            return list;
+        }
+        public static IQueryable<customer_transaction_product> getCustomerTransactionProduct(int ProductID)
+        {
+            return getCustomerTransactionProduct().Where(x => x.Product_ID == ProductID); 
+        }
     }
 }

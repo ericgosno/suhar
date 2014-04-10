@@ -12,10 +12,12 @@ namespace StockApps
 {
     public partial class _purchasingTrans2 : Form
     {
+        private bool isFinished;
         private supplier_transaction transNow;
         public _purchasingTrans2(supplier_transaction transNow)
         {
             InitializeComponent();
+            isFinished = false;
             _lblPurName.Text = transNow.supplier.Supplier_Company_Name;
             _lblPurNPWP.Text = transNow.supplier.Supplier_NPWP;
             _lPurKurs.Text = transNow.Supplier_Transaction_Kurs.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
@@ -46,7 +48,18 @@ namespace StockApps
             SupplierTransaction.insertSupplierPayment(transNow, Convert.ToInt32(_cbPurBank.SelectedValue), _dateJatuhTempo.Value, Convert.ToInt32(_cbPurPayWith.SelectedValue));
             SupplierController.insertSupplierCredit(transNow.Supplier_ID, transNow.Supplier_Transaction_Date, "DBT", true, transNow.Supplier_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbPurPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")));
             MessageBox.Show("Transaction Inserted Succesfully");
+            isFinished = true;
             this.Close();
+        }
+
+        private void _purchasingTrans2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isFinished == false)
+            {
+                MessageBox.Show("You must finish the transaction!");
+                e.Cancel = true;
+                return;
+            }
         }
 
     }

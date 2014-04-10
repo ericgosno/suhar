@@ -114,7 +114,10 @@ namespace StockModel
                         select f);
             return list;
         }
-
+        public static IQueryable<bank_transaction> getBankTransaction(int BankID)
+        {
+            return getBankTransaction().Where(x => x.Bank_ID == BankID);
+        }
         public static IQueryable<bank_transaction> getBankTransaction(int BankID, DateTime from, DateTime to)
         {
             return getBankTransaction().Where(x => x.Bank_ID == BankID && x.Bank_Transaction_Date.CompareTo(from) >= 0 && x.Bank_Transaction_Date.CompareTo(to) <= 0);

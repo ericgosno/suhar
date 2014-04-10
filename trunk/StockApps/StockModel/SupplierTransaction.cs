@@ -126,5 +126,20 @@ namespace StockModel
             if (SupplierID != -1) list = list.Where(x => x.Supplier_ID == SupplierID);
             return list;
         }
+        public static IQueryable<supplier_transaction> getSupplierTransaction(int SupplierID)
+        {
+            var list = getSupplierTransaction().Where(x => x.Supplier_ID == SupplierID);
+            return list;
+        }
+        public static IQueryable<supplier_transaction_product> getSupplierTransactionProduct()
+        {
+            var list = (from f in StockEntity.Entity.supplier_transaction_product
+                        select f);
+            return list;
+        }
+        public static IQueryable<supplier_transaction_product> getSupplierTransactionProduct(int ProductID)
+        {
+            return getSupplierTransactionProduct().Where(x => x.Product_ID == ProductID);
+        }
     }
 }

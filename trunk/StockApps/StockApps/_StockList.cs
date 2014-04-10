@@ -226,7 +226,13 @@ namespace StockApps
                 {
                     rowNow = _dataDetailSupplier.SelectedRows[0];
                 }
-                ProductController.deleteProduct(Convert.ToInt32(rowNow.Cells["Product_ID"].Value));
+                int productID = Convert.ToInt32(rowNow.Cells["Product_ID"].Value);
+                if (SupplierTransaction.getSupplierTransactionProduct(productID).Count() > 0 || CustomerTransaction.getCustomerTransactionProduct(productID).Count() > 0)
+                {
+                    MessageBox.Show("Can't delete product, Only product with no transaction can be deleted!");
+                    return;
+                }
+                ProductController.deleteProduct(productID);
                 RefreshForm();
             }
             catch (Exception ex)

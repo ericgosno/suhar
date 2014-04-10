@@ -130,7 +130,13 @@ namespace StockApps
                 {
                     rowNow = _dataBank.SelectedRows[0];
                 }
-                BankController.deleteBank(Convert.ToInt32(rowNow.Cells["Bank_ID"].Value));
+                int bankID = Convert.ToInt32(rowNow.Cells["Bank_ID"].Value);
+                if (BankController.getBankTransaction(bankID).Count() > 0)
+                {
+                    MessageBox.Show("Can't delete this bank, Only bank with no transaction can be deleted!");
+                    return;
+                }
+                BankController.deleteBank(bankID);
                 RefreshForm();
             }
             catch (Exception ex)
