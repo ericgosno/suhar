@@ -27,18 +27,31 @@ namespace StockApps
         {
             try
             {
-                rptBankTransaction rpt = new rptBankTransaction();
-                var list = BankController.getBankTransaction(Convert.ToInt32(_cbtransBankName.SelectedValue), _ttransBankFrom.Value, _ttransBankTo.Value)
-                    .OrderByDescending(x => x.Bank_Transaction_Date).ToList();
-                if (list.Count() > 0)rpt.SetDataSource(list);
-                
                 bank bankNow = _cbtransBankName.SelectedItem as bank;
-                string bankTitle = bankNow.Bank_Name + " Account Report";
-                rpt.SetParameterValue("Bank", bankTitle);
-                rpt.SetParameterValue("DateFromTo", _ttransBankFrom.Value.ToString("D") + " - " + _ttransBankTo.Value.ToString("D"));
-                _rptBank.ReportSource = rpt;
+                var list = BankController.getBankTransaction(Convert.ToInt32(_cbtransBankName.SelectedValue), _ttransBankFrom.Value, _ttransBankTo.Value)
+                    .OrderByDescending(x => x.Bank_Transaction_Date)
+                    .ToList();
+
+                if (bankNow.Currency_ID == 2)
+                {
+                    rptBankTransaction rpt = new rptBankTransaction();
+                    if (list.Count() > 0) rpt.SetDataSource(list);
+                    string bankTitle = bankNow.Bank_Name + " Account Report";
+                    rpt.SetParameterValue("Bank", bankTitle);
+                    rpt.SetParameterValue("DateFromTo", _ttransBankFrom.Value.ToString("D") + " - " + _ttransBankTo.Value.ToString("D"));
+                    _rptBank.ReportSource = rpt;
+                }
+                else
+                {
+                    rptBankTransactionDollar rpt = new rptBankTransactionDollar();
+                    if (list.Count() > 0) rpt.SetDataSource(list);
+                    string bankTitle = bankNow.Bank_Name + " Account Report";
+                    rpt.SetParameterValue("Bank", bankTitle);
+                    rpt.SetParameterValue("DateFromTo", _ttransBankFrom.Value.ToString("D") + " - " + _ttransBankTo.Value.ToString("D"));
+                    _rptBank.ReportSource = rpt; 
+                }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void _cbtransBankName_SelectedIndexChanged(object sender, EventArgs e)

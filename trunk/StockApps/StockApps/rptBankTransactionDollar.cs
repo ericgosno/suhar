@@ -16,14 +16,14 @@ namespace StockApps {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class adminReport : ReportClass {
+    public class rptBankTransactionDollar : ReportClass {
         
-        public adminReport() {
+        public rptBankTransactionDollar() {
         }
         
         public override string ResourceName {
             get {
-                return "adminReport.rpt";
+                return "rptBankTransactionDollar.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace StockApps {
         
         public override string FullResourceName {
             get {
-                return "StockApps.adminReport.rpt";
+                return "StockApps.rptBankTransactionDollar.rpt";
             }
             set {
                 // Do nothing
@@ -90,7 +90,7 @@ namespace StockApps {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_IdentityCompanyName {
+        public CrystalDecisions.Shared.IParameterField Parameter_Bank {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,25 +98,17 @@ namespace StockApps {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_IdentityAddress {
+        public CrystalDecisions.Shared.IParameterField Parameter_DateFromTo {
             get {
                 return this.DataDefinition.ParameterFields[1];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_IdentityPhone {
-            get {
-                return this.DataDefinition.ParameterFields[2];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedadminReport : Component, ICachedReport {
+    public class CachedrptBankTransactionDollar : Component, ICachedReport {
         
-        public CachedadminReport() {
+        public CachedrptBankTransactionDollar() {
         }
         
         [Browsable(false)]
@@ -153,7 +145,7 @@ namespace StockApps {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            adminReport rpt = new adminReport();
+            rptBankTransactionDollar rpt = new rptBankTransactionDollar();
             rpt.Site = this.Site;
             return rpt;
         }

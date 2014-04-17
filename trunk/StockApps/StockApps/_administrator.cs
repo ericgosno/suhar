@@ -15,6 +15,10 @@ namespace StockApps
         public _administrator()
         {
             InitializeComponent();
+            identity ident = IdentityController.getIdentity();
+            _lIdentityCompany.Text = ident.Identity_Company_Name;
+            _lIdentityAddress.Text = ident.Identity_Address + "\n" + ident.Identity_City;
+            _lIdentityPhone.Text = ident.Identity_Phone;
         }
 
         private void _badmLogin_Click(object sender, EventArgs e)

@@ -93,7 +93,7 @@ namespace StockModel
             return getSupplierCredit().Where(x => x.Supplier_ID == supplierID && x.Supplier_Credit_Date.CompareTo(from) >= 0 && x.Supplier_Credit_Date.CompareTo(to) <= 0);
         }
 
-        public static supplier_credit insertSupplierCredit(int supplierID, DateTime creditDate, string creditCode, bool isDebit, decimal money, string description)
+        public static supplier_credit insertSupplierCredit(int supplierID, DateTime creditDate, string creditCode, bool isDebit, decimal money, string description, decimal kurs, int currencyID)
         {
             supplier_credit newTrans = new supplier_credit();
             var supplierNow = (from f in StockEntity.Entity.suppliers
@@ -122,7 +122,16 @@ namespace StockModel
             newTrans.Supplier_ID = supplierID;
             newTrans.Supplier_Credit_Date = creditDate;
             newTrans.Supplier_Credit_Code = creditCode;
-            newTrans.Supplier_Credit_Money = money;
+            if (currencyID == 1)
+            {
+                newTrans.Supplier_Credit_Money_Dollar = money;
+                newTrans.Supplier_Credit_Money_Rupiah = money * kurs;
+            }
+            else
+            {
+                newTrans.Supplier_Credit_Money_Dollar = money / kurs;
+                newTrans.Supplier_Credit_Money_Rupiah = money;
+            }
             newTrans.Supplier_Credit_Description = description;
             newTrans.Supplier_Credit_IsLast = 0;
 
@@ -133,19 +142,28 @@ namespace StockModel
             var beforeTrans = (from f in StockEntity.Entity.supplier_credit
                                where f.Supplier_ID == supplierID && (f.Supplier_Credit_Date.CompareTo(creditDate) < 0 || (f.Supplier_Credit_Date.CompareTo(creditDate) == 0 && f.Supplier_Credit_ID.CompareTo(idnow) < 0))
                                select f).OrderByDescending(x => x.Supplier_Credit_Date).ThenBy(x => x.Supplier_Credit_ID);
-            decimal totalNow = 0;
-            if (beforeTrans.Count() > 0) totalNow = beforeTrans.First().Supplier_Credit_Total_Now;
+            decimal totalRupiah = 0;
+            decimal totalDollar = 0;
+            if (beforeTrans.Count() > 0)
+            {
+                totalRupiah = beforeTrans.First().Supplier_Credit_Total_Rupiah;
+                totalDollar = beforeTrans.First().Supplier_Credit_Total_Dollar;
+            }
             if (isDebit)
             {
                 newTrans.Supplier_Credit_IsDebit = 1;
-                totalNow = totalNow + newTrans.Supplier_Credit_Money;
-                newTrans.Supplier_Credit_Total_Now = totalNow;
+                totalDollar = totalDollar + newTrans.Supplier_Credit_Money_Dollar;
+                totalRupiah = totalRupiah + newTrans.Supplier_Credit_Money_Rupiah;
+                newTrans.Supplier_Credit_Total_Dollar = totalDollar;
+                newTrans.Supplier_Credit_Total_Rupiah = totalRupiah;
             }
             else
             {
                 newTrans.Supplier_Credit_IsDebit = 0;
-                totalNow = totalNow - newTrans.Supplier_Credit_Money;
-                newTrans.Supplier_Credit_Total_Now = totalNow;
+                totalDollar = totalDollar + newTrans.Supplier_Credit_Money_Dollar;
+                totalRupiah = totalRupiah + newTrans.Supplier_Credit_Money_Rupiah;
+                newTrans.Supplier_Credit_Total_Dollar = totalDollar;
+                newTrans.Supplier_Credit_Total_Rupiah = totalRupiah;
             }
 
 
@@ -153,13 +171,17 @@ namespace StockModel
             {
                 if (cust.Supplier_Credit_IsDebit == 1)
                 {
-                    totalNow = totalNow + cust.Supplier_Credit_Money;
-                    cust.Supplier_Credit_Total_Now = totalNow;
+                    totalDollar = totalDollar + cust.Supplier_Credit_Money_Dollar;
+                    totalRupiah = totalRupiah + cust.Supplier_Credit_Money_Rupiah;
+                    cust.Supplier_Credit_Total_Dollar = totalDollar;
+                    cust.Supplier_Credit_Total_Rupiah = totalRupiah;
                 }
                 else
                 {
-                    totalNow = totalNow - cust.Supplier_Credit_Money;
-                    cust.Supplier_Credit_Total_Now = totalNow;
+                    totalDollar = totalDollar - cust.Supplier_Credit_Money_Dollar;
+                    totalRupiah = totalRupiah - cust.Supplier_Credit_Money_Rupiah;
+                    cust.Supplier_Credit_Total_Dollar = totalDollar;
+                    cust.Supplier_Credit_Total_Rupiah = totalRupiah;
                 }
             }
 
@@ -173,7 +195,8 @@ namespace StockModel
                 newTrans.Supplier_Credit_IsLast = 1;
             }
 
-            supplierNow.First().Supplier_Credit = totalNow;
+            supplierNow.First().Supplier_Credit_Dollar = totalDollar;
+            supplierNow.First().Supplier_Credit_Rupiah = totalRupiah;
             StockEntity.Entity.AddTosupplier_credit(newTrans);
             StockEntity.Entity.SaveChanges();
             return newTrans;

@@ -92,7 +92,7 @@ namespace StockModel
             return getCustomerDebt().Where(x => x.Customer_ID == customerID && x.Customer_Debt_Date.CompareTo(from) >= 0 && x.Customer_Debt_Date.CompareTo(to) <= 0);
         }
 
-        public static customer_debt insertCustomerDebt(int customerID, DateTime debtDate, string debtCode, bool isDebit, decimal money, string description)
+        public static customer_debt insertCustomerDebt(int customerID, DateTime debtDate, string debtCode, bool isDebit, decimal money, string description,decimal kurs, int currencyID)
         {
             customer_debt newTrans = new customer_debt();
             var customerNow = (from f in StockEntity.Entity.customers
@@ -121,7 +121,17 @@ namespace StockModel
             newTrans.Customer_ID = customerID;
             newTrans.Customer_Debt_Date = debtDate;
             newTrans.Customer_Debt_Code = debtCode;
-            newTrans.Customer_Debt_Money = money;
+            newTrans.Customer_Debt_Kurs = kurs;
+            if (currencyID == 1)
+            {
+                newTrans.Customer_Debt_Money_Dollar = money;
+                newTrans.Customer_Debt_Money_Rupiah = money * kurs;
+            }
+            else
+            {
+                newTrans.Customer_Debt_Money_Dollar = money / kurs;
+                newTrans.Customer_Debt_Money_Rupiah = money; 
+            }
             newTrans.Customer_Debt_Description = description;
             newTrans.Customer_Debt_IsLast = 0;
 
@@ -132,19 +142,28 @@ namespace StockModel
             var beforeTrans = (from f in StockEntity.Entity.customer_debt
                                where f.Customer_ID == customerID && (f.Customer_Debt_Date.CompareTo(debtDate) < 0 || (f.Customer_Debt_Date.CompareTo(debtDate) == 0 && f.Customer_Debt_ID.CompareTo(idnow) < 0))
                                select f).OrderByDescending(x => x.Customer_Debt_Date).ThenBy(x => x.Customer_Debt_ID);
-            decimal totalNow = 0;
-            if (beforeTrans.Count() > 0) totalNow = beforeTrans.First().Customer_Debt_Total_Now;
+            decimal totalRupiah = 0;
+            decimal totalDollar = 0;
+            if (beforeTrans.Count() > 0)
+            {
+                totalRupiah = beforeTrans.First().Customer_Debt_Total_Rupiah;
+                totalDollar = beforeTrans.First().Customer_Debt_Total_Dollar;
+            }
             if (isDebit)
             {
                 newTrans.Customer_Debt_IsDebit = 1;
-                totalNow = totalNow + newTrans.Customer_Debt_Money;
-                newTrans.Customer_Debt_Total_Now = totalNow;
+                totalDollar = totalDollar + newTrans.Customer_Debt_Money_Dollar;
+                totalRupiah = totalRupiah + newTrans.Customer_Debt_Money_Rupiah;
+                newTrans.Customer_Debt_Total_Dollar = totalDollar;
+                newTrans.Customer_Debt_Total_Rupiah = totalRupiah;
             }
             else
             {
                 newTrans.Customer_Debt_IsDebit = 0;
-                totalNow = totalNow - newTrans.Customer_Debt_Money;
-                newTrans.Customer_Debt_Total_Now = totalNow;
+                totalDollar = totalDollar - newTrans.Customer_Debt_Money_Dollar;
+                totalRupiah = totalRupiah - newTrans.Customer_Debt_Money_Rupiah;
+                newTrans.Customer_Debt_Total_Dollar = totalDollar;
+                newTrans.Customer_Debt_Total_Rupiah = totalRupiah;
             }
 
 
@@ -152,13 +171,17 @@ namespace StockModel
             {
                 if (cust.Customer_Debt_IsDebit == 1)
                 {
-                    totalNow = totalNow + cust.Customer_Debt_Money;
-                    cust.Customer_Debt_Total_Now = totalNow;
+                    totalDollar = totalDollar + cust.Customer_Debt_Money_Dollar;
+                    totalRupiah = totalRupiah + cust.Customer_Debt_Money_Rupiah;
+                    cust.Customer_Debt_Total_Dollar = totalDollar;
+                    cust.Customer_Debt_Total_Rupiah = totalRupiah;
                 }
                 else
                 {
-                    totalNow = totalNow - cust.Customer_Debt_Money;
-                    cust.Customer_Debt_Total_Now = totalNow;
+                    totalDollar = totalDollar - cust.Customer_Debt_Money_Dollar;
+                    totalRupiah = totalRupiah - cust.Customer_Debt_Money_Rupiah;
+                    cust.Customer_Debt_Total_Dollar = totalDollar;
+                    cust.Customer_Debt_Total_Rupiah = totalRupiah;
                 }
             }
 
@@ -172,7 +195,8 @@ namespace StockModel
                 newTrans.Customer_Debt_IsLast = 1;
             }
 
-            customerNow.First().Customer_Debt = totalNow;
+            customerNow.First().Customer_Debt_Dollar = totalDollar;
+            customerNow.First().Customer_Debt_Rupiah = totalRupiah;
             StockEntity.Entity.AddTocustomer_debt(newTrans);
             StockEntity.Entity.SaveChanges();
             return newTrans; 

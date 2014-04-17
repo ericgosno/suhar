@@ -41,13 +41,15 @@ namespace StockApps
         private void _bbtransInsert_Click(object sender, EventArgs e)
         {
             decimal nominal = 0;
+            decimal kurs = 0;
             try
             {
                 nominal = Convert.ToDecimal(_tbtransMoney.Text);
+                kurs = Convert.ToDecimal(_tbtransKurs.Text);
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Nominal must be a decimal number!");
+                MessageBox.Show("Nominal and Kurs must be a decimal number!");
                 return;
             }
             if (_cbtransDebitCredit.SelectedIndex == -1)
@@ -64,7 +66,7 @@ namespace StockApps
                 }
                 else BankId = Convert.ToInt32(_cbtransBankName.SelectedValue);
             }
-            bank_transaction newTrans = BankController.insertBankTransaction(BankId, _cbtransDate.Value, _tbtransCode.Text, (_cbtransDebitCredit.SelectedIndex == 0), nominal, _tbtransDescription.Text);
+            bank_transaction newTrans = BankController.insertBankTransaction(BankId, _cbtransDate.Value, _tbtransCode.Text, (_cbtransDebitCredit.SelectedIndex == 0), nominal, _tbtransDescription.Text,kurs);
             if (newTrans != null)
             {
                 MessageBox.Show("Create Transaction Successfully!");

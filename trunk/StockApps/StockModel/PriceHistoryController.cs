@@ -32,6 +32,10 @@ namespace StockModel
                     if (checkID.Count() > 0) code++;
                     else break;
                 }
+                foreach(price_history ph1 in histNow)
+                {
+                    ph1.Price_History_IsLast = 0;
+                }
                 ph.Price_History_Date = datePrice;
                 ph.Price_History_ID = idnow;
                 ph.Price_History_IsLast = 1;

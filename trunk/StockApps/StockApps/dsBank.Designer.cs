@@ -24,15 +24,7 @@ namespace StockApps {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class dsBank : global::System.Data.DataSet {
         
-        private bankDataTable tablebank;
-        
         private bank_transactionDataTable tablebank_transaction;
-        
-        private currencyDataTable tablecurrency;
-        
-        private global::System.Data.DataRelation relationbank_transaction_fk1;
-        
-        private global::System.Data.DataRelation relationBank_fk1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -62,14 +54,8 @@ namespace StockApps {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["bank"] != null)) {
-                    base.Tables.Add(new bankDataTable(ds.Tables["bank"]));
-                }
                 if ((ds.Tables["bank_transaction"] != null)) {
                     base.Tables.Add(new bank_transactionDataTable(ds.Tables["bank_transaction"]));
-                }
-                if ((ds.Tables["currency"] != null)) {
-                    base.Tables.Add(new currencyDataTable(ds.Tables["currency"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -93,29 +79,9 @@ namespace StockApps {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public bankDataTable bank {
-            get {
-                return this.tablebank;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public bank_transactionDataTable bank_transaction {
             get {
                 return this.tablebank_transaction;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public currencyDataTable currency {
-            get {
-                return this.tablecurrency;
             }
         }
         
@@ -186,14 +152,8 @@ namespace StockApps {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["bank"] != null)) {
-                    base.Tables.Add(new bankDataTable(ds.Tables["bank"]));
-                }
                 if ((ds.Tables["bank_transaction"] != null)) {
                     base.Tables.Add(new bank_transactionDataTable(ds.Tables["bank_transaction"]));
-                }
-                if ((ds.Tables["currency"] != null)) {
-                    base.Tables.Add(new currencyDataTable(ds.Tables["currency"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -228,26 +188,12 @@ namespace StockApps {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablebank = ((bankDataTable)(base.Tables["bank"]));
-            if ((initTable == true)) {
-                if ((this.tablebank != null)) {
-                    this.tablebank.InitVars();
-                }
-            }
             this.tablebank_transaction = ((bank_transactionDataTable)(base.Tables["bank_transaction"]));
             if ((initTable == true)) {
                 if ((this.tablebank_transaction != null)) {
                     this.tablebank_transaction.InitVars();
                 }
             }
-            this.tablecurrency = ((currencyDataTable)(base.Tables["currency"]));
-            if ((initTable == true)) {
-                if ((this.tablecurrency != null)) {
-                    this.tablecurrency.InitVars();
-                }
-            }
-            this.relationbank_transaction_fk1 = this.Relations["bank_transaction_fk1"];
-            this.relationBank_fk1 = this.Relations["Bank_fk1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,37 +204,13 @@ namespace StockApps {
             this.Namespace = "http://tempuri.org/dsBank.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablebank = new bankDataTable();
-            base.Tables.Add(this.tablebank);
             this.tablebank_transaction = new bank_transactionDataTable();
             base.Tables.Add(this.tablebank_transaction);
-            this.tablecurrency = new currencyDataTable();
-            base.Tables.Add(this.tablecurrency);
-            this.relationbank_transaction_fk1 = new global::System.Data.DataRelation("bank_transaction_fk1", new global::System.Data.DataColumn[] {
-                        this.tablebank.Bank_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablebank_transaction.Bank_IDColumn}, false);
-            this.Relations.Add(this.relationbank_transaction_fk1);
-            this.relationBank_fk1 = new global::System.Data.DataRelation("Bank_fk1", new global::System.Data.DataColumn[] {
-                        this.tablecurrency.Currency_IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablebank.Currency_IDColumn}, false);
-            this.Relations.Add(this.relationBank_fk1);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializebank() {
-            return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializebank_transaction() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializecurrency() {
             return false;
         }
         
@@ -348,338 +270,7 @@ namespace StockApps {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void bankRowChangeEventHandler(object sender, bankRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void bank_transactionRowChangeEventHandler(object sender, bank_transactionRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void currencyRowChangeEventHandler(object sender, currencyRowChangeEvent e);
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class bankDataTable : global::System.Data.TypedTableBase<bankRow> {
-            
-            private global::System.Data.DataColumn columnBank_ID;
-            
-            private global::System.Data.DataColumn columnBank_Name;
-            
-            private global::System.Data.DataColumn columnCurrency_ID;
-            
-            private global::System.Data.DataColumn columnBank_Current_Money;
-            
-            private global::System.Data.DataColumn columnBank_Status;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bankDataTable() {
-                this.TableName = "bank";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal bankDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected bankDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Bank_IDColumn {
-                get {
-                    return this.columnBank_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Bank_NameColumn {
-                get {
-                    return this.columnBank_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Currency_IDColumn {
-                get {
-                    return this.columnCurrency_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Bank_Current_MoneyColumn {
-                get {
-                    return this.columnBank_Current_Money;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Bank_StatusColumn {
-                get {
-                    return this.columnBank_Status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bankRow this[int index] {
-                get {
-                    return ((bankRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bankRowChangeEventHandler bankRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bankRowChangeEventHandler bankRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bankRowChangeEventHandler bankRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bankRowChangeEventHandler bankRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddbankRow(bankRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bankRow AddbankRow(string Bank_Name, currencyRow parentcurrencyRowByBank_fk1, decimal Bank_Current_Money, int Bank_Status) {
-                bankRow rowbankRow = ((bankRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Bank_Name,
-                        null,
-                        Bank_Current_Money,
-                        Bank_Status};
-                if ((parentcurrencyRowByBank_fk1 != null)) {
-                    columnValuesArray[2] = parentcurrencyRowByBank_fk1[0];
-                }
-                rowbankRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowbankRow);
-                return rowbankRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bankRow FindByBank_ID(int Bank_ID) {
-                return ((bankRow)(this.Rows.Find(new object[] {
-                            Bank_ID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                bankDataTable cln = ((bankDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new bankDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnBank_ID = base.Columns["Bank_ID"];
-                this.columnBank_Name = base.Columns["Bank_Name"];
-                this.columnCurrency_ID = base.Columns["Currency_ID"];
-                this.columnBank_Current_Money = base.Columns["Bank_Current_Money"];
-                this.columnBank_Status = base.Columns["Bank_Status"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnBank_ID = new global::System.Data.DataColumn("Bank_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBank_ID);
-                this.columnBank_Name = new global::System.Data.DataColumn("Bank_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBank_Name);
-                this.columnCurrency_ID = new global::System.Data.DataColumn("Currency_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCurrency_ID);
-                this.columnBank_Current_Money = new global::System.Data.DataColumn("Bank_Current_Money", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBank_Current_Money);
-                this.columnBank_Status = new global::System.Data.DataColumn("Bank_Status", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBank_Status);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnBank_ID}, true));
-                this.columnBank_ID.AutoIncrement = true;
-                this.columnBank_ID.AutoIncrementSeed = -1;
-                this.columnBank_ID.AutoIncrementStep = -1;
-                this.columnBank_ID.AllowDBNull = false;
-                this.columnBank_ID.Unique = true;
-                this.columnBank_Name.AllowDBNull = false;
-                this.columnBank_Name.MaxLength = 45;
-                this.columnCurrency_ID.AllowDBNull = false;
-                this.columnBank_Current_Money.AllowDBNull = false;
-                this.columnBank_Status.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bankRow NewbankRow() {
-                return ((bankRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new bankRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(bankRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.bankRowChanged != null)) {
-                    this.bankRowChanged(this, new bankRowChangeEvent(((bankRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.bankRowChanging != null)) {
-                    this.bankRowChanging(this, new bankRowChangeEvent(((bankRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.bankRowDeleted != null)) {
-                    this.bankRowDeleted(this, new bankRowChangeEvent(((bankRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.bankRowDeleting != null)) {
-                    this.bankRowDeleting(this, new bankRowChangeEvent(((bankRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovebankRow(bankRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsBank ds = new dsBank();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "bankDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -705,6 +296,12 @@ namespace StockApps {
             private global::System.Data.DataColumn columnBank_Transaction_Description;
             
             private global::System.Data.DataColumn columnBank_Transaction_IsLast;
+            
+            private global::System.Data.DataColumn columnBank_Transaction_Kurs;
+            
+            private global::System.Data.DataColumn columnBank_Transaction_Money_Another;
+            
+            private global::System.Data.DataColumn columnBank_Transaction_Total_Another;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -813,6 +410,30 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Bank_Transaction_KursColumn {
+                get {
+                    return this.columnBank_Transaction_Kurs;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Bank_Transaction_Money_AnotherColumn {
+                get {
+                    return this.columnBank_Transaction_Money_Another;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Bank_Transaction_Total_AnotherColumn {
+                get {
+                    return this.columnBank_Transaction_Total_Another;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -848,21 +469,21 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bank_transactionRow Addbank_transactionRow(string Bank_Transaction_ID, bankRow parentbankRowBybank_transaction_fk1, System.DateTime Bank_Transaction_Date, string Bank_Transaction_Code, int Bank_Transaction_IsDebit, decimal Bank_Transaction_Money, decimal Bank_Transaction_Total_Now, string Bank_Transaction_Description, int Bank_Transaction_IsLast) {
+            public bank_transactionRow Addbank_transactionRow(string Bank_Transaction_ID, int Bank_ID, System.DateTime Bank_Transaction_Date, string Bank_Transaction_Code, int Bank_Transaction_IsDebit, decimal Bank_Transaction_Money, decimal Bank_Transaction_Total_Now, string Bank_Transaction_Description, int Bank_Transaction_IsLast, decimal Bank_Transaction_Kurs, decimal Bank_Transaction_Money_Another, decimal Bank_Transaction_Total_Another) {
                 bank_transactionRow rowbank_transactionRow = ((bank_transactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Bank_Transaction_ID,
-                        null,
+                        Bank_ID,
                         Bank_Transaction_Date,
                         Bank_Transaction_Code,
                         Bank_Transaction_IsDebit,
                         Bank_Transaction_Money,
                         Bank_Transaction_Total_Now,
                         Bank_Transaction_Description,
-                        Bank_Transaction_IsLast};
-                if ((parentbankRowBybank_transaction_fk1 != null)) {
-                    columnValuesArray[1] = parentbankRowBybank_transaction_fk1[0];
-                }
+                        Bank_Transaction_IsLast,
+                        Bank_Transaction_Kurs,
+                        Bank_Transaction_Money_Another,
+                        Bank_Transaction_Total_Another};
                 rowbank_transactionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowbank_transactionRow);
                 return rowbank_transactionRow;
@@ -901,6 +522,9 @@ namespace StockApps {
                 this.columnBank_Transaction_Total_Now = base.Columns["Bank_Transaction_Total_Now"];
                 this.columnBank_Transaction_Description = base.Columns["Bank_Transaction_Description"];
                 this.columnBank_Transaction_IsLast = base.Columns["Bank_Transaction_IsLast"];
+                this.columnBank_Transaction_Kurs = base.Columns["Bank_Transaction_Kurs"];
+                this.columnBank_Transaction_Money_Another = base.Columns["Bank_Transaction_Money_Another"];
+                this.columnBank_Transaction_Total_Another = base.Columns["Bank_Transaction_Total_Another"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -924,6 +548,12 @@ namespace StockApps {
                 base.Columns.Add(this.columnBank_Transaction_Description);
                 this.columnBank_Transaction_IsLast = new global::System.Data.DataColumn("Bank_Transaction_IsLast", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBank_Transaction_IsLast);
+                this.columnBank_Transaction_Kurs = new global::System.Data.DataColumn("Bank_Transaction_Kurs", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBank_Transaction_Kurs);
+                this.columnBank_Transaction_Money_Another = new global::System.Data.DataColumn("Bank_Transaction_Money_Another", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBank_Transaction_Money_Another);
+                this.columnBank_Transaction_Total_Another = new global::System.Data.DataColumn("Bank_Transaction_Total_Another", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBank_Transaction_Total_Another);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnBank_Transaction_ID}, true));
                 this.columnBank_Transaction_ID.AllowDBNull = false;
@@ -1064,375 +694,6 @@ namespace StockApps {
         }
         
         /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class currencyDataTable : global::System.Data.TypedTableBase<currencyRow> {
-            
-            private global::System.Data.DataColumn columnCurrency_ID;
-            
-            private global::System.Data.DataColumn columnCurrency_Name;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public currencyDataTable() {
-                this.TableName = "currency";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal currencyDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected currencyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Currency_IDColumn {
-                get {
-                    return this.columnCurrency_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Currency_NameColumn {
-                get {
-                    return this.columnCurrency_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public currencyRow this[int index] {
-                get {
-                    return ((currencyRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event currencyRowChangeEventHandler currencyRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event currencyRowChangeEventHandler currencyRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event currencyRowChangeEventHandler currencyRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event currencyRowChangeEventHandler currencyRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddcurrencyRow(currencyRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public currencyRow AddcurrencyRow(string Currency_Name) {
-                currencyRow rowcurrencyRow = ((currencyRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Currency_Name};
-                rowcurrencyRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowcurrencyRow);
-                return rowcurrencyRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public currencyRow FindByCurrency_ID(int Currency_ID) {
-                return ((currencyRow)(this.Rows.Find(new object[] {
-                            Currency_ID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                currencyDataTable cln = ((currencyDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new currencyDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnCurrency_ID = base.Columns["Currency_ID"];
-                this.columnCurrency_Name = base.Columns["Currency_Name"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnCurrency_ID = new global::System.Data.DataColumn("Currency_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCurrency_ID);
-                this.columnCurrency_Name = new global::System.Data.DataColumn("Currency_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCurrency_Name);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnCurrency_ID}, true));
-                this.columnCurrency_ID.AutoIncrement = true;
-                this.columnCurrency_ID.AutoIncrementSeed = -1;
-                this.columnCurrency_ID.AutoIncrementStep = -1;
-                this.columnCurrency_ID.AllowDBNull = false;
-                this.columnCurrency_ID.Unique = true;
-                this.columnCurrency_Name.AllowDBNull = false;
-                this.columnCurrency_Name.MaxLength = 45;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public currencyRow NewcurrencyRow() {
-                return ((currencyRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new currencyRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(currencyRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.currencyRowChanged != null)) {
-                    this.currencyRowChanged(this, new currencyRowChangeEvent(((currencyRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.currencyRowChanging != null)) {
-                    this.currencyRowChanging(this, new currencyRowChangeEvent(((currencyRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.currencyRowDeleted != null)) {
-                    this.currencyRowDeleted(this, new currencyRowChangeEvent(((currencyRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.currencyRowDeleting != null)) {
-                    this.currencyRowDeleting(this, new currencyRowChangeEvent(((currencyRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovecurrencyRow(currencyRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsBank ds = new dsBank();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "currencyDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class bankRow : global::System.Data.DataRow {
-            
-            private bankDataTable tablebank;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal bankRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablebank = ((bankDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Bank_ID {
-                get {
-                    return ((int)(this[this.tablebank.Bank_IDColumn]));
-                }
-                set {
-                    this[this.tablebank.Bank_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Bank_Name {
-                get {
-                    return ((string)(this[this.tablebank.Bank_NameColumn]));
-                }
-                set {
-                    this[this.tablebank.Bank_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Currency_ID {
-                get {
-                    return ((int)(this[this.tablebank.Currency_IDColumn]));
-                }
-                set {
-                    this[this.tablebank.Currency_IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Bank_Current_Money {
-                get {
-                    return ((decimal)(this[this.tablebank.Bank_Current_MoneyColumn]));
-                }
-                set {
-                    this[this.tablebank.Bank_Current_MoneyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Bank_Status {
-                get {
-                    return ((int)(this[this.tablebank.Bank_StatusColumn]));
-                }
-                set {
-                    this[this.tablebank.Bank_StatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public currencyRow currencyRow {
-                get {
-                    return ((currencyRow)(this.GetParentRow(this.Table.ParentRelations["Bank_fk1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Bank_fk1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bank_transactionRow[] Getbank_transactionRows() {
-                if ((this.Table.ChildRelations["bank_transaction_fk1"] == null)) {
-                    return new bank_transactionRow[0];
-                }
-                else {
-                    return ((bank_transactionRow[])(base.GetChildRows(this.Table.ChildRelations["bank_transaction_fk1"])));
-                }
-            }
-        }
-        
-        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class bank_transactionRow : global::System.Data.DataRow {
@@ -1559,12 +820,52 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bankRow bankRow {
+            public decimal Bank_Transaction_Kurs {
                 get {
-                    return ((bankRow)(this.GetParentRow(this.Table.ParentRelations["bank_transaction_fk1"])));
+                    try {
+                        return ((decimal)(this[this.tablebank_transaction.Bank_Transaction_KursColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Bank_Transaction_Kurs\' in table \'bank_transaction\' is DBNul" +
+                                "l.", e);
+                    }
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["bank_transaction_fk1"]);
+                    this[this.tablebank_transaction.Bank_Transaction_KursColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Bank_Transaction_Money_Another {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablebank_transaction.Bank_Transaction_Money_AnotherColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Bank_Transaction_Money_Another\' in table \'bank_transaction\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablebank_transaction.Bank_Transaction_Money_AnotherColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Bank_Transaction_Total_Another {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablebank_transaction.Bank_Transaction_Total_AnotherColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Bank_Transaction_Total_Another\' in table \'bank_transaction\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablebank_transaction.Bank_Transaction_Total_AnotherColumn] = value;
                 }
             }
             
@@ -1591,87 +892,41 @@ namespace StockApps {
             public void SetBank_Transaction_DescriptionNull() {
                 this[this.tablebank_transaction.Bank_Transaction_DescriptionColumn] = global::System.Convert.DBNull;
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class currencyRow : global::System.Data.DataRow {
-            
-            private currencyDataTable tablecurrency;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal currencyRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablecurrency = ((currencyDataTable)(this.Table));
+            public bool IsBank_Transaction_KursNull() {
+                return this.IsNull(this.tablebank_transaction.Bank_Transaction_KursColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Currency_ID {
-                get {
-                    return ((int)(this[this.tablecurrency.Currency_IDColumn]));
-                }
-                set {
-                    this[this.tablecurrency.Currency_IDColumn] = value;
-                }
+            public void SetBank_Transaction_KursNull() {
+                this[this.tablebank_transaction.Bank_Transaction_KursColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Currency_Name {
-                get {
-                    return ((string)(this[this.tablecurrency.Currency_NameColumn]));
-                }
-                set {
-                    this[this.tablecurrency.Currency_NameColumn] = value;
-                }
+            public bool IsBank_Transaction_Money_AnotherNull() {
+                return this.IsNull(this.tablebank_transaction.Bank_Transaction_Money_AnotherColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bankRow[] GetbankRows() {
-                if ((this.Table.ChildRelations["Bank_fk1"] == null)) {
-                    return new bankRow[0];
-                }
-                else {
-                    return ((bankRow[])(base.GetChildRows(this.Table.ChildRelations["Bank_fk1"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class bankRowChangeEvent : global::System.EventArgs {
-            
-            private bankRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bankRowChangeEvent(bankRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
+            public void SetBank_Transaction_Money_AnotherNull() {
+                this[this.tablebank_transaction.Bank_Transaction_Money_AnotherColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bankRow Row {
-                get {
-                    return this.eventRow;
-                }
+            public bool IsBank_Transaction_Total_AnotherNull() {
+                return this.IsNull(this.tablebank_transaction.Bank_Transaction_Total_AnotherColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
+            public void SetBank_Transaction_Total_AnotherNull() {
+                this[this.tablebank_transaction.Bank_Transaction_Total_AnotherColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1708,498 +963,10 @@ namespace StockApps {
                 }
             }
         }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class currencyRowChangeEvent : global::System.EventArgs {
-            
-            private currencyRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public currencyRowChangeEvent(currencyRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public currencyRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
     }
 }
 namespace StockApps.dsBankTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class bankTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bankTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "bank";
-            tableMapping.ColumnMappings.Add("Bank_ID", "Bank_ID");
-            tableMapping.ColumnMappings.Add("Bank_Name", "Bank_Name");
-            tableMapping.ColumnMappings.Add("Currency_ID", "Currency_ID");
-            tableMapping.ColumnMappings.Add("Bank_Current_Money", "Bank_Current_Money");
-            tableMapping.ColumnMappings.Add("Bank_Status", "Bank_Status");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `bank` WHERE ((`Bank_ID` = @Original_Bank_ID) AND (`Bank_Name` = @Ori" +
-                "ginal_Bank_Name) AND (`Currency_ID` = @Original_Currency_ID) AND (`Bank_Current_" +
-                "Money` = @Original_Bank_Current_Money) AND (`Bank_Status` = @Original_Bank_Statu" +
-                "s))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Bank_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_ID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Bank_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Currency_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_ID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Bank_Current_Money";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Current_Money";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Bank_Status";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Status";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `bank` (`Bank_Name`, `Currency_ID`, `Bank_Current_Money`, `Bank_Statu" +
-                "s`) VALUES (@Bank_Name, @Currency_ID, @Bank_Current_Money, @Bank_Status)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Bank_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Name";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Currency_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_ID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Bank_Current_Money";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Current_Money";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Bank_Status";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Status";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `bank` SET `Bank_Name` = @Bank_Name, `Currency_ID` = @Currency_ID, `Bank_Current_Money` = @Bank_Current_Money, `Bank_Status` = @Bank_Status WHERE ((`Bank_ID` = @Original_Bank_ID) AND (`Bank_Name` = @Original_Bank_Name) AND (`Currency_ID` = @Original_Currency_ID) AND (`Bank_Current_Money` = @Original_Bank_Current_Money) AND (`Bank_Status` = @Original_Bank_Status))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Bank_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Name";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Currency_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_ID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Bank_Current_Money";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Current_Money";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Bank_Status";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Status";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Bank_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_ID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Bank_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Currency_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_ID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Bank_Current_Money";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Current_Money";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Bank_Status";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Bank_Status";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::StockApps.Properties.Settings.Default.stockappsConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Bank_ID`, `Bank_Name`, `Currency_ID`, `Bank_Current_Money`, `Bank_Status`" +
-                " FROM `bank`";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsBank.bankDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsBank.bankDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            dsBank.bankDataTable dataTable = new dsBank.bankDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsBank.bankDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsBank dataSet) {
-            return this.Adapter.Update(dataSet, "bank");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Bank_ID, string Original_Bank_Name, int Original_Currency_ID, decimal Original_Bank_Current_Money, int Original_Bank_Status) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Bank_ID));
-            if ((Original_Bank_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Bank_Name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Bank_Name));
-            }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Currency_ID));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(Original_Bank_Current_Money));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Bank_Status));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Bank_Name, int Currency_ID, decimal Bank_Current_Money, int Bank_Status) {
-            if ((Bank_Name == null)) {
-                throw new global::System.ArgumentNullException("Bank_Name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Bank_Name));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Currency_ID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Bank_Current_Money));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Bank_Status));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Bank_Name, int Currency_ID, decimal Bank_Current_Money, int Bank_Status, int Original_Bank_ID, string Original_Bank_Name, int Original_Currency_ID, decimal Original_Bank_Current_Money, int Original_Bank_Status) {
-            if ((Bank_Name == null)) {
-                throw new global::System.ArgumentNullException("Bank_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Bank_Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Currency_ID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Bank_Current_Money));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Bank_Status));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Bank_ID));
-            if ((Original_Bank_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Bank_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Bank_Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Currency_ID));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Original_Bank_Current_Money));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Bank_Status));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -2331,10 +1098,13 @@ namespace StockApps.dsBankTableAdapters {
             tableMapping.ColumnMappings.Add("Bank_Transaction_Total_Now", "Bank_Transaction_Total_Now");
             tableMapping.ColumnMappings.Add("Bank_Transaction_Description", "Bank_Transaction_Description");
             tableMapping.ColumnMappings.Add("Bank_Transaction_IsLast", "Bank_Transaction_IsLast");
+            tableMapping.ColumnMappings.Add("Bank_Transaction_Kurs", "Bank_Transaction_Kurs");
+            tableMapping.ColumnMappings.Add("Bank_Transaction_Money_Another", "Bank_Transaction_Money_Another");
+            tableMapping.ColumnMappings.Add("Bank_Transaction_Total_Another", "Bank_Transaction_Total_Another");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `bank_transaction` WHERE ((`Bank_Transaction_ID` = @Original_Bank_Transaction_ID) AND (`Bank_ID` = @Original_Bank_ID) AND (`Bank_Transaction_Date` = @Original_Bank_Transaction_Date) AND ((@IsNull_Bank_Transaction_Code = 1 AND `Bank_Transaction_Code` IS NULL) OR (`Bank_Transaction_Code` = @Original_Bank_Transaction_Code)) AND (`Bank_Transaction_IsDebit` = @Original_Bank_Transaction_IsDebit) AND (`Bank_Transaction_Money` = @Original_Bank_Transaction_Money) AND (`Bank_Transaction_Total_Now` = @Original_Bank_Transaction_Total_Now) AND ((@IsNull_Bank_Transaction_Description = 1 AND `Bank_Transaction_Description` IS NULL) OR (`Bank_Transaction_Description` = @Original_Bank_Transaction_Description)) AND (`Bank_Transaction_IsLast` = @Original_Bank_Transaction_IsLast))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `bank_transaction` WHERE ((`Bank_Transaction_ID` = @Original_Bank_Transaction_ID) AND (`Bank_ID` = @Original_Bank_ID) AND (`Bank_Transaction_Date` = @Original_Bank_Transaction_Date) AND ((@IsNull_Bank_Transaction_Code = 1 AND `Bank_Transaction_Code` IS NULL) OR (`Bank_Transaction_Code` = @Original_Bank_Transaction_Code)) AND (`Bank_Transaction_IsDebit` = @Original_Bank_Transaction_IsDebit) AND (`Bank_Transaction_Money` = @Original_Bank_Transaction_Money) AND (`Bank_Transaction_Total_Now` = @Original_Bank_Transaction_Total_Now) AND ((@IsNull_Bank_Transaction_Description = 1 AND `Bank_Transaction_Description` IS NULL) OR (`Bank_Transaction_Description` = @Original_Bank_Transaction_Description)) AND (`Bank_Transaction_IsLast` = @Original_Bank_Transaction_IsLast) AND ((@IsNull_Bank_Transaction_Kurs = 1 AND `Bank_Transaction_Kurs` IS NULL) OR (`Bank_Transaction_Kurs` = @Original_Bank_Transaction_Kurs)) AND ((@IsNull_Bank_Transaction_Money_Another = 1 AND `Bank_Transaction_Money_Another` IS NULL) OR (`Bank_Transaction_Money_Another` = @Original_Bank_Transaction_Money_Another)) AND ((@IsNull_Bank_Transaction_Total_Another = 1 AND `Bank_Transaction_Total_Another` IS NULL) OR (`Bank_Transaction_Total_Another` = @Original_Bank_Transaction_Total_Another)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Bank_Transaction_ID";
@@ -2426,9 +1196,60 @@ namespace StockApps.dsBankTableAdapters {
             param.SourceColumn = "Bank_Transaction_IsLast";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Bank_Transaction_Kurs";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Kurs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Bank_Transaction_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Kurs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Bank_Transaction_Money_Another";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Money_Another";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Bank_Transaction_Money_Another";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Money_Another";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Bank_Transaction_Total_Another";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Total_Another";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Bank_Transaction_Total_Another";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Total_Another";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `bank_transaction` (`Bank_Transaction_ID`, `Bank_ID`, `Bank_Transaction_Date`, `Bank_Transaction_Code`, `Bank_Transaction_IsDebit`, `Bank_Transaction_Money`, `Bank_Transaction_Total_Now`, `Bank_Transaction_Description`, `Bank_Transaction_IsLast`) VALUES (@Bank_Transaction_ID, @Bank_ID, @Bank_Transaction_Date, @Bank_Transaction_Code, @Bank_Transaction_IsDebit, @Bank_Transaction_Money, @Bank_Transaction_Total_Now, @Bank_Transaction_Description, @Bank_Transaction_IsLast)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `bank_transaction` (`Bank_Transaction_ID`, `Bank_ID`, `Bank_Transaction_Date`, `Bank_Transaction_Code`, `Bank_Transaction_IsDebit`, `Bank_Transaction_Money`, `Bank_Transaction_Total_Now`, `Bank_Transaction_Description`, `Bank_Transaction_IsLast`, `Bank_Transaction_Kurs`, `Bank_Transaction_Money_Another`, `Bank_Transaction_Total_Another`) VALUES (@Bank_Transaction_ID, @Bank_ID, @Bank_Transaction_Date, @Bank_Transaction_Code, @Bank_Transaction_IsDebit, @Bank_Transaction_Money, @Bank_Transaction_Total_Now, @Bank_Transaction_Description, @Bank_Transaction_IsLast, @Bank_Transaction_Kurs, @Bank_Transaction_Money_Another, @Bank_Transaction_Total_Another)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Bank_Transaction_ID";
@@ -2493,9 +1314,53 @@ namespace StockApps.dsBankTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Bank_Transaction_IsLast";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Bank_Transaction_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Kurs";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Bank_Transaction_Money_Another";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Money_Another";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Bank_Transaction_Total_Another";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Total_Another";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `bank_transaction` SET `Bank_Transaction_ID` = @Bank_Transaction_ID, `Bank_ID` = @Bank_ID, `Bank_Transaction_Date` = @Bank_Transaction_Date, `Bank_Transaction_Code` = @Bank_Transaction_Code, `Bank_Transaction_IsDebit` = @Bank_Transaction_IsDebit, `Bank_Transaction_Money` = @Bank_Transaction_Money, `Bank_Transaction_Total_Now` = @Bank_Transaction_Total_Now, `Bank_Transaction_Description` = @Bank_Transaction_Description, `Bank_Transaction_IsLast` = @Bank_Transaction_IsLast WHERE ((`Bank_Transaction_ID` = @Original_Bank_Transaction_ID) AND (`Bank_ID` = @Original_Bank_ID) AND (`Bank_Transaction_Date` = @Original_Bank_Transaction_Date) AND ((@IsNull_Bank_Transaction_Code = 1 AND `Bank_Transaction_Code` IS NULL) OR (`Bank_Transaction_Code` = @Original_Bank_Transaction_Code)) AND (`Bank_Transaction_IsDebit` = @Original_Bank_Transaction_IsDebit) AND (`Bank_Transaction_Money` = @Original_Bank_Transaction_Money) AND (`Bank_Transaction_Total_Now` = @Original_Bank_Transaction_Total_Now) AND ((@IsNull_Bank_Transaction_Description = 1 AND `Bank_Transaction_Description` IS NULL) OR (`Bank_Transaction_Description` = @Original_Bank_Transaction_Description)) AND (`Bank_Transaction_IsLast` = @Original_Bank_Transaction_IsLast))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `bank_transaction` SET `Bank_Transaction_ID` = @Bank_Transaction_ID, `Bank" +
+                "_ID` = @Bank_ID, `Bank_Transaction_Date` = @Bank_Transaction_Date, `Bank_Transac" +
+                "tion_Code` = @Bank_Transaction_Code, `Bank_Transaction_IsDebit` = @Bank_Transact" +
+                "ion_IsDebit, `Bank_Transaction_Money` = @Bank_Transaction_Money, `Bank_Transacti" +
+                "on_Total_Now` = @Bank_Transaction_Total_Now, `Bank_Transaction_Description` = @B" +
+                "ank_Transaction_Description, `Bank_Transaction_IsLast` = @Bank_Transaction_IsLas" +
+                "t, `Bank_Transaction_Kurs` = @Bank_Transaction_Kurs, `Bank_Transaction_Money_Ano" +
+                "ther` = @Bank_Transaction_Money_Another, `Bank_Transaction_Total_Another` = @Ban" +
+                "k_Transaction_Total_Another WHERE ((`Bank_Transaction_ID` = @Original_Bank_Trans" +
+                "action_ID) AND (`Bank_ID` = @Original_Bank_ID) AND (`Bank_Transaction_Date` = @O" +
+                "riginal_Bank_Transaction_Date) AND ((@IsNull_Bank_Transaction_Code = 1 AND `Bank" +
+                "_Transaction_Code` IS NULL) OR (`Bank_Transaction_Code` = @Original_Bank_Transac" +
+                "tion_Code)) AND (`Bank_Transaction_IsDebit` = @Original_Bank_Transaction_IsDebit" +
+                ") AND (`Bank_Transaction_Money` = @Original_Bank_Transaction_Money) AND (`Bank_T" +
+                "ransaction_Total_Now` = @Original_Bank_Transaction_Total_Now) AND ((@IsNull_Bank" +
+                "_Transaction_Description = 1 AND `Bank_Transaction_Description` IS NULL) OR (`Ba" +
+                "nk_Transaction_Description` = @Original_Bank_Transaction_Description)) AND (`Ban" +
+                "k_Transaction_IsLast` = @Original_Bank_Transaction_IsLast) AND ((@IsNull_Bank_Tr" +
+                "ansaction_Kurs = 1 AND `Bank_Transaction_Kurs` IS NULL) OR (`Bank_Transaction_Ku" +
+                "rs` = @Original_Bank_Transaction_Kurs)) AND ((@IsNull_Bank_Transaction_Money_Ano" +
+                "ther = 1 AND `Bank_Transaction_Money_Another` IS NULL) OR (`Bank_Transaction_Mon" +
+                "ey_Another` = @Original_Bank_Transaction_Money_Another)) AND ((@IsNull_Bank_Tran" +
+                "saction_Total_Another = 1 AND `Bank_Transaction_Total_Another` IS NULL) OR (`Ban" +
+                "k_Transaction_Total_Another` = @Original_Bank_Transaction_Total_Another)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Bank_Transaction_ID";
@@ -2559,6 +1424,27 @@ namespace StockApps.dsBankTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Bank_Transaction_IsLast";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Bank_Transaction_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Kurs";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Bank_Transaction_Money_Another";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Money_Another";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Bank_Transaction_Total_Another";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Total_Another";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Bank_Transaction_ID";
@@ -2650,6 +1536,57 @@ namespace StockApps.dsBankTableAdapters {
             param.SourceColumn = "Bank_Transaction_IsLast";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Bank_Transaction_Kurs";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Kurs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Bank_Transaction_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Kurs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Bank_Transaction_Money_Another";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Money_Another";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Bank_Transaction_Money_Another";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Money_Another";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Bank_Transaction_Total_Another";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Total_Another";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Bank_Transaction_Total_Another";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Bank_Transaction_Total_Another";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2665,7 +1602,7 @@ namespace StockApps.dsBankTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT `Bank_Transaction_ID`, `Bank_ID`, `Bank_Transaction_Date`, `Bank_Transaction_Code`, `Bank_Transaction_IsDebit`, `Bank_Transaction_Money`, `Bank_Transaction_Total_Now`, `Bank_Transaction_Description`, `Bank_Transaction_IsLast` FROM `bank_transaction`";
+            this._commandCollection[0].CommandText = @"SELECT `Bank_Transaction_ID`, `Bank_ID`, `Bank_Transaction_Date`, `Bank_Transaction_Code`, `Bank_Transaction_IsDebit`, `Bank_Transaction_Money`, `Bank_Transaction_Total_Now`, `Bank_Transaction_Description`, `Bank_Transaction_IsLast`, `Bank_Transaction_Kurs`, `Bank_Transaction_Money_Another`, `Bank_Transaction_Total_Another` FROM `bank_transaction`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2726,7 +1663,7 @@ namespace StockApps.dsBankTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Bank_Transaction_ID, int Original_Bank_ID, System.DateTime Original_Bank_Transaction_Date, string Original_Bank_Transaction_Code, int Original_Bank_Transaction_IsDebit, decimal Original_Bank_Transaction_Money, decimal Original_Bank_Transaction_Total_Now, string Original_Bank_Transaction_Description, int Original_Bank_Transaction_IsLast) {
+        public virtual int Delete(string Original_Bank_Transaction_ID, int Original_Bank_ID, System.DateTime Original_Bank_Transaction_Date, string Original_Bank_Transaction_Code, int Original_Bank_Transaction_IsDebit, decimal Original_Bank_Transaction_Money, decimal Original_Bank_Transaction_Total_Now, string Original_Bank_Transaction_Description, int Original_Bank_Transaction_IsLast, global::System.Nullable<decimal> Original_Bank_Transaction_Kurs, global::System.Nullable<decimal> Original_Bank_Transaction_Money_Another, global::System.Nullable<decimal> Original_Bank_Transaction_Total_Another) {
             if ((Original_Bank_Transaction_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_Bank_Transaction_ID");
             }
@@ -2755,6 +1692,30 @@ namespace StockApps.dsBankTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Bank_Transaction_Description));
             }
             this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_Bank_Transaction_IsLast));
+            if ((Original_Bank_Transaction_Kurs.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_Bank_Transaction_Kurs.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Bank_Transaction_Money_Another.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((decimal)(Original_Bank_Transaction_Money_Another.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Bank_Transaction_Total_Another.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(Original_Bank_Transaction_Total_Another.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2775,7 +1736,7 @@ namespace StockApps.dsBankTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Bank_Transaction_ID, int Bank_ID, System.DateTime Bank_Transaction_Date, string Bank_Transaction_Code, int Bank_Transaction_IsDebit, decimal Bank_Transaction_Money, decimal Bank_Transaction_Total_Now, string Bank_Transaction_Description, int Bank_Transaction_IsLast) {
+        public virtual int Insert(string Bank_Transaction_ID, int Bank_ID, System.DateTime Bank_Transaction_Date, string Bank_Transaction_Code, int Bank_Transaction_IsDebit, decimal Bank_Transaction_Money, decimal Bank_Transaction_Total_Now, string Bank_Transaction_Description, int Bank_Transaction_IsLast, global::System.Nullable<decimal> Bank_Transaction_Kurs, global::System.Nullable<decimal> Bank_Transaction_Money_Another, global::System.Nullable<decimal> Bank_Transaction_Total_Another) {
             if ((Bank_Transaction_ID == null)) {
                 throw new global::System.ArgumentNullException("Bank_Transaction_ID");
             }
@@ -2800,6 +1761,24 @@ namespace StockApps.dsBankTableAdapters {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Bank_Transaction_Description));
             }
             this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Bank_Transaction_IsLast));
+            if ((Bank_Transaction_Kurs.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(Bank_Transaction_Kurs.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Bank_Transaction_Money_Another.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Bank_Transaction_Money_Another.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Bank_Transaction_Total_Another.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((decimal)(Bank_Transaction_Total_Another.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2830,6 +1809,9 @@ namespace StockApps.dsBankTableAdapters {
                     decimal Bank_Transaction_Total_Now, 
                     string Bank_Transaction_Description, 
                     int Bank_Transaction_IsLast, 
+                    global::System.Nullable<decimal> Bank_Transaction_Kurs, 
+                    global::System.Nullable<decimal> Bank_Transaction_Money_Another, 
+                    global::System.Nullable<decimal> Bank_Transaction_Total_Another, 
                     string Original_Bank_Transaction_ID, 
                     int Original_Bank_ID, 
                     System.DateTime Original_Bank_Transaction_Date, 
@@ -2838,7 +1820,10 @@ namespace StockApps.dsBankTableAdapters {
                     decimal Original_Bank_Transaction_Money, 
                     decimal Original_Bank_Transaction_Total_Now, 
                     string Original_Bank_Transaction_Description, 
-                    int Original_Bank_Transaction_IsLast) {
+                    int Original_Bank_Transaction_IsLast, 
+                    global::System.Nullable<decimal> Original_Bank_Transaction_Kurs, 
+                    global::System.Nullable<decimal> Original_Bank_Transaction_Money_Another, 
+                    global::System.Nullable<decimal> Original_Bank_Transaction_Total_Another) {
             if ((Bank_Transaction_ID == null)) {
                 throw new global::System.ArgumentNullException("Bank_Transaction_ID");
             }
@@ -2863,34 +1848,76 @@ namespace StockApps.dsBankTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Bank_Transaction_Description));
             }
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Bank_Transaction_IsLast));
+            if ((Bank_Transaction_Kurs.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Bank_Transaction_Kurs.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Bank_Transaction_Money_Another.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Bank_Transaction_Money_Another.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Bank_Transaction_Total_Another.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Bank_Transaction_Total_Another.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             if ((Original_Bank_Transaction_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_Bank_Transaction_ID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Bank_Transaction_ID));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Bank_Transaction_ID));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Bank_ID));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_Bank_Transaction_Date));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Bank_ID));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_Bank_Transaction_Date));
             if ((Original_Bank_Transaction_Code == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Bank_Transaction_Code));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Bank_Transaction_Code));
             }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Bank_Transaction_IsDebit));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_Bank_Transaction_Money));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_Bank_Transaction_Total_Now));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Bank_Transaction_IsDebit));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_Bank_Transaction_Money));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_Bank_Transaction_Total_Now));
             if ((Original_Bank_Transaction_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Bank_Transaction_Description));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Bank_Transaction_Description));
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Bank_Transaction_IsLast));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Bank_Transaction_IsLast));
+            if ((Original_Bank_Transaction_Kurs.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((decimal)(Original_Bank_Transaction_Kurs.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Bank_Transaction_Money_Another.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(Original_Bank_Transaction_Money_Another.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Bank_Transaction_Total_Another.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(Original_Bank_Transaction_Total_Another.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2920,6 +1947,9 @@ namespace StockApps.dsBankTableAdapters {
                     decimal Bank_Transaction_Total_Now, 
                     string Bank_Transaction_Description, 
                     int Bank_Transaction_IsLast, 
+                    global::System.Nullable<decimal> Bank_Transaction_Kurs, 
+                    global::System.Nullable<decimal> Bank_Transaction_Money_Another, 
+                    global::System.Nullable<decimal> Bank_Transaction_Total_Another, 
                     string Original_Bank_Transaction_ID, 
                     int Original_Bank_ID, 
                     System.DateTime Original_Bank_Transaction_Date, 
@@ -2928,354 +1958,11 @@ namespace StockApps.dsBankTableAdapters {
                     decimal Original_Bank_Transaction_Money, 
                     decimal Original_Bank_Transaction_Total_Now, 
                     string Original_Bank_Transaction_Description, 
-                    int Original_Bank_Transaction_IsLast) {
-            return this.Update(Original_Bank_Transaction_ID, Bank_ID, Bank_Transaction_Date, Bank_Transaction_Code, Bank_Transaction_IsDebit, Bank_Transaction_Money, Bank_Transaction_Total_Now, Bank_Transaction_Description, Bank_Transaction_IsLast, Original_Bank_Transaction_ID, Original_Bank_ID, Original_Bank_Transaction_Date, Original_Bank_Transaction_Code, Original_Bank_Transaction_IsDebit, Original_Bank_Transaction_Money, Original_Bank_Transaction_Total_Now, Original_Bank_Transaction_Description, Original_Bank_Transaction_IsLast);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class currencyTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public currencyTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "currency";
-            tableMapping.ColumnMappings.Add("Currency_ID", "Currency_ID");
-            tableMapping.ColumnMappings.Add("Currency_Name", "Currency_Name");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `currency` WHERE ((`Currency_ID` = @Original_Currency_ID) AND (`Curre" +
-                "ncy_Name` = @Original_Currency_Name))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Currency_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_ID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Currency_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_Name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `currency` (`Currency_Name`) VALUES (@Currency_Name)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Currency_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_Name";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `currency` SET `Currency_Name` = @Currency_Name WHERE ((`Currency_ID` = @O" +
-                "riginal_Currency_ID) AND (`Currency_Name` = @Original_Currency_Name))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Currency_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_Name";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Currency_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_ID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Currency_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Currency_Name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::StockApps.Properties.Settings.Default.stockappsConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Currency_ID`, `Currency_Name` FROM `currency`";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsBank.currencyDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsBank.currencyDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            dsBank.currencyDataTable dataTable = new dsBank.currencyDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsBank.currencyDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsBank dataSet) {
-            return this.Adapter.Update(dataSet, "currency");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Currency_ID, string Original_Currency_Name) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Currency_ID));
-            if ((Original_Currency_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Currency_Name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Currency_Name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Currency_Name) {
-            if ((Currency_Name == null)) {
-                throw new global::System.ArgumentNullException("Currency_Name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Currency_Name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Currency_Name, int Original_Currency_ID, string Original_Currency_Name) {
-            if ((Currency_Name == null)) {
-                throw new global::System.ArgumentNullException("Currency_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Currency_Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_Currency_ID));
-            if ((Original_Currency_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Currency_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Currency_Name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
+                    int Original_Bank_Transaction_IsLast, 
+                    global::System.Nullable<decimal> Original_Bank_Transaction_Kurs, 
+                    global::System.Nullable<decimal> Original_Bank_Transaction_Money_Another, 
+                    global::System.Nullable<decimal> Original_Bank_Transaction_Total_Another) {
+            return this.Update(Original_Bank_Transaction_ID, Bank_ID, Bank_Transaction_Date, Bank_Transaction_Code, Bank_Transaction_IsDebit, Bank_Transaction_Money, Bank_Transaction_Total_Now, Bank_Transaction_Description, Bank_Transaction_IsLast, Bank_Transaction_Kurs, Bank_Transaction_Money_Another, Bank_Transaction_Total_Another, Original_Bank_Transaction_ID, Original_Bank_ID, Original_Bank_Transaction_Date, Original_Bank_Transaction_Code, Original_Bank_Transaction_IsDebit, Original_Bank_Transaction_Money, Original_Bank_Transaction_Total_Now, Original_Bank_Transaction_Description, Original_Bank_Transaction_IsLast, Original_Bank_Transaction_Kurs, Original_Bank_Transaction_Money_Another, Original_Bank_Transaction_Total_Another);
         }
     }
     
@@ -3291,11 +1978,7 @@ namespace StockApps.dsBankTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private bankTableAdapter _bankTableAdapter;
-        
         private bank_transactionTableAdapter _bank_transactionTableAdapter;
-        
-        private currencyTableAdapter _currencyTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -3317,40 +2000,12 @@ namespace StockApps.dsBankTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public bankTableAdapter bankTableAdapter {
-            get {
-                return this._bankTableAdapter;
-            }
-            set {
-                this._bankTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public bank_transactionTableAdapter bank_transactionTableAdapter {
             get {
                 return this._bank_transactionTableAdapter;
             }
             set {
                 this._bank_transactionTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public currencyTableAdapter currencyTableAdapter {
-            get {
-                return this._currencyTableAdapter;
-            }
-            set {
-                this._currencyTableAdapter = value;
             }
         }
         
@@ -3373,17 +2028,9 @@ namespace StockApps.dsBankTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._bankTableAdapter != null) 
-                            && (this._bankTableAdapter.Connection != null))) {
-                    return this._bankTableAdapter.Connection;
-                }
                 if (((this._bank_transactionTableAdapter != null) 
                             && (this._bank_transactionTableAdapter.Connection != null))) {
                     return this._bank_transactionTableAdapter.Connection;
-                }
-                if (((this._currencyTableAdapter != null) 
-                            && (this._currencyTableAdapter.Connection != null))) {
-                    return this._currencyTableAdapter.Connection;
                 }
                 return null;
             }
@@ -3398,13 +2045,7 @@ namespace StockApps.dsBankTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._bankTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._bank_transactionTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._currencyTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -3418,24 +2059,6 @@ namespace StockApps.dsBankTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(dsBank dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._currencyTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.currency.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._currencyTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._bankTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.bank.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._bankTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._bank_transactionTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.bank_transaction.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -3455,22 +2078,6 @@ namespace StockApps.dsBankTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(dsBank dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._currencyTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.currency.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._currencyTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._bankTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.bank.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._bankTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._bank_transactionTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.bank_transaction.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -3494,22 +2101,6 @@ namespace StockApps.dsBankTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._bank_transactionTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._bankTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.bank.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._bankTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._currencyTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.currency.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._currencyTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -3552,18 +2143,8 @@ namespace StockApps.dsBankTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._bankTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._bankTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._bank_transactionTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._bank_transactionTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._currencyTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._currencyTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -3599,15 +2180,6 @@ namespace StockApps.dsBankTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._bankTableAdapter != null)) {
-                    revertConnections.Add(this._bankTableAdapter, this._bankTableAdapter.Connection);
-                    this._bankTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._bankTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._bankTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._bankTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._bankTableAdapter.Adapter);
-                    }
-                }
                 if ((this._bank_transactionTableAdapter != null)) {
                     revertConnections.Add(this._bank_transactionTableAdapter, this._bank_transactionTableAdapter.Connection);
                     this._bank_transactionTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
@@ -3615,15 +2187,6 @@ namespace StockApps.dsBankTableAdapters {
                     if (this._bank_transactionTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._bank_transactionTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._bank_transactionTableAdapter.Adapter);
-                    }
-                }
-                if ((this._currencyTableAdapter != null)) {
-                    revertConnections.Add(this._currencyTableAdapter, this._currencyTableAdapter.Connection);
-                    this._currencyTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._currencyTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._currencyTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._currencyTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._currencyTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -3684,17 +2247,9 @@ namespace StockApps.dsBankTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._bankTableAdapter != null)) {
-                    this._bankTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._bankTableAdapter]));
-                    this._bankTableAdapter.Transaction = null;
-                }
                 if ((this._bank_transactionTableAdapter != null)) {
                     this._bank_transactionTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._bank_transactionTableAdapter]));
                     this._bank_transactionTableAdapter.Transaction = null;
-                }
-                if ((this._currencyTableAdapter != null)) {
-                    this._currencyTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._currencyTableAdapter]));
-                    this._currencyTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -34,9 +34,9 @@
             this._tadmUser = new System.Windows.Forms.TextBox();
             this._tadmPass = new System.Windows.Forms.TextBox();
             this._badmLogin = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this._lIdentityCompany = new System.Windows.Forms.Label();
+            this._lIdentityAddress = new System.Windows.Forms.Label();
+            this._lIdentityPhone = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -98,44 +98,48 @@
             this._badmLogin.UseVisualStyleBackColor = true;
             this._badmLogin.Click += new System.EventHandler(this._badmLogin_Click);
             // 
-            // label4
+            // _lIdentityCompany
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(237, 348);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(156, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "CV. WARNA MURNI";
+            this._lIdentityCompany.AutoSize = true;
+            this._lIdentityCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lIdentityCompany.Location = new System.Drawing.Point(237, 348);
+            this._lIdentityCompany.Name = "_lIdentityCompany";
+            this._lIdentityCompany.Size = new System.Drawing.Size(156, 20);
+            this._lIdentityCompany.TabIndex = 4;
+            this._lIdentityCompany.Text = "CV. WARNA MURNI";
+            this._lIdentityCompany.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label5
+            // _lIdentityAddress
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(212, 368);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(210, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Jln. Klampis Harapan 1 no. 1";
+            this._lIdentityAddress.AutoSize = true;
+            this._lIdentityAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lIdentityAddress.Location = new System.Drawing.Point(212, 368);
+            this._lIdentityAddress.MaximumSize = new System.Drawing.Size(250, 50);
+            this._lIdentityAddress.Name = "_lIdentityAddress";
+            this._lIdentityAddress.Size = new System.Drawing.Size(210, 20);
+            this._lIdentityAddress.TabIndex = 5;
+            this._lIdentityAddress.Text = "Jln. Klampis Harapan 1 no. 1";
+            this._lIdentityAddress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label6
+            // _lIdentityPhone
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(260, 388);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "031 - 5353535";
+            this._lIdentityPhone.AutoSize = true;
+            this._lIdentityPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lIdentityPhone.Location = new System.Drawing.Point(253, 413);
+            this._lIdentityPhone.Name = "_lIdentityPhone";
+            this._lIdentityPhone.Size = new System.Drawing.Size(112, 20);
+            this._lIdentityPhone.TabIndex = 6;
+            this._lIdentityPhone.Text = "031 - 5353535";
+            this._lIdentityPhone.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // _administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 442);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this._lIdentityPhone);
+            this.Controls.Add(this._lIdentityAddress);
+            this.Controls.Add(this._lIdentityCompany);
             this.Controls.Add(this._badmLogin);
             this.Controls.Add(this._tadmPass);
             this.Controls.Add(this._tadmUser);
@@ -159,8 +163,8 @@
         private System.Windows.Forms.TextBox _tadmUser;
         private System.Windows.Forms.TextBox _tadmPass;
         private System.Windows.Forms.Button _badmLogin;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label _lIdentityCompany;
+        private System.Windows.Forms.Label _lIdentityAddress;
+        private System.Windows.Forms.Label _lIdentityPhone;
     }
 }

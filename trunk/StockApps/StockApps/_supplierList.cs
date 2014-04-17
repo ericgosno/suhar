@@ -35,6 +35,8 @@ namespace StockApps
             _dgvspListSupplier.Columns["Supplier_Company_Name"].HeaderText = "Company Name";
             _dgvspListSupplier.Columns["Supplier_Regional"].HeaderText = "Regional";
 
+            _dgvspListSupplier.Columns["Supplier_Credit_Dollar"].Visible = false;
+            _dgvspListSupplier.Columns["Supplier_Credit_Rupiah"].Visible = false;
             _dgvspListSupplier.Columns["Supplier_Status"].Visible = false;
             _dgvspListSupplier.Columns["Supplier_ID"].Visible = false;
             _dgvspListSupplier.Columns["products"].Visible = false;

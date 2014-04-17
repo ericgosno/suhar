@@ -53,6 +53,9 @@
             this._lblNotifBank = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this._tNotifKurs = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,7 +182,7 @@
             // _bNotifInsert
             // 
             this._bNotifInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bNotifInsert.Location = new System.Drawing.Point(12, 399);
+            this._bNotifInsert.Location = new System.Drawing.Point(15, 428);
             this._bNotifInsert.Name = "_bNotifInsert";
             this._bNotifInsert.Size = new System.Drawing.Size(154, 37);
             this._bNotifInsert.TabIndex = 96;
@@ -267,7 +270,7 @@
             this.groupBox1.Controls.Add(this._cbNotifDelayDate);
             this.groupBox1.Controls.Add(this._rdNotifDelay);
             this.groupBox1.Controls.Add(this._rdNotifConfirm);
-            this.groupBox1.Location = new System.Drawing.Point(12, 231);
+            this.groupBox1.Location = new System.Drawing.Point(12, 269);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(601, 153);
             this.groupBox1.TabIndex = 104;
@@ -314,11 +317,43 @@
             this.label11.TabIndex = 105;
             this.label11.Text = "Bank";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(10, 228);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 29);
+            this.label4.TabIndex = 108;
+            this.label4.Text = "Kurs";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(205, 228);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(19, 29);
+            this.label12.TabIndex = 109;
+            this.label12.Text = ":";
+            // 
+            // _tNotifKurs
+            // 
+            this._tNotifKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._tNotifKurs.Location = new System.Drawing.Point(226, 228);
+            this._tNotifKurs.Name = "_tNotifKurs";
+            this._tNotifKurs.Size = new System.Drawing.Size(308, 35);
+            this._tNotifKurs.TabIndex = 110;
+            this._tNotifKurs.Text = "0";
+            // 
             // _notificationPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 448);
+            this.ClientSize = new System.Drawing.Size(641, 475);
+            this.Controls.Add(this._tNotifKurs);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this._lblNotifBank);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label11);
@@ -377,5 +412,8 @@
         private System.Windows.Forms.Label _lblNotifBank;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox _tNotifKurs;
     }
 }
