@@ -289,9 +289,15 @@ namespace StockApps {
             
             private global::System.Data.DataColumn columnSupplier_Credit_IsDebit;
             
-            private global::System.Data.DataColumn columnSupplier_Credit_Money;
+            private global::System.Data.DataColumn columnSupplier_Credit_Money_Dollar;
             
-            private global::System.Data.DataColumn columnSupplier_Credit_Total_Now;
+            private global::System.Data.DataColumn columnSupplier_Credit_Total_Dollar;
+            
+            private global::System.Data.DataColumn columnSupplier_Credit_Kurs;
+            
+            private global::System.Data.DataColumn columnSupplier_Credit_Money_Rupiah;
+            
+            private global::System.Data.DataColumn columnSupplier_Credit_Total_Rupiah;
             
             private global::System.Data.DataColumn columnSupplier_Credit_Description;
             
@@ -372,17 +378,41 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Supplier_Credit_MoneyColumn {
+            public global::System.Data.DataColumn Supplier_Credit_Money_DollarColumn {
                 get {
-                    return this.columnSupplier_Credit_Money;
+                    return this.columnSupplier_Credit_Money_Dollar;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Supplier_Credit_Total_NowColumn {
+            public global::System.Data.DataColumn Supplier_Credit_Total_DollarColumn {
                 get {
-                    return this.columnSupplier_Credit_Total_Now;
+                    return this.columnSupplier_Credit_Total_Dollar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Supplier_Credit_KursColumn {
+                get {
+                    return this.columnSupplier_Credit_Kurs;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Supplier_Credit_Money_RupiahColumn {
+                get {
+                    return this.columnSupplier_Credit_Money_Rupiah;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Supplier_Credit_Total_RupiahColumn {
+                get {
+                    return this.columnSupplier_Credit_Total_Rupiah;
                 }
             }
             
@@ -439,7 +469,7 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public supplier_creditRow Addsupplier_creditRow(string Supplier_Credit_ID, int Supplier_ID, System.DateTime Supplier_Credit_Date, string Supplier_Credit_Code, int Supplier_Credit_IsDebit, decimal Supplier_Credit_Money, decimal Supplier_Credit_Total_Now, string Supplier_Credit_Description, int Supplier_Credit_IsLast) {
+            public supplier_creditRow Addsupplier_creditRow(string Supplier_Credit_ID, int Supplier_ID, System.DateTime Supplier_Credit_Date, string Supplier_Credit_Code, int Supplier_Credit_IsDebit, decimal Supplier_Credit_Money_Dollar, decimal Supplier_Credit_Total_Dollar, decimal Supplier_Credit_Kurs, decimal Supplier_Credit_Money_Rupiah, decimal Supplier_Credit_Total_Rupiah, string Supplier_Credit_Description, int Supplier_Credit_IsLast) {
                 supplier_creditRow rowsupplier_creditRow = ((supplier_creditRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Supplier_Credit_ID,
@@ -447,8 +477,11 @@ namespace StockApps {
                         Supplier_Credit_Date,
                         Supplier_Credit_Code,
                         Supplier_Credit_IsDebit,
-                        Supplier_Credit_Money,
-                        Supplier_Credit_Total_Now,
+                        Supplier_Credit_Money_Dollar,
+                        Supplier_Credit_Total_Dollar,
+                        Supplier_Credit_Kurs,
+                        Supplier_Credit_Money_Rupiah,
+                        Supplier_Credit_Total_Rupiah,
                         Supplier_Credit_Description,
                         Supplier_Credit_IsLast};
                 rowsupplier_creditRow.ItemArray = columnValuesArray;
@@ -485,8 +518,11 @@ namespace StockApps {
                 this.columnSupplier_Credit_Date = base.Columns["Supplier_Credit_Date"];
                 this.columnSupplier_Credit_Code = base.Columns["Supplier_Credit_Code"];
                 this.columnSupplier_Credit_IsDebit = base.Columns["Supplier_Credit_IsDebit"];
-                this.columnSupplier_Credit_Money = base.Columns["Supplier_Credit_Money"];
-                this.columnSupplier_Credit_Total_Now = base.Columns["Supplier_Credit_Total_Now"];
+                this.columnSupplier_Credit_Money_Dollar = base.Columns["Supplier_Credit_Money_Dollar"];
+                this.columnSupplier_Credit_Total_Dollar = base.Columns["Supplier_Credit_Total_Dollar"];
+                this.columnSupplier_Credit_Kurs = base.Columns["Supplier_Credit_Kurs"];
+                this.columnSupplier_Credit_Money_Rupiah = base.Columns["Supplier_Credit_Money_Rupiah"];
+                this.columnSupplier_Credit_Total_Rupiah = base.Columns["Supplier_Credit_Total_Rupiah"];
                 this.columnSupplier_Credit_Description = base.Columns["Supplier_Credit_Description"];
                 this.columnSupplier_Credit_IsLast = base.Columns["Supplier_Credit_IsLast"];
             }
@@ -504,10 +540,16 @@ namespace StockApps {
                 base.Columns.Add(this.columnSupplier_Credit_Code);
                 this.columnSupplier_Credit_IsDebit = new global::System.Data.DataColumn("Supplier_Credit_IsDebit", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSupplier_Credit_IsDebit);
-                this.columnSupplier_Credit_Money = new global::System.Data.DataColumn("Supplier_Credit_Money", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSupplier_Credit_Money);
-                this.columnSupplier_Credit_Total_Now = new global::System.Data.DataColumn("Supplier_Credit_Total_Now", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSupplier_Credit_Total_Now);
+                this.columnSupplier_Credit_Money_Dollar = new global::System.Data.DataColumn("Supplier_Credit_Money_Dollar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplier_Credit_Money_Dollar);
+                this.columnSupplier_Credit_Total_Dollar = new global::System.Data.DataColumn("Supplier_Credit_Total_Dollar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplier_Credit_Total_Dollar);
+                this.columnSupplier_Credit_Kurs = new global::System.Data.DataColumn("Supplier_Credit_Kurs", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplier_Credit_Kurs);
+                this.columnSupplier_Credit_Money_Rupiah = new global::System.Data.DataColumn("Supplier_Credit_Money_Rupiah", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplier_Credit_Money_Rupiah);
+                this.columnSupplier_Credit_Total_Rupiah = new global::System.Data.DataColumn("Supplier_Credit_Total_Rupiah", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplier_Credit_Total_Rupiah);
                 this.columnSupplier_Credit_Description = new global::System.Data.DataColumn("Supplier_Credit_Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSupplier_Credit_Description);
                 this.columnSupplier_Credit_IsLast = new global::System.Data.DataColumn("Supplier_Credit_IsLast", typeof(int), null, global::System.Data.MappingType.Element);
@@ -521,8 +563,11 @@ namespace StockApps {
                 this.columnSupplier_Credit_Date.AllowDBNull = false;
                 this.columnSupplier_Credit_Code.MaxLength = 20;
                 this.columnSupplier_Credit_IsDebit.AllowDBNull = false;
-                this.columnSupplier_Credit_Money.AllowDBNull = false;
-                this.columnSupplier_Credit_Total_Now.AllowDBNull = false;
+                this.columnSupplier_Credit_Money_Dollar.AllowDBNull = false;
+                this.columnSupplier_Credit_Total_Dollar.AllowDBNull = false;
+                this.columnSupplier_Credit_Kurs.AllowDBNull = false;
+                this.columnSupplier_Credit_Money_Rupiah.AllowDBNull = false;
+                this.columnSupplier_Credit_Total_Rupiah.AllowDBNull = false;
                 this.columnSupplier_Credit_Description.MaxLength = 200;
                 this.columnSupplier_Credit_IsLast.AllowDBNull = false;
             }
@@ -728,23 +773,56 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Supplier_Credit_Money {
+            public decimal Supplier_Credit_Money_Dollar {
                 get {
-                    return ((decimal)(this[this.tablesupplier_credit.Supplier_Credit_MoneyColumn]));
+                    return ((decimal)(this[this.tablesupplier_credit.Supplier_Credit_Money_DollarColumn]));
                 }
                 set {
-                    this[this.tablesupplier_credit.Supplier_Credit_MoneyColumn] = value;
+                    this[this.tablesupplier_credit.Supplier_Credit_Money_DollarColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Supplier_Credit_Total_Now {
+            public decimal Supplier_Credit_Total_Dollar {
                 get {
-                    return ((decimal)(this[this.tablesupplier_credit.Supplier_Credit_Total_NowColumn]));
+                    return ((decimal)(this[this.tablesupplier_credit.Supplier_Credit_Total_DollarColumn]));
                 }
                 set {
-                    this[this.tablesupplier_credit.Supplier_Credit_Total_NowColumn] = value;
+                    this[this.tablesupplier_credit.Supplier_Credit_Total_DollarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Supplier_Credit_Kurs {
+                get {
+                    return ((decimal)(this[this.tablesupplier_credit.Supplier_Credit_KursColumn]));
+                }
+                set {
+                    this[this.tablesupplier_credit.Supplier_Credit_KursColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Supplier_Credit_Money_Rupiah {
+                get {
+                    return ((decimal)(this[this.tablesupplier_credit.Supplier_Credit_Money_RupiahColumn]));
+                }
+                set {
+                    this[this.tablesupplier_credit.Supplier_Credit_Money_RupiahColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Supplier_Credit_Total_Rupiah {
+                get {
+                    return ((decimal)(this[this.tablesupplier_credit.Supplier_Credit_Total_RupiahColumn]));
+                }
+                set {
+                    this[this.tablesupplier_credit.Supplier_Credit_Total_RupiahColumn] = value;
                 }
             }
             
@@ -965,14 +1043,17 @@ namespace StockApps.dsSupplierCreditTableAdapters {
             tableMapping.ColumnMappings.Add("Supplier_Credit_Date", "Supplier_Credit_Date");
             tableMapping.ColumnMappings.Add("Supplier_Credit_Code", "Supplier_Credit_Code");
             tableMapping.ColumnMappings.Add("Supplier_Credit_IsDebit", "Supplier_Credit_IsDebit");
-            tableMapping.ColumnMappings.Add("Supplier_Credit_Money", "Supplier_Credit_Money");
-            tableMapping.ColumnMappings.Add("Supplier_Credit_Total_Now", "Supplier_Credit_Total_Now");
+            tableMapping.ColumnMappings.Add("Supplier_Credit_Money_Dollar", "Supplier_Credit_Money_Dollar");
+            tableMapping.ColumnMappings.Add("Supplier_Credit_Total_Dollar", "Supplier_Credit_Total_Dollar");
+            tableMapping.ColumnMappings.Add("Supplier_Credit_Kurs", "Supplier_Credit_Kurs");
+            tableMapping.ColumnMappings.Add("Supplier_Credit_Money_Rupiah", "Supplier_Credit_Money_Rupiah");
+            tableMapping.ColumnMappings.Add("Supplier_Credit_Total_Rupiah", "Supplier_Credit_Total_Rupiah");
             tableMapping.ColumnMappings.Add("Supplier_Credit_Description", "Supplier_Credit_Description");
             tableMapping.ColumnMappings.Add("Supplier_Credit_IsLast", "Supplier_Credit_IsLast");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `supplier_credit` WHERE ((`Supplier_Credit_ID` = @Original_Supplier_Credit_ID) AND (`Supplier_ID` = @Original_Supplier_ID) AND (`Supplier_Credit_Date` = @Original_Supplier_Credit_Date) AND ((@IsNull_Supplier_Credit_Code = 1 AND `Supplier_Credit_Code` IS NULL) OR (`Supplier_Credit_Code` = @Original_Supplier_Credit_Code)) AND (`Supplier_Credit_IsDebit` = @Original_Supplier_Credit_IsDebit) AND (`Supplier_Credit_Money` = @Original_Supplier_Credit_Money) AND (`Supplier_Credit_Total_Now` = @Original_Supplier_Credit_Total_Now) AND ((@IsNull_Supplier_Credit_Description = 1 AND `Supplier_Credit_Description` IS NULL) OR (`Supplier_Credit_Description` = @Original_Supplier_Credit_Description)) AND (`Supplier_Credit_IsLast` = @Original_Supplier_Credit_IsLast))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `supplier_credit` WHERE ((`Supplier_Credit_ID` = @Original_Supplier_Credit_ID) AND (`Supplier_ID` = @Original_Supplier_ID) AND (`Supplier_Credit_Date` = @Original_Supplier_Credit_Date) AND ((@IsNull_Supplier_Credit_Code = 1 AND `Supplier_Credit_Code` IS NULL) OR (`Supplier_Credit_Code` = @Original_Supplier_Credit_Code)) AND (`Supplier_Credit_IsDebit` = @Original_Supplier_Credit_IsDebit) AND (`Supplier_Credit_Money_Dollar` = @Original_Supplier_Credit_Money_Dollar) AND (`Supplier_Credit_Total_Dollar` = @Original_Supplier_Credit_Total_Dollar) AND (`Supplier_Credit_Kurs` = @Original_Supplier_Credit_Kurs) AND (`Supplier_Credit_Money_Rupiah` = @Original_Supplier_Credit_Money_Rupiah) AND (`Supplier_Credit_Total_Rupiah` = @Original_Supplier_Credit_Total_Rupiah) AND ((@IsNull_Supplier_Credit_Description = 1 AND `Supplier_Credit_Description` IS NULL) OR (`Supplier_Credit_Description` = @Original_Supplier_Credit_Description)) AND (`Supplier_Credit_IsLast` = @Original_Supplier_Credit_IsLast))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Supplier_Credit_ID";
@@ -1024,19 +1105,43 @@ namespace StockApps.dsSupplierCreditTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Supplier_Credit_Money";
+            param.ParameterName = "@Original_Supplier_Credit_Money_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Supplier_Credit_Money";
+            param.SourceColumn = "Supplier_Credit_Money_Dollar";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Supplier_Credit_Total_Now";
+            param.ParameterName = "@Original_Supplier_Credit_Total_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Supplier_Credit_Total_Now";
+            param.SourceColumn = "Supplier_Credit_Total_Dollar";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Supplier_Credit_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Kurs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Supplier_Credit_Money_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Money_Rupiah";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Supplier_Credit_Total_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Total_Rupiah";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1066,7 +1171,7 @@ namespace StockApps.dsSupplierCreditTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `supplier_credit` (`Supplier_Credit_ID`, `Supplier_ID`, `Supplier_Credit_Date`, `Supplier_Credit_Code`, `Supplier_Credit_IsDebit`, `Supplier_Credit_Money`, `Supplier_Credit_Total_Now`, `Supplier_Credit_Description`, `Supplier_Credit_IsLast`) VALUES (@Supplier_Credit_ID, @Supplier_ID, @Supplier_Credit_Date, @Supplier_Credit_Code, @Supplier_Credit_IsDebit, @Supplier_Credit_Money, @Supplier_Credit_Total_Now, @Supplier_Credit_Description, @Supplier_Credit_IsLast)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `supplier_credit` (`Supplier_Credit_ID`, `Supplier_ID`, `Supplier_Credit_Date`, `Supplier_Credit_Code`, `Supplier_Credit_IsDebit`, `Supplier_Credit_Money_Dollar`, `Supplier_Credit_Total_Dollar`, `Supplier_Credit_Kurs`, `Supplier_Credit_Money_Rupiah`, `Supplier_Credit_Total_Rupiah`, `Supplier_Credit_Description`, `Supplier_Credit_IsLast`) VALUES (@Supplier_Credit_ID, @Supplier_ID, @Supplier_Credit_Date, @Supplier_Credit_Code, @Supplier_Credit_IsDebit, @Supplier_Credit_Money_Dollar, @Supplier_Credit_Total_Dollar, @Supplier_Credit_Kurs, @Supplier_Credit_Money_Rupiah, @Supplier_Credit_Total_Rupiah, @Supplier_Credit_Description, @Supplier_Credit_IsLast)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Supplier_Credit_ID";
@@ -1104,18 +1209,39 @@ namespace StockApps.dsSupplierCreditTableAdapters {
             param.SourceColumn = "Supplier_Credit_IsDebit";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Supplier_Credit_Money";
+            param.ParameterName = "@Supplier_Credit_Money_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Supplier_Credit_Money";
+            param.SourceColumn = "Supplier_Credit_Money_Dollar";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Supplier_Credit_Total_Now";
+            param.ParameterName = "@Supplier_Credit_Total_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Supplier_Credit_Total_Now";
+            param.SourceColumn = "Supplier_Credit_Total_Dollar";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Supplier_Credit_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Kurs";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Supplier_Credit_Money_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Money_Rupiah";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Supplier_Credit_Total_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Total_Rupiah";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Supplier_Credit_Description";
@@ -1133,7 +1259,27 @@ namespace StockApps.dsSupplierCreditTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `supplier_credit` SET `Supplier_Credit_ID` = @Supplier_Credit_ID, `Supplier_ID` = @Supplier_ID, `Supplier_Credit_Date` = @Supplier_Credit_Date, `Supplier_Credit_Code` = @Supplier_Credit_Code, `Supplier_Credit_IsDebit` = @Supplier_Credit_IsDebit, `Supplier_Credit_Money` = @Supplier_Credit_Money, `Supplier_Credit_Total_Now` = @Supplier_Credit_Total_Now, `Supplier_Credit_Description` = @Supplier_Credit_Description, `Supplier_Credit_IsLast` = @Supplier_Credit_IsLast WHERE ((`Supplier_Credit_ID` = @Original_Supplier_Credit_ID) AND (`Supplier_ID` = @Original_Supplier_ID) AND (`Supplier_Credit_Date` = @Original_Supplier_Credit_Date) AND ((@IsNull_Supplier_Credit_Code = 1 AND `Supplier_Credit_Code` IS NULL) OR (`Supplier_Credit_Code` = @Original_Supplier_Credit_Code)) AND (`Supplier_Credit_IsDebit` = @Original_Supplier_Credit_IsDebit) AND (`Supplier_Credit_Money` = @Original_Supplier_Credit_Money) AND (`Supplier_Credit_Total_Now` = @Original_Supplier_Credit_Total_Now) AND ((@IsNull_Supplier_Credit_Description = 1 AND `Supplier_Credit_Description` IS NULL) OR (`Supplier_Credit_Description` = @Original_Supplier_Credit_Description)) AND (`Supplier_Credit_IsLast` = @Original_Supplier_Credit_IsLast))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `supplier_credit` SET `Supplier_Credit_ID` = @Supplier_Credit_ID, `Supplie" +
+                "r_ID` = @Supplier_ID, `Supplier_Credit_Date` = @Supplier_Credit_Date, `Supplier_" +
+                "Credit_Code` = @Supplier_Credit_Code, `Supplier_Credit_IsDebit` = @Supplier_Cred" +
+                "it_IsDebit, `Supplier_Credit_Money_Dollar` = @Supplier_Credit_Money_Dollar, `Sup" +
+                "plier_Credit_Total_Dollar` = @Supplier_Credit_Total_Dollar, `Supplier_Credit_Kur" +
+                "s` = @Supplier_Credit_Kurs, `Supplier_Credit_Money_Rupiah` = @Supplier_Credit_Mo" +
+                "ney_Rupiah, `Supplier_Credit_Total_Rupiah` = @Supplier_Credit_Total_Rupiah, `Sup" +
+                "plier_Credit_Description` = @Supplier_Credit_Description, `Supplier_Credit_IsLas" +
+                "t` = @Supplier_Credit_IsLast WHERE ((`Supplier_Credit_ID` = @Original_Supplier_C" +
+                "redit_ID) AND (`Supplier_ID` = @Original_Supplier_ID) AND (`Supplier_Credit_Date" +
+                "` = @Original_Supplier_Credit_Date) AND ((@IsNull_Supplier_Credit_Code = 1 AND `" +
+                "Supplier_Credit_Code` IS NULL) OR (`Supplier_Credit_Code` = @Original_Supplier_C" +
+                "redit_Code)) AND (`Supplier_Credit_IsDebit` = @Original_Supplier_Credit_IsDebit)" +
+                " AND (`Supplier_Credit_Money_Dollar` = @Original_Supplier_Credit_Money_Dollar) A" +
+                "ND (`Supplier_Credit_Total_Dollar` = @Original_Supplier_Credit_Total_Dollar) AND" +
+                " (`Supplier_Credit_Kurs` = @Original_Supplier_Credit_Kurs) AND (`Supplier_Credit" +
+                "_Money_Rupiah` = @Original_Supplier_Credit_Money_Rupiah) AND (`Supplier_Credit_T" +
+                "otal_Rupiah` = @Original_Supplier_Credit_Total_Rupiah) AND ((@IsNull_Supplier_Cr" +
+                "edit_Description = 1 AND `Supplier_Credit_Description` IS NULL) OR (`Supplier_Cr" +
+                "edit_Description` = @Original_Supplier_Credit_Description)) AND (`Supplier_Credi" +
+                "t_IsLast` = @Original_Supplier_Credit_IsLast))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Supplier_Credit_ID";
@@ -1171,18 +1317,39 @@ namespace StockApps.dsSupplierCreditTableAdapters {
             param.SourceColumn = "Supplier_Credit_IsDebit";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Supplier_Credit_Money";
+            param.ParameterName = "@Supplier_Credit_Money_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Supplier_Credit_Money";
+            param.SourceColumn = "Supplier_Credit_Money_Dollar";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Supplier_Credit_Total_Now";
+            param.ParameterName = "@Supplier_Credit_Total_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Supplier_Credit_Total_Now";
+            param.SourceColumn = "Supplier_Credit_Total_Dollar";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Supplier_Credit_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Kurs";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Supplier_Credit_Money_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Money_Rupiah";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Supplier_Credit_Total_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Total_Rupiah";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Supplier_Credit_Description";
@@ -1248,19 +1415,43 @@ namespace StockApps.dsSupplierCreditTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Supplier_Credit_Money";
+            param.ParameterName = "@Original_Supplier_Credit_Money_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Supplier_Credit_Money";
+            param.SourceColumn = "Supplier_Credit_Money_Dollar";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Supplier_Credit_Total_Now";
+            param.ParameterName = "@Original_Supplier_Credit_Total_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Supplier_Credit_Total_Now";
+            param.SourceColumn = "Supplier_Credit_Total_Dollar";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Supplier_Credit_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Kurs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Supplier_Credit_Money_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Money_Rupiah";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Supplier_Credit_Total_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Supplier_Credit_Total_Rupiah";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1303,10 +1494,7 @@ namespace StockApps.dsSupplierCreditTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Supplier_Credit_ID`, `Supplier_ID`, `Supplier_Credit_Date`, `Supplier_Cre" +
-                "dit_Code`, `Supplier_Credit_IsDebit`, `Supplier_Credit_Money`, `Supplier_Credit_" +
-                "Total_Now`, `Supplier_Credit_Description`, `Supplier_Credit_IsLast` FROM `suppli" +
-                "er_credit`";
+            this._commandCollection[0].CommandText = @"SELECT `Supplier_Credit_ID`, `Supplier_ID`, `Supplier_Credit_Date`, `Supplier_Credit_Code`, `Supplier_Credit_IsDebit`, `Supplier_Credit_Money_Dollar`, `Supplier_Credit_Total_Dollar`, `Supplier_Credit_Kurs`, `Supplier_Credit_Money_Rupiah`, `Supplier_Credit_Total_Rupiah`, `Supplier_Credit_Description`, `Supplier_Credit_IsLast` FROM `supplier_credit`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1367,7 +1555,7 @@ namespace StockApps.dsSupplierCreditTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Supplier_Credit_ID, int Original_Supplier_ID, System.DateTime Original_Supplier_Credit_Date, string Original_Supplier_Credit_Code, int Original_Supplier_Credit_IsDebit, decimal Original_Supplier_Credit_Money, decimal Original_Supplier_Credit_Total_Now, string Original_Supplier_Credit_Description, int Original_Supplier_Credit_IsLast) {
+        public virtual int Delete(string Original_Supplier_Credit_ID, int Original_Supplier_ID, System.DateTime Original_Supplier_Credit_Date, string Original_Supplier_Credit_Code, int Original_Supplier_Credit_IsDebit, decimal Original_Supplier_Credit_Money_Dollar, decimal Original_Supplier_Credit_Total_Dollar, decimal Original_Supplier_Credit_Kurs, decimal Original_Supplier_Credit_Money_Rupiah, decimal Original_Supplier_Credit_Total_Rupiah, string Original_Supplier_Credit_Description, int Original_Supplier_Credit_IsLast) {
             if ((Original_Supplier_Credit_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_Supplier_Credit_ID");
             }
@@ -1385,17 +1573,20 @@ namespace StockApps.dsSupplierCreditTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Supplier_Credit_Code));
             }
             this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Supplier_Credit_IsDebit));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Supplier_Credit_Money));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_Supplier_Credit_Total_Now));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Supplier_Credit_Money_Dollar));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_Supplier_Credit_Total_Dollar));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_Supplier_Credit_Kurs));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_Supplier_Credit_Money_Rupiah));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Supplier_Credit_Total_Rupiah));
             if ((Original_Supplier_Credit_Description == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Supplier_Credit_Description));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Supplier_Credit_Description));
             }
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_Supplier_Credit_IsLast));
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_Supplier_Credit_IsLast));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1416,7 +1607,7 @@ namespace StockApps.dsSupplierCreditTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Supplier_Credit_ID, int Supplier_ID, System.DateTime Supplier_Credit_Date, string Supplier_Credit_Code, int Supplier_Credit_IsDebit, decimal Supplier_Credit_Money, decimal Supplier_Credit_Total_Now, string Supplier_Credit_Description, int Supplier_Credit_IsLast) {
+        public virtual int Insert(string Supplier_Credit_ID, int Supplier_ID, System.DateTime Supplier_Credit_Date, string Supplier_Credit_Code, int Supplier_Credit_IsDebit, decimal Supplier_Credit_Money_Dollar, decimal Supplier_Credit_Total_Dollar, decimal Supplier_Credit_Kurs, decimal Supplier_Credit_Money_Rupiah, decimal Supplier_Credit_Total_Rupiah, string Supplier_Credit_Description, int Supplier_Credit_IsLast) {
             if ((Supplier_Credit_ID == null)) {
                 throw new global::System.ArgumentNullException("Supplier_Credit_ID");
             }
@@ -1432,15 +1623,18 @@ namespace StockApps.dsSupplierCreditTableAdapters {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Supplier_Credit_Code));
             }
             this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Supplier_Credit_IsDebit));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Supplier_Credit_Money));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Supplier_Credit_Total_Now));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Supplier_Credit_Money_Dollar));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Supplier_Credit_Total_Dollar));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(Supplier_Credit_Kurs));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(Supplier_Credit_Money_Rupiah));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(Supplier_Credit_Total_Rupiah));
             if ((Supplier_Credit_Description == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Supplier_Credit_Description));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Supplier_Credit_Description));
             }
-            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Supplier_Credit_IsLast));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((int)(Supplier_Credit_IsLast));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1467,8 +1661,11 @@ namespace StockApps.dsSupplierCreditTableAdapters {
                     System.DateTime Supplier_Credit_Date, 
                     string Supplier_Credit_Code, 
                     int Supplier_Credit_IsDebit, 
-                    decimal Supplier_Credit_Money, 
-                    decimal Supplier_Credit_Total_Now, 
+                    decimal Supplier_Credit_Money_Dollar, 
+                    decimal Supplier_Credit_Total_Dollar, 
+                    decimal Supplier_Credit_Kurs, 
+                    decimal Supplier_Credit_Money_Rupiah, 
+                    decimal Supplier_Credit_Total_Rupiah, 
                     string Supplier_Credit_Description, 
                     int Supplier_Credit_IsLast, 
                     string Original_Supplier_Credit_ID, 
@@ -1476,8 +1673,11 @@ namespace StockApps.dsSupplierCreditTableAdapters {
                     System.DateTime Original_Supplier_Credit_Date, 
                     string Original_Supplier_Credit_Code, 
                     int Original_Supplier_Credit_IsDebit, 
-                    decimal Original_Supplier_Credit_Money, 
-                    decimal Original_Supplier_Credit_Total_Now, 
+                    decimal Original_Supplier_Credit_Money_Dollar, 
+                    decimal Original_Supplier_Credit_Total_Dollar, 
+                    decimal Original_Supplier_Credit_Kurs, 
+                    decimal Original_Supplier_Credit_Money_Rupiah, 
+                    decimal Original_Supplier_Credit_Total_Rupiah, 
                     string Original_Supplier_Credit_Description, 
                     int Original_Supplier_Credit_IsLast) {
             if ((Supplier_Credit_ID == null)) {
@@ -1495,43 +1695,49 @@ namespace StockApps.dsSupplierCreditTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Supplier_Credit_Code));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Supplier_Credit_IsDebit));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Supplier_Credit_Money));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Supplier_Credit_Total_Now));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Supplier_Credit_Money_Dollar));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Supplier_Credit_Total_Dollar));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Supplier_Credit_Kurs));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(Supplier_Credit_Money_Rupiah));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Supplier_Credit_Total_Rupiah));
             if ((Supplier_Credit_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Supplier_Credit_Description));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Supplier_Credit_Description));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Supplier_Credit_IsLast));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Supplier_Credit_IsLast));
             if ((Original_Supplier_Credit_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_Supplier_Credit_ID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Supplier_Credit_ID));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Supplier_Credit_ID));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Supplier_ID));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_Supplier_Credit_Date));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Supplier_ID));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_Supplier_Credit_Date));
             if ((Original_Supplier_Credit_Code == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Supplier_Credit_Code));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Supplier_Credit_Code));
             }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Supplier_Credit_IsDebit));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_Supplier_Credit_Money));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_Supplier_Credit_Total_Now));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Supplier_Credit_IsDebit));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_Supplier_Credit_Money_Dollar));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_Supplier_Credit_Total_Dollar));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_Supplier_Credit_Kurs));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_Supplier_Credit_Money_Rupiah));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(Original_Supplier_Credit_Total_Rupiah));
             if ((Original_Supplier_Credit_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Supplier_Credit_Description));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Supplier_Credit_Description));
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Supplier_Credit_IsLast));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Supplier_Credit_IsLast));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1557,8 +1763,11 @@ namespace StockApps.dsSupplierCreditTableAdapters {
                     System.DateTime Supplier_Credit_Date, 
                     string Supplier_Credit_Code, 
                     int Supplier_Credit_IsDebit, 
-                    decimal Supplier_Credit_Money, 
-                    decimal Supplier_Credit_Total_Now, 
+                    decimal Supplier_Credit_Money_Dollar, 
+                    decimal Supplier_Credit_Total_Dollar, 
+                    decimal Supplier_Credit_Kurs, 
+                    decimal Supplier_Credit_Money_Rupiah, 
+                    decimal Supplier_Credit_Total_Rupiah, 
                     string Supplier_Credit_Description, 
                     int Supplier_Credit_IsLast, 
                     string Original_Supplier_Credit_ID, 
@@ -1566,11 +1775,14 @@ namespace StockApps.dsSupplierCreditTableAdapters {
                     System.DateTime Original_Supplier_Credit_Date, 
                     string Original_Supplier_Credit_Code, 
                     int Original_Supplier_Credit_IsDebit, 
-                    decimal Original_Supplier_Credit_Money, 
-                    decimal Original_Supplier_Credit_Total_Now, 
+                    decimal Original_Supplier_Credit_Money_Dollar, 
+                    decimal Original_Supplier_Credit_Total_Dollar, 
+                    decimal Original_Supplier_Credit_Kurs, 
+                    decimal Original_Supplier_Credit_Money_Rupiah, 
+                    decimal Original_Supplier_Credit_Total_Rupiah, 
                     string Original_Supplier_Credit_Description, 
                     int Original_Supplier_Credit_IsLast) {
-            return this.Update(Original_Supplier_Credit_ID, Supplier_ID, Supplier_Credit_Date, Supplier_Credit_Code, Supplier_Credit_IsDebit, Supplier_Credit_Money, Supplier_Credit_Total_Now, Supplier_Credit_Description, Supplier_Credit_IsLast, Original_Supplier_Credit_ID, Original_Supplier_ID, Original_Supplier_Credit_Date, Original_Supplier_Credit_Code, Original_Supplier_Credit_IsDebit, Original_Supplier_Credit_Money, Original_Supplier_Credit_Total_Now, Original_Supplier_Credit_Description, Original_Supplier_Credit_IsLast);
+            return this.Update(Original_Supplier_Credit_ID, Supplier_ID, Supplier_Credit_Date, Supplier_Credit_Code, Supplier_Credit_IsDebit, Supplier_Credit_Money_Dollar, Supplier_Credit_Total_Dollar, Supplier_Credit_Kurs, Supplier_Credit_Money_Rupiah, Supplier_Credit_Total_Rupiah, Supplier_Credit_Description, Supplier_Credit_IsLast, Original_Supplier_Credit_ID, Original_Supplier_ID, Original_Supplier_Credit_Date, Original_Supplier_Credit_Code, Original_Supplier_Credit_IsDebit, Original_Supplier_Credit_Money_Dollar, Original_Supplier_Credit_Total_Dollar, Original_Supplier_Credit_Kurs, Original_Supplier_Credit_Money_Rupiah, Original_Supplier_Credit_Total_Rupiah, Original_Supplier_Credit_Description, Original_Supplier_Credit_IsLast);
         }
     }
     

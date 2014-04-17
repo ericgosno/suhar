@@ -47,7 +47,8 @@ namespace StockApps
                             Price_History_Date = join.price_history.Price_History_Date + "",
                             Price_History_Price = join.price_history.Price_History_Price  + " "  + join.currency.Currency_Name + "",
                             Price_History_Stock = join.price_history.Price_History_Stock + "",
-                            Price_History_Used_Stock = join.price_history.Price_History_Used_Stock + ""                            
+                            Price_History_Used_Stock = join.price_history.Price_History_Used_Stock + "" ,
+                            Price_History_Remaining_Stock = (join.price_history.Price_History_Stock - join.price_history.Price_History_Used_Stock) + ""
                         })
                         .ToList();
                 _dataPriceHistory.DataSource = list;
@@ -55,7 +56,7 @@ namespace StockApps
                 _dataPriceHistory.Columns["Price_History_Price"].HeaderText = "Price";
                 _dataPriceHistory.Columns["Price_History_Stock"].HeaderText = "Stock";
                 _dataPriceHistory.Columns["Price_History_Used_Stock"].HeaderText = "Used Stock";
-
+                _dataPriceHistory.Columns["Price_History_Remaining_Stock"].HeaderText = "Remaining Stock";
                 _dataPriceHistory.Columns["Price_History_ID"].Visible = false;
                 //_dataPriceHistory.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }

@@ -42,14 +42,24 @@ namespace StockApps
         {
             if (_rdNotifConfirm.Checked)
             {
+                decimal kurs = 0;
+                try
+                {
+                    kurs = Convert.ToDecimal(_tNotifKurs.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kurs must be decimal!");
+                    return;
+                }
                 // Confirm payment by changing status
                 SupplierTransaction.confirmPayment(paymentNow.Supplier_Payment_ID);
                 // Insert credit to customer debt list
-                SupplierController.insertSupplierCredit(paymentNow.Supplier_ID, paymentNow.Supplier_Payment_Deadline_Date, "CRD", false, paymentNow.Supplier_Payment_Total_Rupiah, "Pembayaran untuk transaksi " + paymentNow.Supplier_Payment_ID);
+                SupplierController.insertSupplierCredit(paymentNow.Supplier_ID, paymentNow.Supplier_Payment_Deadline_Date, "CRD", false, (paymentNow.bank.Currency_ID == 1) ? paymentNow.Supplier_Payment_Total_Dollar : paymentNow.Supplier_Payment_Total_Rupiah, "Pembayaran untuk transaksi " + paymentNow.Supplier_Payment_ID, kurs, paymentNow.bank.Currency_ID);
                 // Insert to Bank
                 string code = (paymentNow.Payment_Category_ID == 1) ? "CSHCRD" : "BGCRD";
                 code = code + "-" + paymentNow.Supplier_ID.ToString("D3");
-                BankController.insertBankTransaction(paymentNow.Bank_ID, paymentNow.Supplier_Payment_Deadline_Date, code, false, (paymentNow.bank.Currency_ID == 1) ? paymentNow.Supplier_Payment_Total_Dollar : paymentNow.Supplier_Payment_Total_Rupiah, "Pembayaran " + paymentNow.payment_category.Payment_Category_Name + " untuk transaksi " + paymentNow.Supplier_Payment_ID);
+                BankController.insertBankTransaction(paymentNow.Bank_ID, paymentNow.Supplier_Payment_Deadline_Date, code, false, (paymentNow.bank.Currency_ID == 1) ? paymentNow.Supplier_Payment_Total_Dollar : paymentNow.Supplier_Payment_Total_Rupiah, "Pembayaran " + paymentNow.payment_category.Payment_Category_Name + " untuk transaksi " + paymentNow.Supplier_Payment_ID,kurs);
             }
             if (_rdNotifDelay.Checked)
             {

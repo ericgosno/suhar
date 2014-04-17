@@ -289,9 +289,15 @@ namespace StockApps {
             
             private global::System.Data.DataColumn columnCustomer_Debt_IsDebit;
             
-            private global::System.Data.DataColumn columnCustomer_Debt_Money;
+            private global::System.Data.DataColumn columnCustomer_Debt_Money_Dollar;
             
-            private global::System.Data.DataColumn columnCustomer_Debt_Total_Now;
+            private global::System.Data.DataColumn columnCustomer_Debt_Total_Dollar;
+            
+            private global::System.Data.DataColumn columnCustomer_Debt_Kurs;
+            
+            private global::System.Data.DataColumn columnCustomer_Debt_Money_Rupiah;
+            
+            private global::System.Data.DataColumn columnCustomer_Debt_Total_Rupiah;
             
             private global::System.Data.DataColumn columnCustomer_Debt_Description;
             
@@ -372,17 +378,41 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Customer_Debt_MoneyColumn {
+            public global::System.Data.DataColumn Customer_Debt_Money_DollarColumn {
                 get {
-                    return this.columnCustomer_Debt_Money;
+                    return this.columnCustomer_Debt_Money_Dollar;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Customer_Debt_Total_NowColumn {
+            public global::System.Data.DataColumn Customer_Debt_Total_DollarColumn {
                 get {
-                    return this.columnCustomer_Debt_Total_Now;
+                    return this.columnCustomer_Debt_Total_Dollar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Customer_Debt_KursColumn {
+                get {
+                    return this.columnCustomer_Debt_Kurs;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Customer_Debt_Money_RupiahColumn {
+                get {
+                    return this.columnCustomer_Debt_Money_Rupiah;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Customer_Debt_Total_RupiahColumn {
+                get {
+                    return this.columnCustomer_Debt_Total_Rupiah;
                 }
             }
             
@@ -439,7 +469,7 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public customer_debtRow Addcustomer_debtRow(string Customer_Debt_ID, int Customer_ID, System.DateTime Customer_Debt_Date, string Customer_Debt_Code, int Customer_Debt_IsDebit, decimal Customer_Debt_Money, decimal Customer_Debt_Total_Now, string Customer_Debt_Description, int Customer_Debt_IsLast) {
+            public customer_debtRow Addcustomer_debtRow(string Customer_Debt_ID, int Customer_ID, System.DateTime Customer_Debt_Date, string Customer_Debt_Code, int Customer_Debt_IsDebit, decimal Customer_Debt_Money_Dollar, decimal Customer_Debt_Total_Dollar, decimal Customer_Debt_Kurs, decimal Customer_Debt_Money_Rupiah, decimal Customer_Debt_Total_Rupiah, string Customer_Debt_Description, int Customer_Debt_IsLast) {
                 customer_debtRow rowcustomer_debtRow = ((customer_debtRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Customer_Debt_ID,
@@ -447,8 +477,11 @@ namespace StockApps {
                         Customer_Debt_Date,
                         Customer_Debt_Code,
                         Customer_Debt_IsDebit,
-                        Customer_Debt_Money,
-                        Customer_Debt_Total_Now,
+                        Customer_Debt_Money_Dollar,
+                        Customer_Debt_Total_Dollar,
+                        Customer_Debt_Kurs,
+                        Customer_Debt_Money_Rupiah,
+                        Customer_Debt_Total_Rupiah,
                         Customer_Debt_Description,
                         Customer_Debt_IsLast};
                 rowcustomer_debtRow.ItemArray = columnValuesArray;
@@ -485,8 +518,11 @@ namespace StockApps {
                 this.columnCustomer_Debt_Date = base.Columns["Customer_Debt_Date"];
                 this.columnCustomer_Debt_Code = base.Columns["Customer_Debt_Code"];
                 this.columnCustomer_Debt_IsDebit = base.Columns["Customer_Debt_IsDebit"];
-                this.columnCustomer_Debt_Money = base.Columns["Customer_Debt_Money"];
-                this.columnCustomer_Debt_Total_Now = base.Columns["Customer_Debt_Total_Now"];
+                this.columnCustomer_Debt_Money_Dollar = base.Columns["Customer_Debt_Money_Dollar"];
+                this.columnCustomer_Debt_Total_Dollar = base.Columns["Customer_Debt_Total_Dollar"];
+                this.columnCustomer_Debt_Kurs = base.Columns["Customer_Debt_Kurs"];
+                this.columnCustomer_Debt_Money_Rupiah = base.Columns["Customer_Debt_Money_Rupiah"];
+                this.columnCustomer_Debt_Total_Rupiah = base.Columns["Customer_Debt_Total_Rupiah"];
                 this.columnCustomer_Debt_Description = base.Columns["Customer_Debt_Description"];
                 this.columnCustomer_Debt_IsLast = base.Columns["Customer_Debt_IsLast"];
             }
@@ -504,10 +540,16 @@ namespace StockApps {
                 base.Columns.Add(this.columnCustomer_Debt_Code);
                 this.columnCustomer_Debt_IsDebit = new global::System.Data.DataColumn("Customer_Debt_IsDebit", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer_Debt_IsDebit);
-                this.columnCustomer_Debt_Money = new global::System.Data.DataColumn("Customer_Debt_Money", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomer_Debt_Money);
-                this.columnCustomer_Debt_Total_Now = new global::System.Data.DataColumn("Customer_Debt_Total_Now", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomer_Debt_Total_Now);
+                this.columnCustomer_Debt_Money_Dollar = new global::System.Data.DataColumn("Customer_Debt_Money_Dollar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Debt_Money_Dollar);
+                this.columnCustomer_Debt_Total_Dollar = new global::System.Data.DataColumn("Customer_Debt_Total_Dollar", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Debt_Total_Dollar);
+                this.columnCustomer_Debt_Kurs = new global::System.Data.DataColumn("Customer_Debt_Kurs", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Debt_Kurs);
+                this.columnCustomer_Debt_Money_Rupiah = new global::System.Data.DataColumn("Customer_Debt_Money_Rupiah", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Debt_Money_Rupiah);
+                this.columnCustomer_Debt_Total_Rupiah = new global::System.Data.DataColumn("Customer_Debt_Total_Rupiah", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Debt_Total_Rupiah);
                 this.columnCustomer_Debt_Description = new global::System.Data.DataColumn("Customer_Debt_Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer_Debt_Description);
                 this.columnCustomer_Debt_IsLast = new global::System.Data.DataColumn("Customer_Debt_IsLast", typeof(int), null, global::System.Data.MappingType.Element);
@@ -521,8 +563,11 @@ namespace StockApps {
                 this.columnCustomer_Debt_Date.AllowDBNull = false;
                 this.columnCustomer_Debt_Code.MaxLength = 20;
                 this.columnCustomer_Debt_IsDebit.AllowDBNull = false;
-                this.columnCustomer_Debt_Money.AllowDBNull = false;
-                this.columnCustomer_Debt_Total_Now.AllowDBNull = false;
+                this.columnCustomer_Debt_Money_Dollar.AllowDBNull = false;
+                this.columnCustomer_Debt_Total_Dollar.AllowDBNull = false;
+                this.columnCustomer_Debt_Kurs.AllowDBNull = false;
+                this.columnCustomer_Debt_Money_Rupiah.AllowDBNull = false;
+                this.columnCustomer_Debt_Total_Rupiah.AllowDBNull = false;
                 this.columnCustomer_Debt_Description.MaxLength = 200;
                 this.columnCustomer_Debt_IsLast.AllowDBNull = false;
             }
@@ -727,23 +772,56 @@ namespace StockApps {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Customer_Debt_Money {
+            public decimal Customer_Debt_Money_Dollar {
                 get {
-                    return ((decimal)(this[this.tablecustomer_debt.Customer_Debt_MoneyColumn]));
+                    return ((decimal)(this[this.tablecustomer_debt.Customer_Debt_Money_DollarColumn]));
                 }
                 set {
-                    this[this.tablecustomer_debt.Customer_Debt_MoneyColumn] = value;
+                    this[this.tablecustomer_debt.Customer_Debt_Money_DollarColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Customer_Debt_Total_Now {
+            public decimal Customer_Debt_Total_Dollar {
                 get {
-                    return ((decimal)(this[this.tablecustomer_debt.Customer_Debt_Total_NowColumn]));
+                    return ((decimal)(this[this.tablecustomer_debt.Customer_Debt_Total_DollarColumn]));
                 }
                 set {
-                    this[this.tablecustomer_debt.Customer_Debt_Total_NowColumn] = value;
+                    this[this.tablecustomer_debt.Customer_Debt_Total_DollarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Customer_Debt_Kurs {
+                get {
+                    return ((decimal)(this[this.tablecustomer_debt.Customer_Debt_KursColumn]));
+                }
+                set {
+                    this[this.tablecustomer_debt.Customer_Debt_KursColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Customer_Debt_Money_Rupiah {
+                get {
+                    return ((decimal)(this[this.tablecustomer_debt.Customer_Debt_Money_RupiahColumn]));
+                }
+                set {
+                    this[this.tablecustomer_debt.Customer_Debt_Money_RupiahColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Customer_Debt_Total_Rupiah {
+                get {
+                    return ((decimal)(this[this.tablecustomer_debt.Customer_Debt_Total_RupiahColumn]));
+                }
+                set {
+                    this[this.tablecustomer_debt.Customer_Debt_Total_RupiahColumn] = value;
                 }
             }
             
@@ -964,14 +1042,17 @@ namespace StockApps.dsCustomerDebtTableAdapters {
             tableMapping.ColumnMappings.Add("Customer_Debt_Date", "Customer_Debt_Date");
             tableMapping.ColumnMappings.Add("Customer_Debt_Code", "Customer_Debt_Code");
             tableMapping.ColumnMappings.Add("Customer_Debt_IsDebit", "Customer_Debt_IsDebit");
-            tableMapping.ColumnMappings.Add("Customer_Debt_Money", "Customer_Debt_Money");
-            tableMapping.ColumnMappings.Add("Customer_Debt_Total_Now", "Customer_Debt_Total_Now");
+            tableMapping.ColumnMappings.Add("Customer_Debt_Money_Dollar", "Customer_Debt_Money_Dollar");
+            tableMapping.ColumnMappings.Add("Customer_Debt_Total_Dollar", "Customer_Debt_Total_Dollar");
+            tableMapping.ColumnMappings.Add("Customer_Debt_Kurs", "Customer_Debt_Kurs");
+            tableMapping.ColumnMappings.Add("Customer_Debt_Money_Rupiah", "Customer_Debt_Money_Rupiah");
+            tableMapping.ColumnMappings.Add("Customer_Debt_Total_Rupiah", "Customer_Debt_Total_Rupiah");
             tableMapping.ColumnMappings.Add("Customer_Debt_Description", "Customer_Debt_Description");
             tableMapping.ColumnMappings.Add("Customer_Debt_IsLast", "Customer_Debt_IsLast");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `customer_debt` WHERE ((`Customer_Debt_ID` = @Original_Customer_Debt_ID) AND (`Customer_ID` = @Original_Customer_ID) AND (`Customer_Debt_Date` = @Original_Customer_Debt_Date) AND ((@IsNull_Customer_Debt_Code = 1 AND `Customer_Debt_Code` IS NULL) OR (`Customer_Debt_Code` = @Original_Customer_Debt_Code)) AND (`Customer_Debt_IsDebit` = @Original_Customer_Debt_IsDebit) AND (`Customer_Debt_Money` = @Original_Customer_Debt_Money) AND (`Customer_Debt_Total_Now` = @Original_Customer_Debt_Total_Now) AND ((@IsNull_Customer_Debt_Description = 1 AND `Customer_Debt_Description` IS NULL) OR (`Customer_Debt_Description` = @Original_Customer_Debt_Description)) AND (`Customer_Debt_IsLast` = @Original_Customer_Debt_IsLast))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `customer_debt` WHERE ((`Customer_Debt_ID` = @Original_Customer_Debt_ID) AND (`Customer_ID` = @Original_Customer_ID) AND (`Customer_Debt_Date` = @Original_Customer_Debt_Date) AND ((@IsNull_Customer_Debt_Code = 1 AND `Customer_Debt_Code` IS NULL) OR (`Customer_Debt_Code` = @Original_Customer_Debt_Code)) AND (`Customer_Debt_IsDebit` = @Original_Customer_Debt_IsDebit) AND (`Customer_Debt_Money_Dollar` = @Original_Customer_Debt_Money_Dollar) AND (`Customer_Debt_Total_Dollar` = @Original_Customer_Debt_Total_Dollar) AND (`Customer_Debt_Kurs` = @Original_Customer_Debt_Kurs) AND (`Customer_Debt_Money_Rupiah` = @Original_Customer_Debt_Money_Rupiah) AND (`Customer_Debt_Total_Rupiah` = @Original_Customer_Debt_Total_Rupiah) AND ((@IsNull_Customer_Debt_Description = 1 AND `Customer_Debt_Description` IS NULL) OR (`Customer_Debt_Description` = @Original_Customer_Debt_Description)) AND (`Customer_Debt_IsLast` = @Original_Customer_Debt_IsLast))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Customer_Debt_ID";
@@ -1023,19 +1104,43 @@ namespace StockApps.dsCustomerDebtTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Customer_Debt_Money";
+            param.ParameterName = "@Original_Customer_Debt_Money_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Customer_Debt_Money";
+            param.SourceColumn = "Customer_Debt_Money_Dollar";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Customer_Debt_Total_Now";
+            param.ParameterName = "@Original_Customer_Debt_Total_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Customer_Debt_Total_Now";
+            param.SourceColumn = "Customer_Debt_Total_Dollar";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Customer_Debt_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Kurs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Customer_Debt_Money_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Money_Rupiah";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Customer_Debt_Total_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Total_Rupiah";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1065,7 +1170,7 @@ namespace StockApps.dsCustomerDebtTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `customer_debt` (`Customer_Debt_ID`, `Customer_ID`, `Customer_Debt_Date`, `Customer_Debt_Code`, `Customer_Debt_IsDebit`, `Customer_Debt_Money`, `Customer_Debt_Total_Now`, `Customer_Debt_Description`, `Customer_Debt_IsLast`) VALUES (@Customer_Debt_ID, @Customer_ID, @Customer_Debt_Date, @Customer_Debt_Code, @Customer_Debt_IsDebit, @Customer_Debt_Money, @Customer_Debt_Total_Now, @Customer_Debt_Description, @Customer_Debt_IsLast)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `customer_debt` (`Customer_Debt_ID`, `Customer_ID`, `Customer_Debt_Date`, `Customer_Debt_Code`, `Customer_Debt_IsDebit`, `Customer_Debt_Money_Dollar`, `Customer_Debt_Total_Dollar`, `Customer_Debt_Kurs`, `Customer_Debt_Money_Rupiah`, `Customer_Debt_Total_Rupiah`, `Customer_Debt_Description`, `Customer_Debt_IsLast`) VALUES (@Customer_Debt_ID, @Customer_ID, @Customer_Debt_Date, @Customer_Debt_Code, @Customer_Debt_IsDebit, @Customer_Debt_Money_Dollar, @Customer_Debt_Total_Dollar, @Customer_Debt_Kurs, @Customer_Debt_Money_Rupiah, @Customer_Debt_Total_Rupiah, @Customer_Debt_Description, @Customer_Debt_IsLast)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Customer_Debt_ID";
@@ -1103,18 +1208,39 @@ namespace StockApps.dsCustomerDebtTableAdapters {
             param.SourceColumn = "Customer_Debt_IsDebit";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Customer_Debt_Money";
+            param.ParameterName = "@Customer_Debt_Money_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Customer_Debt_Money";
+            param.SourceColumn = "Customer_Debt_Money_Dollar";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Customer_Debt_Total_Now";
+            param.ParameterName = "@Customer_Debt_Total_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Customer_Debt_Total_Now";
+            param.SourceColumn = "Customer_Debt_Total_Dollar";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Customer_Debt_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Kurs";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Customer_Debt_Money_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Money_Rupiah";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Customer_Debt_Total_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Total_Rupiah";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Customer_Debt_Description";
@@ -1132,7 +1258,26 @@ namespace StockApps.dsCustomerDebtTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `customer_debt` SET `Customer_Debt_ID` = @Customer_Debt_ID, `Customer_ID` = @Customer_ID, `Customer_Debt_Date` = @Customer_Debt_Date, `Customer_Debt_Code` = @Customer_Debt_Code, `Customer_Debt_IsDebit` = @Customer_Debt_IsDebit, `Customer_Debt_Money` = @Customer_Debt_Money, `Customer_Debt_Total_Now` = @Customer_Debt_Total_Now, `Customer_Debt_Description` = @Customer_Debt_Description, `Customer_Debt_IsLast` = @Customer_Debt_IsLast WHERE ((`Customer_Debt_ID` = @Original_Customer_Debt_ID) AND (`Customer_ID` = @Original_Customer_ID) AND (`Customer_Debt_Date` = @Original_Customer_Debt_Date) AND ((@IsNull_Customer_Debt_Code = 1 AND `Customer_Debt_Code` IS NULL) OR (`Customer_Debt_Code` = @Original_Customer_Debt_Code)) AND (`Customer_Debt_IsDebit` = @Original_Customer_Debt_IsDebit) AND (`Customer_Debt_Money` = @Original_Customer_Debt_Money) AND (`Customer_Debt_Total_Now` = @Original_Customer_Debt_Total_Now) AND ((@IsNull_Customer_Debt_Description = 1 AND `Customer_Debt_Description` IS NULL) OR (`Customer_Debt_Description` = @Original_Customer_Debt_Description)) AND (`Customer_Debt_IsLast` = @Original_Customer_Debt_IsLast))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `customer_debt` SET `Customer_Debt_ID` = @Customer_Debt_ID, `Customer_ID` " +
+                "= @Customer_ID, `Customer_Debt_Date` = @Customer_Debt_Date, `Customer_Debt_Code`" +
+                " = @Customer_Debt_Code, `Customer_Debt_IsDebit` = @Customer_Debt_IsDebit, `Custo" +
+                "mer_Debt_Money_Dollar` = @Customer_Debt_Money_Dollar, `Customer_Debt_Total_Dolla" +
+                "r` = @Customer_Debt_Total_Dollar, `Customer_Debt_Kurs` = @Customer_Debt_Kurs, `C" +
+                "ustomer_Debt_Money_Rupiah` = @Customer_Debt_Money_Rupiah, `Customer_Debt_Total_R" +
+                "upiah` = @Customer_Debt_Total_Rupiah, `Customer_Debt_Description` = @Customer_De" +
+                "bt_Description, `Customer_Debt_IsLast` = @Customer_Debt_IsLast WHERE ((`Customer" +
+                "_Debt_ID` = @Original_Customer_Debt_ID) AND (`Customer_ID` = @Original_Customer_" +
+                "ID) AND (`Customer_Debt_Date` = @Original_Customer_Debt_Date) AND ((@IsNull_Cust" +
+                "omer_Debt_Code = 1 AND `Customer_Debt_Code` IS NULL) OR (`Customer_Debt_Code` = " +
+                "@Original_Customer_Debt_Code)) AND (`Customer_Debt_IsDebit` = @Original_Customer" +
+                "_Debt_IsDebit) AND (`Customer_Debt_Money_Dollar` = @Original_Customer_Debt_Money" +
+                "_Dollar) AND (`Customer_Debt_Total_Dollar` = @Original_Customer_Debt_Total_Dolla" +
+                "r) AND (`Customer_Debt_Kurs` = @Original_Customer_Debt_Kurs) AND (`Customer_Debt" +
+                "_Money_Rupiah` = @Original_Customer_Debt_Money_Rupiah) AND (`Customer_Debt_Total" +
+                "_Rupiah` = @Original_Customer_Debt_Total_Rupiah) AND ((@IsNull_Customer_Debt_Des" +
+                "cription = 1 AND `Customer_Debt_Description` IS NULL) OR (`Customer_Debt_Descrip" +
+                "tion` = @Original_Customer_Debt_Description)) AND (`Customer_Debt_IsLast` = @Ori" +
+                "ginal_Customer_Debt_IsLast))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Customer_Debt_ID";
@@ -1170,18 +1315,39 @@ namespace StockApps.dsCustomerDebtTableAdapters {
             param.SourceColumn = "Customer_Debt_IsDebit";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Customer_Debt_Money";
+            param.ParameterName = "@Customer_Debt_Money_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Customer_Debt_Money";
+            param.SourceColumn = "Customer_Debt_Money_Dollar";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Customer_Debt_Total_Now";
+            param.ParameterName = "@Customer_Debt_Total_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Customer_Debt_Total_Now";
+            param.SourceColumn = "Customer_Debt_Total_Dollar";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Customer_Debt_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Kurs";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Customer_Debt_Money_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Money_Rupiah";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Customer_Debt_Total_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Total_Rupiah";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Customer_Debt_Description";
@@ -1247,19 +1413,43 @@ namespace StockApps.dsCustomerDebtTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Customer_Debt_Money";
+            param.ParameterName = "@Original_Customer_Debt_Money_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Customer_Debt_Money";
+            param.SourceColumn = "Customer_Debt_Money_Dollar";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Customer_Debt_Total_Now";
+            param.ParameterName = "@Original_Customer_Debt_Total_Dollar";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
-            param.SourceColumn = "Customer_Debt_Total_Now";
+            param.SourceColumn = "Customer_Debt_Total_Dollar";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Customer_Debt_Kurs";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Kurs";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Customer_Debt_Money_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Money_Rupiah";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Customer_Debt_Total_Rupiah";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Customer_Debt_Total_Rupiah";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -1302,9 +1492,7 @@ namespace StockApps.dsCustomerDebtTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Customer_Debt_ID`, `Customer_ID`, `Customer_Debt_Date`, `Customer_Debt_Co" +
-                "de`, `Customer_Debt_IsDebit`, `Customer_Debt_Money`, `Customer_Debt_Total_Now`, " +
-                "`Customer_Debt_Description`, `Customer_Debt_IsLast` FROM `customer_debt`";
+            this._commandCollection[0].CommandText = @"SELECT `Customer_Debt_ID`, `Customer_ID`, `Customer_Debt_Date`, `Customer_Debt_Code`, `Customer_Debt_IsDebit`, `Customer_Debt_Money_Dollar`, `Customer_Debt_Total_Dollar`, `Customer_Debt_Kurs`, `Customer_Debt_Money_Rupiah`, `Customer_Debt_Total_Rupiah`, `Customer_Debt_Description`, `Customer_Debt_IsLast` FROM `customer_debt`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1365,7 +1553,7 @@ namespace StockApps.dsCustomerDebtTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Customer_Debt_ID, int Original_Customer_ID, System.DateTime Original_Customer_Debt_Date, string Original_Customer_Debt_Code, int Original_Customer_Debt_IsDebit, decimal Original_Customer_Debt_Money, decimal Original_Customer_Debt_Total_Now, string Original_Customer_Debt_Description, int Original_Customer_Debt_IsLast) {
+        public virtual int Delete(string Original_Customer_Debt_ID, int Original_Customer_ID, System.DateTime Original_Customer_Debt_Date, string Original_Customer_Debt_Code, int Original_Customer_Debt_IsDebit, decimal Original_Customer_Debt_Money_Dollar, decimal Original_Customer_Debt_Total_Dollar, decimal Original_Customer_Debt_Kurs, decimal Original_Customer_Debt_Money_Rupiah, decimal Original_Customer_Debt_Total_Rupiah, string Original_Customer_Debt_Description, int Original_Customer_Debt_IsLast) {
             if ((Original_Customer_Debt_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_Customer_Debt_ID");
             }
@@ -1383,17 +1571,20 @@ namespace StockApps.dsCustomerDebtTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Customer_Debt_Code));
             }
             this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Customer_Debt_IsDebit));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Customer_Debt_Money));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_Customer_Debt_Total_Now));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_Customer_Debt_Money_Dollar));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_Customer_Debt_Total_Dollar));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_Customer_Debt_Kurs));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_Customer_Debt_Money_Rupiah));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Customer_Debt_Total_Rupiah));
             if ((Original_Customer_Debt_Description == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Customer_Debt_Description));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Customer_Debt_Description));
             }
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_Customer_Debt_IsLast));
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((int)(Original_Customer_Debt_IsLast));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1414,7 +1605,7 @@ namespace StockApps.dsCustomerDebtTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Customer_Debt_ID, int Customer_ID, System.DateTime Customer_Debt_Date, string Customer_Debt_Code, int Customer_Debt_IsDebit, decimal Customer_Debt_Money, decimal Customer_Debt_Total_Now, string Customer_Debt_Description, int Customer_Debt_IsLast) {
+        public virtual int Insert(string Customer_Debt_ID, int Customer_ID, System.DateTime Customer_Debt_Date, string Customer_Debt_Code, int Customer_Debt_IsDebit, decimal Customer_Debt_Money_Dollar, decimal Customer_Debt_Total_Dollar, decimal Customer_Debt_Kurs, decimal Customer_Debt_Money_Rupiah, decimal Customer_Debt_Total_Rupiah, string Customer_Debt_Description, int Customer_Debt_IsLast) {
             if ((Customer_Debt_ID == null)) {
                 throw new global::System.ArgumentNullException("Customer_Debt_ID");
             }
@@ -1430,15 +1621,18 @@ namespace StockApps.dsCustomerDebtTableAdapters {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Customer_Debt_Code));
             }
             this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Customer_Debt_IsDebit));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Customer_Debt_Money));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Customer_Debt_Total_Now));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Customer_Debt_Money_Dollar));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(Customer_Debt_Total_Dollar));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(Customer_Debt_Kurs));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(Customer_Debt_Money_Rupiah));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(Customer_Debt_Total_Rupiah));
             if ((Customer_Debt_Description == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Customer_Debt_Description));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Customer_Debt_Description));
             }
-            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Customer_Debt_IsLast));
+            this.Adapter.InsertCommand.Parameters[11].Value = ((int)(Customer_Debt_IsLast));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1465,8 +1659,11 @@ namespace StockApps.dsCustomerDebtTableAdapters {
                     System.DateTime Customer_Debt_Date, 
                     string Customer_Debt_Code, 
                     int Customer_Debt_IsDebit, 
-                    decimal Customer_Debt_Money, 
-                    decimal Customer_Debt_Total_Now, 
+                    decimal Customer_Debt_Money_Dollar, 
+                    decimal Customer_Debt_Total_Dollar, 
+                    decimal Customer_Debt_Kurs, 
+                    decimal Customer_Debt_Money_Rupiah, 
+                    decimal Customer_Debt_Total_Rupiah, 
                     string Customer_Debt_Description, 
                     int Customer_Debt_IsLast, 
                     string Original_Customer_Debt_ID, 
@@ -1474,8 +1671,11 @@ namespace StockApps.dsCustomerDebtTableAdapters {
                     System.DateTime Original_Customer_Debt_Date, 
                     string Original_Customer_Debt_Code, 
                     int Original_Customer_Debt_IsDebit, 
-                    decimal Original_Customer_Debt_Money, 
-                    decimal Original_Customer_Debt_Total_Now, 
+                    decimal Original_Customer_Debt_Money_Dollar, 
+                    decimal Original_Customer_Debt_Total_Dollar, 
+                    decimal Original_Customer_Debt_Kurs, 
+                    decimal Original_Customer_Debt_Money_Rupiah, 
+                    decimal Original_Customer_Debt_Total_Rupiah, 
                     string Original_Customer_Debt_Description, 
                     int Original_Customer_Debt_IsLast) {
             if ((Customer_Debt_ID == null)) {
@@ -1493,43 +1693,49 @@ namespace StockApps.dsCustomerDebtTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Customer_Debt_Code));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Customer_Debt_IsDebit));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Customer_Debt_Money));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Customer_Debt_Total_Now));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Customer_Debt_Money_Dollar));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Customer_Debt_Total_Dollar));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Customer_Debt_Kurs));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(Customer_Debt_Money_Rupiah));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Customer_Debt_Total_Rupiah));
             if ((Customer_Debt_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Customer_Debt_Description));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Customer_Debt_Description));
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Customer_Debt_IsLast));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Customer_Debt_IsLast));
             if ((Original_Customer_Debt_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_Customer_Debt_ID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Customer_Debt_ID));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Customer_Debt_ID));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Customer_ID));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_Customer_Debt_Date));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Customer_ID));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_Customer_Debt_Date));
             if ((Original_Customer_Debt_Code == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Customer_Debt_Code));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Customer_Debt_Code));
             }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Customer_Debt_IsDebit));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_Customer_Debt_Money));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_Customer_Debt_Total_Now));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Customer_Debt_IsDebit));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_Customer_Debt_Money_Dollar));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_Customer_Debt_Total_Dollar));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_Customer_Debt_Kurs));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_Customer_Debt_Money_Rupiah));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(Original_Customer_Debt_Total_Rupiah));
             if ((Original_Customer_Debt_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Customer_Debt_Description));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Customer_Debt_Description));
             }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Customer_Debt_IsLast));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Customer_Debt_IsLast));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1555,8 +1761,11 @@ namespace StockApps.dsCustomerDebtTableAdapters {
                     System.DateTime Customer_Debt_Date, 
                     string Customer_Debt_Code, 
                     int Customer_Debt_IsDebit, 
-                    decimal Customer_Debt_Money, 
-                    decimal Customer_Debt_Total_Now, 
+                    decimal Customer_Debt_Money_Dollar, 
+                    decimal Customer_Debt_Total_Dollar, 
+                    decimal Customer_Debt_Kurs, 
+                    decimal Customer_Debt_Money_Rupiah, 
+                    decimal Customer_Debt_Total_Rupiah, 
                     string Customer_Debt_Description, 
                     int Customer_Debt_IsLast, 
                     string Original_Customer_Debt_ID, 
@@ -1564,11 +1773,14 @@ namespace StockApps.dsCustomerDebtTableAdapters {
                     System.DateTime Original_Customer_Debt_Date, 
                     string Original_Customer_Debt_Code, 
                     int Original_Customer_Debt_IsDebit, 
-                    decimal Original_Customer_Debt_Money, 
-                    decimal Original_Customer_Debt_Total_Now, 
+                    decimal Original_Customer_Debt_Money_Dollar, 
+                    decimal Original_Customer_Debt_Total_Dollar, 
+                    decimal Original_Customer_Debt_Kurs, 
+                    decimal Original_Customer_Debt_Money_Rupiah, 
+                    decimal Original_Customer_Debt_Total_Rupiah, 
                     string Original_Customer_Debt_Description, 
                     int Original_Customer_Debt_IsLast) {
-            return this.Update(Original_Customer_Debt_ID, Customer_ID, Customer_Debt_Date, Customer_Debt_Code, Customer_Debt_IsDebit, Customer_Debt_Money, Customer_Debt_Total_Now, Customer_Debt_Description, Customer_Debt_IsLast, Original_Customer_Debt_ID, Original_Customer_ID, Original_Customer_Debt_Date, Original_Customer_Debt_Code, Original_Customer_Debt_IsDebit, Original_Customer_Debt_Money, Original_Customer_Debt_Total_Now, Original_Customer_Debt_Description, Original_Customer_Debt_IsLast);
+            return this.Update(Original_Customer_Debt_ID, Customer_ID, Customer_Debt_Date, Customer_Debt_Code, Customer_Debt_IsDebit, Customer_Debt_Money_Dollar, Customer_Debt_Total_Dollar, Customer_Debt_Kurs, Customer_Debt_Money_Rupiah, Customer_Debt_Total_Rupiah, Customer_Debt_Description, Customer_Debt_IsLast, Original_Customer_Debt_ID, Original_Customer_ID, Original_Customer_Debt_Date, Original_Customer_Debt_Code, Original_Customer_Debt_IsDebit, Original_Customer_Debt_Money_Dollar, Original_Customer_Debt_Total_Dollar, Original_Customer_Debt_Kurs, Original_Customer_Debt_Money_Rupiah, Original_Customer_Debt_Total_Rupiah, Original_Customer_Debt_Description, Original_Customer_Debt_IsLast);
         }
     }
     

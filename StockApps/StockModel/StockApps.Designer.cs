@@ -677,7 +677,7 @@ namespace StockModel
         /// Create a new admin_history object.
         /// </summary>
         /// <param name="admin_history_id">Initial value of the admin_history_id property.</param>
-        public static admin_history Createadmin_history(global::System.Int32 admin_history_id)
+        public static admin_history Createadmin_history(global::System.String admin_history_id)
         {
             admin_history admin_history = new admin_history();
             admin_history.admin_history_id = admin_history_id;
@@ -692,7 +692,7 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 admin_history_id
+        public global::System.String admin_history_id
         {
             get
             {
@@ -704,14 +704,14 @@ namespace StockModel
                 {
                     Onadmin_history_idChanging(value);
                     ReportPropertyChanging("admin_history_id");
-                    _admin_history_id = StructuralObject.SetValidValue(value);
+                    _admin_history_id = StructuralObject.SetValidValue(value, false);
                     ReportPropertyChanged("admin_history_id");
                     Onadmin_history_idChanged();
                 }
             }
         }
-        private global::System.Int32 _admin_history_id;
-        partial void Onadmin_history_idChanging(global::System.Int32 value);
+        private global::System.String _admin_history_id;
+        partial void Onadmin_history_idChanging(global::System.String value);
         partial void Onadmin_history_idChanged();
     
         /// <summary>
@@ -1117,6 +1117,30 @@ namespace StockModel
         private global::System.Int32 _Bank_Status;
         partial void OnBank_StatusChanging(global::System.Int32 value);
         partial void OnBank_StatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Bank_Current_Money_Another
+        {
+            get
+            {
+                return _Bank_Current_Money_Another;
+            }
+            set
+            {
+                OnBank_Current_Money_AnotherChanging(value);
+                ReportPropertyChanging("Bank_Current_Money_Another");
+                _Bank_Current_Money_Another = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Current_Money_Another");
+                OnBank_Current_Money_AnotherChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Bank_Current_Money_Another;
+        partial void OnBank_Current_Money_AnotherChanging(Nullable<global::System.Decimal> value);
+        partial void OnBank_Current_Money_AnotherChanged();
 
         #endregion
     
@@ -1250,7 +1274,10 @@ namespace StockModel
         /// <param name="bank_Transaction_Total_Now">Initial value of the Bank_Transaction_Total_Now property.</param>
         /// <param name="bank_Transaction_IsLast">Initial value of the Bank_Transaction_IsLast property.</param>
         /// <param name="bank_Transaction_IsDebit">Initial value of the Bank_Transaction_IsDebit property.</param>
-        public static bank_transaction Createbank_transaction(global::System.String bank_Transaction_ID, global::System.Int32 bank_ID, global::System.DateTime bank_Transaction_Date, global::System.String bank_Transaction_Code, global::System.Decimal bank_Transaction_Money, global::System.Decimal bank_Transaction_Total_Now, global::System.Int32 bank_Transaction_IsLast, global::System.Int32 bank_Transaction_IsDebit)
+        /// <param name="bank_Transaction_Kurs">Initial value of the Bank_Transaction_Kurs property.</param>
+        /// <param name="bank_Transaction_Money_Another">Initial value of the Bank_Transaction_Money_Another property.</param>
+        /// <param name="bank_Transaction_Total_Another">Initial value of the Bank_Transaction_Total_Another property.</param>
+        public static bank_transaction Createbank_transaction(global::System.String bank_Transaction_ID, global::System.Int32 bank_ID, global::System.DateTime bank_Transaction_Date, global::System.String bank_Transaction_Code, global::System.Decimal bank_Transaction_Money, global::System.Decimal bank_Transaction_Total_Now, global::System.Int32 bank_Transaction_IsLast, global::System.Int32 bank_Transaction_IsDebit, global::System.Decimal bank_Transaction_Kurs, global::System.Decimal bank_Transaction_Money_Another, global::System.Decimal bank_Transaction_Total_Another)
         {
             bank_transaction bank_transaction = new bank_transaction();
             bank_transaction.Bank_Transaction_ID = bank_Transaction_ID;
@@ -1261,6 +1288,9 @@ namespace StockModel
             bank_transaction.Bank_Transaction_Total_Now = bank_Transaction_Total_Now;
             bank_transaction.Bank_Transaction_IsLast = bank_Transaction_IsLast;
             bank_transaction.Bank_Transaction_IsDebit = bank_Transaction_IsDebit;
+            bank_transaction.Bank_Transaction_Kurs = bank_Transaction_Kurs;
+            bank_transaction.Bank_Transaction_Money_Another = bank_Transaction_Money_Another;
+            bank_transaction.Bank_Transaction_Total_Another = bank_Transaction_Total_Another;
             return bank_transaction;
         }
 
@@ -1485,6 +1515,78 @@ namespace StockModel
         private global::System.Int32 _Bank_Transaction_IsDebit;
         partial void OnBank_Transaction_IsDebitChanging(global::System.Int32 value);
         partial void OnBank_Transaction_IsDebitChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Bank_Transaction_Kurs
+        {
+            get
+            {
+                return _Bank_Transaction_Kurs;
+            }
+            set
+            {
+                OnBank_Transaction_KursChanging(value);
+                ReportPropertyChanging("Bank_Transaction_Kurs");
+                _Bank_Transaction_Kurs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Transaction_Kurs");
+                OnBank_Transaction_KursChanged();
+            }
+        }
+        private global::System.Decimal _Bank_Transaction_Kurs;
+        partial void OnBank_Transaction_KursChanging(global::System.Decimal value);
+        partial void OnBank_Transaction_KursChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Bank_Transaction_Money_Another
+        {
+            get
+            {
+                return _Bank_Transaction_Money_Another;
+            }
+            set
+            {
+                OnBank_Transaction_Money_AnotherChanging(value);
+                ReportPropertyChanging("Bank_Transaction_Money_Another");
+                _Bank_Transaction_Money_Another = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Transaction_Money_Another");
+                OnBank_Transaction_Money_AnotherChanged();
+            }
+        }
+        private global::System.Decimal _Bank_Transaction_Money_Another;
+        partial void OnBank_Transaction_Money_AnotherChanging(global::System.Decimal value);
+        partial void OnBank_Transaction_Money_AnotherChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Bank_Transaction_Total_Another
+        {
+            get
+            {
+                return _Bank_Transaction_Total_Another;
+            }
+            set
+            {
+                OnBank_Transaction_Total_AnotherChanging(value);
+                ReportPropertyChanging("Bank_Transaction_Total_Another");
+                _Bank_Transaction_Total_Another = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Bank_Transaction_Total_Another");
+                OnBank_Transaction_Total_AnotherChanged();
+            }
+        }
+        private global::System.Decimal _Bank_Transaction_Total_Another;
+        partial void OnBank_Transaction_Total_AnotherChanging(global::System.Decimal value);
+        partial void OnBank_Transaction_Total_AnotherChanged();
 
         #endregion
     
@@ -1785,14 +1887,16 @@ namespace StockModel
         /// <param name="customer_ID">Initial value of the Customer_ID property.</param>
         /// <param name="customer_Name">Initial value of the Customer_Name property.</param>
         /// <param name="customer_Status">Initial value of the Customer_Status property.</param>
-        /// <param name="customer_Debt">Initial value of the Customer_Debt property.</param>
-        public static customer Createcustomer(global::System.Int32 customer_ID, global::System.String customer_Name, global::System.Int32 customer_Status, global::System.Decimal customer_Debt)
+        /// <param name="customer_Debt_Rupiah">Initial value of the Customer_Debt_Rupiah property.</param>
+        /// <param name="customer_Debt_Dollar">Initial value of the Customer_Debt_Dollar property.</param>
+        public static customer Createcustomer(global::System.Int32 customer_ID, global::System.String customer_Name, global::System.Int32 customer_Status, global::System.Decimal customer_Debt_Rupiah, global::System.Decimal customer_Debt_Dollar)
         {
             customer customer = new customer();
             customer.Customer_ID = customer_ID;
             customer.Customer_Name = customer_Name;
             customer.Customer_Status = customer_Status;
-            customer.Customer_Debt = customer_Debt;
+            customer.Customer_Debt_Rupiah = customer_Debt_Rupiah;
+            customer.Customer_Debt_Dollar = customer_Debt_Dollar;
             return customer;
         }
 
@@ -1997,30 +2101,6 @@ namespace StockModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Customer_Debt
-        {
-            get
-            {
-                return _Customer_Debt;
-            }
-            set
-            {
-                OnCustomer_DebtChanging(value);
-                ReportPropertyChanging("Customer_Debt");
-                _Customer_Debt = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Customer_Debt");
-                OnCustomer_DebtChanged();
-            }
-        }
-        private global::System.Decimal _Customer_Debt;
-        partial void OnCustomer_DebtChanging(global::System.Decimal value);
-        partial void OnCustomer_DebtChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Customer_City
@@ -2041,6 +2121,54 @@ namespace StockModel
         private global::System.String _Customer_City;
         partial void OnCustomer_CityChanging(global::System.String value);
         partial void OnCustomer_CityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Debt_Rupiah
+        {
+            get
+            {
+                return _Customer_Debt_Rupiah;
+            }
+            set
+            {
+                OnCustomer_Debt_RupiahChanging(value);
+                ReportPropertyChanging("Customer_Debt_Rupiah");
+                _Customer_Debt_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Debt_Rupiah");
+                OnCustomer_Debt_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Debt_Rupiah;
+        partial void OnCustomer_Debt_RupiahChanging(global::System.Decimal value);
+        partial void OnCustomer_Debt_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Debt_Dollar
+        {
+            get
+            {
+                return _Customer_Debt_Dollar;
+            }
+            set
+            {
+                OnCustomer_Debt_DollarChanging(value);
+                ReportPropertyChanging("Customer_Debt_Dollar");
+                _Customer_Debt_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Debt_Dollar");
+                OnCustomer_Debt_DollarChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Debt_Dollar;
+        partial void OnCustomer_Debt_DollarChanging(global::System.Decimal value);
+        partial void OnCustomer_Debt_DollarChanged();
 
         #endregion
     
@@ -2132,19 +2260,25 @@ namespace StockModel
         /// <param name="customer_ID">Initial value of the Customer_ID property.</param>
         /// <param name="customer_Debt_Date">Initial value of the Customer_Debt_Date property.</param>
         /// <param name="customer_Debt_IsDebit">Initial value of the Customer_Debt_IsDebit property.</param>
-        /// <param name="customer_Debt_Money">Initial value of the Customer_Debt_Money property.</param>
-        /// <param name="customer_Debt_Total_Now">Initial value of the Customer_Debt_Total_Now property.</param>
         /// <param name="customer_Debt_IsLast">Initial value of the Customer_Debt_IsLast property.</param>
-        public static customer_debt Createcustomer_debt(global::System.String customer_Debt_ID, global::System.Int32 customer_ID, global::System.DateTime customer_Debt_Date, global::System.Int32 customer_Debt_IsDebit, global::System.Decimal customer_Debt_Money, global::System.Decimal customer_Debt_Total_Now, global::System.Int32 customer_Debt_IsLast)
+        /// <param name="customer_Debt_Money_Dollar">Initial value of the Customer_Debt_Money_Dollar property.</param>
+        /// <param name="customer_Debt_Total_Dollar">Initial value of the Customer_Debt_Total_Dollar property.</param>
+        /// <param name="customer_Debt_Kurs">Initial value of the Customer_Debt_Kurs property.</param>
+        /// <param name="customer_Debt_Money_Rupiah">Initial value of the Customer_Debt_Money_Rupiah property.</param>
+        /// <param name="customer_Debt_Total_Rupiah">Initial value of the Customer_Debt_Total_Rupiah property.</param>
+        public static customer_debt Createcustomer_debt(global::System.String customer_Debt_ID, global::System.Int32 customer_ID, global::System.DateTime customer_Debt_Date, global::System.Int32 customer_Debt_IsDebit, global::System.Int32 customer_Debt_IsLast, global::System.Decimal customer_Debt_Money_Dollar, global::System.Decimal customer_Debt_Total_Dollar, global::System.Decimal customer_Debt_Kurs, global::System.Decimal customer_Debt_Money_Rupiah, global::System.Decimal customer_Debt_Total_Rupiah)
         {
             customer_debt customer_debt = new customer_debt();
             customer_debt.Customer_Debt_ID = customer_Debt_ID;
             customer_debt.Customer_ID = customer_ID;
             customer_debt.Customer_Debt_Date = customer_Debt_Date;
             customer_debt.Customer_Debt_IsDebit = customer_Debt_IsDebit;
-            customer_debt.Customer_Debt_Money = customer_Debt_Money;
-            customer_debt.Customer_Debt_Total_Now = customer_Debt_Total_Now;
             customer_debt.Customer_Debt_IsLast = customer_Debt_IsLast;
+            customer_debt.Customer_Debt_Money_Dollar = customer_Debt_Money_Dollar;
+            customer_debt.Customer_Debt_Total_Dollar = customer_Debt_Total_Dollar;
+            customer_debt.Customer_Debt_Kurs = customer_Debt_Kurs;
+            customer_debt.Customer_Debt_Money_Rupiah = customer_Debt_Money_Rupiah;
+            customer_debt.Customer_Debt_Total_Rupiah = customer_Debt_Total_Rupiah;
             return customer_debt;
         }
 
@@ -2279,48 +2413,144 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Customer_Debt_Money
+        public global::System.Int32 Customer_Debt_IsLast
         {
             get
             {
-                return _Customer_Debt_Money;
+                return _Customer_Debt_IsLast;
             }
             set
             {
-                OnCustomer_Debt_MoneyChanging(value);
-                ReportPropertyChanging("Customer_Debt_Money");
-                _Customer_Debt_Money = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Customer_Debt_Money");
-                OnCustomer_Debt_MoneyChanged();
+                OnCustomer_Debt_IsLastChanging(value);
+                ReportPropertyChanging("Customer_Debt_IsLast");
+                _Customer_Debt_IsLast = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Debt_IsLast");
+                OnCustomer_Debt_IsLastChanged();
             }
         }
-        private global::System.Decimal _Customer_Debt_Money;
-        partial void OnCustomer_Debt_MoneyChanging(global::System.Decimal value);
-        partial void OnCustomer_Debt_MoneyChanged();
+        private global::System.Int32 _Customer_Debt_IsLast;
+        partial void OnCustomer_Debt_IsLastChanging(global::System.Int32 value);
+        partial void OnCustomer_Debt_IsLastChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Customer_Debt_Total_Now
+        public global::System.Decimal Customer_Debt_Money_Dollar
         {
             get
             {
-                return _Customer_Debt_Total_Now;
+                return _Customer_Debt_Money_Dollar;
             }
             set
             {
-                OnCustomer_Debt_Total_NowChanging(value);
-                ReportPropertyChanging("Customer_Debt_Total_Now");
-                _Customer_Debt_Total_Now = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Customer_Debt_Total_Now");
-                OnCustomer_Debt_Total_NowChanged();
+                OnCustomer_Debt_Money_DollarChanging(value);
+                ReportPropertyChanging("Customer_Debt_Money_Dollar");
+                _Customer_Debt_Money_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Debt_Money_Dollar");
+                OnCustomer_Debt_Money_DollarChanged();
             }
         }
-        private global::System.Decimal _Customer_Debt_Total_Now;
-        partial void OnCustomer_Debt_Total_NowChanging(global::System.Decimal value);
-        partial void OnCustomer_Debt_Total_NowChanged();
+        private global::System.Decimal _Customer_Debt_Money_Dollar;
+        partial void OnCustomer_Debt_Money_DollarChanging(global::System.Decimal value);
+        partial void OnCustomer_Debt_Money_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Debt_Total_Dollar
+        {
+            get
+            {
+                return _Customer_Debt_Total_Dollar;
+            }
+            set
+            {
+                OnCustomer_Debt_Total_DollarChanging(value);
+                ReportPropertyChanging("Customer_Debt_Total_Dollar");
+                _Customer_Debt_Total_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Debt_Total_Dollar");
+                OnCustomer_Debt_Total_DollarChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Debt_Total_Dollar;
+        partial void OnCustomer_Debt_Total_DollarChanging(global::System.Decimal value);
+        partial void OnCustomer_Debt_Total_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Debt_Kurs
+        {
+            get
+            {
+                return _Customer_Debt_Kurs;
+            }
+            set
+            {
+                OnCustomer_Debt_KursChanging(value);
+                ReportPropertyChanging("Customer_Debt_Kurs");
+                _Customer_Debt_Kurs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Debt_Kurs");
+                OnCustomer_Debt_KursChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Debt_Kurs;
+        partial void OnCustomer_Debt_KursChanging(global::System.Decimal value);
+        partial void OnCustomer_Debt_KursChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Debt_Money_Rupiah
+        {
+            get
+            {
+                return _Customer_Debt_Money_Rupiah;
+            }
+            set
+            {
+                OnCustomer_Debt_Money_RupiahChanging(value);
+                ReportPropertyChanging("Customer_Debt_Money_Rupiah");
+                _Customer_Debt_Money_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Debt_Money_Rupiah");
+                OnCustomer_Debt_Money_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Debt_Money_Rupiah;
+        partial void OnCustomer_Debt_Money_RupiahChanging(global::System.Decimal value);
+        partial void OnCustomer_Debt_Money_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Customer_Debt_Total_Rupiah
+        {
+            get
+            {
+                return _Customer_Debt_Total_Rupiah;
+            }
+            set
+            {
+                OnCustomer_Debt_Total_RupiahChanging(value);
+                ReportPropertyChanging("Customer_Debt_Total_Rupiah");
+                _Customer_Debt_Total_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Customer_Debt_Total_Rupiah");
+                OnCustomer_Debt_Total_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Customer_Debt_Total_Rupiah;
+        partial void OnCustomer_Debt_Total_RupiahChanging(global::System.Decimal value);
+        partial void OnCustomer_Debt_Total_RupiahChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2345,30 +2575,6 @@ namespace StockModel
         private global::System.String _Customer_Debt_Description;
         partial void OnCustomer_Debt_DescriptionChanging(global::System.String value);
         partial void OnCustomer_Debt_DescriptionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Customer_Debt_IsLast
-        {
-            get
-            {
-                return _Customer_Debt_IsLast;
-            }
-            set
-            {
-                OnCustomer_Debt_IsLastChanging(value);
-                ReportPropertyChanging("Customer_Debt_IsLast");
-                _Customer_Debt_IsLast = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Customer_Debt_IsLast");
-                OnCustomer_Debt_IsLastChanged();
-            }
-        }
-        private global::System.Int32 _Customer_Debt_IsLast;
-        partial void OnCustomer_Debt_IsLastChanging(global::System.Int32 value);
-        partial void OnCustomer_Debt_IsLastChanged();
 
         #endregion
     
@@ -5451,15 +5657,17 @@ namespace StockModel
         /// <param name="supplier_Name">Initial value of the Supplier_Name property.</param>
         /// <param name="supplier_Status">Initial value of the Supplier_Status property.</param>
         /// <param name="supplier_Regional">Initial value of the Supplier_Regional property.</param>
-        /// <param name="supplier_Credit">Initial value of the Supplier_Credit property.</param>
-        public static supplier Createsupplier(global::System.Int32 supplier_ID, global::System.String supplier_Name, global::System.Int32 supplier_Status, global::System.Int32 supplier_Regional, global::System.Decimal supplier_Credit)
+        /// <param name="supplier_Credit_Dollar">Initial value of the Supplier_Credit_Dollar property.</param>
+        /// <param name="supplier_Credit_Rupiah">Initial value of the Supplier_Credit_Rupiah property.</param>
+        public static supplier Createsupplier(global::System.Int32 supplier_ID, global::System.String supplier_Name, global::System.Int32 supplier_Status, global::System.Int32 supplier_Regional, global::System.Decimal supplier_Credit_Dollar, global::System.Decimal supplier_Credit_Rupiah)
         {
             supplier supplier = new supplier();
             supplier.Supplier_ID = supplier_ID;
             supplier.Supplier_Name = supplier_Name;
             supplier.Supplier_Status = supplier_Status;
             supplier.Supplier_Regional = supplier_Regional;
-            supplier.Supplier_Credit = supplier_Credit;
+            supplier.Supplier_Credit_Dollar = supplier_Credit_Dollar;
+            supplier.Supplier_Credit_Rupiah = supplier_Credit_Rupiah;
             return supplier;
         }
 
@@ -5690,24 +5898,48 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Supplier_Credit
+        public global::System.Decimal Supplier_Credit_Dollar
         {
             get
             {
-                return _Supplier_Credit;
+                return _Supplier_Credit_Dollar;
             }
             set
             {
-                OnSupplier_CreditChanging(value);
-                ReportPropertyChanging("Supplier_Credit");
-                _Supplier_Credit = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Supplier_Credit");
-                OnSupplier_CreditChanged();
+                OnSupplier_Credit_DollarChanging(value);
+                ReportPropertyChanging("Supplier_Credit_Dollar");
+                _Supplier_Credit_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Credit_Dollar");
+                OnSupplier_Credit_DollarChanged();
             }
         }
-        private global::System.Decimal _Supplier_Credit;
-        partial void OnSupplier_CreditChanging(global::System.Decimal value);
-        partial void OnSupplier_CreditChanged();
+        private global::System.Decimal _Supplier_Credit_Dollar;
+        partial void OnSupplier_Credit_DollarChanging(global::System.Decimal value);
+        partial void OnSupplier_Credit_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Credit_Rupiah
+        {
+            get
+            {
+                return _Supplier_Credit_Rupiah;
+            }
+            set
+            {
+                OnSupplier_Credit_RupiahChanging(value);
+                ReportPropertyChanging("Supplier_Credit_Rupiah");
+                _Supplier_Credit_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Credit_Rupiah");
+                OnSupplier_Credit_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Credit_Rupiah;
+        partial void OnSupplier_Credit_RupiahChanging(global::System.Decimal value);
+        partial void OnSupplier_Credit_RupiahChanged();
 
         #endregion
     
@@ -5731,28 +5963,6 @@ namespace StockModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<product>("stockappsModel.FK_Relationship_1", "product", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("stockappsModel", "supplier_credit_fk1", "supplier_credit")]
-        public EntityCollection<supplier_credit> supplier_credit1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<supplier_credit>("stockappsModel.supplier_credit_fk1", "supplier_credit");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<supplier_credit>("stockappsModel.supplier_credit_fk1", "supplier_credit", value);
                 }
             }
         }
@@ -5821,19 +6031,25 @@ namespace StockModel
         /// <param name="supplier_ID">Initial value of the Supplier_ID property.</param>
         /// <param name="supplier_Credit_Date">Initial value of the Supplier_Credit_Date property.</param>
         /// <param name="supplier_Credit_IsDebit">Initial value of the Supplier_Credit_IsDebit property.</param>
-        /// <param name="supplier_Credit_Money">Initial value of the Supplier_Credit_Money property.</param>
-        /// <param name="supplier_Credit_Total_Now">Initial value of the Supplier_Credit_Total_Now property.</param>
         /// <param name="supplier_Credit_IsLast">Initial value of the Supplier_Credit_IsLast property.</param>
-        public static supplier_credit Createsupplier_credit(global::System.String supplier_Credit_ID, global::System.Int32 supplier_ID, global::System.DateTime supplier_Credit_Date, global::System.Int32 supplier_Credit_IsDebit, global::System.Decimal supplier_Credit_Money, global::System.Decimal supplier_Credit_Total_Now, global::System.Int32 supplier_Credit_IsLast)
+        /// <param name="supplier_Credit_Money_Dollar">Initial value of the Supplier_Credit_Money_Dollar property.</param>
+        /// <param name="supplier_Credit_Total_Dollar">Initial value of the Supplier_Credit_Total_Dollar property.</param>
+        /// <param name="supplier_Credit_Kurs">Initial value of the Supplier_Credit_Kurs property.</param>
+        /// <param name="supplier_Credit_Money_Rupiah">Initial value of the Supplier_Credit_Money_Rupiah property.</param>
+        /// <param name="supplier_Credit_Total_Rupiah">Initial value of the Supplier_Credit_Total_Rupiah property.</param>
+        public static supplier_credit Createsupplier_credit(global::System.String supplier_Credit_ID, global::System.Int32 supplier_ID, global::System.DateTime supplier_Credit_Date, global::System.Int32 supplier_Credit_IsDebit, global::System.Int32 supplier_Credit_IsLast, global::System.Decimal supplier_Credit_Money_Dollar, global::System.Decimal supplier_Credit_Total_Dollar, global::System.Decimal supplier_Credit_Kurs, global::System.Decimal supplier_Credit_Money_Rupiah, global::System.Decimal supplier_Credit_Total_Rupiah)
         {
             supplier_credit supplier_credit = new supplier_credit();
             supplier_credit.Supplier_Credit_ID = supplier_Credit_ID;
             supplier_credit.Supplier_ID = supplier_ID;
             supplier_credit.Supplier_Credit_Date = supplier_Credit_Date;
             supplier_credit.Supplier_Credit_IsDebit = supplier_Credit_IsDebit;
-            supplier_credit.Supplier_Credit_Money = supplier_Credit_Money;
-            supplier_credit.Supplier_Credit_Total_Now = supplier_Credit_Total_Now;
             supplier_credit.Supplier_Credit_IsLast = supplier_Credit_IsLast;
+            supplier_credit.Supplier_Credit_Money_Dollar = supplier_Credit_Money_Dollar;
+            supplier_credit.Supplier_Credit_Total_Dollar = supplier_Credit_Total_Dollar;
+            supplier_credit.Supplier_Credit_Kurs = supplier_Credit_Kurs;
+            supplier_credit.Supplier_Credit_Money_Rupiah = supplier_Credit_Money_Rupiah;
+            supplier_credit.Supplier_Credit_Total_Rupiah = supplier_Credit_Total_Rupiah;
             return supplier_credit;
         }
 
@@ -5966,54 +6182,6 @@ namespace StockModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Supplier_Credit_Money
-        {
-            get
-            {
-                return _Supplier_Credit_Money;
-            }
-            set
-            {
-                OnSupplier_Credit_MoneyChanging(value);
-                ReportPropertyChanging("Supplier_Credit_Money");
-                _Supplier_Credit_Money = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Supplier_Credit_Money");
-                OnSupplier_Credit_MoneyChanged();
-            }
-        }
-        private global::System.Decimal _Supplier_Credit_Money;
-        partial void OnSupplier_Credit_MoneyChanging(global::System.Decimal value);
-        partial void OnSupplier_Credit_MoneyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Supplier_Credit_Total_Now
-        {
-            get
-            {
-                return _Supplier_Credit_Total_Now;
-            }
-            set
-            {
-                OnSupplier_Credit_Total_NowChanging(value);
-                ReportPropertyChanging("Supplier_Credit_Total_Now");
-                _Supplier_Credit_Total_Now = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Supplier_Credit_Total_Now");
-                OnSupplier_Credit_Total_NowChanged();
-            }
-        }
-        private global::System.Decimal _Supplier_Credit_Total_Now;
-        partial void OnSupplier_Credit_Total_NowChanging(global::System.Decimal value);
-        partial void OnSupplier_Credit_Total_NowChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Supplier_Credit_Description
@@ -6058,6 +6226,126 @@ namespace StockModel
         private global::System.Int32 _Supplier_Credit_IsLast;
         partial void OnSupplier_Credit_IsLastChanging(global::System.Int32 value);
         partial void OnSupplier_Credit_IsLastChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Credit_Money_Dollar
+        {
+            get
+            {
+                return _Supplier_Credit_Money_Dollar;
+            }
+            set
+            {
+                OnSupplier_Credit_Money_DollarChanging(value);
+                ReportPropertyChanging("Supplier_Credit_Money_Dollar");
+                _Supplier_Credit_Money_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Credit_Money_Dollar");
+                OnSupplier_Credit_Money_DollarChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Credit_Money_Dollar;
+        partial void OnSupplier_Credit_Money_DollarChanging(global::System.Decimal value);
+        partial void OnSupplier_Credit_Money_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Credit_Total_Dollar
+        {
+            get
+            {
+                return _Supplier_Credit_Total_Dollar;
+            }
+            set
+            {
+                OnSupplier_Credit_Total_DollarChanging(value);
+                ReportPropertyChanging("Supplier_Credit_Total_Dollar");
+                _Supplier_Credit_Total_Dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Credit_Total_Dollar");
+                OnSupplier_Credit_Total_DollarChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Credit_Total_Dollar;
+        partial void OnSupplier_Credit_Total_DollarChanging(global::System.Decimal value);
+        partial void OnSupplier_Credit_Total_DollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Credit_Kurs
+        {
+            get
+            {
+                return _Supplier_Credit_Kurs;
+            }
+            set
+            {
+                OnSupplier_Credit_KursChanging(value);
+                ReportPropertyChanging("Supplier_Credit_Kurs");
+                _Supplier_Credit_Kurs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Credit_Kurs");
+                OnSupplier_Credit_KursChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Credit_Kurs;
+        partial void OnSupplier_Credit_KursChanging(global::System.Decimal value);
+        partial void OnSupplier_Credit_KursChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Credit_Money_Rupiah
+        {
+            get
+            {
+                return _Supplier_Credit_Money_Rupiah;
+            }
+            set
+            {
+                OnSupplier_Credit_Money_RupiahChanging(value);
+                ReportPropertyChanging("Supplier_Credit_Money_Rupiah");
+                _Supplier_Credit_Money_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Credit_Money_Rupiah");
+                OnSupplier_Credit_Money_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Credit_Money_Rupiah;
+        partial void OnSupplier_Credit_Money_RupiahChanging(global::System.Decimal value);
+        partial void OnSupplier_Credit_Money_RupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Supplier_Credit_Total_Rupiah
+        {
+            get
+            {
+                return _Supplier_Credit_Total_Rupiah;
+            }
+            set
+            {
+                OnSupplier_Credit_Total_RupiahChanging(value);
+                ReportPropertyChanging("Supplier_Credit_Total_Rupiah");
+                _Supplier_Credit_Total_Rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Supplier_Credit_Total_Rupiah");
+                OnSupplier_Credit_Total_RupiahChanged();
+            }
+        }
+        private global::System.Decimal _Supplier_Credit_Total_Rupiah;
+        partial void OnSupplier_Credit_Total_RupiahChanging(global::System.Decimal value);
+        partial void OnSupplier_Credit_Total_RupiahChanged();
 
         #endregion
     

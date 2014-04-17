@@ -36,7 +36,8 @@ namespace StockApps
 
             _dataCustomer.Columns["Customer_Status"].Visible = false;
             _dataCustomer.Columns["Customer_ID"].Visible = false;
-            _dataCustomer.Columns["Customer_Debt"].Visible = false;
+            _dataCustomer.Columns["Customer_Debt_Rupiah"].Visible = false;
+            _dataCustomer.Columns["Customer_Debt_Dollar"].Visible = false;
             _dataCustomer.Columns["customer_transaction"].Visible = false;
             _dataCustomer.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 

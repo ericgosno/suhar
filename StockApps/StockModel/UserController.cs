@@ -11,15 +11,19 @@ namespace StockModel
     public static class UserController
     {
 
-        public static IQueryable<admin_history> geHistorytUser()
+        public static IQueryable<admin_history> getHistoryUser()
         {
             var list = from f in StockEntity.Entity.admin_history
                        select f;
             return list;
         }
-
+        public static IQueryable<admin_history> getHistoryUser(DateTime From, DateTime To)
+        {
+            return getHistoryUser().Where(x => x.time_log.Value.CompareTo(From) >= 0 && x.time_log.Value.CompareTo(To) <= 0);
+        }
         public static void insertHistoryLogIn(int userID, int typeLog){
             admin_history newadminhistory = new admin_history();
+            newadminhistory.admin_history_id = userID + "-" + typeLog + "-" + DateTime.Now.Ticks;
             newadminhistory.users_id = userID;
             newadminhistory.log_type = typeLog;
             newadminhistory.time_log = DateTime.Now;
@@ -30,6 +34,7 @@ namespace StockModel
         public static void insertHistoryLogOut(int userID, int typeLog)
         {
             admin_history newadminhistory = new admin_history();
+            newadminhistory.admin_history_id = userID + "-" + typeLog + "-" + DateTime.Now.Ticks;
             newadminhistory.users_id = userID;
             newadminhistory.log_type = typeLog;
             newadminhistory.time_log = DateTime.Now;

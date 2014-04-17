@@ -46,7 +46,7 @@ namespace StockApps
         private void _bcusInsert_Click(object sender, EventArgs e)
         {
             SupplierTransaction.insertSupplierPayment(transNow, Convert.ToInt32(_cbPurBank.SelectedValue), _dateJatuhTempo.Value, Convert.ToInt32(_cbPurPayWith.SelectedValue));
-            SupplierController.insertSupplierCredit(transNow.Supplier_ID, transNow.Supplier_Transaction_Date, "DBT", true, transNow.Supplier_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbPurPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")));
+            SupplierController.insertSupplierCredit(transNow.Supplier_ID, transNow.Supplier_Transaction_Date, "DBT", true,(transNow.Currency_ID == 1) ? transNow.Supplier_Transaction_Total_Rupiah : transNow.Supplier_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbPurPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")), transNow.Supplier_Transaction_Kurs,transNow.Currency_ID);
             MessageBox.Show("Transaction Inserted Succesfully");
             isFinished = true;
             this.Close();

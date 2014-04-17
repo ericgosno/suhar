@@ -42,7 +42,7 @@ namespace StockApps
                  {
                      Bank_ID = join.bank.Bank_ID + "",
                      Bank_Name = join.bank.Bank_Name + "",
-                     Bank_Current_Money = join.bank.Bank_Current_Money+"",
+                     Bank_Current_Money = (join.currency.Currency_ID == 1 ? join.bank.Bank_Current_Money.ToString("C2") : join.bank.Bank_Current_Money.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"))) +"",
                      Currency_ID = join.currency.Currency_ID+"",
                      Currency_Name = join.currency.Currency_Name+""
                  }).ToList();

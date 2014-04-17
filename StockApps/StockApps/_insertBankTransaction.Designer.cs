@@ -44,12 +44,14 @@
             this._lbtransCurrency = new System.Windows.Forms.Label();
             this._bbtransInsert = new System.Windows.Forms.Button();
             this._lbtransBankName = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this._tbtransKurs = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // _tbtransDescription
             // 
             this._tbtransDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tbtransDescription.Location = new System.Drawing.Point(177, 280);
+            this._tbtransDescription.Location = new System.Drawing.Point(177, 310);
             this._tbtransDescription.Multiline = true;
             this._tbtransDescription.Name = "_tbtransDescription";
             this._tbtransDescription.Size = new System.Drawing.Size(386, 94);
@@ -59,11 +61,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 283);
+            this.label7.Location = new System.Drawing.Point(16, 310);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 29);
+            this.label7.Size = new System.Drawing.Size(153, 29);
             this.label7.TabIndex = 59;
-            this.label7.Text = "Description   :";
+            this.label7.Text = "Description  :";
             // 
             // label4
             // 
@@ -185,7 +187,7 @@
             // _bbtransInsert
             // 
             this._bbtransInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bbtransInsert.Location = new System.Drawing.Point(177, 393);
+            this._bbtransInsert.Location = new System.Drawing.Point(177, 421);
             this._bbtransInsert.Name = "_bbtransInsert";
             this._bbtransInsert.Size = new System.Drawing.Size(133, 35);
             this._bbtransInsert.TabIndex = 7;
@@ -203,11 +205,32 @@
             this._lbtransBankName.TabIndex = 66;
             this._lbtransBankName.Text = "Bank...";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(15, 269);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(152, 29);
+            this.label5.TabIndex = 67;
+            this.label5.Text = "Kurs              :";
+            // 
+            // _tbtransKurs
+            // 
+            this._tbtransKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._tbtransKurs.Location = new System.Drawing.Point(177, 269);
+            this._tbtransKurs.Name = "_tbtransKurs";
+            this._tbtransKurs.Size = new System.Drawing.Size(386, 35);
+            this._tbtransKurs.TabIndex = 68;
+            this._tbtransKurs.Text = "0";
+            // 
             // _insertBankTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 440);
+            this.ClientSize = new System.Drawing.Size(588, 474);
+            this.Controls.Add(this._tbtransKurs);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this._lbtransBankName);
             this.Controls.Add(this._bbtransInsert);
             this.Controls.Add(this._lbtransCurrency);
@@ -249,5 +272,7 @@
         private System.Windows.Forms.Label _lbtransCurrency;
         private System.Windows.Forms.Button _bbtransInsert;
         private System.Windows.Forms.Label _lbtransBankName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox _tbtransKurs;
     }
 }

@@ -12,6 +12,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using StockModel;
 
 namespace StockApps
 {
@@ -20,123 +21,48 @@ namespace StockApps
         public adminHistoryR()
         {
             InitializeComponent();
+            _tHistoryTo.Value = DateTime.Now;
+            _tHistoryFrom.Value = DateTime.Now.AddDays(-30);
+             RefreshReport();
         }
 
         private void adminHistoryR_Load(object sender, EventArgs e)
         {
-            string connectionString = "server=119.235.248.242; database=stockapps; uid=eric; pwd=eric;";
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            ReportDocument rptDoc = new ReportDocument();
-            dsAdmin ds = new dsAdmin(); // .xsd file name
-            DataTable dt = new DataTable();
-            DataTable dt2 = new DataTable();
-
-            MySqlCommand cmd = new MySqlCommand();
-            MySqlDataAdapter adapter;
-            MySqlCommand cmd2 = new MySqlCommand();
-            MySqlDataAdapter adapter2;
-            //string query = "SELECT * from admin_history";
-            string query = "SELECT a.users_id,u.users_username,a.log_type,a.time_log FROM stockapps.admin_history a,stockapps.users u where a.users_id = u.users_id";
-            string query2 = "SELECT users_id,users_username from users";
-            try
-            {
-                connection.Open();
-                cmd = new MySqlCommand(query, connection);
-                adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(dt);
-
-                cmd2 = new MySqlCommand(query2, connection);
-                adapter2 = new MySqlDataAdapter(cmd2);
-                adapter2.Fill(dt2);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                cmd.Dispose();
-                if (connection.State != ConnectionState.Closed)
-                    connection.Close();
-            }
-
-            ds.Tables[0].Merge(dt);
-            ds.Tables[1].Merge(dt2);
-
-            // Your .rpt file path will be below
-            
-            //rptDoc.Load(Application.StartupPath + @"adminReport.rpt");
-            rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\adminReport.rpt");
-            //rptDoc.Load(@"C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockApps\adminReport.rpt");
-
-            //set dataset to the report viewer.
-            rptDoc.SetDataSource(ds);
-            crystalReportViewer1.ReportSource = rptDoc;
+           
         }
 
-        private void _view_Click(object sender, EventArgs e)
+        private void RefreshReport()
         {
-            _date.Format = DateTimePickerFormat.Custom;
-            _date.CustomFormat = "MM-dd-yyyy";
-            MessageBox.Show("Laporan Tanggal = " + _date.Text,"Notice");
-
-            string connectionString = "server=119.235.248.242; database=stockapps; uid=eric; pwd=eric;";
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            ReportDocument rptDoc = new ReportDocument();
-            dsAdmin ds = new dsAdmin(); // .xsd file name
-            DataTable dt = new DataTable();
-            DataTable dt2 = new DataTable();
-
-            MySqlCommand cmd = new MySqlCommand();
-            MySqlDataAdapter adapter;
-            MySqlCommand cmd2 = new MySqlCommand();
-            MySqlDataAdapter adapter2;
-            //string query = "SELECT * from admin_history";
-            string query = "SELECT a.users_id,u.users_username,a.log_type,a.time_log FROM stockapps.admin_history a,stockapps.users u where a.users_id = u.users_id and DATE_FORMAT(time_log,'%m-%d-%Y') = '" + _date.Text + "'";
-            string query2 = "SELECT users_id,users_username from users";
-            try
-            {
-                connection.Open();
-                cmd = new MySqlCommand(query, connection);
-                adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(dt);
-
-                cmd2 = new MySqlCommand(query2, connection);
-                adapter2 = new MySqlDataAdapter(cmd2);
-                adapter2.Fill(dt2);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                cmd.Dispose();
-                if (connection.State != ConnectionState.Closed)
-                    connection.Close();
-            }
-
-            ds.Tables[0].Merge(dt);
-            ds.Tables[1].Merge(dt2);
-
-            // Your .rpt file path will be below
-
-            //rptDoc.Load(Application.StartupPath + @"adminReport.rpt");
-            rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\adminReport.rpt");
-            //rptDoc.Load(@"C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockApps\adminReport.rpt");
-
-            //set dataset to the report viewer.
-            rptDoc.SetDataSource(ds);
-            crystalReportViewer1.ReportSource = rptDoc;
-
+            adminReport rpt = new adminReport();
+            var listHistory = UserController.getHistoryUser(_tHistoryFrom.Value,_tHistoryTo.Value);
+            var listUser = UserController.getUser();
+            var list = listHistory
+                .Join(listUser,
+                admin_history => admin_history.users_id,
+                user => user.users_id,
+                (admin_history, user) => new { admin_history = admin_history, user = user })
+                .OrderByDescending(x => x.admin_history.time_log.Value)
+                .AsEnumerable()
+                .Select(join => new
+                    {
+                        users_id = join.user.users_id + "",
+                        users_username = join.user.users_username + "",
+                        log_type = join.admin_history.log_type + "",
+                        time_log = join.admin_history.time_log.Value + ""
+                    }).ToList();
+            identity ident = IdentityController.getIdentity();
+            rpt.SetDataSource(list);
+            rpt.SetParameterValue("IdentityCompanyName", ident.Identity_Company_Name);
+            rpt.SetParameterValue("IdentityAddress", ident.Identity_Address + "\n" + ident.Identity_City);
+            rpt.SetParameterValue("IdentityPhone", "Telp : " + ident.Identity_Phone);
+            _rptHistory.ReportSource = rpt; 
         }
 
-      
 
-       
-
+        private void _bHistoryView_Click(object sender, EventArgs e)
+        {
+            RefreshReport();
+        }
     
     }
 }
