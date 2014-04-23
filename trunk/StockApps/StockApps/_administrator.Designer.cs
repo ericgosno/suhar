@@ -37,6 +37,7 @@
             this._lIdentityCompany = new System.Windows.Forms.Label();
             this._lIdentityAddress = new System.Windows.Forms.Label();
             this._lIdentityPhone = new System.Windows.Forms.Label();
+            this._lIdentityCity = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -104,39 +105,53 @@
             this._lIdentityCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._lIdentityCompany.Location = new System.Drawing.Point(237, 348);
             this._lIdentityCompany.Name = "_lIdentityCompany";
-            this._lIdentityCompany.Size = new System.Drawing.Size(156, 20);
+            this._lIdentityCompany.Size = new System.Drawing.Size(157, 24);
             this._lIdentityCompany.TabIndex = 4;
             this._lIdentityCompany.Text = "CV. WARNA MURNI";
-            this._lIdentityCompany.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this._lIdentityCompany.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._lIdentityCompany.UseCompatibleTextRendering = true;
             // 
             // _lIdentityAddress
             // 
             this._lIdentityAddress.AutoSize = true;
             this._lIdentityAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lIdentityAddress.Location = new System.Drawing.Point(212, 368);
-            this._lIdentityAddress.MaximumSize = new System.Drawing.Size(250, 50);
+            this._lIdentityAddress.Location = new System.Drawing.Point(133, 367);
+            this._lIdentityAddress.MaximumSize = new System.Drawing.Size(500, 50);
             this._lIdentityAddress.Name = "_lIdentityAddress";
-            this._lIdentityAddress.Size = new System.Drawing.Size(210, 20);
+            this._lIdentityAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this._lIdentityAddress.Size = new System.Drawing.Size(221, 24);
             this._lIdentityAddress.TabIndex = 5;
-            this._lIdentityAddress.Text = "Jln. Klampis Harapan 1 no. 1";
-            this._lIdentityAddress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this._lIdentityAddress.Text = "Jln. Klampis Harapan 1 no. 1 ";
+            this._lIdentityAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._lIdentityAddress.UseCompatibleTextRendering = true;
             // 
             // _lIdentityPhone
             // 
             this._lIdentityPhone.AutoSize = true;
             this._lIdentityPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lIdentityPhone.Location = new System.Drawing.Point(253, 413);
+            this._lIdentityPhone.Location = new System.Drawing.Point(266, 413);
             this._lIdentityPhone.Name = "_lIdentityPhone";
             this._lIdentityPhone.Size = new System.Drawing.Size(112, 20);
             this._lIdentityPhone.TabIndex = 6;
             this._lIdentityPhone.Text = "031 - 5353535";
             this._lIdentityPhone.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // _lIdentityCity
+            // 
+            this._lIdentityCity.AutoSize = true;
+            this._lIdentityCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lIdentityCity.Location = new System.Drawing.Point(263, 391);
+            this._lIdentityCity.Name = "_lIdentityCity";
+            this._lIdentityCity.Size = new System.Drawing.Size(77, 20);
+            this._lIdentityCity.TabIndex = 7;
+            this._lIdentityCity.Text = "Surabaya";
+            // 
             // _administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 442);
+            this.Controls.Add(this._lIdentityCity);
             this.Controls.Add(this._lIdentityPhone);
             this.Controls.Add(this._lIdentityAddress);
             this.Controls.Add(this._lIdentityCompany);
@@ -166,5 +181,6 @@
         private System.Windows.Forms.Label _lIdentityCompany;
         private System.Windows.Forms.Label _lIdentityAddress;
         private System.Windows.Forms.Label _lIdentityPhone;
+        private System.Windows.Forms.Label _lIdentityCity;
     }
 }
