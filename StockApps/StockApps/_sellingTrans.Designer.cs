@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this._lsellDollar = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this._lsellRp = new System.Windows.Forms.Label();
@@ -117,6 +119,15 @@
             // 
             // _dataCusTransaction
             // 
+            this._dataCusTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._dataCusTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._dataCusTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._dataCusTransaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Product,
@@ -126,9 +137,17 @@
             this.Stock,
             this.Subtotal_Dollar,
             this.Subtotal_Rupiah});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._dataCusTransaction.DefaultCellStyle = dataGridViewCellStyle2;
             this._dataCusTransaction.Location = new System.Drawing.Point(6, 310);
             this._dataCusTransaction.Name = "_dataCusTransaction";
-            this._dataCusTransaction.Size = new System.Drawing.Size(751, 270);
+            this._dataCusTransaction.Size = new System.Drawing.Size(851, 270);
             this._dataCusTransaction.TabIndex = 38;
             this._dataCusTransaction.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataCusTransaction_CellEndEdit);
             // 
@@ -174,7 +193,7 @@
             // _bsellPay
             // 
             this._bsellPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bsellPay.Location = new System.Drawing.Point(601, 625);
+            this._bsellPay.Location = new System.Drawing.Point(695, 628);
             this._bsellPay.Name = "_bsellPay";
             this._bsellPay.Size = new System.Drawing.Size(162, 35);
             this._bsellPay.TabIndex = 37;
@@ -262,7 +281,7 @@
             // _bsellDelete
             // 
             this._bsellDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bsellDelete.Location = new System.Drawing.Point(601, 584);
+            this._bsellDelete.Location = new System.Drawing.Point(695, 587);
             this._bsellDelete.Name = "_bsellDelete";
             this._bsellDelete.Size = new System.Drawing.Size(162, 35);
             this._bsellDelete.TabIndex = 52;
@@ -392,7 +411,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 692);
+            this.ClientSize = new System.Drawing.Size(874, 692);
             this.Controls.Add(this._lsellTotalPPNRupiah);
             this.Controls.Add(this._lsellPPNRupiah);
             this.Controls.Add(this.label11);

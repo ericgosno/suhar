@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this._bcusDelete = new System.Windows.Forms.Button();
             this._bcusInsert = new System.Windows.Forms.Button();
             this._dataCustomer = new System.Windows.Forms.DataGridView();
@@ -59,9 +61,9 @@
             // _bcusDelete
             // 
             this._bcusDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusDelete.Location = new System.Drawing.Point(625, 569);
+            this._bcusDelete.Location = new System.Drawing.Point(760, 332);
             this._bcusDelete.Name = "_bcusDelete";
-            this._bcusDelete.Size = new System.Drawing.Size(115, 35);
+            this._bcusDelete.Size = new System.Drawing.Size(142, 35);
             this._bcusDelete.TabIndex = 21;
             this._bcusDelete.Text = "DELETE";
             this._bcusDelete.UseVisualStyleBackColor = true;
@@ -70,9 +72,9 @@
             // _bcusInsert
             // 
             this._bcusInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusInsert.Location = new System.Drawing.Point(625, 332);
+            this._bcusInsert.Location = new System.Drawing.Point(615, 332);
             this._bcusInsert.Name = "_bcusInsert";
-            this._bcusInsert.Size = new System.Drawing.Size(115, 35);
+            this._bcusInsert.Size = new System.Drawing.Size(142, 35);
             this._bcusInsert.TabIndex = 6;
             this._bcusInsert.Text = "INSERT";
             this._bcusInsert.UseVisualStyleBackColor = true;
@@ -80,10 +82,27 @@
             // 
             // _dataCustomer
             // 
+            this._dataCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._dataCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this._dataCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._dataCustomer.DefaultCellStyle = dataGridViewCellStyle6;
             this._dataCustomer.Location = new System.Drawing.Point(12, 373);
             this._dataCustomer.Name = "_dataCustomer";
-            this._dataCustomer.Size = new System.Drawing.Size(728, 190);
+            this._dataCustomer.Size = new System.Drawing.Size(890, 190);
             this._dataCustomer.TabIndex = 19;
             this._dataCustomer.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataCustomer_CellEndEdit);
             // 
@@ -298,7 +317,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 616);
+            this.ClientSize = new System.Drawing.Size(920, 616);
             this.Controls.Add(this._tcusCity);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
