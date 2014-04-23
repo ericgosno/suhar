@@ -165,6 +165,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "_bankList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - Bank";
             this.Load += new System.EventHandler(this._bankList_Load);
             ((System.ComponentModel.ISupportInitialize)(this._dataBank)).EndInit();

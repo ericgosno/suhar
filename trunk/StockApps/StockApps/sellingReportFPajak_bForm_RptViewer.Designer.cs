@@ -50,6 +50,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 730);
             this.Controls.Add(this._rptSRFakturPajak);
             this.Name = "sellingReportFPajak_bForm_RptViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "sellingReportFPajak_bForm_RptViewer";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.sellingReportFPajak_bForm_RptViewer_Load);

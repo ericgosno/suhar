@@ -68,6 +68,14 @@ namespace StockApps
             this.Close();
         }
 
+        private void _notificationPaymentSupplier_Load(object sender, EventArgs e)
+        {
+            Bitmap pic = new Bitmap(StockApps.Properties.Resources.corner);
+            pictureBox1.Image = pic;
+            Bitmap pic2 = new Bitmap(StockApps.Properties.Resources.cvusahaSmall);
+            pictureBox2.Image = pic2;
+        }
+
 
     }
 }

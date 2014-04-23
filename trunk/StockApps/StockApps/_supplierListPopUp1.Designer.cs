@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this._tspDName = new System.Windows.Forms.Label();
@@ -36,6 +38,8 @@
             this._bspDDelete = new System.Windows.Forms.Button();
             this._bspDInsert = new System.Windows.Forms.Button();
             this._bProSPriceHistory = new System.Windows.Forms.Button();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             ((System.ComponentModel.ISupportInitialize)(this._dataDetailSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,16 +75,32 @@
             // 
             // _dataDetailSupplier
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._dataDetailSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._dataDetailSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._dataDetailSupplier.DefaultCellStyle = dataGridViewCellStyle2;
             this._dataDetailSupplier.Location = new System.Drawing.Point(18, 105);
             this._dataDetailSupplier.Name = "_dataDetailSupplier";
-            this._dataDetailSupplier.Size = new System.Drawing.Size(576, 260);
+            this._dataDetailSupplier.Size = new System.Drawing.Size(632, 260);
             this._dataDetailSupplier.TabIndex = 13;
             // 
             // _bspDUpdate
             // 
             this._bspDUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDUpdate.Location = new System.Drawing.Point(354, 381);
+            this._bspDUpdate.Location = new System.Drawing.Point(408, 381);
             this._bspDUpdate.Name = "_bspDUpdate";
             this._bspDUpdate.Size = new System.Drawing.Size(121, 35);
             this._bspDUpdate.TabIndex = 14;
@@ -91,7 +111,7 @@
             // _bspDDelete
             // 
             this._bspDDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDDelete.Location = new System.Drawing.Point(481, 381);
+            this._bspDDelete.Location = new System.Drawing.Point(535, 381);
             this._bspDDelete.Name = "_bspDDelete";
             this._bspDDelete.Size = new System.Drawing.Size(115, 35);
             this._bspDDelete.TabIndex = 15;
@@ -102,7 +122,7 @@
             // _bspDInsert
             // 
             this._bspDInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDInsert.Location = new System.Drawing.Point(227, 381);
+            this._bspDInsert.Location = new System.Drawing.Point(281, 381);
             this._bspDInsert.Name = "_bspDInsert";
             this._bspDInsert.Size = new System.Drawing.Size(121, 35);
             this._bspDInsert.TabIndex = 16;
@@ -113,19 +133,39 @@
             // _bProSPriceHistory
             // 
             this._bProSPriceHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bProSPriceHistory.Location = new System.Drawing.Point(385, 422);
+            this._bProSPriceHistory.Location = new System.Drawing.Point(18, 381);
             this._bProSPriceHistory.Name = "_bProSPriceHistory";
-            this._bProSPriceHistory.Size = new System.Drawing.Size(209, 35);
+            this._bProSPriceHistory.Size = new System.Drawing.Size(217, 35);
             this._bProSPriceHistory.TabIndex = 49;
             this._bProSPriceHistory.Text = "PRICE HISTORY";
             this._bProSPriceHistory.UseVisualStyleBackColor = true;
             this._bProSPriceHistory.Click += new System.EventHandler(this._bProSPriceHistory_Click);
             // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(670, 457);
+            this.shapeContainer1.TabIndex = 50;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.BorderWidth = 2;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 259;
+            this.lineShape1.X2 = 259;
+            this.lineShape1.Y1 = 375;
+            this.lineShape1.Y2 = 423;
+            // 
             // _supplierListPopUp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 464);
+            this.ClientSize = new System.Drawing.Size(670, 457);
             this.Controls.Add(this._bProSPriceHistory);
             this.Controls.Add(this._bspDInsert);
             this.Controls.Add(this._bspDUpdate);
@@ -134,6 +174,7 @@
             this.Controls.Add(this._tspDName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.shapeContainer1);
             this.Name = "_supplierListPopUp1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - DETAIL SUPPLIER";
@@ -154,5 +195,7 @@
         private System.Windows.Forms.Button _bspDDelete;
         private System.Windows.Forms.Button _bspDInsert;
         private System.Windows.Forms.Button _bProSPriceHistory;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
     }
 }

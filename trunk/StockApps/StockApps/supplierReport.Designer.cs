@@ -37,8 +37,8 @@
             this._radioLocal = new System.Windows.Forms.RadioButton();
             this._radioImport = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,16 +136,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List Report";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(129, 99);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(63, 17);
-            this.checkBox1.TabIndex = 67;
-            this.checkBox1.Text = "View All";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -155,6 +145,16 @@
             this.radioButton1.TabIndex = 6;
             this.radioButton1.Text = "Local / Import";
             this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(129, 99);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(63, 17);
+            this.checkBox1.TabIndex = 67;
+            this.checkBox1.Text = "View All";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // supplierReport
             // 
@@ -170,6 +170,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Name = "supplierReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "supplierReport";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

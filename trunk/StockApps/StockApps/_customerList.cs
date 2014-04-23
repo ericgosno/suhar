@@ -92,6 +92,14 @@ namespace StockApps
             _dataCustomer.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
+        private void _customerList_Load(object sender, EventArgs e)
+        {
+            Bitmap pic = new Bitmap(StockApps.Properties.Resources.corner);
+            pictureBox1.Image = pic;
+            Bitmap pic2 = new Bitmap(StockApps.Properties.Resources.cvusaha);
+            pictureBox2.Image = pic2;
+        }
+
       
     }
 }

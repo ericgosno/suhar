@@ -79,6 +79,11 @@
     <Compile Include="BankReport.Designer.cs">
       <DependentUpon>BankReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="rptBankTransactionDollar.cs">
       <DependentUpon>rptBankTransactionDollar.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -523,14 +528,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="_administrator.resx">
       <DependentUpon>_administrator.cs</DependentUpon>
     </EmbeddedResource>
@@ -697,6 +697,24 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colorfullNew.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\corner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cvusaha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cvusaha1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cvusahaSmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

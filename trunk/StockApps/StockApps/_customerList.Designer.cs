@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this._bcusDelete = new System.Windows.Forms.Button();
             this._bcusInsert = new System.Windows.Forms.Button();
             this._dataCustomer = new System.Windows.Forms.DataGridView();
@@ -55,16 +55,20 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this._tcusCity = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this._dataCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // _bcusDelete
             // 
             this._bcusDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusDelete.Location = new System.Drawing.Point(760, 332);
+            this._bcusDelete.Location = new System.Drawing.Point(163, 641);
             this._bcusDelete.Name = "_bcusDelete";
             this._bcusDelete.Size = new System.Drawing.Size(142, 35);
-            this._bcusDelete.TabIndex = 21;
+            this._bcusDelete.TabIndex = 10;
             this._bcusDelete.Text = "DELETE";
             this._bcusDelete.UseVisualStyleBackColor = true;
             this._bcusDelete.Click += new System.EventHandler(this._bcusDelete_Click);
@@ -72,10 +76,10 @@
             // _bcusInsert
             // 
             this._bcusInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusInsert.Location = new System.Drawing.Point(615, 332);
+            this._bcusInsert.Location = new System.Drawing.Point(18, 641);
             this._bcusInsert.Name = "_bcusInsert";
             this._bcusInsert.Size = new System.Drawing.Size(142, 35);
-            this._bcusInsert.TabIndex = 6;
+            this._bcusInsert.TabIndex = 9;
             this._bcusInsert.Text = "INSERT";
             this._bcusInsert.UseVisualStyleBackColor = true;
             this._bcusInsert.Click += new System.EventHandler(this._bcusInsert_Click);
@@ -83,27 +87,27 @@
             // _dataCustomer
             // 
             this._dataCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._dataCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._dataCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this._dataCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._dataCustomer.DefaultCellStyle = dataGridViewCellStyle6;
-            this._dataCustomer.Location = new System.Drawing.Point(12, 373);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._dataCustomer.DefaultCellStyle = dataGridViewCellStyle2;
+            this._dataCustomer.Location = new System.Drawing.Point(18, 384);
             this._dataCustomer.Name = "_dataCustomer";
-            this._dataCustomer.Size = new System.Drawing.Size(890, 190);
-            this._dataCustomer.TabIndex = 19;
+            this._dataCustomer.Size = new System.Drawing.Size(873, 249);
+            this._dataCustomer.TabIndex = 8;
             this._dataCustomer.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataCustomer_CellEndEdit);
             // 
             // _tcusPhone
@@ -111,16 +115,16 @@
             this._tcusPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tcusPhone.Location = new System.Drawing.Point(146, 246);
             this._tcusPhone.Name = "_tcusPhone";
-            this._tcusPhone.Size = new System.Drawing.Size(463, 35);
-            this._tcusPhone.TabIndex = 4;
+            this._tcusPhone.Size = new System.Drawing.Size(622, 35);
+            this._tcusPhone.TabIndex = 5;
             // 
             // _tcusEmail
             // 
             this._tcusEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tcusEmail.Location = new System.Drawing.Point(146, 205);
             this._tcusEmail.Name = "_tcusEmail";
-            this._tcusEmail.Size = new System.Drawing.Size(463, 35);
-            this._tcusEmail.TabIndex = 3;
+            this._tcusEmail.Size = new System.Drawing.Size(622, 35);
+            this._tcusEmail.TabIndex = 4;
             // 
             // _tcusAddress
             // 
@@ -128,7 +132,7 @@
             this._tcusAddress.Location = new System.Drawing.Point(146, 98);
             this._tcusAddress.Multiline = true;
             this._tcusAddress.Name = "_tcusAddress";
-            this._tcusAddress.Size = new System.Drawing.Size(463, 56);
+            this._tcusAddress.Size = new System.Drawing.Size(622, 56);
             this._tcusAddress.TabIndex = 2;
             // 
             // _tcusName
@@ -136,7 +140,7 @@
             this._tcusName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tcusName.Location = new System.Drawing.Point(146, 57);
             this._tcusName.Name = "_tcusName";
-            this._tcusName.Size = new System.Drawing.Size(463, 35);
+            this._tcusName.Size = new System.Drawing.Size(622, 35);
             this._tcusName.TabIndex = 1;
             // 
             // label5
@@ -204,16 +208,16 @@
             this._tcusNPWP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tcusNPWP.Location = new System.Drawing.Point(146, 291);
             this._tcusNPWP.Name = "_tcusNPWP";
-            this._tcusNPWP.Size = new System.Drawing.Size(463, 35);
-            this._tcusNPWP.TabIndex = 5;
+            this._tcusNPWP.Size = new System.Drawing.Size(622, 35);
+            this._tcusNPWP.TabIndex = 6;
             // 
             // _tcusCompany
             // 
             this._tcusCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tcusCompany.Location = new System.Drawing.Point(146, 332);
             this._tcusCompany.Name = "_tcusCompany";
-            this._tcusCompany.Size = new System.Drawing.Size(463, 35);
-            this._tcusCompany.TabIndex = 23;
+            this._tcusCompany.Size = new System.Drawing.Size(622, 35);
+            this._tcusCompany.TabIndex = 7;
             // 
             // label7
             // 
@@ -310,14 +314,32 @@
             this._tcusCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tcusCity.Location = new System.Drawing.Point(146, 161);
             this._tcusCity.Name = "_tcusCity";
-            this._tcusCity.Size = new System.Drawing.Size(463, 35);
-            this._tcusCity.TabIndex = 33;
+            this._tcusCity.Size = new System.Drawing.Size(622, 35);
+            this._tcusCity.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(808, 56);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(43, 291);
+            this.pictureBox2.TabIndex = 35;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(799, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(103, 99);
+            this.pictureBox1.TabIndex = 34;
+            this.pictureBox1.TabStop = false;
             // 
             // _customerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 616);
+            this.ClientSize = new System.Drawing.Size(903, 688);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this._tcusCity);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -344,8 +366,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "_customerList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - CUSTOMER";
+            this.Load += new System.EventHandler(this._customerList_Load);
             ((System.ComponentModel.ISupportInitialize)(this._dataCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,5 +404,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox _tcusCity;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

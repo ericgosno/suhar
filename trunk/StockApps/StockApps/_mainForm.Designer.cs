@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +39,6 @@
             this.sellingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cashFlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +66,6 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
             this.supplierToolStripMenuItem,
             this.customerToolStripMenuItem,
             this.purchasingToolStripMenuItem,
@@ -83,12 +80,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
             // 
             // supplierToolStripMenuItem
             // 
@@ -165,23 +156,16 @@
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addProductToolStripMenuItem,
             this.stockToolStripMenuItem});
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
             this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.productToolStripMenuItem.Text = "Product";
             this.productToolStripMenuItem.Visible = false;
             // 
-            // addProductToolStripMenuItem
-            // 
-            this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.addProductToolStripMenuItem.Text = "Add New Product";
-            // 
             // stockToolStripMenuItem
             // 
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stockToolStripMenuItem.Text = "List Product";
             this.stockToolStripMenuItem.Click += new System.EventHandler(this.stockToolStripMenuItem_Click);
             // 
@@ -368,7 +352,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administratorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createUserToolStripMenuItem;
@@ -396,7 +379,6 @@
         private System.Windows.Forms.ToolStripMenuItem purchasingToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bankAccountReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ownerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerDebtToolStripMenuItem;

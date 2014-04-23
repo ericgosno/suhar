@@ -90,7 +90,10 @@ namespace StockApps
 
         private void _sellingTrans_Load(object sender, EventArgs e)
         {
-
+            Bitmap pic = new Bitmap(StockApps.Properties.Resources.corner);
+            pictureBox1.Image = pic;
+            Bitmap pic2 = new Bitmap(StockApps.Properties.Resources.cvusaha);
+            pictureBox2.Image = pic2;
         }
 
         private void _dataCusTransaction_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -213,5 +216,7 @@ namespace StockApps
         {
             RefreshData();
         }
+
+  
     }
 }

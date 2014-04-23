@@ -177,6 +177,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "_SupplierCreditReportViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supplier Credit Report";
             this.ResumeLayout(false);
             this.PerformLayout();

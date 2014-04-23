@@ -49,6 +49,7 @@
             this.ClientSize = new System.Drawing.Size(1139, 479);
             this.Controls.Add(this._rptSelling);
             this.Name = "_sellingReportViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "_sellingReportViewer";
             this.ResumeLayout(false);
 

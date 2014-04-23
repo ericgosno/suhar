@@ -56,7 +56,11 @@
             this._tNotifKurs = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -120,7 +124,7 @@
             // 
             this._lblNotifAmount.AutoSize = true;
             this._lblNotifAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lblNotifAmount.Location = new System.Drawing.Point(220, 138);
+            this._lblNotifAmount.Location = new System.Drawing.Point(222, 138);
             this._lblNotifAmount.Name = "_lblNotifAmount";
             this._lblNotifAmount.Size = new System.Drawing.Size(78, 29);
             this._lblNotifAmount.TabIndex = 114;
@@ -140,7 +144,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(8, 138);
+            this.label8.Location = new System.Drawing.Point(14, 138);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 29);
             this.label8.TabIndex = 112;
@@ -171,7 +175,7 @@
             // 
             this._lblNotifDate.AutoSize = true;
             this._lblNotifDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lblNotifDate.Location = new System.Drawing.Point(220, 170);
+            this._lblNotifDate.Location = new System.Drawing.Point(222, 170);
             this._lblNotifDate.Name = "_lblNotifDate";
             this._lblNotifDate.Size = new System.Drawing.Size(78, 29);
             this._lblNotifDate.TabIndex = 109;
@@ -201,7 +205,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(8, 199);
+            this.label18.Location = new System.Drawing.Point(14, 199);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(166, 29);
             this.label18.TabIndex = 106;
@@ -211,7 +215,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 170);
+            this.label3.Location = new System.Drawing.Point(14, 170);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 29);
             this.label3.TabIndex = 105;
@@ -231,7 +235,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(207, 104);
+            this.label7.Location = new System.Drawing.Point(205, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 29);
             this.label7.TabIndex = 124;
@@ -241,7 +245,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 104);
+            this.label11.Location = new System.Drawing.Point(14, 104);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 29);
             this.label11.TabIndex = 123;
@@ -271,7 +275,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(206, 75);
+            this.label10.Location = new System.Drawing.Point(205, 75);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(19, 29);
             this.label10.TabIndex = 120;
@@ -281,7 +285,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(10, 75);
+            this.label9.Location = new System.Drawing.Point(14, 75);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 29);
             this.label9.TabIndex = 119;
@@ -291,7 +295,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(207, 46);
+            this.label2.Location = new System.Drawing.Point(205, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(19, 29);
             this.label2.TabIndex = 118;
@@ -301,7 +305,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 46);
+            this.label1.Location = new System.Drawing.Point(14, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 29);
             this.label1.TabIndex = 117;
@@ -320,7 +324,7 @@
             // _tNotifKurs
             // 
             this._tNotifKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._tNotifKurs.Location = new System.Drawing.Point(225, 231);
+            this._tNotifKurs.Location = new System.Drawing.Point(227, 228);
             this._tNotifKurs.Name = "_tNotifKurs";
             this._tNotifKurs.Size = new System.Drawing.Size(308, 35);
             this._tNotifKurs.TabIndex = 128;
@@ -340,17 +344,35 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 228);
+            this.label4.Location = new System.Drawing.Point(14, 231);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 29);
             this.label4.TabIndex = 126;
             this.label4.Text = "Kurs";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(546, 52);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(43, 213);
+            this.pictureBox2.TabIndex = 130;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(524, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(103, 99);
+            this.pictureBox1.TabIndex = 129;
+            this.pictureBox1.TabStop = false;
             // 
             // _notificationPaymentSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 479);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this._tNotifKurs);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
@@ -377,8 +399,11 @@
             this.Controls.Add(this.label3);
             this.Name = "_notificationPaymentSupplier";
             this.Text = "Supplier Notification Payment";
+            this.Load += new System.EventHandler(this._notificationPaymentSupplier_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,5 +439,7 @@
         private System.Windows.Forms.TextBox _tNotifKurs;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

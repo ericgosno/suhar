@@ -16,6 +16,7 @@ namespace StockApps
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new _administrator());
+           // Application.Run(new _identityForm());
         }
     }
 }
