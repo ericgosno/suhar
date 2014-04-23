@@ -33,7 +33,10 @@ namespace StockApps
 
         private void _notificationPayment_Load(object sender, EventArgs e)
         {
-
+            Bitmap pic = new Bitmap(StockApps.Properties.Resources.corner);
+            pictureBox1.Image = pic;
+            Bitmap pic2 = new Bitmap(StockApps.Properties.Resources.cvusahaSmall);
+            pictureBox2.Image = pic2;
         }
 
         private void _rdNotifDelay_CheckedChanged(object sender, EventArgs e)
@@ -71,6 +74,8 @@ namespace StockApps
             }
             this.Close();
         }
+
+
 
     }
 }

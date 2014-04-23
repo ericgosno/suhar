@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this._dataSupTransaction = new System.Windows.Forms.DataGridView();
             this.Product = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Quantity_Kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,20 +73,24 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this._dataSupTransaction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // _dataSupTransaction
             // 
             this._dataSupTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this._dataSupTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._dataSupTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this._dataSupTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._dataSupTransaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Product,
@@ -95,18 +99,18 @@
             this.Price_Kg,
             this.Subtotal_Dollar,
             this.Subtotal_Rupiah});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this._dataSupTransaction.DefaultCellStyle = dataGridViewCellStyle2;
-            this._dataSupTransaction.Location = new System.Drawing.Point(15, 306);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this._dataSupTransaction.DefaultCellStyle = dataGridViewCellStyle4;
+            this._dataSupTransaction.Location = new System.Drawing.Point(19, 340);
             this._dataSupTransaction.Name = "_dataSupTransaction";
             this._dataSupTransaction.Size = new System.Drawing.Size(766, 238);
-            this._dataSupTransaction.TabIndex = 22;
+            this._dataSupTransaction.TabIndex = 8;
             this._dataSupTransaction.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataSupTransaction_CellEndEdit);
             // 
             // Product
@@ -146,10 +150,10 @@
             // _bpurPay
             // 
             this._bpurPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bpurPay.Location = new System.Drawing.Point(638, 589);
+            this._bpurPay.Location = new System.Drawing.Point(642, 630);
             this._bpurPay.Name = "_bpurPay";
             this._bpurPay.Size = new System.Drawing.Size(143, 35);
-            this._bpurPay.TabIndex = 21;
+            this._bpurPay.TabIndex = 10;
             this._bpurPay.Text = "PROCESS";
             this._bpurPay.UseVisualStyleBackColor = true;
             this._bpurPay.Click += new System.EventHandler(this._bpurPay_Click);
@@ -238,16 +242,16 @@
             this._tpurDescription.Location = new System.Drawing.Point(197, 216);
             this._tpurDescription.Multiline = true;
             this._tpurDescription.Name = "_tpurDescription";
-            this._tpurDescription.Size = new System.Drawing.Size(466, 84);
-            this._tpurDescription.TabIndex = 40;
+            this._tpurDescription.Size = new System.Drawing.Size(466, 108);
+            this._tpurDescription.TabIndex = 7;
             // 
             // _bpurDelete
             // 
             this._bpurDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bpurDelete.Location = new System.Drawing.Point(638, 550);
+            this._bpurDelete.Location = new System.Drawing.Point(642, 589);
             this._bpurDelete.Name = "_bpurDelete";
             this._bpurDelete.Size = new System.Drawing.Size(143, 35);
-            this._bpurDelete.TabIndex = 41;
+            this._bpurDelete.TabIndex = 9;
             this._bpurDelete.Text = "DELETE";
             this._bpurDelete.UseVisualStyleBackColor = true;
             this._bpurDelete.Click += new System.EventHandler(this._bpurDelete_Click);
@@ -256,7 +260,7 @@
             // 
             this._lpurTotalPPNRupiah.AutoSize = true;
             this._lpurTotalPPNRupiah.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lpurTotalPPNRupiah.Location = new System.Drawing.Point(384, 628);
+            this._lpurTotalPPNRupiah.Location = new System.Drawing.Point(388, 662);
             this._lpurTotalPPNRupiah.Name = "_lpurTotalPPNRupiah";
             this._lpurTotalPPNRupiah.Size = new System.Drawing.Size(26, 29);
             this._lpurTotalPPNRupiah.TabIndex = 76;
@@ -266,7 +270,7 @@
             // 
             this._lpurPPNRupiah.AutoSize = true;
             this._lpurPPNRupiah.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lpurPPNRupiah.Location = new System.Drawing.Point(384, 592);
+            this._lpurPPNRupiah.Location = new System.Drawing.Point(388, 626);
             this._lpurPPNRupiah.Name = "_lpurPPNRupiah";
             this._lpurPPNRupiah.Size = new System.Drawing.Size(26, 29);
             this._lpurPPNRupiah.TabIndex = 75;
@@ -276,7 +280,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(322, 628);
+            this.label11.Location = new System.Drawing.Point(326, 662);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 29);
             this.label11.TabIndex = 74;
@@ -286,7 +290,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(252, 592);
+            this.label13.Location = new System.Drawing.Point(256, 626);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(126, 29);
             this.label13.TabIndex = 73;
@@ -296,7 +300,7 @@
             // 
             this._lpurTotalPPNDollar.AutoSize = true;
             this._lpurTotalPPNDollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lpurTotalPPNDollar.Location = new System.Drawing.Point(128, 621);
+            this._lpurTotalPPNDollar.Location = new System.Drawing.Point(132, 655);
             this._lpurTotalPPNDollar.Name = "_lpurTotalPPNDollar";
             this._lpurTotalPPNDollar.Size = new System.Drawing.Size(26, 29);
             this._lpurTotalPPNDollar.TabIndex = 72;
@@ -306,7 +310,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(84, 621);
+            this.label12.Location = new System.Drawing.Point(88, 655);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(38, 29);
             this.label12.TabIndex = 71;
@@ -316,7 +320,7 @@
             // 
             this._lpurPPNDollar.AutoSize = true;
             this._lpurPPNDollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lpurPPNDollar.Location = new System.Drawing.Point(128, 592);
+            this._lpurPPNDollar.Location = new System.Drawing.Point(132, 626);
             this._lpurPPNDollar.Name = "_lpurPPNDollar";
             this._lpurPPNDollar.Size = new System.Drawing.Size(26, 29);
             this._lpurPPNDollar.TabIndex = 70;
@@ -326,7 +330,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(14, 592);
+            this.label10.Location = new System.Drawing.Point(18, 626);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(108, 29);
             this.label10.TabIndex = 69;
@@ -336,7 +340,7 @@
             // 
             this._lpurDollar.AutoSize = true;
             this._lpurDollar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lpurDollar.Location = new System.Drawing.Point(128, 561);
+            this._lpurDollar.Location = new System.Drawing.Point(132, 595);
             this._lpurDollar.Name = "_lpurDollar";
             this._lpurDollar.Size = new System.Drawing.Size(26, 29);
             this._lpurDollar.TabIndex = 68;
@@ -346,7 +350,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(247, 557);
+            this.label6.Location = new System.Drawing.Point(251, 591);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 29);
             this.label6.TabIndex = 67;
@@ -356,7 +360,7 @@
             // 
             this._lpurRp.AutoSize = true;
             this._lpurRp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lpurRp.Location = new System.Drawing.Point(384, 558);
+            this._lpurRp.Location = new System.Drawing.Point(388, 592);
             this._lpurRp.Name = "_lpurRp";
             this._lpurRp.Size = new System.Drawing.Size(26, 29);
             this._lpurRp.TabIndex = 66;
@@ -366,7 +370,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 557);
+            this.label3.Location = new System.Drawing.Point(13, 591);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 29);
             this.label3.TabIndex = 65;
@@ -380,7 +384,7 @@
             this._cbpurKurs.Location = new System.Drawing.Point(485, 176);
             this._cbpurKurs.Name = "_cbpurKurs";
             this._cbpurKurs.Size = new System.Drawing.Size(178, 37);
-            this._cbpurKurs.TabIndex = 78;
+            this._cbpurKurs.TabIndex = 6;
             this._cbpurKurs.SelectedIndexChanged += new System.EventHandler(this._cbpurKurs_SelectedIndexChanged);
             // 
             // label9
@@ -499,11 +503,30 @@
             this.label21.TabIndex = 88;
             this.label21.Text = " :";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(699, 55);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(43, 291);
+            this.pictureBox2.TabIndex = 90;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(690, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(103, 99);
+            this.pictureBox1.TabIndex = 89;
+            this.pictureBox1.TabStop = false;
+            // 
             // _purchasingTrans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 660);
+            this.ClientSize = new System.Drawing.Size(793, 704);
+            this.Controls.Add(this._dataSupTransaction);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
@@ -537,14 +560,16 @@
             this.Controls.Add(this._tpurKurs);
             this.Controls.Add(this.label2);
             this.Controls.Add(this._cbpurNama);
-            this.Controls.Add(this._dataSupTransaction);
             this.Controls.Add(this._bpurPay);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "_purchasingTrans";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - PURCHASING";
             this.Load += new System.EventHandler(this._purchasingTrans_Load);
             ((System.ComponentModel.ISupportInitialize)(this._dataSupTransaction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,6 +620,8 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
     }
 }

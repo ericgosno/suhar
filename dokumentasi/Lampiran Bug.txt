@@ -1,0 +1,18 @@
+Check Bug
+Create Supplier
+- Dalam Gridview Create Supplier ada Kolom - Supplier_Payment.
+
+Create Customer
+- Abis Create masih ada data yang belum ke reset.
+- Dalam Gridview create Customer ada Kolom - Costumer_debt1 dan Customer_Payment.
+- Data Tidak bisa diedit ketika dilakukan pengeditan error company_city
+
+Transaction Purchasing
+- Bisa dipurchase walaupun jumlahnya 0 Kuantiti, apa tidak di suruh isi dulu jumlahnya? - Tombol Proses langsung memproses.
+
+Transaction Selling
+- Bisa dipurchase tanpa harus mengisi itemnya langsung. - Tombol Proses lgs memproses dengan isi kosong.
+
+Cash Flow 
+- Bank
+* Tidak Bisa diupdate. Was not in Correct Format String - Int

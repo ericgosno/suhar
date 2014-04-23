@@ -221,5 +221,7 @@ namespace StockApps
             _SupplierCreditReportViewer nextForm = new _SupplierCreditReportViewer();
             nextForm.Show(this);
         }
+
+
     }
 }

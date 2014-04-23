@@ -170,19 +170,19 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._dataPriceHistory.DefaultCellStyle = dataGridViewCellStyle2;
-            this._dataPriceHistory.Location = new System.Drawing.Point(13, 210);
+            this._dataPriceHistory.Location = new System.Drawing.Point(13, 187);
             this._dataPriceHistory.MultiSelect = false;
             this._dataPriceHistory.Name = "_dataPriceHistory";
             this._dataPriceHistory.ReadOnly = true;
-            this._dataPriceHistory.Size = new System.Drawing.Size(588, 230);
+            this._dataPriceHistory.Size = new System.Drawing.Size(593, 253);
             this._dataPriceHistory.TabIndex = 68;
             // 
             // _bSellTransPrint
             // 
             this._bSellTransPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bSellTransPrint.Location = new System.Drawing.Point(13, 446);
+            this._bSellTransPrint.Location = new System.Drawing.Point(12, 446);
             this._bSellTransPrint.Name = "_bSellTransPrint";
-            this._bSellTransPrint.Size = new System.Drawing.Size(105, 70);
+            this._bSellTransPrint.Size = new System.Drawing.Size(105, 36);
             this._bSellTransPrint.TabIndex = 73;
             this._bSellTransPrint.Text = "PRINT";
             this._bSellTransPrint.UseVisualStyleBackColor = true;
@@ -191,9 +191,9 @@
             // _bSellTransSJ
             // 
             this._bSellTransSJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bSellTransSJ.Location = new System.Drawing.Point(124, 446);
+            this._bSellTransSJ.Location = new System.Drawing.Point(123, 448);
             this._bSellTransSJ.Name = "_bSellTransSJ";
-            this._bSellTransSJ.Size = new System.Drawing.Size(115, 70);
+            this._bSellTransSJ.Size = new System.Drawing.Size(207, 33);
             this._bSellTransSJ.TabIndex = 74;
             this._bSellTransSJ.Text = "SURAT JALAN";
             this._bSellTransSJ.UseVisualStyleBackColor = true;
@@ -214,9 +214,9 @@
             // _bSellTransFP
             // 
             this._bSellTransFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bSellTransFP.Location = new System.Drawing.Point(245, 446);
+            this._bSellTransFP.Location = new System.Drawing.Point(336, 489);
             this._bSellTransFP.Name = "_bSellTransFP";
-            this._bSellTransFP.Size = new System.Drawing.Size(163, 70);
+            this._bSellTransFP.Size = new System.Drawing.Size(270, 35);
             this._bSellTransFP.TabIndex = 76;
             this._bSellTransFP.Text = "FAKTUR PENJUALAN";
             this._bSellTransFP.UseVisualStyleBackColor = true;
@@ -225,9 +225,9 @@
             // _bSellTransFPAJAK
             // 
             this._bSellTransFPAJAK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bSellTransFPAJAK.Location = new System.Drawing.Point(414, 446);
+            this._bSellTransFPAJAK.Location = new System.Drawing.Point(336, 448);
             this._bSellTransFPAJAK.Name = "_bSellTransFPAJAK";
-            this._bSellTransFPAJAK.Size = new System.Drawing.Size(163, 70);
+            this._bSellTransFPAJAK.Size = new System.Drawing.Size(270, 35);
             this._bSellTransFPAJAK.TabIndex = 77;
             this._bSellTransFPAJAK.Text = "FAKTUR PAJAK";
             this._bSellTransFPAJAK.UseVisualStyleBackColor = true;
@@ -237,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 523);
+            this.ClientSize = new System.Drawing.Size(618, 533);
             this.Controls.Add(this._bSellTransFPAJAK);
             this.Controls.Add(this._bSellTransFP);
             this.Controls.Add(this._lShowAll);

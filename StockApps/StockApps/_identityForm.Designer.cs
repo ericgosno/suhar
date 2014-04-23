@@ -46,6 +46,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this._tOwnerNPWP = new System.Windows.Forms.TextBox();
             this._tOwnerAdd = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // _tOwnerFax
@@ -54,7 +58,7 @@
             this._tOwnerFax.Location = new System.Drawing.Point(243, 176);
             this._tOwnerFax.Name = "_tOwnerFax";
             this._tOwnerFax.Size = new System.Drawing.Size(413, 35);
-            this._tOwnerFax.TabIndex = 34;
+            this._tOwnerFax.TabIndex = 4;
             // 
             // label6
             // 
@@ -72,7 +76,7 @@
             this._tOwnerUpdate.Location = new System.Drawing.Point(672, 393);
             this._tOwnerUpdate.Name = "_tOwnerUpdate";
             this._tOwnerUpdate.Size = new System.Drawing.Size(165, 35);
-            this._tOwnerUpdate.TabIndex = 38;
+            this._tOwnerUpdate.TabIndex = 9;
             this._tOwnerUpdate.Text = "UPDATE";
             this._tOwnerUpdate.UseVisualStyleBackColor = true;
             this._tOwnerUpdate.Click += new System.EventHandler(this._tOwnerUpdate_Click);
@@ -83,7 +87,7 @@
             this._tOwnerPhone.Location = new System.Drawing.Point(243, 138);
             this._tOwnerPhone.Name = "_tOwnerPhone";
             this._tOwnerPhone.Size = new System.Drawing.Size(413, 35);
-            this._tOwnerPhone.TabIndex = 33;
+            this._tOwnerPhone.TabIndex = 3;
             // 
             // _tOwnerComp
             // 
@@ -91,7 +95,7 @@
             this._tOwnerComp.Location = new System.Drawing.Point(243, 99);
             this._tOwnerComp.Name = "_tOwnerComp";
             this._tOwnerComp.Size = new System.Drawing.Size(413, 35);
-            this._tOwnerComp.TabIndex = 32;
+            this._tOwnerComp.TabIndex = 2;
             // 
             // _tOwnerName
             // 
@@ -99,7 +103,7 @@
             this._tOwnerName.Location = new System.Drawing.Point(243, 59);
             this._tOwnerName.Name = "_tOwnerName";
             this._tOwnerName.Size = new System.Drawing.Size(413, 35);
-            this._tOwnerName.TabIndex = 31;
+            this._tOwnerName.TabIndex = 1;
             // 
             // label4
             // 
@@ -167,7 +171,7 @@
             this._tOwnerCity.Location = new System.Drawing.Point(243, 314);
             this._tOwnerCity.Name = "_tOwnerCity";
             this._tOwnerCity.Size = new System.Drawing.Size(413, 35);
-            this._tOwnerCity.TabIndex = 47;
+            this._tOwnerCity.TabIndex = 6;
             // 
             // _tOwnerPostal
             // 
@@ -175,7 +179,7 @@
             this._tOwnerPostal.Location = new System.Drawing.Point(243, 355);
             this._tOwnerPostal.Name = "_tOwnerPostal";
             this._tOwnerPostal.Size = new System.Drawing.Size(413, 35);
-            this._tOwnerPostal.TabIndex = 48;
+            this._tOwnerPostal.TabIndex = 7;
             // 
             // label8
             // 
@@ -203,7 +207,7 @@
             this._tOwnerNPWP.Location = new System.Drawing.Point(243, 393);
             this._tOwnerNPWP.Name = "_tOwnerNPWP";
             this._tOwnerNPWP.Size = new System.Drawing.Size(413, 35);
-            this._tOwnerNPWP.TabIndex = 51;
+            this._tOwnerNPWP.TabIndex = 8;
             // 
             // _tOwnerAdd
             // 
@@ -212,13 +216,31 @@
             this._tOwnerAdd.Multiline = true;
             this._tOwnerAdd.Name = "_tOwnerAdd";
             this._tOwnerAdd.Size = new System.Drawing.Size(413, 93);
-            this._tOwnerAdd.TabIndex = 52;
+            this._tOwnerAdd.TabIndex = 5;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(753, 53);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(43, 291);
+            this.pictureBox2.TabIndex = 54;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(744, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(103, 99);
+            this.pictureBox1.TabIndex = 53;
+            this.pictureBox1.TabStop = false;
             // 
             // _identityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 440);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this._tOwnerAdd);
             this.Controls.Add(this._tOwnerNPWP);
             this.Controls.Add(this.label9);
@@ -239,6 +261,9 @@
             this.Controls.Add(this.label5);
             this.Name = "_identityForm";
             this.Text = "_identityForm";
+            this.Load += new System.EventHandler(this._identityForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,5 +289,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox _tOwnerNPWP;
         private System.Windows.Forms.TextBox _tOwnerAdd;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

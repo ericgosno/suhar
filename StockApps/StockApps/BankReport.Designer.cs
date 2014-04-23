@@ -180,6 +180,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "BankReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bank Transaction Report";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -50,6 +50,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 730);
             this.Controls.Add(this._rptSRFakturPenjualan);
             this.Name = "sellingReportFP_bForm_RptViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "sellingReportFP";
             this.Load += new System.EventHandler(this.sellingReportFP_bForm_RptViewer_Load);
             this.ResumeLayout(false);

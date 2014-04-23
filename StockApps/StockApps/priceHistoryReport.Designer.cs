@@ -186,7 +186,7 @@
             this._radioPenjualan.Text = "Penjualan";
             this._radioPenjualan.UseVisualStyleBackColor = true;
             // 
-            // PriceHistoryReport
+            // priceHistoryReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -202,7 +202,8 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this._dtTransDate);
             this.Controls.Add(this.label5);
-            this.Name = "PriceHistoryReport";
+            this.Name = "priceHistoryReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PriceHistoryReport";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

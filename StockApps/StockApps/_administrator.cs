@@ -51,8 +51,15 @@ namespace StockApps
 
         private void _administrator_Load(object sender, EventArgs e)
         {
-
+            Bitmap pic = new Bitmap(StockApps.Properties.Resources.administrator);
+            pictureBox1.Image = pic;
+            Bitmap pic2 = new Bitmap(StockApps.Properties.Resources.colorfullNew);
+            pictureBox2.Image = pic2;
         }
+
+      
+     
+       
 
 
     }

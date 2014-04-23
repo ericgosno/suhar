@@ -63,7 +63,7 @@
             this._bPurTransPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._bPurTransPrint.Location = new System.Drawing.Point(12, 446);
             this._bPurTransPrint.Name = "_bPurTransPrint";
-            this._bPurTransPrint.Size = new System.Drawing.Size(105, 70);
+            this._bPurTransPrint.Size = new System.Drawing.Size(105, 33);
             this._bPurTransPrint.TabIndex = 89;
             this._bPurTransPrint.Text = "PRINT";
             this._bPurTransPrint.UseVisualStyleBackColor = true;
@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 526);
+            this.ClientSize = new System.Drawing.Size(624, 487);
             this.Controls.Add(this._lShowAll);
             this.Controls.Add(this._bPurTransPrint);
             this.Controls.Add(this._dataPriceHistory);
