@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this._tadmUser = new System.Windows.Forms.TextBox();
@@ -38,10 +39,14 @@
             this._lIdentityPhone = new System.Windows.Forms.Label();
             this._lIdentityCity = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this._lConnectionStatus = new System.Windows.Forms.Label();
+            this._pConnectionStatus = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this._tConnectionCheck = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this._pConnectionStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -66,6 +71,7 @@
             // 
             // _tadmUser
             // 
+            this._tadmUser.Enabled = false;
             this._tadmUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tadmUser.Location = new System.Drawing.Point(287, 169);
             this._tadmUser.Name = "_tadmUser";
@@ -74,6 +80,7 @@
             // 
             // _tadmPass
             // 
+            this._tadmPass.Enabled = false;
             this._tadmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tadmPass.Location = new System.Drawing.Point(287, 204);
             this._tadmPass.Name = "_tadmPass";
@@ -83,13 +90,15 @@
             // 
             // _badmLogin
             // 
+            this._badmLogin.BackColor = System.Drawing.Color.Transparent;
+            this._badmLogin.Enabled = false;
             this._badmLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._badmLogin.Location = new System.Drawing.Point(110, 257);
             this._badmLogin.Name = "_badmLogin";
             this._badmLogin.Size = new System.Drawing.Size(404, 37);
             this._badmLogin.TabIndex = 3;
             this._badmLogin.Text = "LOGIN";
-            this._badmLogin.UseVisualStyleBackColor = true;
+            this._badmLogin.UseVisualStyleBackColor = false;
             this._badmLogin.Click += new System.EventHandler(this._badmLogin_Click);
             // 
             // _lIdentityCompany
@@ -103,6 +112,7 @@
             this._lIdentityCompany.Text = "CV. WARNA MURNI";
             this._lIdentityCompany.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this._lIdentityCompany.UseCompatibleTextRendering = true;
+            this._lIdentityCompany.Visible = false;
             // 
             // _lIdentityAddress
             // 
@@ -117,6 +127,7 @@
             this._lIdentityAddress.Text = "Jln. Klampis Harapan 1 no. 1 ";
             this._lIdentityAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this._lIdentityAddress.UseCompatibleTextRendering = true;
+            this._lIdentityAddress.Visible = false;
             // 
             // _lIdentityPhone
             // 
@@ -128,6 +139,7 @@
             this._lIdentityPhone.TabIndex = 6;
             this._lIdentityPhone.Text = "031 - 5353535";
             this._lIdentityPhone.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this._lIdentityPhone.Visible = false;
             // 
             // _lIdentityCity
             // 
@@ -138,6 +150,7 @@
             this._lIdentityCity.Size = new System.Drawing.Size(77, 20);
             this._lIdentityCity.TabIndex = 7;
             this._lIdentityCity.Text = "Surabaya";
+            this._lIdentityCity.Visible = false;
             // 
             // label1
             // 
@@ -152,27 +165,55 @@
             this.label1.Text = "ADMINISTRATOR";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // _lConnectionStatus
+            // 
+            this._lConnectionStatus.AutoSize = true;
+            this._lConnectionStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lConnectionStatus.Location = new System.Drawing.Point(50, 427);
+            this._lConnectionStatus.Name = "_lConnectionStatus";
+            this._lConnectionStatus.Size = new System.Drawing.Size(262, 24);
+            this._lConnectionStatus.TabIndex = 11;
+            this._lConnectionStatus.Text = "Checking Connection Status...";
+            // 
+            // _pConnectionStatus
+            // 
+            this._pConnectionStatus.Image = global::StockApps.Properties.Resources.green_light;
+            this._pConnectionStatus.Location = new System.Drawing.Point(12, 421);
+            this._pConnectionStatus.Name = "_pConnectionStatus";
+            this._pConnectionStatus.Size = new System.Drawing.Size(32, 32);
+            this._pConnectionStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this._pConnectionStatus.TabIndex = 10;
+            this._pConnectionStatus.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(-1, 459);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(623, 24);
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::StockApps.Properties.Resources.administrator;
             this.pictureBox1.Location = new System.Drawing.Point(253, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(125, 115);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // _tConnectionCheck
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(1, 422);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(623, 24);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
+            this._tConnectionCheck.Interval = 3000;
+            this._tConnectionCheck.Tick += new System.EventHandler(this._tConnectionCheck_Tick);
             // 
             // _administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 442);
+            this.ClientSize = new System.Drawing.Size(624, 484);
+            this.Controls.Add(this._lConnectionStatus);
+            this.Controls.Add(this._pConnectionStatus);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -185,12 +226,15 @@
             this.Controls.Add(this._tadmUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "_administrator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - ADMINISTRATOR";
-            this.Load += new System.EventHandler(this._administrator_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._pConnectionStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +254,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox _pConnectionStatus;
+        private System.Windows.Forms.Label _lConnectionStatus;
+        private System.Windows.Forms.Timer _tConnectionCheck;
     }
 }

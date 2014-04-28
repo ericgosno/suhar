@@ -30,7 +30,7 @@ namespace StockApps
             _tbankName.Text = "";
             _cbankCurrency.SelectedIndex = -1;
             selectedId = -1;
-            var listBank = BankController.getBank();
+            var listBank = BankController.getBankWithCash();
             var listCurrency = CurrencyController.getCurrency();
             var list = listBank
                 .Join(listCurrency,
@@ -74,11 +74,11 @@ namespace StockApps
             }
             if (selectedId == -1)
             {
-                BankController.insertBank(_tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedItem.ToString()));
+                BankController.insertBank(_tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedValue.ToString()));
             }
             else
             {
-                BankController.updateBank(selectedId, _tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedItem.ToString()));
+                BankController.updateBank(selectedId, _tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedValue.ToString()));
             }
             RefreshForm();
         }
@@ -96,7 +96,7 @@ namespace StockApps
                 {
                     rowNow = _dataBank.SelectedRows[0];
                 }
-                var bankNow = BankController.getBank(Convert.ToInt32(rowNow.Cells["Bank_ID"].Value)).First();
+                var bankNow = BankController.getBankWithCash(Convert.ToInt32(rowNow.Cells["Bank_ID"].Value)).First();
                 selectedId = bankNow.Bank_ID;
                 _tbankName.Text = bankNow.Bank_Name;
                 _cbankCurrency.SelectedValue = bankNow.currency.Currency_ID;

@@ -144,7 +144,6 @@
             this.Name = "adminHistoryR";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - HISTORY ADMIN";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.adminHistoryR_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
