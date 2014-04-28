@@ -26,18 +26,21 @@ namespace StockApps
             _tspPhone.Text = "";
             _tspCompany.Text = "";
             _tspNPWP.Text = "";
-            _dgvspListSupplier.DataSource = SupplierController.getSupplier();
+            _dgvspListSupplier.DataSource = SupplierController
+                .getSupplier();
+
             _dgvspListSupplier.Columns["Supplier_Name"].HeaderText = "Name";
             _dgvspListSupplier.Columns["Supplier_Address"].HeaderText = "Address";
             _dgvspListSupplier.Columns["Supplier_Email"].HeaderText = "Email";
             _dgvspListSupplier.Columns["Supplier_Phone"].HeaderText = "Phone";
             _dgvspListSupplier.Columns["Supplier_NPWP"].HeaderText = "NPWP";
             _dgvspListSupplier.Columns["Supplier_Company_Name"].HeaderText = "Company Name";
-            _dgvspListSupplier.Columns["Supplier_Regional"].HeaderText = "Regional";
 
+            _dgvspListSupplier.Columns["Supplier_Regional"].Visible = false;
             _dgvspListSupplier.Columns["Supplier_Credit_Dollar"].Visible = false;
             _dgvspListSupplier.Columns["Supplier_Credit_Rupiah"].Visible = false;
             _dgvspListSupplier.Columns["Supplier_Status"].Visible = false;
+            _dgvspListSupplier.Columns["Supplier_Payment"].Visible = false;
             _dgvspListSupplier.Columns["Supplier_ID"].Visible = false;
             _dgvspListSupplier.Columns["products"].Visible = false;
             _dgvspListSupplier.Columns["supplier_transaction"].Visible = false;

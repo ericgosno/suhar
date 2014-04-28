@@ -34,8 +34,11 @@ namespace StockApps
             _dataCustomer.Columns["Customer_NPWP"].HeaderText = "NPWP";
             _dataCustomer.Columns["Customer_City"].HeaderText = "City";
 
+
             _dataCustomer.Columns["Customer_Status"].Visible = false;
             _dataCustomer.Columns["Customer_ID"].Visible = false;
+            _dataCustomer.Columns["Customer_Payment"].Visible = false;
+            _dataCustomer.Columns["Customer_Debt1"].Visible = false;
             _dataCustomer.Columns["Customer_Debt_Rupiah"].Visible = false;
             _dataCustomer.Columns["Customer_Debt_Dollar"].Visible = false;
             _dataCustomer.Columns["customer_transaction"].Visible = false;
@@ -88,7 +91,7 @@ namespace StockApps
         private void _dataCustomer_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var rowNow = _dataCustomer.Rows[e.RowIndex];
-            CustomerController.editCustomer((int)rowNow.Cells["Customer_ID"].Value, rowNow.Cells["Customer_Name"].Value.ToString(), rowNow.Cells["Customer_Address"].Value.ToString(), rowNow.Cells["Customer_Email"].Value.ToString(), rowNow.Cells["Customer_Phone"].Value.ToString(), rowNow.Cells["Customer_NPWP"].Value.ToString(), rowNow.Cells["Customer_Company_Name"].Value.ToString(), rowNow.Cells["Customer_Company_City"].Value.ToString());
+            CustomerController.editCustomer((int)rowNow.Cells["Customer_ID"].Value, rowNow.Cells["Customer_Name"].Value.ToString(), rowNow.Cells["Customer_Address"].Value.ToString(), rowNow.Cells["Customer_Email"].Value.ToString(), rowNow.Cells["Customer_Phone"].Value.ToString(), rowNow.Cells["Customer_NPWP"].Value.ToString(), rowNow.Cells["Customer_Company_Name"].Value.ToString(), rowNow.Cells["Customer_City"].Value.ToString());
             _dataCustomer.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
@@ -99,7 +102,5 @@ namespace StockApps
             Bitmap pic2 = new Bitmap(StockApps.Properties.Resources.cvusaha);
             pictureBox2.Image = pic2;
         }
-
-      
     }
 }

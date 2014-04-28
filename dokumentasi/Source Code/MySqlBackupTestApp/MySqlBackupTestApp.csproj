@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C44B679-BC54-4818-9E77-6BE2C14E680B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MySqlBackupTestApp</RootNamespace>
+    <AssemblyName>MySqlBackupTestApp</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\repository2\Connector NET 6.8.3\v2.0\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDecryptOldDumpFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDecryptOldDumpFile.Designer.cs">
+      <DependentUpon>FormDecryptOldDumpFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQueryBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQueryBrowser.Designer.cs">
+      <DependentUpon>FormQueryBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestCustomTablesExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestCustomTablesExport.Designer.cs">
+      <DependentUpon>FormTestCustomTablesExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestEncryptDecrypt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestEncryptDecrypt.Designer.cs">
+      <DependentUpon>FormTestEncryptDecrypt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestExImWithOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestExImWithOptions.Designer.cs">
+      <DependentUpon>FormTestExImWithOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCompareFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompareFile.Designer.cs">
+      <DependentUpon>FormCompareFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDatabaseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatabaseInfo.Designer.cs">
+      <DependentUpon>FormDatabaseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReference.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReference.Designer.cs">
+      <DependentUpon>FormReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDumpFileViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDumpFileViewer.Designer.cs">
+      <DependentUpon>FormDumpFileViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestExportProgresBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestExportProgresBar.Designer.cs">
+      <DependentUpon>FormTestExportProgresBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestExportImportMemory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestExportImportMemory.Designer.cs">
+      <DependentUpon>FormTestExportImportMemory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestImportProgressReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestImportProgressReport.Designer.cs">
+      <DependentUpon>FormTestImportProgressReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestSimple.Designer.cs">
+      <DependentUpon>FormTestSimple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestZip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestZip.Designer.cs">
+      <DependentUpon>FormTestZip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormToolCreateSampleTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormToolCreateSampleTable.Designer.cs">
+      <DependentUpon>FormToolCreateSampleTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlExpress.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZipStorer.cs" />
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDecryptOldDumpFile.resx">
+      <DependentUpon>FormDecryptOldDumpFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQueryBrowser.resx">
+      <DependentUpon>FormQueryBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestCustomTablesExport.resx">
+      <DependentUpon>FormTestCustomTablesExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestEncryptDecrypt.resx">
+      <DependentUpon>FormTestEncryptDecrypt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestExImWithOptions.resx">
+      <DependentUpon>FormTestExImWithOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCompareFile.resx">
+      <DependentUpon>FormCompareFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDatabaseInfo.resx">
+      <DependentUpon>FormDatabaseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReference.resx">
+      <DependentUpon>FormReference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDumpFileViewer.resx">
+      <DependentUpon>FormDumpFileViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestExportProgresBar.resx">
+      <DependentUpon>FormTestExportProgresBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestExportImportMemory.resx">
+      <DependentUpon>FormTestExportImportMemory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestImportProgressReport.resx">
+      <DependentUpon>FormTestImportProgressReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestSimple.resx">
+      <DependentUpon>FormTestSimple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestZip.resx">
+      <DependentUpon>FormTestZip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormToolCreateSampleTable.resx">
+      <DependentUpon>FormToolCreateSampleTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+    <None Include="Resources\logo128.png" />
+    <None Include="Resources\q2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MySqlBackup\MySqlBackup.csproj">
+      <Project>{2625a6b7-505a-43f7-9282-24afe5a3db64}</Project>
+      <Name>MySqlBackup</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
