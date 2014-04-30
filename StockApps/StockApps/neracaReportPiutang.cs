@@ -16,14 +16,14 @@ namespace StockApps {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class sellingReportSJ_cViewer : ReportClass {
+    public class neracaReportPiutang : ReportClass {
         
-        public sellingReportSJ_cViewer() {
+        public neracaReportPiutang() {
         }
         
         public override string ResourceName {
             get {
-                return "sellingReportSJ_cViewer.rpt";
+                return "neracaReportPiutang.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace StockApps {
         
         public override string FullResourceName {
             get {
-                return "StockApps.sellingReportSJ_cViewer.rpt";
+                return "StockApps.neracaReportPiutang.rpt";
             }
             set {
                 // Do nothing
@@ -90,73 +90,17 @@ namespace StockApps {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_identityCompany {
+        public CrystalDecisions.Shared.IParameterField Parameter_AnualYear {
             get {
                 return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_identityCity {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_TransactionDate {
-            get {
-                return this.DataDefinition.ParameterFields[2];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CustomerCompany {
-            get {
-                return this.DataDefinition.ParameterFields[3];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CustomerAddress {
-            get {
-                return this.DataDefinition.ParameterFields[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_TransactionNoteNumber {
-            get {
-                return this.DataDefinition.ParameterFields[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_IdentityName {
-            get {
-                return this.DataDefinition.ParameterFields[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CustomerCity {
-            get {
-                return this.DataDefinition.ParameterFields[7];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedsellingReportSJ_cViewer : Component, ICachedReport {
+    public class CachedneracaReportPiutang : Component, ICachedReport {
         
-        public CachedsellingReportSJ_cViewer() {
+        public CachedneracaReportPiutang() {
         }
         
         [Browsable(false)]
@@ -193,7 +137,7 @@ namespace StockApps {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            sellingReportSJ_cViewer rpt = new sellingReportSJ_cViewer();
+            neracaReportPiutang rpt = new neracaReportPiutang();
             rpt.Site = this.Site;
             return rpt;
         }

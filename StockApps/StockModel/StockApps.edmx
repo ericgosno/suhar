@@ -18,6 +18,11 @@
           <EntitySet Name="customer_transaction" EntityType="stockappsModel.Store.customer_transaction" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="customer_transaction_product" EntityType="stockappsModel.Store.customer_transaction_product" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="identity" EntityType="stockappsModel.Store.identity" store:Type="Tables" Schema="stockapps" />
+          <EntitySet Name="neraca_aktiva" EntityType="stockappsModel.Store.neraca_aktiva" store:Type="Tables" Schema="stockapps" />
+          <EntitySet Name="neraca_aktiva_allinventaris" EntityType="stockappsModel.Store.neraca_aktiva_allinventaris" store:Type="Tables" Schema="stockapps" />
+          <EntitySet Name="neraca_aktiva_allkas" EntityType="stockappsModel.Store.neraca_aktiva_allkas" store:Type="Tables" Schema="stockapps" />
+          <EntitySet Name="neraca_aktiva_allpiutang" EntityType="stockappsModel.Store.neraca_aktiva_allpiutang" store:Type="Tables" Schema="stockapps" />
+          <EntitySet Name="neraca_aktiva_allproduct" EntityType="stockappsModel.Store.neraca_aktiva_allproduct" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="payment_category" EntityType="stockappsModel.Store.payment_category" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="price_history" EntityType="stockappsModel.Store.price_history" store:Type="Tables" Schema="stockapps" />
           <EntitySet Name="privilege" EntityType="stockappsModel.Store.privilege" store:Type="Tables" Schema="stockapps" />
@@ -318,6 +323,61 @@
           <Property Name="Identity_City" Type="varchar" MaxLength="45" />
           <Property Name="Identity_Postal_Code" Type="varchar" MaxLength="20" />
           <Property Name="Identity_NPWP" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="neraca_aktiva">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva" />
+          </Key>
+          <Property Name="idneraca_aktiva" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="tahun_aktiva" Type="datetime" />
+          <Property Name="all_produk" Type="varchar" MaxLength="45" />
+          <Property Name="all_kas" Type="varchar" MaxLength="45" />
+          <Property Name="all_piutang" Type="varchar" MaxLength="45" />
+          <Property Name="all_inventaris" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="neraca_aktiva_allinventaris">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva_allinventaris" />
+          </Key>
+          <Property Name="idneraca_aktiva_allinventaris" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_allinventaris" Type="varchar" MaxLength="45" />
+          <Property Name="nama" Type="varchar" MaxLength="45" />
+          <Property Name="jumlah" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="status" Type="int" />
+          <Property Name="tahun_aktiva" Type="datetime" />
+        </EntityType>
+        <EntityType Name="neraca_aktiva_allkas">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva_allkas" />
+          </Key>
+          <Property Name="idneraca_aktiva_allkas" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_allkas" Type="varchar" MaxLength="45" />
+          <Property Name="nama" Type="varchar" MaxLength="45" />
+          <Property Name="dollar" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="rupiah" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="tahun_aktiva" Type="datetime" />
+        </EntityType>
+        <EntityType Name="neraca_aktiva_allpiutang">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva_allpiutang" />
+          </Key>
+          <Property Name="idneraca_aktiva_allpiutang" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_allpiutang" Type="varchar" MaxLength="45" />
+          <Property Name="nama" Type="varchar" MaxLength="45" />
+          <Property Name="nota" Type="varchar" MaxLength="45" />
+          <Property Name="jumlah" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="tahun_aktiva" Type="datetime" />
+        </EntityType>
+        <EntityType Name="neraca_aktiva_allproduct">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva_allproduct" />
+          </Key>
+          <Property Name="idneraca_aktiva_allproduct" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_allproduct" Type="varchar" MaxLength="45" />
+          <Property Name="nama" Type="varchar" MaxLength="45" />
+          <Property Name="bg" Type="varchar" MaxLength="45" />
+          <Property Name="jumlah" Type="decimal" Precision="12" Scale="2" />
+          <Property Name="tahun_aktiva" Type="datetime" />
         </EntityType>
         <EntityType Name="payment_category">
           <Key>
@@ -1052,6 +1112,11 @@
             <End Role="supplier_transaction" EntitySet="supplier_transaction" />
             <End Role="supplier_payment" EntitySet="supplier_payment" />
           </AssociationSet>
+          <EntitySet Name="neraca_aktiva" EntityType="stockappsModel.neraca_aktiva" />
+          <EntitySet Name="neraca_aktiva_allinventaris" EntityType="stockappsModel.neraca_aktiva_allinventaris" />
+          <EntitySet Name="neraca_aktiva_allkas" EntityType="stockappsModel.neraca_aktiva_allkas" />
+          <EntitySet Name="neraca_aktiva_allpiutang" EntityType="stockappsModel.neraca_aktiva_allpiutang" />
+          <EntitySet Name="neraca_aktiva_allproduct" EntityType="stockappsModel.neraca_aktiva_allproduct" />
         </EntityContainer>
         <EntityType Name="customer">
           <Key>
@@ -1776,6 +1841,61 @@
           <End Type="stockappsModel.supplier_transaction" Role="supplier_transaction" Multiplicity="*" />
           <End Type="stockappsModel.supplier_payment" Role="supplier_payment" Multiplicity="*" />
         </Association>
+        <EntityType Name="neraca_aktiva">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva" />
+          </Key>
+          <Property Type="Int32" Name="idneraca_aktiva" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="tahun_aktiva" />
+          <Property Type="String" Name="all_produk" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="all_kas" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="all_piutang" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="all_inventaris" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="neraca_aktiva_allinventaris">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva_allinventaris" />
+          </Key>
+          <Property Type="Int32" Name="idneraca_aktiva_allinventaris" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="id_allinventaris" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nama" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="jumlah" />
+          <Property Type="Int32" Name="status" />
+          <Property Type="DateTime" Name="tahun_aktiva" />
+        </EntityType>
+        <EntityType Name="neraca_aktiva_allkas">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva_allkas" />
+          </Key>
+          <Property Type="Int32" Name="idneraca_aktiva_allkas" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="id_allkas" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nama" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="dollar" />
+          <Property Type="Decimal" Name="rupiah" />
+          <Property Type="DateTime" Name="tahun_aktiva" />
+        </EntityType>
+        <EntityType Name="neraca_aktiva_allpiutang">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva_allpiutang" />
+          </Key>
+          <Property Type="Int32" Name="idneraca_aktiva_allpiutang" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="id_allpiutang" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nama" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nota" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="jumlah" />
+          <Property Type="DateTime" Name="tahun_aktiva" />
+        </EntityType>
+        <EntityType Name="neraca_aktiva_allproduct">
+          <Key>
+            <PropertyRef Name="idneraca_aktiva_allproduct" />
+          </Key>
+          <Property Type="Int32" Name="idneraca_aktiva_allproduct" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="id_allproduct" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nama" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bg" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="jumlah" />
+          <Property Type="DateTime" Name="tahun_aktiva" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2092,6 +2212,66 @@
               <ScalarProperty Name="Supplier_Transaction_ID" ColumnName="Supplier_Transaction_ID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="neraca_aktiva">
+            <EntityTypeMapping TypeName="stockappsModel.neraca_aktiva">
+              <MappingFragment StoreEntitySet="neraca_aktiva">
+                <ScalarProperty Name="all_inventaris" ColumnName="all_inventaris" />
+                <ScalarProperty Name="all_piutang" ColumnName="all_piutang" />
+                <ScalarProperty Name="all_kas" ColumnName="all_kas" />
+                <ScalarProperty Name="all_produk" ColumnName="all_produk" />
+                <ScalarProperty Name="tahun_aktiva" ColumnName="tahun_aktiva" />
+                <ScalarProperty Name="idneraca_aktiva" ColumnName="idneraca_aktiva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="neraca_aktiva_allinventaris">
+            <EntityTypeMapping TypeName="stockappsModel.neraca_aktiva_allinventaris">
+              <MappingFragment StoreEntitySet="neraca_aktiva_allinventaris">
+                <ScalarProperty Name="tahun_aktiva" ColumnName="tahun_aktiva" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="jumlah" ColumnName="jumlah" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="id_allinventaris" ColumnName="id_allinventaris" />
+                <ScalarProperty Name="idneraca_aktiva_allinventaris" ColumnName="idneraca_aktiva_allinventaris" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="neraca_aktiva_allkas">
+            <EntityTypeMapping TypeName="stockappsModel.neraca_aktiva_allkas">
+              <MappingFragment StoreEntitySet="neraca_aktiva_allkas">
+                <ScalarProperty Name="tahun_aktiva" ColumnName="tahun_aktiva" />
+                <ScalarProperty Name="rupiah" ColumnName="rupiah" />
+                <ScalarProperty Name="dollar" ColumnName="dollar" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="id_allkas" ColumnName="id_allkas" />
+                <ScalarProperty Name="idneraca_aktiva_allkas" ColumnName="idneraca_aktiva_allkas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="neraca_aktiva_allpiutang">
+            <EntityTypeMapping TypeName="stockappsModel.neraca_aktiva_allpiutang">
+              <MappingFragment StoreEntitySet="neraca_aktiva_allpiutang">
+                <ScalarProperty Name="tahun_aktiva" ColumnName="tahun_aktiva" />
+                <ScalarProperty Name="jumlah" ColumnName="jumlah" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="id_allpiutang" ColumnName="id_allpiutang" />
+                <ScalarProperty Name="idneraca_aktiva_allpiutang" ColumnName="idneraca_aktiva_allpiutang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="neraca_aktiva_allproduct">
+            <EntityTypeMapping TypeName="stockappsModel.neraca_aktiva_allproduct">
+              <MappingFragment StoreEntitySet="neraca_aktiva_allproduct">
+                <ScalarProperty Name="tahun_aktiva" ColumnName="tahun_aktiva" />
+                <ScalarProperty Name="jumlah" ColumnName="jumlah" />
+                <ScalarProperty Name="bg" ColumnName="bg" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="id_allproduct" ColumnName="id_allproduct" />
+                <ScalarProperty Name="idneraca_aktiva_allproduct" ColumnName="idneraca_aktiva_allproduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2112,7 +2292,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="StockApps" ZoomLevel="62">
+      <Diagram Name="StockApps" ZoomLevel="77">
         <EntityTypeShape EntityType="stockappsModel.customer" Width="1.5" PointX="0.75" PointY="2" Height="3.7109993489583326" IsExpanded="true" />
         <EntityTypeShape EntityType="stockappsModel.customer_transaction" Width="1.25" PointX="3" PointY="0.75" Height="4.2879036458333326" IsExpanded="true" />
         <EntityTypeShape EntityType="stockappsModel.customer_transaction_product" Width="1.5" PointX="5.25" PointY="8" Height="2.3648893229166665" IsExpanded="true" />
@@ -2136,8 +2316,6 @@
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_3" ManuallyRouted="false">
           <ConnectorPoint PointX="4.75" PointY="10.970602213541666" />
-          <ConnectorPoint PointX="4.9272538437948938" PointY="11.069650876736715" />
-          <ConnectorPoint PointX="5.0727461562051062" PointY="11.150951336804951" />
           <ConnectorPoint PointX="5.25" PointY="11.25" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.FK_Relationship_1" ManuallyRouted="false">
@@ -2195,8 +2373,6 @@
           <ConnectorPoint PointX="7.25" PointY="7.9994921875" />
           <ConnectorPoint PointX="7.25" PointY="10.625" />
           <ConnectorPoint PointX="7.125" PointY="10.625" />
-          <ConnectorPoint PointX="7.0428165604723079" PointY="10.762225052178602" />
-          <ConnectorPoint PointX="6.9571834395276912" PointY="10.905210178590625" />
           <ConnectorPoint PointX="6.8865665604723079" PointY="11.023122071409372" />
           <ConnectorPoint PointX="6.8009334395276912" PointY="11.166107197821395" />
           <ConnectorPoint PointX="6.75" PointY="11.251152846153847" />
@@ -2232,17 +2408,18 @@
           <ConnectorPoint PointX="3" PointY="21.884348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_credit_fk1" >
-          <ConnectorPoint PointX="1.2968739999999999" PointY="11.710999348958334" />
-          <ConnectorPoint PointX="1.2968739999999999" PointY="18.009348958333334" />
-          <ConnectorPoint PointX="2.2291666666666665" PointY="18.009348958333334" />
-          <ConnectorPoint PointX="2.3958333333333335" PointY="18.009348958333334" />
+          <ConnectorPoint PointX="2.2500000000000013" PointY="11.710999348958334" />
+          <ConnectorPoint PointX="2.2535744349011213" PointY="11.714573783859452" />
+          <ConnectorPoint PointX="2.3714255650988791" PointY="11.83242491405721" />
+          <ConnectorPoint PointX="2.625" PointY="12.085999348958332" />
+          <ConnectorPoint PointX="2.625" PointY="18.009348958333334" />
           <ConnectorPoint PointX="3" PointY="18.009348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_payment_fk3" >
-          <ConnectorPoint PointX="7.793455390625" PointY="13.75" />
-          <ConnectorPoint PointX="7.793455390625" PointY="9.3314925130208337" />
-          <ConnectorPoint PointX="7.9383968619791672" PointY="9.3314925130208337" />
-          <ConnectorPoint PointX="8.1050635286458341" PointY="9.3314925130208337" />
+          <ConnectorPoint PointX="7.79211259765625" PointY="13.75" />
+          <ConnectorPoint PointX="7.79211259765625" PointY="9.3314925130208337" />
+          <ConnectorPoint PointX="8.3127254654947915" PointY="9.3314925130208337" />
+          <ConnectorPoint PointX="8.47939213216146" PointY="9.3314925130208337" />
           <ConnectorPoint PointX="10.354166666666666" PointY="9.3314925130208337" />
           <ConnectorPoint PointX="10.520833333333334" PointY="9.3314925130208337" />
           <ConnectorPoint PointX="10.885416666666666" PointY="9.3314925130208337" />
@@ -2262,22 +2439,28 @@
           <ConnectorPoint PointX="11.375" PointY="6.84375" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_payment_fk1" >
-          <ConnectorPoint PointX="1.9062519999999998" PointY="11.710999348958334" />
-          <ConnectorPoint PointX="1.9062519999999998" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="2.2291666666666665" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="2.3958333333333335" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="5" PointY="11.960999348958332" />
-          <ConnectorPoint PointX="5" PointY="10.9994921875" />
-          <ConnectorPoint PointX="6.760416666666667" PointY="10.9994921875" />
-          <ConnectorPoint PointX="6.9840517203451933" PointY="10.9994921875" />
-          <ConnectorPoint PointX="7" PointY="10.9994921875" />
+          <ConnectorPoint PointX="2.281252" PointY="11.710999348958334" />
+          <ConnectorPoint PointX="2.281252" PointY="11.960999348958332" />
+          <ConnectorPoint PointX="2.3685558826265725" PointY="11.933866140833892" />
+          <ConnectorPoint PointX="2.5277131509209729" PointY="11.884401590630318" />
+          <ConnectorPoint PointX="4.9270193088833549" PointY="11.138720283228452" />
+          <ConnectorPoint PointX="5.0861765771777554" PointY="11.089255733024878" />
+          <ConnectorPoint PointX="5.375" PointY="10.9994921875" />
+          <ConnectorPoint PointX="5.375" PointY="10.9994921875" />
+          <ConnectorPoint PointX="6.77542043255703" PointY="10.021828272709323" />
+          <ConnectorPoint PointX="6.91207956744297" PointY="9.9264235630247164" />
+          <ConnectorPoint PointX="7.18167043255703" PointY="9.738216325789562" />
+          <ConnectorPoint PointX="7.31832956744297" PointY="9.6428116161049555" />
+          <ConnectorPoint PointX="7.375" PointY="9.60324875651041" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="9.60324875651041" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="9.60324875651041" />
           <ConnectorPoint PointX="7" PointY="9.60324875651041" />
           <ConnectorPoint PointX="7.166666666666667" PointY="9.60324875651041" />
           <ConnectorPoint PointX="7.333333333333333" PointY="9.60324875651041" />
           <ConnectorPoint PointX="7.7087792643229172" PointY="9.60324875651041" />
           <ConnectorPoint PointX="7.8754459309895832" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="7.9377254654947924" PointY="9.60324875651041" />
-          <ConnectorPoint PointX="8.10439213216146" PointY="9.60324875651041" />
+          <ConnectorPoint PointX="8.3127254654947915" PointY="9.60324875651041" />
+          <ConnectorPoint PointX="8.47939213216146" PointY="9.60324875651041" />
           <ConnectorPoint PointX="10.354166666666666" PointY="9.60324875651041" />
           <ConnectorPoint PointX="10.520833333333334" PointY="9.60324875651041" />
           <ConnectorPoint PointX="10.885416666666666" PointY="9.60324875651041" />
@@ -2291,15 +2474,15 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="stockappsModel.customer_payment" Width="1.5" PointX="13.875" PointY="5.5" Height="4.2879036458333246" />
         <AssociationConnector Association="stockappsModel.customer_payment_fk2" >
-          <ConnectorPoint PointX="8.0217301953125" PointY="13.75" />
-          <ConnectorPoint PointX="8.0217301953125" PointY="6.3002425130208328" />
-          <ConnectorPoint PointX="10.354166666666666" PointY="6.3002425130208319" />
-          <ConnectorPoint PointX="10.520833333333334" PointY="6.3002425130208328" />
-          <ConnectorPoint PointX="10.541666666666666" PointY="6.3002425130208319" />
-          <ConnectorPoint PointX="10.708333333333334" PointY="6.3002425130208328" />
-          <ConnectorPoint PointX="13.541666666666666" PointY="6.3002425130208319" />
-          <ConnectorPoint PointX="13.708333333333334" PointY="6.3002425130208328" />
-          <ConnectorPoint PointX="13.875" PointY="6.3002425130208328" />
+          <ConnectorPoint PointX="8.3960587988281254" PointY="6.4153678744871607" />
+          <ConnectorPoint PointX="8.3960587988281254" PointY="6.4153678744871607" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="6.41536787448716" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="6.4153678744871607" />
+          <ConnectorPoint PointX="10.541666666666666" PointY="6.41536787448716" />
+          <ConnectorPoint PointX="10.708333333333334" PointY="6.4153678744871607" />
+          <ConnectorPoint PointX="13.541666666666666" PointY="6.41536787448716" />
+          <ConnectorPoint PointX="13.708333333333334" PointY="6.4153678744871607" />
+          <ConnectorPoint PointX="14.25" PointY="6.4153678744871607" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.customer_payment_fk3" >
           <ConnectorPoint PointX="6.875" PointY="6.65625" />
@@ -2316,9 +2499,9 @@
           <ConnectorPoint PointX="13.875" PointY="6.65625" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.customer_payment_fk1" >
-          <ConnectorPoint PointX="2.25" PointY="4.7551953711348762" />
-          <ConnectorPoint PointX="2.875" PointY="4.7551953711348762" />
-          <ConnectorPoint PointX="2.875" PointY="5.292705078125" />
+          <ConnectorPoint PointX="2.25" PointY="4.694302944010416" />
+          <ConnectorPoint PointX="2.9375" PointY="4.694302944010416" />
+          <ConnectorPoint PointX="2.9375" PointY="5.292705078125" />
           <ConnectorPoint PointX="5.3125" PointY="5.292705078125" />
           <ConnectorPoint PointX="5.3125" PointY="4.8125" />
           <ConnectorPoint PointX="8.6875" PointY="4.8125" />
@@ -2363,10 +2546,10 @@
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.customer_payment_fk4" >
           <ConnectorPoint PointX="10.96875" PointY="14.125" />
-          <ConnectorPoint PointX="10.96875" PointY="6.4313737565104105" />
-          <ConnectorPoint PointX="13.541666666666666" PointY="6.43137375651041" />
-          <ConnectorPoint PointX="13.708333333333334" PointY="6.4313737565104105" />
-          <ConnectorPoint PointX="13.875" PointY="6.4313737565104105" />
+          <ConnectorPoint PointX="10.96875" PointY="6.59375" />
+          <ConnectorPoint PointX="13.416666666666666" PointY="6.5937499999999991" />
+          <ConnectorPoint PointX="13.708333333333334" PointY="6.59375" />
+          <ConnectorPoint PointX="13.875" PointY="6.59375" />
         </AssociationConnector>
         <EntityTypeShape EntityType="stockappsModel.supplier_transaction" Width="1.5" PointX="13.625" PointY="12" Height="4.6725065104166674" />
         <AssociationConnector Association="stockappsModel.supplier_transaction_ibfk_2" >
@@ -2375,27 +2558,31 @@
           <ConnectorPoint PointX="13.625" PointY="16.617249348958335" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_transaction_ibfk_1" >
-          <ConnectorPoint PointX="1.6015629999999999" PointY="11.710999348958334" />
-          <ConnectorPoint PointX="1.6015629999999999" PointY="14.634095052083332" />
-          <ConnectorPoint PointX="2.2291666666666665" PointY="14.634095052083332" />
-          <ConnectorPoint PointX="2.3958333333333335" PointY="14.634095052083332" />
-          <ConnectorPoint PointX="6.760416666666667" PointY="14.634095052083332" />
-          <ConnectorPoint PointX="6.927083333333333" PointY="14.634095052083332" />
-          <ConnectorPoint PointX="7.375" PointY="14.634095052083332" />
-          <ConnectorPoint PointX="7.375" PointY="13.5" />
-          <ConnectorPoint PointX="7.7087792643229172" PointY="13.5" />
-          <ConnectorPoint PointX="7.8754459309895832" PointY="13.5" />
-          <ConnectorPoint PointX="7.9377254654947924" PointY="13.5" />
-          <ConnectorPoint PointX="8.10439213216146" PointY="13.5" />
-          <ConnectorPoint PointX="10.354166666666666" PointY="13.5" />
-          <ConnectorPoint PointX="10.520833333333334" PointY="13.5" />
-          <ConnectorPoint PointX="10.885416666666666" PointY="13.5" />
-          <ConnectorPoint PointX="11.052083333333334" PointY="13.5" />
-          <ConnectorPoint PointX="11.666666666666666" PointY="13.5" />
-          <ConnectorPoint PointX="11.833333333333334" PointY="13.5" />
-          <ConnectorPoint PointX="13.25" PointY="13.5" />
-          <ConnectorPoint PointX="13.25" PointY="14.569365295572913" />
-          <ConnectorPoint PointX="13.625" PointY="14.569365295572913" />
+          <ConnectorPoint PointX="2.25" PointY="10.629402227864583" />
+          <ConnectorPoint PointX="2.4375" PointY="10.629402227864583" />
+          <ConnectorPoint PointX="2.4375" PointY="11.033102213541666" />
+          <ConnectorPoint PointX="4.7785143673808594" PointY="11.033102213541666" />
+          <ConnectorPoint PointX="4.9451810340475255" PointY="11.033102213541666" />
+          <ConnectorPoint PointX="6.760416666666667" PointY="11.033102213541666" />
+          <ConnectorPoint PointX="6.9639228335357766" PointY="11.033102213541666" />
+          <ConnectorPoint PointX="7.7087792643229172" PointY="11.033102213541666" />
+          <ConnectorPoint PointX="7.8754459309895832" PointY="11.033102213541666" />
+          <ConnectorPoint PointX="8.1875" PointY="11.033102213541666" />
+          <ConnectorPoint PointX="8.1875" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="8.3127254654947915" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="8.47939213216146" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="10.885416666666666" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="11.052083333333334" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="11.666666666666666" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="11.833333333333334" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="12.447916666666666" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="12.614583333333334" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="13.5625" PointY="12.302389322916667" />
+          <ConnectorPoint PointX="13.5625" PointY="11.9375" />
+          <ConnectorPoint PointX="13.968748" PointY="11.9375" />
+          <ConnectorPoint PointX="13.968748" PointY="12" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_transaction_product_ibfk_1" >
           <ConnectorPoint PointX="13.625" PointY="15.101600510817308" />
@@ -2405,10 +2592,15 @@
           <ConnectorPoint PointX="9.46875" PointY="12.239889322916667" />
         </AssociationConnector>
         <AssociationConnector Association="stockappsModel.supplier_payment_transaction" >
-          <ConnectorPoint PointX="13.625" PointY="12.403720080729173" />
-          <ConnectorPoint PointX="12.53125" PointY="12.403720080729173" />
+          <ConnectorPoint PointX="13.625" PointY="12.460303770182296" />
+          <ConnectorPoint PointX="12.53125" PointY="12.460303770182296" />
           <ConnectorPoint PointX="12.53125" PointY="11.614807942708334" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="stockappsModel.neraca_aktiva" Width="1.5" PointX="0.75" PointY="12.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="stockappsModel.neraca_aktiva_allinventaris" Width="1.5" PointX="14.625" PointY="3.25" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="stockappsModel.neraca_aktiva_allkas" Width="1.5" PointX="14.75" PointY="0.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="stockappsModel.neraca_aktiva_allpiutang" Width="1.5" PointX="16.75" PointY="0.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="stockappsModel.neraca_aktiva_allproduct" Width="1.5" PointX="16.75" PointY="3.75" Height="1.9802864583333246" />
       </Diagram>
     </Diagrams>
   </Designer>
