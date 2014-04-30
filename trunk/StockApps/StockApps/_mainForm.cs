@@ -547,6 +547,12 @@ namespace StockApps
 
         }
 
+        private void neracaAktivaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _neraca_aktiva NeracaReport = new _neraca_aktiva();
+            NeracaReport.Show(this);
+        }
+
 
 
     }

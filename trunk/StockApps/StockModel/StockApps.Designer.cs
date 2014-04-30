@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -467,8 +468,89 @@ namespace StockModel
             }
         }
         private ObjectSet<supplier_transaction> _supplier_transaction;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_aktiva> neraca_aktiva
+        {
+            get
+            {
+                if ((_neraca_aktiva == null))
+                {
+                    _neraca_aktiva = base.CreateObjectSet<neraca_aktiva>("neraca_aktiva");
+                }
+                return _neraca_aktiva;
+            }
+        }
+        private ObjectSet<neraca_aktiva> _neraca_aktiva;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_aktiva_allinventaris> neraca_aktiva_allinventaris
+        {
+            get
+            {
+                if ((_neraca_aktiva_allinventaris == null))
+                {
+                    _neraca_aktiva_allinventaris = base.CreateObjectSet<neraca_aktiva_allinventaris>("neraca_aktiva_allinventaris");
+                }
+                return _neraca_aktiva_allinventaris;
+            }
+        }
+        private ObjectSet<neraca_aktiva_allinventaris> _neraca_aktiva_allinventaris;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_aktiva_allkas> neraca_aktiva_allkas
+        {
+            get
+            {
+                if ((_neraca_aktiva_allkas == null))
+                {
+                    _neraca_aktiva_allkas = base.CreateObjectSet<neraca_aktiva_allkas>("neraca_aktiva_allkas");
+                }
+                return _neraca_aktiva_allkas;
+            }
+        }
+        private ObjectSet<neraca_aktiva_allkas> _neraca_aktiva_allkas;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_aktiva_allpiutang> neraca_aktiva_allpiutang
+        {
+            get
+            {
+                if ((_neraca_aktiva_allpiutang == null))
+                {
+                    _neraca_aktiva_allpiutang = base.CreateObjectSet<neraca_aktiva_allpiutang>("neraca_aktiva_allpiutang");
+                }
+                return _neraca_aktiva_allpiutang;
+            }
+        }
+        private ObjectSet<neraca_aktiva_allpiutang> _neraca_aktiva_allpiutang;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_aktiva_allproduct> neraca_aktiva_allproduct
+        {
+            get
+            {
+                if ((_neraca_aktiva_allproduct == null))
+                {
+                    _neraca_aktiva_allproduct = base.CreateObjectSet<neraca_aktiva_allproduct>("neraca_aktiva_allproduct");
+                }
+                return _neraca_aktiva_allproduct;
+            }
+        }
+        private ObjectSet<neraca_aktiva_allproduct> _neraca_aktiva_allproduct;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -654,13 +736,53 @@ namespace StockModel
         {
             base.AddObject("supplier_transaction", supplier_transaction);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_aktiva EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_aktiva(neraca_aktiva neraca_aktiva)
+        {
+            base.AddObject("neraca_aktiva", neraca_aktiva);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_aktiva_allinventaris EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_aktiva_allinventaris(neraca_aktiva_allinventaris neraca_aktiva_allinventaris)
+        {
+            base.AddObject("neraca_aktiva_allinventaris", neraca_aktiva_allinventaris);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_aktiva_allkas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_aktiva_allkas(neraca_aktiva_allkas neraca_aktiva_allkas)
+        {
+            base.AddObject("neraca_aktiva_allkas", neraca_aktiva_allkas);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_aktiva_allpiutang EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_aktiva_allpiutang(neraca_aktiva_allpiutang neraca_aktiva_allpiutang)
+        {
+            base.AddObject("neraca_aktiva_allpiutang", neraca_aktiva_allpiutang);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_aktiva_allproduct EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_aktiva_allproduct(neraca_aktiva_allproduct neraca_aktiva_allproduct)
+        {
+            base.AddObject("neraca_aktiva_allproduct", neraca_aktiva_allproduct);
+        }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -685,6 +807,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -787,6 +910,7 @@ namespace StockModel
         partial void Ontime_logChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -829,6 +953,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -857,6 +982,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -935,6 +1061,7 @@ namespace StockModel
         partial void OnAuthorization_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -961,6 +1088,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -993,6 +1121,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1143,6 +1272,7 @@ namespace StockModel
         partial void OnBank_Current_Money_AnotherChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1251,6 +1381,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1295,6 +1426,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1589,6 +1721,7 @@ namespace StockModel
         partial void OnBank_Transaction_Total_AnotherChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1631,6 +1764,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1657,6 +1791,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1711,6 +1846,7 @@ namespace StockModel
         partial void OnCurrency_NameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1869,6 +2005,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1901,6 +2038,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2171,6 +2309,7 @@ namespace StockModel
         partial void OnCustomer_Debt_DollarChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2241,6 +2380,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2283,6 +2423,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2577,6 +2718,7 @@ namespace StockModel
         partial void OnCustomer_Debt_DescriptionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2619,6 +2761,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2671,6 +2814,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3037,6 +3181,7 @@ namespace StockModel
         partial void OnPayment_Category_IDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3215,6 +3360,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3261,6 +3407,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3603,6 +3750,7 @@ namespace StockModel
         partial void OnCustomer_Transaction_KursChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -3727,6 +3875,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -3753,6 +3902,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -3930,6 +4080,7 @@ namespace StockModel
         partial void OnCustomer_Transaction_Product_Total_RupiahChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -4010,6 +4161,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -4034,6 +4186,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -4256,6 +4409,892 @@ namespace StockModel
         partial void OnIdentity_NPWPChanged();
 
         #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_aktiva")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_aktiva : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_aktiva object.
+        /// </summary>
+        /// <param name="idneraca_aktiva">Initial value of the idneraca_aktiva property.</param>
+        public static neraca_aktiva Createneraca_aktiva(global::System.Int32 idneraca_aktiva)
+        {
+            neraca_aktiva neraca_aktiva = new neraca_aktiva();
+            neraca_aktiva.idneraca_aktiva = idneraca_aktiva;
+            return neraca_aktiva;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_aktiva
+        {
+            get
+            {
+                return _idneraca_aktiva;
+            }
+            set
+            {
+                if (_idneraca_aktiva != value)
+                {
+                    Onidneraca_aktivaChanging(value);
+                    ReportPropertyChanging("idneraca_aktiva");
+                    _idneraca_aktiva = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_aktiva");
+                    Onidneraca_aktivaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_aktiva;
+        partial void Onidneraca_aktivaChanging(global::System.Int32 value);
+        partial void Onidneraca_aktivaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_aktiva
+        {
+            get
+            {
+                return _tahun_aktiva;
+            }
+            set
+            {
+                Ontahun_aktivaChanging(value);
+                ReportPropertyChanging("tahun_aktiva");
+                _tahun_aktiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_aktiva");
+                Ontahun_aktivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_aktiva;
+        partial void Ontahun_aktivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_aktivaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String all_produk
+        {
+            get
+            {
+                return _all_produk;
+            }
+            set
+            {
+                Onall_produkChanging(value);
+                ReportPropertyChanging("all_produk");
+                _all_produk = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("all_produk");
+                Onall_produkChanged();
+            }
+        }
+        private global::System.String _all_produk;
+        partial void Onall_produkChanging(global::System.String value);
+        partial void Onall_produkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String all_kas
+        {
+            get
+            {
+                return _all_kas;
+            }
+            set
+            {
+                Onall_kasChanging(value);
+                ReportPropertyChanging("all_kas");
+                _all_kas = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("all_kas");
+                Onall_kasChanged();
+            }
+        }
+        private global::System.String _all_kas;
+        partial void Onall_kasChanging(global::System.String value);
+        partial void Onall_kasChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String all_piutang
+        {
+            get
+            {
+                return _all_piutang;
+            }
+            set
+            {
+                Onall_piutangChanging(value);
+                ReportPropertyChanging("all_piutang");
+                _all_piutang = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("all_piutang");
+                Onall_piutangChanged();
+            }
+        }
+        private global::System.String _all_piutang;
+        partial void Onall_piutangChanging(global::System.String value);
+        partial void Onall_piutangChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String all_inventaris
+        {
+            get
+            {
+                return _all_inventaris;
+            }
+            set
+            {
+                Onall_inventarisChanging(value);
+                ReportPropertyChanging("all_inventaris");
+                _all_inventaris = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("all_inventaris");
+                Onall_inventarisChanged();
+            }
+        }
+        private global::System.String _all_inventaris;
+        partial void Onall_inventarisChanging(global::System.String value);
+        partial void Onall_inventarisChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_aktiva_allinventaris")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_aktiva_allinventaris : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_aktiva_allinventaris object.
+        /// </summary>
+        /// <param name="idneraca_aktiva_allinventaris">Initial value of the idneraca_aktiva_allinventaris property.</param>
+        public static neraca_aktiva_allinventaris Createneraca_aktiva_allinventaris(global::System.Int32 idneraca_aktiva_allinventaris)
+        {
+            neraca_aktiva_allinventaris neraca_aktiva_allinventaris = new neraca_aktiva_allinventaris();
+            neraca_aktiva_allinventaris.idneraca_aktiva_allinventaris = idneraca_aktiva_allinventaris;
+            return neraca_aktiva_allinventaris;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_aktiva_allinventaris
+        {
+            get
+            {
+                return _idneraca_aktiva_allinventaris;
+            }
+            set
+            {
+                if (_idneraca_aktiva_allinventaris != value)
+                {
+                    Onidneraca_aktiva_allinventarisChanging(value);
+                    ReportPropertyChanging("idneraca_aktiva_allinventaris");
+                    _idneraca_aktiva_allinventaris = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_aktiva_allinventaris");
+                    Onidneraca_aktiva_allinventarisChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_aktiva_allinventaris;
+        partial void Onidneraca_aktiva_allinventarisChanging(global::System.Int32 value);
+        partial void Onidneraca_aktiva_allinventarisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String id_allinventaris
+        {
+            get
+            {
+                return _id_allinventaris;
+            }
+            set
+            {
+                Onid_allinventarisChanging(value);
+                ReportPropertyChanging("id_allinventaris");
+                _id_allinventaris = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("id_allinventaris");
+                Onid_allinventarisChanged();
+            }
+        }
+        private global::System.String _id_allinventaris;
+        partial void Onid_allinventarisChanging(global::System.String value);
+        partial void Onid_allinventarisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nama
+        {
+            get
+            {
+                return _nama;
+            }
+            set
+            {
+                OnnamaChanging(value);
+                ReportPropertyChanging("nama");
+                _nama = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama");
+                OnnamaChanged();
+            }
+        }
+        private global::System.String _nama;
+        partial void OnnamaChanging(global::System.String value);
+        partial void OnnamaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> jumlah
+        {
+            get
+            {
+                return _jumlah;
+            }
+            set
+            {
+                OnjumlahChanging(value);
+                ReportPropertyChanging("jumlah");
+                _jumlah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah");
+                OnjumlahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _jumlah;
+        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
+        partial void OnjumlahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> status
+        {
+            get
+            {
+                return _status;
+            }
+            set
+            {
+                OnstatusChanging(value);
+                ReportPropertyChanging("status");
+                _status = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("status");
+                OnstatusChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _status;
+        partial void OnstatusChanging(Nullable<global::System.Int32> value);
+        partial void OnstatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_aktiva
+        {
+            get
+            {
+                return _tahun_aktiva;
+            }
+            set
+            {
+                Ontahun_aktivaChanging(value);
+                ReportPropertyChanging("tahun_aktiva");
+                _tahun_aktiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_aktiva");
+                Ontahun_aktivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_aktiva;
+        partial void Ontahun_aktivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_aktivaChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_aktiva_allkas")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_aktiva_allkas : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_aktiva_allkas object.
+        /// </summary>
+        /// <param name="idneraca_aktiva_allkas">Initial value of the idneraca_aktiva_allkas property.</param>
+        public static neraca_aktiva_allkas Createneraca_aktiva_allkas(global::System.Int32 idneraca_aktiva_allkas)
+        {
+            neraca_aktiva_allkas neraca_aktiva_allkas = new neraca_aktiva_allkas();
+            neraca_aktiva_allkas.idneraca_aktiva_allkas = idneraca_aktiva_allkas;
+            return neraca_aktiva_allkas;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_aktiva_allkas
+        {
+            get
+            {
+                return _idneraca_aktiva_allkas;
+            }
+            set
+            {
+                if (_idneraca_aktiva_allkas != value)
+                {
+                    Onidneraca_aktiva_allkasChanging(value);
+                    ReportPropertyChanging("idneraca_aktiva_allkas");
+                    _idneraca_aktiva_allkas = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_aktiva_allkas");
+                    Onidneraca_aktiva_allkasChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_aktiva_allkas;
+        partial void Onidneraca_aktiva_allkasChanging(global::System.Int32 value);
+        partial void Onidneraca_aktiva_allkasChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String id_allkas
+        {
+            get
+            {
+                return _id_allkas;
+            }
+            set
+            {
+                Onid_allkasChanging(value);
+                ReportPropertyChanging("id_allkas");
+                _id_allkas = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("id_allkas");
+                Onid_allkasChanged();
+            }
+        }
+        private global::System.String _id_allkas;
+        partial void Onid_allkasChanging(global::System.String value);
+        partial void Onid_allkasChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nama
+        {
+            get
+            {
+                return _nama;
+            }
+            set
+            {
+                OnnamaChanging(value);
+                ReportPropertyChanging("nama");
+                _nama = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama");
+                OnnamaChanged();
+            }
+        }
+        private global::System.String _nama;
+        partial void OnnamaChanging(global::System.String value);
+        partial void OnnamaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> dollar
+        {
+            get
+            {
+                return _dollar;
+            }
+            set
+            {
+                OndollarChanging(value);
+                ReportPropertyChanging("dollar");
+                _dollar = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dollar");
+                OndollarChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _dollar;
+        partial void OndollarChanging(Nullable<global::System.Decimal> value);
+        partial void OndollarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> rupiah
+        {
+            get
+            {
+                return _rupiah;
+            }
+            set
+            {
+                OnrupiahChanging(value);
+                ReportPropertyChanging("rupiah");
+                _rupiah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("rupiah");
+                OnrupiahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _rupiah;
+        partial void OnrupiahChanging(Nullable<global::System.Decimal> value);
+        partial void OnrupiahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_aktiva
+        {
+            get
+            {
+                return _tahun_aktiva;
+            }
+            set
+            {
+                Ontahun_aktivaChanging(value);
+                ReportPropertyChanging("tahun_aktiva");
+                _tahun_aktiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_aktiva");
+                Ontahun_aktivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_aktiva;
+        partial void Ontahun_aktivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_aktivaChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_aktiva_allpiutang")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_aktiva_allpiutang : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_aktiva_allpiutang object.
+        /// </summary>
+        /// <param name="idneraca_aktiva_allpiutang">Initial value of the idneraca_aktiva_allpiutang property.</param>
+        public static neraca_aktiva_allpiutang Createneraca_aktiva_allpiutang(global::System.Int32 idneraca_aktiva_allpiutang)
+        {
+            neraca_aktiva_allpiutang neraca_aktiva_allpiutang = new neraca_aktiva_allpiutang();
+            neraca_aktiva_allpiutang.idneraca_aktiva_allpiutang = idneraca_aktiva_allpiutang;
+            return neraca_aktiva_allpiutang;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_aktiva_allpiutang
+        {
+            get
+            {
+                return _idneraca_aktiva_allpiutang;
+            }
+            set
+            {
+                if (_idneraca_aktiva_allpiutang != value)
+                {
+                    Onidneraca_aktiva_allpiutangChanging(value);
+                    ReportPropertyChanging("idneraca_aktiva_allpiutang");
+                    _idneraca_aktiva_allpiutang = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_aktiva_allpiutang");
+                    Onidneraca_aktiva_allpiutangChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_aktiva_allpiutang;
+        partial void Onidneraca_aktiva_allpiutangChanging(global::System.Int32 value);
+        partial void Onidneraca_aktiva_allpiutangChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String id_allpiutang
+        {
+            get
+            {
+                return _id_allpiutang;
+            }
+            set
+            {
+                Onid_allpiutangChanging(value);
+                ReportPropertyChanging("id_allpiutang");
+                _id_allpiutang = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("id_allpiutang");
+                Onid_allpiutangChanged();
+            }
+        }
+        private global::System.String _id_allpiutang;
+        partial void Onid_allpiutangChanging(global::System.String value);
+        partial void Onid_allpiutangChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nama
+        {
+            get
+            {
+                return _nama;
+            }
+            set
+            {
+                OnnamaChanging(value);
+                ReportPropertyChanging("nama");
+                _nama = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama");
+                OnnamaChanged();
+            }
+        }
+        private global::System.String _nama;
+        partial void OnnamaChanging(global::System.String value);
+        partial void OnnamaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nota
+        {
+            get
+            {
+                return _nota;
+            }
+            set
+            {
+                OnnotaChanging(value);
+                ReportPropertyChanging("nota");
+                _nota = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nota");
+                OnnotaChanged();
+            }
+        }
+        private global::System.String _nota;
+        partial void OnnotaChanging(global::System.String value);
+        partial void OnnotaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> jumlah
+        {
+            get
+            {
+                return _jumlah;
+            }
+            set
+            {
+                OnjumlahChanging(value);
+                ReportPropertyChanging("jumlah");
+                _jumlah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah");
+                OnjumlahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _jumlah;
+        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
+        partial void OnjumlahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_aktiva
+        {
+            get
+            {
+                return _tahun_aktiva;
+            }
+            set
+            {
+                Ontahun_aktivaChanging(value);
+                ReportPropertyChanging("tahun_aktiva");
+                _tahun_aktiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_aktiva");
+                Ontahun_aktivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_aktiva;
+        partial void Ontahun_aktivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_aktivaChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_aktiva_allproduct")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_aktiva_allproduct : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_aktiva_allproduct object.
+        /// </summary>
+        /// <param name="idneraca_aktiva_allproduct">Initial value of the idneraca_aktiva_allproduct property.</param>
+        public static neraca_aktiva_allproduct Createneraca_aktiva_allproduct(global::System.Int32 idneraca_aktiva_allproduct)
+        {
+            neraca_aktiva_allproduct neraca_aktiva_allproduct = new neraca_aktiva_allproduct();
+            neraca_aktiva_allproduct.idneraca_aktiva_allproduct = idneraca_aktiva_allproduct;
+            return neraca_aktiva_allproduct;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_aktiva_allproduct
+        {
+            get
+            {
+                return _idneraca_aktiva_allproduct;
+            }
+            set
+            {
+                if (_idneraca_aktiva_allproduct != value)
+                {
+                    Onidneraca_aktiva_allproductChanging(value);
+                    ReportPropertyChanging("idneraca_aktiva_allproduct");
+                    _idneraca_aktiva_allproduct = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_aktiva_allproduct");
+                    Onidneraca_aktiva_allproductChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_aktiva_allproduct;
+        partial void Onidneraca_aktiva_allproductChanging(global::System.Int32 value);
+        partial void Onidneraca_aktiva_allproductChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String id_allproduct
+        {
+            get
+            {
+                return _id_allproduct;
+            }
+            set
+            {
+                Onid_allproductChanging(value);
+                ReportPropertyChanging("id_allproduct");
+                _id_allproduct = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("id_allproduct");
+                Onid_allproductChanged();
+            }
+        }
+        private global::System.String _id_allproduct;
+        partial void Onid_allproductChanging(global::System.String value);
+        partial void Onid_allproductChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nama
+        {
+            get
+            {
+                return _nama;
+            }
+            set
+            {
+                OnnamaChanging(value);
+                ReportPropertyChanging("nama");
+                _nama = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama");
+                OnnamaChanged();
+            }
+        }
+        private global::System.String _nama;
+        partial void OnnamaChanging(global::System.String value);
+        partial void OnnamaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String bg
+        {
+            get
+            {
+                return _bg;
+            }
+            set
+            {
+                OnbgChanging(value);
+                ReportPropertyChanging("bg");
+                _bg = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("bg");
+                OnbgChanged();
+            }
+        }
+        private global::System.String _bg;
+        partial void OnbgChanging(global::System.String value);
+        partial void OnbgChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> jumlah
+        {
+            get
+            {
+                return _jumlah;
+            }
+            set
+            {
+                OnjumlahChanging(value);
+                ReportPropertyChanging("jumlah");
+                _jumlah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah");
+                OnjumlahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _jumlah;
+        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
+        partial void OnjumlahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_aktiva
+        {
+            get
+            {
+                return _tahun_aktiva;
+            }
+            set
+            {
+                Ontahun_aktivaChanging(value);
+                ReportPropertyChanging("tahun_aktiva");
+                _tahun_aktiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_aktiva");
+                Ontahun_aktivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_aktiva;
+        partial void Ontahun_aktivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_aktivaChanged();
+
+        #endregion
+
     
     }
     
@@ -4283,6 +5322,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -4337,6 +5377,7 @@ namespace StockModel
         partial void OnPayment_Category_NameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -4385,6 +5426,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -4425,6 +5467,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -4647,6 +5690,7 @@ namespace StockModel
         partial void OnPrice_History_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -4727,6 +5771,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -4753,6 +5798,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -4807,6 +5853,7 @@ namespace StockModel
         partial void OnPrivilege_nameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -4855,6 +5902,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -4883,6 +5931,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -4964,6 +6013,7 @@ namespace StockModel
         partial void OnPrivilege_Authorization_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -5044,6 +6094,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -5076,6 +6127,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -5322,6 +6374,7 @@ namespace StockModel
         partial void OnProduct_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -5506,6 +6559,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -5534,6 +6588,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -5612,6 +6667,7 @@ namespace StockModel
         partial void OnProduct_Category_StatusChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -5638,6 +6694,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -5672,6 +6729,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -5942,6 +7000,7 @@ namespace StockModel
         partial void OnSupplier_Credit_RupiahChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -6012,6 +7071,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -6054,6 +7114,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -6348,6 +7409,7 @@ namespace StockModel
         partial void OnSupplier_Credit_Total_RupiahChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -6390,6 +7452,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -6442,6 +7505,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -6808,6 +7872,7 @@ namespace StockModel
         partial void OnPayment_Category_IDChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -6986,6 +8051,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -7036,6 +8102,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -7402,6 +8469,7 @@ namespace StockModel
         partial void OnSupplier_Transaction_DescriptionChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -7526,6 +8594,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -7558,6 +8627,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -7687,6 +8757,7 @@ namespace StockModel
         partial void OnSupplier_Transaction_Product_Price_RupiahChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -7767,6 +8838,7 @@ namespace StockModel
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -7799,6 +8871,7 @@ namespace StockModel
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -7949,6 +9022,7 @@ namespace StockModel
         partial void Onusers_emailChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -8013,8 +9087,10 @@ namespace StockModel
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

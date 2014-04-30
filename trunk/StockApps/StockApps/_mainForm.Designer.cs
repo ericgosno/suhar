@@ -36,6 +36,7 @@
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchasingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sellingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this._groupProduct = new System.Windows.Forms.GroupBox();
+            this._linkAddProduct = new System.Windows.Forms.LinkLabel();
             this._linkProductCategory = new System.Windows.Forms.LinkLabel();
             this._linkProductList = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -111,8 +113,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this._linkAddProduct = new System.Windows.Forms.LinkLabel();
+            this.neracaAktivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this._groupPersonalRelationship.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -160,7 +161,7 @@
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.addToolStripMenuItem.Text = "&Supplier List";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
@@ -176,7 +177,7 @@
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.addCustomerToolStripMenuItem.Text = "&Customer List";
             this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
@@ -204,6 +205,13 @@
             this.addCategoryToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.addCategoryToolStripMenuItem.Text = "Product &Category";
             this.addCategoryToolStripMenuItem.Click += new System.EventHandler(this.addCategoryToolStripMenuItem_Click_1);
+            // 
+            // addProductToolStripMenuItem
+            // 
+            this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.addProductToolStripMenuItem.Text = "Add Product";
+            this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click_1);
             // 
             // purchasingToolStripMenuItem
             // 
@@ -349,7 +357,8 @@
             this.supplierToolStripMenuItem1,
             this.customerDebtToolStripMenuItem,
             this.supplierCreditToolStripMenuItem,
-            this.bankAccountReportToolStripMenuItem});
+            this.bankAccountReportToolStripMenuItem,
+            this.neracaAktivaToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.reportToolStripMenuItem.Text = "Report";
@@ -525,6 +534,18 @@
             this._groupProduct.Size = new System.Drawing.Size(342, 162);
             this._groupProduct.TabIndex = 5;
             this._groupProduct.TabStop = false;
+            // 
+            // _linkAddProduct
+            // 
+            this._linkAddProduct.AutoSize = true;
+            this._linkAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._linkAddProduct.Location = new System.Drawing.Point(160, 111);
+            this._linkAddProduct.Name = "_linkAddProduct";
+            this._linkAddProduct.Size = new System.Drawing.Size(138, 18);
+            this._linkAddProduct.TabIndex = 4;
+            this._linkAddProduct.TabStop = true;
+            this._linkAddProduct.Text = "Add New Product";
+            this._linkAddProduct.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkAddProduct_LinkClicked);
             // 
             // _linkProductCategory
             // 
@@ -945,24 +966,12 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "Sign-In User : ";
             // 
-            // addProductToolStripMenuItem
+            // neracaAktivaToolStripMenuItem
             // 
-            this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.addProductToolStripMenuItem.Text = "Add Product";
-            this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click_1);
-            // 
-            // _linkAddProduct
-            // 
-            this._linkAddProduct.AutoSize = true;
-            this._linkAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._linkAddProduct.Location = new System.Drawing.Point(160, 111);
-            this._linkAddProduct.Name = "_linkAddProduct";
-            this._linkAddProduct.Size = new System.Drawing.Size(138, 18);
-            this._linkAddProduct.TabIndex = 4;
-            this._linkAddProduct.TabStop = true;
-            this._linkAddProduct.Text = "Add New Product";
-            this._linkAddProduct.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkAddProduct_LinkClicked);
+            this.neracaAktivaToolStripMenuItem.Name = "neracaAktivaToolStripMenuItem";
+            this.neracaAktivaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.neracaAktivaToolStripMenuItem.Text = "Neraca Aktiva";
+            this.neracaAktivaToolStripMenuItem.Click += new System.EventHandler(this.neracaAktivaToolStripMenuItem_Click);
             // 
             // _mainForm
             // 
@@ -1102,6 +1111,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
         private System.Windows.Forms.LinkLabel _linkAddProduct;
+        private System.Windows.Forms.ToolStripMenuItem neracaAktivaToolStripMenuItem;
     }
 }
 

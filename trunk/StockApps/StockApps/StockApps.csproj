@@ -85,6 +85,45 @@
     <Compile Include="BankReport.Designer.cs">
       <DependentUpon>BankReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="dsNeraca.cs">
+      <DependentUpon>dsNeraca.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsNeraca.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsNeraca.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="neracaReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>neracaReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="neracaReportInventaris.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>neracaReportInventaris.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="neracaReportInventKurang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>neracaReportInventKurang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="neracaReportKas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>neracaReportKas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="neracaReportPiutang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>neracaReportPiutang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -178,6 +217,42 @@
     </Compile>
     <Compile Include="_CustomerDebtReportViewer.Designer.cs">
       <DependentUpon>_CustomerDebtReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neracaReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neracaReport.Designer.cs">
+      <DependentUpon>_neracaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_aktiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_aktiva.Designer.cs">
+      <DependentUpon>_neraca_aktiva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_aktiva_aProduk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_aktiva_aProduk.Designer.cs">
+      <DependentUpon>_neraca_aktiva_aProduk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_aktiva_bKas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_aktiva_bKas.Designer.cs">
+      <DependentUpon>_neraca_aktiva_bKas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_aktiva_cPiutang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_aktiva_cPiutang.Designer.cs">
+      <DependentUpon>_neraca_aktiva_cPiutang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_aktiva_dInvetaris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_aktiva_dInvetaris.Designer.cs">
+      <DependentUpon>_neraca_aktiva_dInvetaris.cs</DependentUpon>
     </Compile>
     <Compile Include="_PurchasingReportViewer.cs">
       <SubType>Form</SubType>
@@ -438,6 +513,26 @@
     <EmbeddedResource Include="BankReport.resx">
       <DependentUpon>BankReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="neracaReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>neracaReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="neracaReportInventaris.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>neracaReportInventaris.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="neracaReportInventKurang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>neracaReportInventKurang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="neracaReportKas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>neracaReportKas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="neracaReportPiutang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>neracaReportPiutang.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptBankTransactionDollar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptBankTransactionDollar.cs</LastGenOutput>
@@ -540,6 +635,24 @@
     <EmbeddedResource Include="_administrator.resx">
       <DependentUpon>_administrator.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_neracaReport.resx">
+      <DependentUpon>_neracaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_aktiva.resx">
+      <DependentUpon>_neraca_aktiva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_aktiva_aproduk.resx">
+      <DependentUpon>_neraca_aktiva_aProduk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_aktiva_bKas.resx">
+      <DependentUpon>_neraca_aktiva_bKas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_aktiva_cPiutang.resx">
+      <DependentUpon>_neraca_aktiva_cPiutang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_aktiva_dInvetaris.resx">
+      <DependentUpon>_neraca_aktiva_dInvetaris.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_notificationPayment.resx">
       <DependentUpon>_notificationPayment.cs</DependentUpon>
     </EmbeddedResource>
@@ -629,6 +742,17 @@
     </None>
     <None Include="dsCustomerDebt.xss">
       <DependentUpon>dsCustomerDebt.xsd</DependentUpon>
+    </None>
+    <None Include="dsNeraca.xsc">
+      <DependentUpon>dsNeraca.xsd</DependentUpon>
+    </None>
+    <None Include="dsNeraca.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsNeraca.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsNeraca.xss">
+      <DependentUpon>dsNeraca.xsd</DependentUpon>
     </None>
     <None Include="dsPurchasing.xsc">
       <DependentUpon>dsPurchasing.xsd</DependentUpon>

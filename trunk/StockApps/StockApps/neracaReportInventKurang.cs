@@ -16,14 +16,14 @@ namespace StockApps {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class sellingReportSJ_cViewer : ReportClass {
+    public class neracaReportInventKurang : ReportClass {
         
-        public sellingReportSJ_cViewer() {
+        public neracaReportInventKurang() {
         }
         
         public override string ResourceName {
             get {
-                return "sellingReportSJ_cViewer.rpt";
+                return "neracaReportInventKurang.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace StockApps {
         
         public override string FullResourceName {
             get {
-                return "StockApps.sellingReportSJ_cViewer.rpt";
+                return "StockApps.neracaReportInventKurang.rpt";
             }
             set {
                 // Do nothing
@@ -87,76 +87,12 @@ namespace StockApps {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_identityCompany {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_identityCity {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_TransactionDate {
-            get {
-                return this.DataDefinition.ParameterFields[2];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CustomerCompany {
-            get {
-                return this.DataDefinition.ParameterFields[3];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CustomerAddress {
-            get {
-                return this.DataDefinition.ParameterFields[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_TransactionNoteNumber {
-            get {
-                return this.DataDefinition.ParameterFields[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_IdentityName {
-            get {
-                return this.DataDefinition.ParameterFields[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_CustomerCity {
-            get {
-                return this.DataDefinition.ParameterFields[7];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedsellingReportSJ_cViewer : Component, ICachedReport {
+    public class CachedneracaReportInventKurang : Component, ICachedReport {
         
-        public CachedsellingReportSJ_cViewer() {
+        public CachedneracaReportInventKurang() {
         }
         
         [Browsable(false)]
@@ -193,7 +129,7 @@ namespace StockApps {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            sellingReportSJ_cViewer rpt = new sellingReportSJ_cViewer();
+            neracaReportInventKurang rpt = new neracaReportInventKurang();
             rpt.Site = this.Site;
             return rpt;
         }
