@@ -25,6 +25,7 @@ namespace StockApps
             _tcusPhone.Text = "";
             _tcusNPWP.Text = "";
             _tcusCompany.Text = "";
+            _tcusCity.Text = "";
             _dataCustomer.DataSource = CustomerController.getCustomer();
             _dataCustomer.Columns["Customer_Company_Name"].HeaderText = "Company Name";
             _dataCustomer.Columns["Customer_Name"].HeaderText = "Name";
