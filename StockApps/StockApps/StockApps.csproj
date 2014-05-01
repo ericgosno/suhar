@@ -38,10 +38,13 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.Data.Schema, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Data.Schema.UnitTesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MySql.Data.dll</HintPath>
@@ -57,6 +60,7 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -85,6 +89,13 @@
     <Compile Include="BankReport.Designer.cs">
       <DependentUpon>BankReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="NeracaPassivaPajak1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NeracaPassivaPajak.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DatabaseSetup.cs" />
     <Compile Include="dsNeraca.cs">
       <DependentUpon>dsNeraca.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -93,6 +104,33 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsNeraca.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsPassivaN.cs">
+      <DependentUpon>dsPassivaN.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsPassivaN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPassivaN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NeracaPassivaPPJK.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NeracaPassivaPPJK.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NeracaPassivaReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NeracaPassivaReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NeracaPassivaSaham.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NeracaPassivaSaham.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="neracaReport.cs">
       <AutoGen>True</AutoGen>
@@ -123,6 +161,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>neracaReportPiutang.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="passiva_report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="passiva_report.Designer.cs">
+      <DependentUpon>passiva_report.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -253,6 +297,36 @@
     </Compile>
     <Compile Include="_neraca_aktiva_dInvetaris.Designer.cs">
       <DependentUpon>_neraca_aktiva_dInvetaris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_passiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_passiva.Designer.cs">
+      <DependentUpon>_neraca_passiva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_passiva_HPajak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_passiva_HPajak.Designer.cs">
+      <DependentUpon>_neraca_passiva_HPajak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_passiva_HU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_passiva_HU.Designer.cs">
+      <DependentUpon>_neraca_passiva_HU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_passiva_HutangPPJK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_passiva_HutangPPJK.Designer.cs">
+      <DependentUpon>_neraca_passiva_HutangPPJK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_neraca_passiva_modal_saham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_neraca_passiva_modal_saham.Designer.cs">
+      <DependentUpon>_neraca_passiva_modal_saham.cs</DependentUpon>
     </Compile>
     <Compile Include="_PurchasingReportViewer.cs">
       <SubType>Form</SubType>
@@ -513,6 +587,22 @@
     <EmbeddedResource Include="BankReport.resx">
       <DependentUpon>BankReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NeracaPassivaPajak.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NeracaPassivaPajak1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NeracaPassivaPPJK.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NeracaPassivaPPJK.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NeracaPassivaReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NeracaPassivaReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NeracaPassivaSaham.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>NeracaPassivaSaham.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="neracaReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>neracaReport.cs</LastGenOutput>
@@ -532,6 +622,9 @@
     <EmbeddedResource Include="neracaReportPiutang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>neracaReportPiutang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="passiva_report.resx">
+      <DependentUpon>passiva_report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptBankTransactionDollar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -653,6 +746,21 @@
     <EmbeddedResource Include="_neraca_aktiva_dInvetaris.resx">
       <DependentUpon>_neraca_aktiva_dInvetaris.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_passiva.resx">
+      <DependentUpon>_neraca_passiva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_passiva_HPajak.resx">
+      <DependentUpon>_neraca_passiva_HPajak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_passiva_HU.resx">
+      <DependentUpon>_neraca_passiva_HU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_passiva_HutangPPJK.resx">
+      <DependentUpon>_neraca_passiva_HutangPPJK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_neraca_passiva_modal_saham.resx">
+      <DependentUpon>_neraca_passiva_modal_saham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_notificationPayment.resx">
       <DependentUpon>_notificationPayment.cs</DependentUpon>
     </EmbeddedResource>
@@ -753,6 +861,17 @@
     </None>
     <None Include="dsNeraca.xss">
       <DependentUpon>dsNeraca.xsd</DependentUpon>
+    </None>
+    <None Include="dsPassivaN.xsc">
+      <DependentUpon>dsPassivaN.xsd</DependentUpon>
+    </None>
+    <None Include="dsPassivaN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPassivaN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsPassivaN.xss">
+      <DependentUpon>dsPassivaN.xsd</DependentUpon>
     </None>
     <None Include="dsPurchasing.xsc">
       <DependentUpon>dsPurchasing.xsd</DependentUpon>

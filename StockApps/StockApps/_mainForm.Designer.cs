@@ -63,6 +63,7 @@
             this.customerDebtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierCreditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bankAccountReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neracaAktivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backupDialog = new System.Windows.Forms.SaveFileDialog();
             this.restoreDialog = new System.Windows.Forms.OpenFileDialog();
             this._lIdentityCompany = new System.Windows.Forms.Label();
@@ -113,7 +114,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.neracaAktivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neracaPassivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this._groupPersonalRelationship.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -358,7 +359,8 @@
             this.customerDebtToolStripMenuItem,
             this.supplierCreditToolStripMenuItem,
             this.bankAccountReportToolStripMenuItem,
-            this.neracaAktivaToolStripMenuItem});
+            this.neracaAktivaToolStripMenuItem,
+            this.neracaPassivaToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.reportToolStripMenuItem.Text = "Report";
@@ -424,6 +426,13 @@
             this.bankAccountReportToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.bankAccountReportToolStripMenuItem.Text = "Bank Account Report";
             this.bankAccountReportToolStripMenuItem.Click += new System.EventHandler(this.bankAccountReportToolStripMenuItem_Click_1);
+            // 
+            // neracaAktivaToolStripMenuItem
+            // 
+            this.neracaAktivaToolStripMenuItem.Name = "neracaAktivaToolStripMenuItem";
+            this.neracaAktivaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.neracaAktivaToolStripMenuItem.Text = "Neraca Aktiva";
+            this.neracaAktivaToolStripMenuItem.Click += new System.EventHandler(this.neracaAktivaToolStripMenuItem_Click);
             // 
             // backupDialog
             // 
@@ -966,12 +975,12 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "Sign-In User : ";
             // 
-            // neracaAktivaToolStripMenuItem
+            // neracaPassivaToolStripMenuItem
             // 
-            this.neracaAktivaToolStripMenuItem.Name = "neracaAktivaToolStripMenuItem";
-            this.neracaAktivaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.neracaAktivaToolStripMenuItem.Text = "Neraca Aktiva";
-            this.neracaAktivaToolStripMenuItem.Click += new System.EventHandler(this.neracaAktivaToolStripMenuItem_Click);
+            this.neracaPassivaToolStripMenuItem.Name = "neracaPassivaToolStripMenuItem";
+            this.neracaPassivaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.neracaPassivaToolStripMenuItem.Text = "Neraca Passiva";
+            this.neracaPassivaToolStripMenuItem.Click += new System.EventHandler(this.neracaPassivaToolStripMenuItem_Click);
             // 
             // _mainForm
             // 
@@ -1112,6 +1121,7 @@
         private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
         private System.Windows.Forms.LinkLabel _linkAddProduct;
         private System.Windows.Forms.ToolStripMenuItem neracaAktivaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem neracaPassivaToolStripMenuItem;
     }
 }
 
