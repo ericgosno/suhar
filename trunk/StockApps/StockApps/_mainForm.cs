@@ -553,6 +553,12 @@ namespace StockApps
             NeracaReport.Show(this);
         }
 
+        private void neracaPassivaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _neraca_passiva NeracaReportP = new _neraca_passiva();
+            NeracaReportP.Show(this);
+        }
+
 
 
     }

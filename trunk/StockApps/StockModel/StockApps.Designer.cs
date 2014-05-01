@@ -548,6 +548,86 @@ namespace StockModel
             }
         }
         private ObjectSet<neraca_aktiva_allproduct> _neraca_aktiva_allproduct;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_passiva> neraca_passiva
+        {
+            get
+            {
+                if ((_neraca_passiva == null))
+                {
+                    _neraca_passiva = base.CreateObjectSet<neraca_passiva>("neraca_passiva");
+                }
+                return _neraca_passiva;
+            }
+        }
+        private ObjectSet<neraca_passiva> _neraca_passiva;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_passiva_pajak> neraca_passiva_pajak
+        {
+            get
+            {
+                if ((_neraca_passiva_pajak == null))
+                {
+                    _neraca_passiva_pajak = base.CreateObjectSet<neraca_passiva_pajak>("neraca_passiva_pajak");
+                }
+                return _neraca_passiva_pajak;
+            }
+        }
+        private ObjectSet<neraca_passiva_pajak> _neraca_passiva_pajak;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_passiva_ppjk> neraca_passiva_ppjk
+        {
+            get
+            {
+                if ((_neraca_passiva_ppjk == null))
+                {
+                    _neraca_passiva_ppjk = base.CreateObjectSet<neraca_passiva_ppjk>("neraca_passiva_ppjk");
+                }
+                return _neraca_passiva_ppjk;
+            }
+        }
+        private ObjectSet<neraca_passiva_ppjk> _neraca_passiva_ppjk;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_passiva_saham> neraca_passiva_saham
+        {
+            get
+            {
+                if ((_neraca_passiva_saham == null))
+                {
+                    _neraca_passiva_saham = base.CreateObjectSet<neraca_passiva_saham>("neraca_passiva_saham");
+                }
+                return _neraca_passiva_saham;
+            }
+        }
+        private ObjectSet<neraca_passiva_saham> _neraca_passiva_saham;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<neraca_passiva_usaha> neraca_passiva_usaha
+        {
+            get
+            {
+                if ((_neraca_passiva_usaha == null))
+                {
+                    _neraca_passiva_usaha = base.CreateObjectSet<neraca_passiva_usaha>("neraca_passiva_usaha");
+                }
+                return _neraca_passiva_usaha;
+            }
+        }
+        private ObjectSet<neraca_passiva_usaha> _neraca_passiva_usaha;
 
         #endregion
 
@@ -775,6 +855,46 @@ namespace StockModel
         public void AddToneraca_aktiva_allproduct(neraca_aktiva_allproduct neraca_aktiva_allproduct)
         {
             base.AddObject("neraca_aktiva_allproduct", neraca_aktiva_allproduct);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_passiva EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_passiva(neraca_passiva neraca_passiva)
+        {
+            base.AddObject("neraca_passiva", neraca_passiva);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_passiva_pajak EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_passiva_pajak(neraca_passiva_pajak neraca_passiva_pajak)
+        {
+            base.AddObject("neraca_passiva_pajak", neraca_passiva_pajak);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_passiva_ppjk EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_passiva_ppjk(neraca_passiva_ppjk neraca_passiva_ppjk)
+        {
+            base.AddObject("neraca_passiva_ppjk", neraca_passiva_ppjk);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_passiva_saham EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_passiva_saham(neraca_passiva_saham neraca_passiva_saham)
+        {
+            base.AddObject("neraca_passiva_saham", neraca_passiva_saham);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the neraca_passiva_usaha EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToneraca_passiva_usaha(neraca_passiva_usaha neraca_passiva_usaha)
+        {
+            base.AddObject("neraca_passiva_usaha", neraca_passiva_usaha);
         }
 
         #endregion
@@ -5292,6 +5412,747 @@ namespace StockModel
         private Nullable<global::System.DateTime> _tahun_aktiva;
         partial void Ontahun_aktivaChanging(Nullable<global::System.DateTime> value);
         partial void Ontahun_aktivaChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_passiva")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_passiva : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_passiva object.
+        /// </summary>
+        /// <param name="idneraca_passiva">Initial value of the idneraca_passiva property.</param>
+        public static neraca_passiva Createneraca_passiva(global::System.Int32 idneraca_passiva)
+        {
+            neraca_passiva neraca_passiva = new neraca_passiva();
+            neraca_passiva.idneraca_passiva = idneraca_passiva;
+            return neraca_passiva;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_passiva
+        {
+            get
+            {
+                return _idneraca_passiva;
+            }
+            set
+            {
+                if (_idneraca_passiva != value)
+                {
+                    Onidneraca_passivaChanging(value);
+                    ReportPropertyChanging("idneraca_passiva");
+                    _idneraca_passiva = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_passiva");
+                    Onidneraca_passivaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_passiva;
+        partial void Onidneraca_passivaChanging(global::System.Int32 value);
+        partial void Onidneraca_passivaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_passiva
+        {
+            get
+            {
+                return _tahun_passiva;
+            }
+            set
+            {
+                Ontahun_passivaChanging(value);
+                ReportPropertyChanging("tahun_passiva");
+                _tahun_passiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_passiva");
+                Ontahun_passivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_passiva;
+        partial void Ontahun_passivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_passivaChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_passiva_pajak")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_passiva_pajak : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_passiva_pajak object.
+        /// </summary>
+        /// <param name="idneraca_passiva_pajak">Initial value of the idneraca_passiva_pajak property.</param>
+        public static neraca_passiva_pajak Createneraca_passiva_pajak(global::System.Int32 idneraca_passiva_pajak)
+        {
+            neraca_passiva_pajak neraca_passiva_pajak = new neraca_passiva_pajak();
+            neraca_passiva_pajak.idneraca_passiva_pajak = idneraca_passiva_pajak;
+            return neraca_passiva_pajak;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_passiva_pajak
+        {
+            get
+            {
+                return _idneraca_passiva_pajak;
+            }
+            set
+            {
+                if (_idneraca_passiva_pajak != value)
+                {
+                    Onidneraca_passiva_pajakChanging(value);
+                    ReportPropertyChanging("idneraca_passiva_pajak");
+                    _idneraca_passiva_pajak = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_passiva_pajak");
+                    Onidneraca_passiva_pajakChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_passiva_pajak;
+        partial void Onidneraca_passiva_pajakChanging(global::System.Int32 value);
+        partial void Onidneraca_passiva_pajakChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nourut
+        {
+            get
+            {
+                return _nourut;
+            }
+            set
+            {
+                OnnourutChanging(value);
+                ReportPropertyChanging("nourut");
+                _nourut = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nourut");
+                OnnourutChanged();
+            }
+        }
+        private global::System.String _nourut;
+        partial void OnnourutChanging(global::System.String value);
+        partial void OnnourutChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String keterangan
+        {
+            get
+            {
+                return _keterangan;
+            }
+            set
+            {
+                OnketeranganChanging(value);
+                ReportPropertyChanging("keterangan");
+                _keterangan = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("keterangan");
+                OnketeranganChanged();
+            }
+        }
+        private global::System.String _keterangan;
+        partial void OnketeranganChanging(global::System.String value);
+        partial void OnketeranganChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> jumlah
+        {
+            get
+            {
+                return _jumlah;
+            }
+            set
+            {
+                OnjumlahChanging(value);
+                ReportPropertyChanging("jumlah");
+                _jumlah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah");
+                OnjumlahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _jumlah;
+        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
+        partial void OnjumlahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_passiva
+        {
+            get
+            {
+                return _tahun_passiva;
+            }
+            set
+            {
+                Ontahun_passivaChanging(value);
+                ReportPropertyChanging("tahun_passiva");
+                _tahun_passiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_passiva");
+                Ontahun_passivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_passiva;
+        partial void Ontahun_passivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_passivaChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_passiva_ppjk")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_passiva_ppjk : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_passiva_ppjk object.
+        /// </summary>
+        /// <param name="idneraca_passiva_ppjk">Initial value of the idneraca_passiva_ppjk property.</param>
+        public static neraca_passiva_ppjk Createneraca_passiva_ppjk(global::System.Int32 idneraca_passiva_ppjk)
+        {
+            neraca_passiva_ppjk neraca_passiva_ppjk = new neraca_passiva_ppjk();
+            neraca_passiva_ppjk.idneraca_passiva_ppjk = idneraca_passiva_ppjk;
+            return neraca_passiva_ppjk;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_passiva_ppjk
+        {
+            get
+            {
+                return _idneraca_passiva_ppjk;
+            }
+            set
+            {
+                if (_idneraca_passiva_ppjk != value)
+                {
+                    Onidneraca_passiva_ppjkChanging(value);
+                    ReportPropertyChanging("idneraca_passiva_ppjk");
+                    _idneraca_passiva_ppjk = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_passiva_ppjk");
+                    Onidneraca_passiva_ppjkChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_passiva_ppjk;
+        partial void Onidneraca_passiva_ppjkChanging(global::System.Int32 value);
+        partial void Onidneraca_passiva_ppjkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nourut
+        {
+            get
+            {
+                return _nourut;
+            }
+            set
+            {
+                OnnourutChanging(value);
+                ReportPropertyChanging("nourut");
+                _nourut = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nourut");
+                OnnourutChanged();
+            }
+        }
+        private global::System.String _nourut;
+        partial void OnnourutChanging(global::System.String value);
+        partial void OnnourutChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nota
+        {
+            get
+            {
+                return _nota;
+            }
+            set
+            {
+                OnnotaChanging(value);
+                ReportPropertyChanging("nota");
+                _nota = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nota");
+                OnnotaChanged();
+            }
+        }
+        private global::System.String _nota;
+        partial void OnnotaChanging(global::System.String value);
+        partial void OnnotaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nama
+        {
+            get
+            {
+                return _nama;
+            }
+            set
+            {
+                OnnamaChanging(value);
+                ReportPropertyChanging("nama");
+                _nama = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama");
+                OnnamaChanged();
+            }
+        }
+        private global::System.String _nama;
+        partial void OnnamaChanging(global::System.String value);
+        partial void OnnamaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> jumlah
+        {
+            get
+            {
+                return _jumlah;
+            }
+            set
+            {
+                OnjumlahChanging(value);
+                ReportPropertyChanging("jumlah");
+                _jumlah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah");
+                OnjumlahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _jumlah;
+        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
+        partial void OnjumlahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_passiva
+        {
+            get
+            {
+                return _tahun_passiva;
+            }
+            set
+            {
+                Ontahun_passivaChanging(value);
+                ReportPropertyChanging("tahun_passiva");
+                _tahun_passiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_passiva");
+                Ontahun_passivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_passiva;
+        partial void Ontahun_passivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_passivaChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_passiva_saham")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_passiva_saham : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_passiva_saham object.
+        /// </summary>
+        /// <param name="idneraca_passiva_saham">Initial value of the idneraca_passiva_saham property.</param>
+        public static neraca_passiva_saham Createneraca_passiva_saham(global::System.Int32 idneraca_passiva_saham)
+        {
+            neraca_passiva_saham neraca_passiva_saham = new neraca_passiva_saham();
+            neraca_passiva_saham.idneraca_passiva_saham = idneraca_passiva_saham;
+            return neraca_passiva_saham;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_passiva_saham
+        {
+            get
+            {
+                return _idneraca_passiva_saham;
+            }
+            set
+            {
+                if (_idneraca_passiva_saham != value)
+                {
+                    Onidneraca_passiva_sahamChanging(value);
+                    ReportPropertyChanging("idneraca_passiva_saham");
+                    _idneraca_passiva_saham = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_passiva_saham");
+                    Onidneraca_passiva_sahamChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_passiva_saham;
+        partial void Onidneraca_passiva_sahamChanging(global::System.Int32 value);
+        partial void Onidneraca_passiva_sahamChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nourut
+        {
+            get
+            {
+                return _nourut;
+            }
+            set
+            {
+                OnnourutChanging(value);
+                ReportPropertyChanging("nourut");
+                _nourut = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nourut");
+                OnnourutChanged();
+            }
+        }
+        private global::System.String _nourut;
+        partial void OnnourutChanging(global::System.String value);
+        partial void OnnourutChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nama
+        {
+            get
+            {
+                return _nama;
+            }
+            set
+            {
+                OnnamaChanging(value);
+                ReportPropertyChanging("nama");
+                _nama = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama");
+                OnnamaChanged();
+            }
+        }
+        private global::System.String _nama;
+        partial void OnnamaChanging(global::System.String value);
+        partial void OnnamaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> jumlah
+        {
+            get
+            {
+                return _jumlah;
+            }
+            set
+            {
+                OnjumlahChanging(value);
+                ReportPropertyChanging("jumlah");
+                _jumlah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah");
+                OnjumlahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _jumlah;
+        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
+        partial void OnjumlahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_passiva
+        {
+            get
+            {
+                return _tahun_passiva;
+            }
+            set
+            {
+                Ontahun_passivaChanging(value);
+                ReportPropertyChanging("tahun_passiva");
+                _tahun_passiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_passiva");
+                Ontahun_passivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_passiva;
+        partial void Ontahun_passivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_passivaChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_passiva_usaha")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class neraca_passiva_usaha : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new neraca_passiva_usaha object.
+        /// </summary>
+        /// <param name="idneraca_passiva_usaha">Initial value of the idneraca_passiva_usaha property.</param>
+        public static neraca_passiva_usaha Createneraca_passiva_usaha(global::System.Int32 idneraca_passiva_usaha)
+        {
+            neraca_passiva_usaha neraca_passiva_usaha = new neraca_passiva_usaha();
+            neraca_passiva_usaha.idneraca_passiva_usaha = idneraca_passiva_usaha;
+            return neraca_passiva_usaha;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idneraca_passiva_usaha
+        {
+            get
+            {
+                return _idneraca_passiva_usaha;
+            }
+            set
+            {
+                if (_idneraca_passiva_usaha != value)
+                {
+                    Onidneraca_passiva_usahaChanging(value);
+                    ReportPropertyChanging("idneraca_passiva_usaha");
+                    _idneraca_passiva_usaha = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("idneraca_passiva_usaha");
+                    Onidneraca_passiva_usahaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idneraca_passiva_usaha;
+        partial void Onidneraca_passiva_usahaChanging(global::System.Int32 value);
+        partial void Onidneraca_passiva_usahaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nourut
+        {
+            get
+            {
+                return _nourut;
+            }
+            set
+            {
+                OnnourutChanging(value);
+                ReportPropertyChanging("nourut");
+                _nourut = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nourut");
+                OnnourutChanged();
+            }
+        }
+        private global::System.String _nourut;
+        partial void OnnourutChanging(global::System.String value);
+        partial void OnnourutChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nota
+        {
+            get
+            {
+                return _nota;
+            }
+            set
+            {
+                OnnotaChanging(value);
+                ReportPropertyChanging("nota");
+                _nota = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nota");
+                OnnotaChanged();
+            }
+        }
+        private global::System.String _nota;
+        partial void OnnotaChanging(global::System.String value);
+        partial void OnnotaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nama
+        {
+            get
+            {
+                return _nama;
+            }
+            set
+            {
+                OnnamaChanging(value);
+                ReportPropertyChanging("nama");
+                _nama = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama");
+                OnnamaChanged();
+            }
+        }
+        private global::System.String _nama;
+        partial void OnnamaChanging(global::System.String value);
+        partial void OnnamaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> jumlah
+        {
+            get
+            {
+                return _jumlah;
+            }
+            set
+            {
+                OnjumlahChanging(value);
+                ReportPropertyChanging("jumlah");
+                _jumlah = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah");
+                OnjumlahChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _jumlah;
+        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
+        partial void OnjumlahChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> tahun_passiva
+        {
+            get
+            {
+                return _tahun_passiva;
+            }
+            set
+            {
+                Ontahun_passivaChanging(value);
+                ReportPropertyChanging("tahun_passiva");
+                _tahun_passiva = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("tahun_passiva");
+                Ontahun_passivaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _tahun_passiva;
+        partial void Ontahun_passivaChanging(Nullable<global::System.DateTime> value);
+        partial void Ontahun_passivaChanged();
 
         #endregion
 

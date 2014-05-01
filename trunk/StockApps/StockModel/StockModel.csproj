@@ -59,6 +59,7 @@
     <Compile Include="BankController.cs" />
     <Compile Include="HistoryController.cs" />
     <Compile Include="NeracaAktiva.cs" />
+    <Compile Include="NeracaPassiva.cs" />
     <Compile Include="PaymentController.cs" />
     <Compile Include="CustomerTransaction.cs" />
     <Compile Include="CurrencyController.cs" />

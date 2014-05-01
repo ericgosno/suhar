@@ -16,7 +16,7 @@ namespace StockApps
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new _administrator());
-            Application.Run(new _neraca_aktiva());
+            Application.Run(new _neraca_passiva());
         }
     }
 }
