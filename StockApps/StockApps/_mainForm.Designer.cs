@@ -211,7 +211,7 @@
             // 
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
             this.addProductToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.addProductToolStripMenuItem.Text = "Add Product";
+            this.addProductToolStripMenuItem.Text = "&Add Product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click_1);
             // 
             // purchasingToolStripMenuItem

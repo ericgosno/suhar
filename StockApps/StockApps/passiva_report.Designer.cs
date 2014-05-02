@@ -41,6 +41,7 @@
             this.crystalReportPassiva.Name = "crystalReportPassiva";
             this.crystalReportPassiva.Size = new System.Drawing.Size(698, 507);
             this.crystalReportPassiva.TabIndex = 0;
+            this.crystalReportPassiva.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // passiva_report
             // 

@@ -117,9 +117,5 @@ namespace StockApps
             NeracaReport.Show(this);
         }
 
-    
-       
-        
-     
     }
 }
