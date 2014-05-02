@@ -41,6 +41,7 @@
             this.crystalReportViewerNeraca.Name = "crystalReportViewerNeraca";
             this.crystalReportViewerNeraca.Size = new System.Drawing.Size(808, 591);
             this.crystalReportViewerNeraca.TabIndex = 0;
+            this.crystalReportViewerNeraca.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // _neracaReport
             // 

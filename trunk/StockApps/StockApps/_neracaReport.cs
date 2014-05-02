@@ -49,11 +49,12 @@ namespace StockApps
            
               catch (Exception ex) { MessageBox.Show(ex.Message); }
              * */
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["StockApps.Properties.Settings.stockappsConnectionString"].ToString();
 
-            string connectionString = "server=119.235.248.242; database=stockapps; uid=eric; pwd=eric;";
+            //string connectionString = "server=119.235.248.242; database=stockapps; uid=eric; pwd=eric;";
             MySqlConnection connection = new MySqlConnection(connectionString);
 
-            ReportDocument rptDoc = new ReportDocument();
+            neracaReport rptDoc = new neracaReport();
             dsNeraca ds = new dsNeraca(); // .xsd file name
             DataTable dt = new DataTable();
             DataTable dt2 = new DataTable();
@@ -112,7 +113,7 @@ namespace StockApps
             // Your .rpt file path will be below
 
             //rptDoc.Load(Application.StartupPath + @"adminReport.rpt");
-            rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\neracaReport.rpt");
+            //rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\neracaReport.rpt");
             //rptDoc.Load(@"C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockApps\aReport.rpt");
 
             //set dataset to the report viewer.

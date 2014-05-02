@@ -24,10 +24,11 @@ namespace StockApps
 
         private void passiva_report_Load(object sender, EventArgs e)
         {
-            string connectionString = "server=119.235.248.242; database=stockapps; uid=eric; pwd=eric;";
+            //string connectionString = "server=119.235.248.242; database=stockapps; uid=eric; pwd=eric;";
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["StockApps.Properties.Settings.stockappsConnectionString"].ToString();
             MySqlConnection connection = new MySqlConnection(connectionString);
 
-            ReportDocument rptDoc = new ReportDocument();
+            NeracaPassivaReport rptDoc = new NeracaPassivaReport();
             dsPassivaN ds = new dsPassivaN(); // .xsd file name
             DataTable dt = new DataTable();
             DataTable dt2 = new DataTable();
@@ -55,6 +56,8 @@ namespace StockApps
                 cmd = new MySqlCommand(query, connection);
                 adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(dt);
+
+                
 
                 cmd2 = new MySqlCommand(query2, connection);
                 adapter2 = new MySqlDataAdapter(cmd2);
@@ -86,11 +89,10 @@ namespace StockApps
             // Your .rpt file path will be below
 
             //rptDoc.Load(Application.StartupPath + @"adminReport.rpt");
-            rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\NeracaPassivaReport.rpt");
+           //rptDoc.Load(@"C:\Users\Stefanus\Desktop\suhar\StockApps\StockApps\NeracaPassivaReport.rpt");
             //rptDoc.Load(@"C:\Users\3nc\Documents\Visual Studio 2010\Projects\Suhar\StockApps\StockApps\aReport.rpt");
 
             //set dataset to the report viewer.
-
             rptDoc.SetDataSource(ds);
             //rptDoc.SetParameterValue("AnualYear", tahun.ToString("dd-MMMM-yyyy"));
             crystalReportPassiva.ReportSource = rptDoc;
