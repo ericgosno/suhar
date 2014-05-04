@@ -256,6 +256,12 @@
       <DependentUpon>rptSupplierCredit.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="_ChangeDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_ChangeDatabase.Designer.cs">
+      <DependentUpon>_ChangeDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="_CustomerDebtReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -702,6 +708,9 @@
     <EmbeddedResource Include="_bankList.resx">
       <DependentUpon>_bankList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_ChangeDatabase.resx">
+      <DependentUpon>_ChangeDatabase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_CustomerDebtReportViewer.resx">
       <DependentUpon>_CustomerDebtReportViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -721,7 +730,7 @@
       <DependentUpon>_mainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -928,6 +937,7 @@
     <None Include="dsSupplierCredit.xss">
       <DependentUpon>dsSupplierCredit.xsd</DependentUpon>
     </None>
+    <None Include="localization.3nc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -966,6 +976,7 @@
     <None Include="Resources\cvusahaSmall.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\localization.3nc" />
     <None Include="Resources\report.png" />
     <None Include="Resources\cash-flow.png" />
     <None Include="Resources\admin.png" />
