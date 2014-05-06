@@ -20,10 +20,10 @@ namespace StockApps
         {
             InitializeComponent();
             isConnected = false;
+            //EncryptFile();
             SetDatabaseLocation();
             checkConnection();
             _tConnectionCheck.Enabled = true;
-
         }
 
         private void SetDatabaseLocation()
