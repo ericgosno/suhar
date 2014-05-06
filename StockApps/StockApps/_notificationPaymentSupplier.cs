@@ -52,6 +52,12 @@ namespace StockApps
                     MessageBox.Show("Kurs must be decimal!");
                     return;
                 }
+
+                if (kurs <= 0)
+                {
+                    MessageBox.Show("Kurs must be more than zero!");
+                    return;
+                }
                 // Confirm payment by changing status
                 SupplierTransaction.confirmPayment(paymentNow.Supplier_Payment_ID);
                 // Insert credit to customer debt list

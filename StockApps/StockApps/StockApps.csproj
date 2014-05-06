@@ -937,7 +937,9 @@
     <None Include="dsSupplierCredit.xss">
       <DependentUpon>dsSupplierCredit.xsd</DependentUpon>
     </None>
-    <None Include="localization.3nc" />
+    <None Include="localization.3nc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
