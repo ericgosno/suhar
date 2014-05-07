@@ -48,7 +48,6 @@ namespace StockApps
             _linkCustomerDebt.Visible = false;
             _linkHistoryLogin.Visible = false;
             _linkOwner.Visible = false;
-            _linkPriceHistory.Visible = false;
             _linkPrivilege.Visible = false;
             _linkProductCategory.Visible = false;
             _linkProductList.Visible = false;
@@ -112,7 +111,6 @@ namespace StockApps
                         break;
                     case 7:
                         historyToolStripMenuItem.Visible = true;
-                        _linkPriceHistory.Visible = true;
                         _linkHistoryLogin.Visible = true;
                         break;
                     case 8:

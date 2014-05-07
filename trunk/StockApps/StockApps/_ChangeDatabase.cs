@@ -45,7 +45,7 @@ namespace StockApps
             System.IO.StreamReader file = new System.IO.StreamReader("localization.3nc");
             while ((line = file.ReadLine()) != null)
             {
-                //output = RijndaelSecurity.Decrypt(line, passPhrase, saltValue, hashAlgorithm, passwordIterations, initVector, keySize);
+                output = RijndaelSecurity.Decrypt(line, passPhrase, saltValue, hashAlgorithm, passwordIterations, initVector, keySize);
             }
             file.Close();
 
@@ -64,7 +64,7 @@ namespace StockApps
             string line;
             List<string> output = new List<string>();
             string newConString = newDBHost + ";" + newDBUsername + ";" + newDBPassword + ";" + newDBDatabase + ";" + newDBSecurityHint + ";" + newDBSecurityCode;
-            //output.Add(RijndaelSecurity.Encrypt(newConString, passPhrase, saltValue, hashAlgorithm, passwordIterations, initVector, keySize));
+            output.Add(RijndaelSecurity.Encrypt(newConString, passPhrase, saltValue, hashAlgorithm, passwordIterations, initVector, keySize));
 
             System.IO.File.WriteAllLines("localization.3nc", output);
         }

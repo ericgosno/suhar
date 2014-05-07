@@ -994,7 +994,6 @@
     <None Include="Resources\cvusahaSmall.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\localization.3nc" />
     <None Include="Resources\report.png" />
     <None Include="Resources\cash-flow.png" />
     <None Include="Resources\admin.png" />
