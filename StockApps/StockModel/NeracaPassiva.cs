@@ -10,10 +10,10 @@ namespace StockModel
         public static neraca_passiva_usaha insertPassivaHU(string nurut, string nnota, string nnama, Decimal jumlahHarga, DateTime yeartime)
         {
             neraca_passiva_usaha newHU = new neraca_passiva_usaha();
-            newHU.nourut = nurut;
-            newHU.nota = nnota;
-            newHU.nama = nnama;
-            newHU.jumlah = jumlahHarga;
+            newHU.nourut_usaha = nurut;
+            newHU.nota_usaha = nnota;
+            newHU.nama_usaha = nnama;
+            newHU.jumlah_usaha = jumlahHarga;
             newHU.tahun_passiva = yeartime;
             StockEntity.Entity.AddToneraca_passiva_usaha(newHU);
             StockEntity.Entity.SaveChanges();
@@ -24,7 +24,7 @@ namespace StockModel
         public static IQueryable<neraca_passiva_usaha> getIDUsaha()
         {
             var list = (from e in StockEntity.Entity.neraca_passiva_usaha
-                        orderby e.nourut
+                        orderby e.nourut_usaha
                         select e).Distinct();
             return list;
 
@@ -49,10 +49,10 @@ namespace StockModel
         public static neraca_passiva_ppjk insertPassivaPPJK(string nurut, string nnota, string nnama, Decimal jumlahHarga, DateTime yeartime)
         {
             neraca_passiva_ppjk newPPJK = new neraca_passiva_ppjk();
-            newPPJK.nourut = nurut;
-            newPPJK.nota = nnota;
-            newPPJK.nama = nnama;
-            newPPJK.jumlah = jumlahHarga;
+            newPPJK.nourut_ppjk = nurut;
+            newPPJK.nota_ppjk = nnota;
+            newPPJK.nama_ppjk = nnama;
+            newPPJK.jumlah_ppjk = jumlahHarga;
             newPPJK.tahun_passiva = yeartime;
             StockEntity.Entity.AddToneraca_passiva_ppjk(newPPJK);
             StockEntity.Entity.SaveChanges();
@@ -81,9 +81,9 @@ namespace StockModel
         public static neraca_passiva_pajak insertPassivaHPajak(string nurut, string nket,  Decimal jumlahHarga, DateTime yeartime)
         {
             neraca_passiva_pajak newHPajak = new neraca_passiva_pajak();
-            newHPajak.nourut = nurut;
-            newHPajak.keterangan = nket;
-            newHPajak.jumlah = jumlahHarga;
+            newHPajak.nourut_pajak = nurut;
+            newHPajak.keterangan_pajak = nket;
+            newHPajak.jumlah_pajak = jumlahHarga;
             newHPajak.tahun_passiva = yeartime;
             StockEntity.Entity.AddToneraca_passiva_pajak(newHPajak);
             StockEntity.Entity.SaveChanges();
@@ -111,9 +111,9 @@ namespace StockModel
         public static neraca_passiva_saham insertPassivaSaham(string nurut, string nnama, Decimal jumlahHarga, DateTime yeartime)
         {
             neraca_passiva_saham newHSaham = new neraca_passiva_saham();
-            newHSaham.nourut = nurut;
-            newHSaham.nama = nnama;
-            newHSaham.jumlah = jumlahHarga;
+            newHSaham.nourut_saham = nurut;
+            newHSaham.nama_saham = nnama;
+            newHSaham.jumlah_saham = jumlahHarga;
             newHSaham.tahun_passiva = yeartime;
             StockEntity.Entity.AddToneraca_passiva_saham(newHSaham);
             StockEntity.Entity.SaveChanges();

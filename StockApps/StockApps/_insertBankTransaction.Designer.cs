@@ -333,7 +333,7 @@
             this.Controls.Add(this._lbtransTitle);
             this.Name = "_insertBankTransaction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "_insertBankTransaction";
+            this.Text = "CV. WARNA MURNI - InsertBankTransaction";
             this.ResumeLayout(false);
             this.PerformLayout();
 

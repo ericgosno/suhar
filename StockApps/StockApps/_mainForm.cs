@@ -559,6 +559,18 @@ namespace StockApps
             NeracaReportP.Show(this);
         }
 
+        private void _linkrptAktiva_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            _neraca_aktiva NeracaReport = new _neraca_aktiva();
+            NeracaReport.Show(this);
+        }
+
+        private void _linkrptPassiva_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            _neraca_passiva NeracaReportP = new _neraca_passiva();
+            NeracaReportP.Show(this);
+        }
+
 
 
     }

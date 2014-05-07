@@ -186,7 +186,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "_neraca_passiva";
-            this.Text = "_neraca_passiva";
+            this.Text = "CV. WARNA MURNI - Neraca_passiva";
             this.Load += new System.EventHandler(this._neraca_passiva_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

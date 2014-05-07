@@ -31,10 +31,10 @@ namespace StockApps
 
             _dataPassivaHutangPPJK.DataSource = NeracaPassiva.getAllPassivaPPJK();
 
-            _dataPassivaHutangPPJK.Columns["nourut"].HeaderText = "No.";
-            _dataPassivaHutangPPJK.Columns["nota"].HeaderText = "Nota";
-            _dataPassivaHutangPPJK.Columns["nama"].HeaderText = "Nama";
-            _dataPassivaHutangPPJK.Columns["jumlah"].HeaderText = "Jumlah";
+            _dataPassivaHutangPPJK.Columns["nourut_ppjk"].HeaderText = "No.";
+            _dataPassivaHutangPPJK.Columns["nota_ppjk"].HeaderText = "Nota";
+            _dataPassivaHutangPPJK.Columns["nama_ppjk"].HeaderText = "Nama";
+            _dataPassivaHutangPPJK.Columns["jumlah_ppjk"].HeaderText = "Jumlah";
             _dataPassivaHutangPPJK.Columns["tahun_passiva"].HeaderText = "Date";
 
             _dataPassivaHutangPPJK.Columns["idneraca_passiva_ppjk"].Visible = false;

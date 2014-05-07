@@ -30,10 +30,10 @@ namespace StockApps
 
             _dataPassivaHutangUsaha.DataSource = NeracaPassiva.getAllPassivaUsaha();
 
-            _dataPassivaHutangUsaha.Columns["nourut"].HeaderText = "No.";
-            _dataPassivaHutangUsaha.Columns["nota"].HeaderText = "Nota";
-            _dataPassivaHutangUsaha.Columns["nama"].HeaderText = "Nama";
-            _dataPassivaHutangUsaha.Columns["jumlah"].HeaderText = "Jumlah";
+            _dataPassivaHutangUsaha.Columns["nourut_usaha"].HeaderText = "No.";
+            _dataPassivaHutangUsaha.Columns["nota_usaha"].HeaderText = "Nota";
+            _dataPassivaHutangUsaha.Columns["nama_usaha"].HeaderText = "Nama";
+            _dataPassivaHutangUsaha.Columns["jumlah_usaha"].HeaderText = "Jumlah";
             _dataPassivaHutangUsaha.Columns["tahun_passiva"].HeaderText = "Date";
 
             _dataPassivaHutangUsaha.Columns["idneraca_passiva_usaha"].Visible = false;

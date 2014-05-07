@@ -47,7 +47,7 @@
             this._bDebtView.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._bDebtView.Location = new System.Drawing.Point(12, 174);
             this._bDebtView.Name = "_bDebtView";
-            this._bDebtView.Size = new System.Drawing.Size(500, 35);
+            this._bDebtView.Size = new System.Drawing.Size(545, 35);
             this._bDebtView.TabIndex = 84;
             this._bDebtView.Text = "VIEW REPORT";
             this._bDebtView.UseVisualStyleBackColor = true;

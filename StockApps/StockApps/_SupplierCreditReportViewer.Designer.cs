@@ -47,7 +47,7 @@
             this._bCreditView.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._bCreditView.Location = new System.Drawing.Point(12, 176);
             this._bCreditView.Name = "_bCreditView";
-            this._bCreditView.Size = new System.Drawing.Size(500, 35);
+            this._bCreditView.Size = new System.Drawing.Size(559, 35);
             this._bCreditView.TabIndex = 84;
             this._bCreditView.Text = "VIEW REPORT";
             this._bCreditView.UseVisualStyleBackColor = true;

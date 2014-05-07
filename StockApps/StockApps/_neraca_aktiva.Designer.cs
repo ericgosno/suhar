@@ -187,7 +187,7 @@
             this.Controls.Add(this.label1);
             this.Name = "_neraca_aktiva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "_neraca_aktiva";
+            this.Text = "CV. WARNA MURNI - Neraca_aktiva";
             this.Load += new System.EventHandler(this._neraca_aktiva_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

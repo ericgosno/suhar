@@ -50,7 +50,7 @@
             this.ClientSize = new System.Drawing.Size(698, 507);
             this.Controls.Add(this.crystalReportPassiva);
             this.Name = "passiva_report";
-            this.Text = "passiva_report";
+            this.Text = "CV. WARNA MURNI - Report Neraca Passiva";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.passiva_report_Load);
             this.ResumeLayout(false);

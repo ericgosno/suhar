@@ -260,7 +260,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "_identityForm";
-            this.Text = "_identityForm";
+            this.Text = "CV. WARNA MURNI - IDENDITY";
             this.Load += new System.EventHandler(this._identityForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

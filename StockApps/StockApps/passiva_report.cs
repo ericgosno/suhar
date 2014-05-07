@@ -29,11 +29,13 @@ namespace StockApps
             MySqlConnection connection = new MySqlConnection(connectionString);
 
             NeracaPassivaReport rptDoc = new NeracaPassivaReport();
-            dsPassivaN ds = new dsPassivaN(); // .xsd file name
+            DataPassiva ds = new DataPassiva(); // .xsd file name
             DataTable dt = new DataTable();
             DataTable dt2 = new DataTable();
             DataTable dt3 = new DataTable();
             DataTable dt4 = new DataTable();
+            DataTable dt5 = new DataTable();
+            DataTable dt6 = new DataTable();
 
             MySqlCommand cmd = new MySqlCommand();
             MySqlDataAdapter adapter;
@@ -43,12 +45,18 @@ namespace StockApps
             MySqlDataAdapter adapter3;
             MySqlCommand cmd4 = new MySqlCommand();
             MySqlDataAdapter adapter4;
+
+            MySqlCommand cmd5 = new MySqlCommand();
+            MySqlDataAdapter adapter5;
+
+            MySqlCommand cmd6 = new MySqlCommand();
+            MySqlDataAdapter adapter6;
             //string query = "SELECT * from admin_history";
             String akhirTahun = tahun.ToString("yyyy-MM-dd");
-            string query = "SELECT nourut,nota,nama,jumlah,tahun_passiva FROM stockapps.neraca_passiva_usaha where DATE(tahun_passiva) = '" + akhirTahun + "'";
-            string query2 = "SELECT nourut,nota,nama,jumlah,tahun_passiva FROM stockapps.neraca_passiva_ppjk where DATE(tahun_passiva) = '" + akhirTahun + "'";
-            string query3 = "SELECT nourut,keterangan,jumlah,tahun_passiva FROM stockapps.neraca_passiva_pajak where DATE(tahun_passiva) = '" + akhirTahun + "'";
-            string query4 = "SELECT nourut,nama,jumlah,tahun_passiva FROM stockapps.neraca_passiva_saham where DATE(tahun_passiva) = '" + akhirTahun + "'";
+            string query = "SELECT nourut_usaha,nota_usaha,nama_usaha,jumlah_usaha,tahun_passiva FROM stockapps.neraca_passiva_usaha where DATE(tahun_passiva) = '" + akhirTahun + "'";
+            string query2 = "SELECT nourut_ppjk,nota_ppjk,nama_ppjk,jumlah_ppjk,tahun_passiva FROM stockapps.neraca_passiva_ppjk where DATE(tahun_passiva) = '" + akhirTahun + "'";
+            string query3 = "SELECT nourut_pajak,keterangan_pajak,jumlah_pajak,tahun_passiva FROM stockapps.neraca_passiva_pajak where DATE(tahun_passiva) = '" + akhirTahun + "'";
+            string query4 = "SELECT nourut_saham,nama_saham,jumlah_saham,tahun_passiva FROM stockapps.neraca_passiva_saham where DATE(tahun_passiva) = '" + akhirTahun + "'";
 
             try
             {
@@ -56,8 +64,6 @@ namespace StockApps
                 cmd = new MySqlCommand(query, connection);
                 adapter = new MySqlDataAdapter(cmd);
                 adapter.Fill(dt);
-
-                
 
                 cmd2 = new MySqlCommand(query2, connection);
                 adapter2 = new MySqlDataAdapter(cmd2);
@@ -70,6 +76,14 @@ namespace StockApps
                 cmd4 = new MySqlCommand(query4, connection);
                 adapter4 = new MySqlDataAdapter(cmd4);
                 adapter4.Fill(dt4);
+
+                cmd5 = new MySqlCommand(query2, connection);
+                adapter5 = new MySqlDataAdapter(cmd5);
+                adapter5.Fill(dt5);
+
+                cmd6 = new MySqlCommand(query, connection);
+                adapter5 = new MySqlDataAdapter(cmd6);
+                adapter5.Fill(dt6);
             }
             catch (Exception ex)
             {
@@ -82,10 +96,12 @@ namespace StockApps
                     connection.Close();
             }
 
-            ds.Tables[0].Merge(dt);
-            ds.Tables[1].Merge(dt2);
-            ds.Tables[2].Merge(dt3);
-            ds.Tables[3].Merge(dt4);
+            //ds.Tables[0].Merge(dt);
+            //ds.Tables[0].Merge(dt2);
+            ds.Tables[0].Merge(dt3);
+            ds.Tables[1].Merge(dt4);
+            ds.Tables[2].Merge(dt5);
+            ds.Tables[3].Merge(dt6);
             // Your .rpt file path will be below
 
             //rptDoc.Load(Application.StartupPath + @"adminReport.rpt");
