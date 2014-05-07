@@ -52,7 +52,6 @@
             this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.priceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,10 +100,11 @@
             this._linkRestore = new System.Windows.Forms.LinkLabel();
             this._groupHistory = new System.Windows.Forms.GroupBox();
             this._linkHistoryLogin = new System.Windows.Forms.LinkLabel();
-            this._linkPriceHistory = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this._groupReport = new System.Windows.Forms.GroupBox();
+            this._linkrptPassiva = new System.Windows.Forms.LinkLabel();
+            this._linkrptAktiva = new System.Windows.Forms.LinkLabel();
             this._linkRptBank = new System.Windows.Forms.LinkLabel();
             this._linkSupplierCredit = new System.Windows.Forms.LinkLabel();
             this._linkCustomerDebt = new System.Windows.Forms.LinkLabel();
@@ -115,8 +115,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this._linkrptAktiva = new System.Windows.Forms.LinkLabel();
-            this._linkrptPassiva = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this._groupPersonalRelationship.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -331,19 +329,11 @@
             // historyToolStripMenuItem
             // 
             this.historyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.priceToolStripMenuItem,
             this.loginToolStripMenuItem});
             this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
             this.historyToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.historyToolStripMenuItem.Text = "History";
             this.historyToolStripMenuItem.Visible = false;
-            // 
-            // priceToolStripMenuItem
-            // 
-            this.priceToolStripMenuItem.Name = "priceToolStripMenuItem";
-            this.priceToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.priceToolStripMenuItem.Text = "Price";
-            this.priceToolStripMenuItem.Click += new System.EventHandler(this.priceToolStripMenuItem_Click);
             // 
             // loginToolStripMenuItem
             // 
@@ -809,7 +799,6 @@
             // _groupHistory
             // 
             this._groupHistory.Controls.Add(this._linkHistoryLogin);
-            this._groupHistory.Controls.Add(this._linkPriceHistory);
             this._groupHistory.Controls.Add(this.label6);
             this._groupHistory.Controls.Add(this.pictureBox6);
             this._groupHistory.Location = new System.Drawing.Point(377, 480);
@@ -821,24 +810,13 @@
             // _linkHistoryLogin
             // 
             this._linkHistoryLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._linkHistoryLogin.Location = new System.Drawing.Point(162, 64);
+            this._linkHistoryLogin.Location = new System.Drawing.Point(162, 44);
             this._linkHistoryLogin.Name = "_linkHistoryLogin";
             this._linkHistoryLogin.Size = new System.Drawing.Size(163, 43);
             this._linkHistoryLogin.TabIndex = 3;
             this._linkHistoryLogin.TabStop = true;
             this._linkHistoryLogin.Text = "User Login/Logout";
             this._linkHistoryLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkHistoryLogin_LinkClicked);
-            // 
-            // _linkPriceHistory
-            // 
-            this._linkPriceHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._linkPriceHistory.Location = new System.Drawing.Point(163, 46);
-            this._linkPriceHistory.Name = "_linkPriceHistory";
-            this._linkPriceHistory.Size = new System.Drawing.Size(173, 40);
-            this._linkPriceHistory.TabIndex = 2;
-            this._linkPriceHistory.TabStop = true;
-            this._linkPriceHistory.Text = "Price History";
-            this._linkPriceHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkPriceHistory_LinkClicked);
             // 
             // label6
             // 
@@ -878,6 +856,28 @@
             this._groupReport.Size = new System.Drawing.Size(361, 264);
             this._groupReport.TabIndex = 10;
             this._groupReport.TabStop = false;
+            // 
+            // _linkrptPassiva
+            // 
+            this._linkrptPassiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._linkrptPassiva.Location = new System.Drawing.Point(160, 226);
+            this._linkrptPassiva.Name = "_linkrptPassiva";
+            this._linkrptPassiva.Size = new System.Drawing.Size(195, 21);
+            this._linkrptPassiva.TabIndex = 16;
+            this._linkrptPassiva.TabStop = true;
+            this._linkrptPassiva.Text = "Neraca Passiva";
+            this._linkrptPassiva.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkrptPassiva_LinkClicked);
+            // 
+            // _linkrptAktiva
+            // 
+            this._linkrptAktiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._linkrptAktiva.Location = new System.Drawing.Point(160, 205);
+            this._linkrptAktiva.Name = "_linkrptAktiva";
+            this._linkrptAktiva.Size = new System.Drawing.Size(195, 21);
+            this._linkrptAktiva.TabIndex = 15;
+            this._linkrptAktiva.TabStop = true;
+            this._linkrptAktiva.Text = "Neraca Aktiva";
+            this._linkrptAktiva.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkrptAktiva_LinkClicked);
             // 
             // _linkRptBank
             // 
@@ -986,28 +986,6 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "Sign-In User : ";
             // 
-            // _linkrptAktiva
-            // 
-            this._linkrptAktiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._linkrptAktiva.Location = new System.Drawing.Point(160, 205);
-            this._linkrptAktiva.Name = "_linkrptAktiva";
-            this._linkrptAktiva.Size = new System.Drawing.Size(195, 21);
-            this._linkrptAktiva.TabIndex = 15;
-            this._linkrptAktiva.TabStop = true;
-            this._linkrptAktiva.Text = "Neraca Aktiva";
-            this._linkrptAktiva.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkrptAktiva_LinkClicked);
-            // 
-            // _linkrptPassiva
-            // 
-            this._linkrptPassiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._linkrptPassiva.Location = new System.Drawing.Point(160, 226);
-            this._linkrptPassiva.Name = "_linkrptPassiva";
-            this._linkrptPassiva.Size = new System.Drawing.Size(195, 21);
-            this._linkrptPassiva.TabIndex = 16;
-            this._linkrptPassiva.TabStop = true;
-            this._linkrptPassiva.Text = "Neraca Passiva";
-            this._linkrptPassiva.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkrptPassiva_LinkClicked);
-            // 
             // _mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1066,7 +1044,6 @@
         private System.Windows.Forms.ToolStripMenuItem administratorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoryUserToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem priceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
@@ -1130,7 +1107,6 @@
         private System.Windows.Forms.LinkLabel _linkRestore;
         private System.Windows.Forms.GroupBox _groupHistory;
         private System.Windows.Forms.LinkLabel _linkHistoryLogin;
-        private System.Windows.Forms.LinkLabel _linkPriceHistory;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.GroupBox _groupReport;

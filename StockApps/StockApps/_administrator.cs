@@ -62,7 +62,7 @@ namespace StockApps
             System.IO.StreamReader file = new System.IO.StreamReader("localization.3nc");
             while ((line = file.ReadLine()) != null)
             {
-                //output.Add(RijndaelSecurity.Encrypt(line, passPhrase, saltValue, hashAlgorithm, passwordIterations, initVector, keySize));
+                output.Add(RijndaelSecurity.Encrypt(line, passPhrase, saltValue, hashAlgorithm, passwordIterations, initVector, keySize));
             }
             file.Close();
 
@@ -85,7 +85,7 @@ namespace StockApps
             System.IO.StreamReader file = new System.IO.StreamReader("localization.3nc");
             while ((line = file.ReadLine()) != null)
             {
-                //output = RijndaelSecurity.Decrypt(line, passPhrase, saltValue, hashAlgorithm, passwordIterations, initVector, keySize);
+                output = RijndaelSecurity.Decrypt(line, passPhrase, saltValue, hashAlgorithm, passwordIterations, initVector, keySize);
             }
             file.Close();
 
