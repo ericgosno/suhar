@@ -30,10 +30,10 @@ namespace StockApps
 
             _dataPassivaHutangPajak.DataSource = NeracaPassiva.getAllPassivaPajak ();
 
-            _dataPassivaHutangPajak.Columns["nourut"].HeaderText = "No.";
-            _dataPassivaHutangPajak.Columns["keterangan"].HeaderText = "Keterangan";
+            _dataPassivaHutangPajak.Columns["nourut_pajak"].HeaderText = "No.";
+            _dataPassivaHutangPajak.Columns["keterangan_pajak"].HeaderText = "Keterangan";
 
-            _dataPassivaHutangPajak.Columns["jumlah"].HeaderText = "Jumlah";
+            _dataPassivaHutangPajak.Columns["jumlah_pajak"].HeaderText = "Jumlah";
             _dataPassivaHutangPajak.Columns["tahun_passiva"].HeaderText = "Date";
 
             _dataPassivaHutangPajak.Columns["idneraca_passiva_pajak"].Visible = false;

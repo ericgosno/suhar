@@ -223,7 +223,7 @@
             this.Controls.Add(this.label2);
             this.Name = "_neraca_aktiva_dInvetaris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "_neraca_aktiva_dInvetaris";
+            this.Text = "CV. WARNA MURNI - Neraca_aktiva_Invetaris";
             this.Load += new System.EventHandler(this._neraca_aktiva_dInvetaris_Load);
             ((System.ComponentModel.ISupportInitialize)(this._dataAktivaInventaris)).EndInit();
             this.ResumeLayout(false);

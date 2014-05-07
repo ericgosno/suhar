@@ -50,7 +50,7 @@
             this.ClientSize = new System.Drawing.Size(808, 591);
             this.Controls.Add(this.crystalReportViewerNeraca);
             this.Name = "_neracaReport";
-            this.Text = "_neracaReport";
+            this.Text = "CV. WARNA MURNI - Report Neraca Aktiva";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this._neracaReport_Load);
             this.ResumeLayout(false);

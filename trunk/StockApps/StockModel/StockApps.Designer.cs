@@ -5556,72 +5556,72 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String nourut
+        public global::System.String nourut_pajak
         {
             get
             {
-                return _nourut;
+                return _nourut_pajak;
             }
             set
             {
-                OnnourutChanging(value);
-                ReportPropertyChanging("nourut");
-                _nourut = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("nourut");
-                OnnourutChanged();
+                Onnourut_pajakChanging(value);
+                ReportPropertyChanging("nourut_pajak");
+                _nourut_pajak = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nourut_pajak");
+                Onnourut_pajakChanged();
             }
         }
-        private global::System.String _nourut;
-        partial void OnnourutChanging(global::System.String value);
-        partial void OnnourutChanged();
+        private global::System.String _nourut_pajak;
+        partial void Onnourut_pajakChanging(global::System.String value);
+        partial void Onnourut_pajakChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String keterangan
+        public global::System.String keterangan_pajak
         {
             get
             {
-                return _keterangan;
+                return _keterangan_pajak;
             }
             set
             {
-                OnketeranganChanging(value);
-                ReportPropertyChanging("keterangan");
-                _keterangan = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("keterangan");
-                OnketeranganChanged();
+                Onketerangan_pajakChanging(value);
+                ReportPropertyChanging("keterangan_pajak");
+                _keterangan_pajak = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("keterangan_pajak");
+                Onketerangan_pajakChanged();
             }
         }
-        private global::System.String _keterangan;
-        partial void OnketeranganChanging(global::System.String value);
-        partial void OnketeranganChanged();
+        private global::System.String _keterangan_pajak;
+        partial void Onketerangan_pajakChanging(global::System.String value);
+        partial void Onketerangan_pajakChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> jumlah
+        public Nullable<global::System.Decimal> jumlah_pajak
         {
             get
             {
-                return _jumlah;
+                return _jumlah_pajak;
             }
             set
             {
-                OnjumlahChanging(value);
-                ReportPropertyChanging("jumlah");
-                _jumlah = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("jumlah");
-                OnjumlahChanged();
+                Onjumlah_pajakChanging(value);
+                ReportPropertyChanging("jumlah_pajak");
+                _jumlah_pajak = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah_pajak");
+                Onjumlah_pajakChanged();
             }
         }
-        private Nullable<global::System.Decimal> _jumlah;
-        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
-        partial void OnjumlahChanged();
+        private Nullable<global::System.Decimal> _jumlah_pajak;
+        partial void Onjumlah_pajakChanging(Nullable<global::System.Decimal> value);
+        partial void Onjumlah_pajakChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5709,96 +5709,96 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String nourut
+        public global::System.String nourut_ppjk
         {
             get
             {
-                return _nourut;
+                return _nourut_ppjk;
             }
             set
             {
-                OnnourutChanging(value);
-                ReportPropertyChanging("nourut");
-                _nourut = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("nourut");
-                OnnourutChanged();
+                Onnourut_ppjkChanging(value);
+                ReportPropertyChanging("nourut_ppjk");
+                _nourut_ppjk = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nourut_ppjk");
+                Onnourut_ppjkChanged();
             }
         }
-        private global::System.String _nourut;
-        partial void OnnourutChanging(global::System.String value);
-        partial void OnnourutChanged();
+        private global::System.String _nourut_ppjk;
+        partial void Onnourut_ppjkChanging(global::System.String value);
+        partial void Onnourut_ppjkChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String nota
+        public global::System.String nota_ppjk
         {
             get
             {
-                return _nota;
+                return _nota_ppjk;
             }
             set
             {
-                OnnotaChanging(value);
-                ReportPropertyChanging("nota");
-                _nota = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("nota");
-                OnnotaChanged();
+                Onnota_ppjkChanging(value);
+                ReportPropertyChanging("nota_ppjk");
+                _nota_ppjk = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nota_ppjk");
+                Onnota_ppjkChanged();
             }
         }
-        private global::System.String _nota;
-        partial void OnnotaChanging(global::System.String value);
-        partial void OnnotaChanged();
+        private global::System.String _nota_ppjk;
+        partial void Onnota_ppjkChanging(global::System.String value);
+        partial void Onnota_ppjkChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String nama
+        public global::System.String nama_ppjk
         {
             get
             {
-                return _nama;
+                return _nama_ppjk;
             }
             set
             {
-                OnnamaChanging(value);
-                ReportPropertyChanging("nama");
-                _nama = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("nama");
-                OnnamaChanged();
+                Onnama_ppjkChanging(value);
+                ReportPropertyChanging("nama_ppjk");
+                _nama_ppjk = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama_ppjk");
+                Onnama_ppjkChanged();
             }
         }
-        private global::System.String _nama;
-        partial void OnnamaChanging(global::System.String value);
-        partial void OnnamaChanged();
+        private global::System.String _nama_ppjk;
+        partial void Onnama_ppjkChanging(global::System.String value);
+        partial void Onnama_ppjkChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> jumlah
+        public Nullable<global::System.Decimal> jumlah_ppjk
         {
             get
             {
-                return _jumlah;
+                return _jumlah_ppjk;
             }
             set
             {
-                OnjumlahChanging(value);
-                ReportPropertyChanging("jumlah");
-                _jumlah = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("jumlah");
-                OnjumlahChanged();
+                Onjumlah_ppjkChanging(value);
+                ReportPropertyChanging("jumlah_ppjk");
+                _jumlah_ppjk = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah_ppjk");
+                Onjumlah_ppjkChanged();
             }
         }
-        private Nullable<global::System.Decimal> _jumlah;
-        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
-        partial void OnjumlahChanged();
+        private Nullable<global::System.Decimal> _jumlah_ppjk;
+        partial void Onjumlah_ppjkChanging(Nullable<global::System.Decimal> value);
+        partial void Onjumlah_ppjkChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5886,72 +5886,72 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String nourut
+        public global::System.String nourut_saham
         {
             get
             {
-                return _nourut;
+                return _nourut_saham;
             }
             set
             {
-                OnnourutChanging(value);
-                ReportPropertyChanging("nourut");
-                _nourut = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("nourut");
-                OnnourutChanged();
+                Onnourut_sahamChanging(value);
+                ReportPropertyChanging("nourut_saham");
+                _nourut_saham = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nourut_saham");
+                Onnourut_sahamChanged();
             }
         }
-        private global::System.String _nourut;
-        partial void OnnourutChanging(global::System.String value);
-        partial void OnnourutChanged();
+        private global::System.String _nourut_saham;
+        partial void Onnourut_sahamChanging(global::System.String value);
+        partial void Onnourut_sahamChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String nama
+        public global::System.String nama_saham
         {
             get
             {
-                return _nama;
+                return _nama_saham;
             }
             set
             {
-                OnnamaChanging(value);
-                ReportPropertyChanging("nama");
-                _nama = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("nama");
-                OnnamaChanged();
+                Onnama_sahamChanging(value);
+                ReportPropertyChanging("nama_saham");
+                _nama_saham = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama_saham");
+                Onnama_sahamChanged();
             }
         }
-        private global::System.String _nama;
-        partial void OnnamaChanging(global::System.String value);
-        partial void OnnamaChanged();
+        private global::System.String _nama_saham;
+        partial void Onnama_sahamChanging(global::System.String value);
+        partial void Onnama_sahamChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> jumlah
+        public Nullable<global::System.Decimal> jumlah_saham
         {
             get
             {
-                return _jumlah;
+                return _jumlah_saham;
             }
             set
             {
-                OnjumlahChanging(value);
-                ReportPropertyChanging("jumlah");
-                _jumlah = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("jumlah");
-                OnjumlahChanged();
+                Onjumlah_sahamChanging(value);
+                ReportPropertyChanging("jumlah_saham");
+                _jumlah_saham = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah_saham");
+                Onjumlah_sahamChanged();
             }
         }
-        private Nullable<global::System.Decimal> _jumlah;
-        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
-        partial void OnjumlahChanged();
+        private Nullable<global::System.Decimal> _jumlah_saham;
+        partial void Onjumlah_sahamChanging(Nullable<global::System.Decimal> value);
+        partial void Onjumlah_sahamChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6039,96 +6039,96 @@ namespace StockModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String nourut
+        public global::System.String nourut_usaha
         {
             get
             {
-                return _nourut;
+                return _nourut_usaha;
             }
             set
             {
-                OnnourutChanging(value);
-                ReportPropertyChanging("nourut");
-                _nourut = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("nourut");
-                OnnourutChanged();
+                Onnourut_usahaChanging(value);
+                ReportPropertyChanging("nourut_usaha");
+                _nourut_usaha = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nourut_usaha");
+                Onnourut_usahaChanged();
             }
         }
-        private global::System.String _nourut;
-        partial void OnnourutChanging(global::System.String value);
-        partial void OnnourutChanged();
+        private global::System.String _nourut_usaha;
+        partial void Onnourut_usahaChanging(global::System.String value);
+        partial void Onnourut_usahaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String nota
+        public global::System.String nota_usaha
         {
             get
             {
-                return _nota;
+                return _nota_usaha;
             }
             set
             {
-                OnnotaChanging(value);
-                ReportPropertyChanging("nota");
-                _nota = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("nota");
-                OnnotaChanged();
+                Onnota_usahaChanging(value);
+                ReportPropertyChanging("nota_usaha");
+                _nota_usaha = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nota_usaha");
+                Onnota_usahaChanged();
             }
         }
-        private global::System.String _nota;
-        partial void OnnotaChanging(global::System.String value);
-        partial void OnnotaChanged();
+        private global::System.String _nota_usaha;
+        partial void Onnota_usahaChanging(global::System.String value);
+        partial void Onnota_usahaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String nama
+        public global::System.String nama_usaha
         {
             get
             {
-                return _nama;
+                return _nama_usaha;
             }
             set
             {
-                OnnamaChanging(value);
-                ReportPropertyChanging("nama");
-                _nama = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("nama");
-                OnnamaChanged();
+                Onnama_usahaChanging(value);
+                ReportPropertyChanging("nama_usaha");
+                _nama_usaha = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("nama_usaha");
+                Onnama_usahaChanged();
             }
         }
-        private global::System.String _nama;
-        partial void OnnamaChanging(global::System.String value);
-        partial void OnnamaChanged();
+        private global::System.String _nama_usaha;
+        partial void Onnama_usahaChanging(global::System.String value);
+        partial void Onnama_usahaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> jumlah
+        public Nullable<global::System.Decimal> jumlah_usaha
         {
             get
             {
-                return _jumlah;
+                return _jumlah_usaha;
             }
             set
             {
-                OnjumlahChanging(value);
-                ReportPropertyChanging("jumlah");
-                _jumlah = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("jumlah");
-                OnjumlahChanged();
+                Onjumlah_usahaChanging(value);
+                ReportPropertyChanging("jumlah_usaha");
+                _jumlah_usaha = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("jumlah_usaha");
+                Onjumlah_usahaChanged();
             }
         }
-        private Nullable<global::System.Decimal> _jumlah;
-        partial void OnjumlahChanging(Nullable<global::System.Decimal> value);
-        partial void OnjumlahChanged();
+        private Nullable<global::System.Decimal> _jumlah_usaha;
+        partial void Onjumlah_usahaChanging(Nullable<global::System.Decimal> value);
+        partial void Onjumlah_usahaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

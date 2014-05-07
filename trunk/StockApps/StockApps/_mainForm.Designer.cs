@@ -64,6 +64,7 @@
             this.supplierCreditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bankAccountReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neracaAktivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neracaPassivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backupDialog = new System.Windows.Forms.SaveFileDialog();
             this.restoreDialog = new System.Windows.Forms.OpenFileDialog();
             this._lIdentityCompany = new System.Windows.Forms.Label();
@@ -114,7 +115,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.neracaPassivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._linkrptAktiva = new System.Windows.Forms.LinkLabel();
+            this._linkrptPassiva = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this._groupPersonalRelationship.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -433,6 +435,13 @@
             this.neracaAktivaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.neracaAktivaToolStripMenuItem.Text = "Neraca Aktiva";
             this.neracaAktivaToolStripMenuItem.Click += new System.EventHandler(this.neracaAktivaToolStripMenuItem_Click);
+            // 
+            // neracaPassivaToolStripMenuItem
+            // 
+            this.neracaPassivaToolStripMenuItem.Name = "neracaPassivaToolStripMenuItem";
+            this.neracaPassivaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.neracaPassivaToolStripMenuItem.Text = "Neraca Passiva";
+            this.neracaPassivaToolStripMenuItem.Click += new System.EventHandler(this.neracaPassivaToolStripMenuItem_Click);
             // 
             // backupDialog
             // 
@@ -853,6 +862,8 @@
             // 
             // _groupReport
             // 
+            this._groupReport.Controls.Add(this._linkrptPassiva);
+            this._groupReport.Controls.Add(this._linkrptAktiva);
             this._groupReport.Controls.Add(this._linkRptBank);
             this._groupReport.Controls.Add(this._linkSupplierCredit);
             this._groupReport.Controls.Add(this._linkCustomerDebt);
@@ -864,7 +875,7 @@
             this._groupReport.Controls.Add(this.pictureBox7);
             this._groupReport.Location = new System.Drawing.Point(740, 134);
             this._groupReport.Name = "_groupReport";
-            this._groupReport.Size = new System.Drawing.Size(361, 218);
+            this._groupReport.Size = new System.Drawing.Size(361, 264);
             this._groupReport.TabIndex = 10;
             this._groupReport.TabStop = false;
             // 
@@ -975,12 +986,27 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "Sign-In User : ";
             // 
-            // neracaPassivaToolStripMenuItem
+            // _linkrptAktiva
             // 
-            this.neracaPassivaToolStripMenuItem.Name = "neracaPassivaToolStripMenuItem";
-            this.neracaPassivaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.neracaPassivaToolStripMenuItem.Text = "Neraca Passiva";
-            this.neracaPassivaToolStripMenuItem.Click += new System.EventHandler(this.neracaPassivaToolStripMenuItem_Click);
+            this._linkrptAktiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._linkrptAktiva.Location = new System.Drawing.Point(160, 205);
+            this._linkrptAktiva.Name = "_linkrptAktiva";
+            this._linkrptAktiva.Size = new System.Drawing.Size(195, 21);
+            this._linkrptAktiva.TabIndex = 15;
+            this._linkrptAktiva.TabStop = true;
+            this._linkrptAktiva.Text = "Neraca Aktiva";
+            this._linkrptAktiva.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkrptAktiva_LinkClicked);
+            // 
+            // _linkrptPassiva
+            // 
+            this._linkrptPassiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._linkrptPassiva.Location = new System.Drawing.Point(160, 226);
+            this._linkrptPassiva.Name = "_linkrptPassiva";
+            this._linkrptPassiva.Size = new System.Drawing.Size(195, 21);
+            this._linkrptPassiva.TabIndex = 16;
+            this._linkrptPassiva.TabStop = true;
+            this._linkrptPassiva.Text = "Neraca Passiva";
+            this._linkrptPassiva.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this._linkrptPassiva_LinkClicked);
             // 
             // _mainForm
             // 
@@ -1122,6 +1148,8 @@
         private System.Windows.Forms.LinkLabel _linkAddProduct;
         private System.Windows.Forms.ToolStripMenuItem neracaAktivaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neracaPassivaToolStripMenuItem;
+        private System.Windows.Forms.LinkLabel _linkrptPassiva;
+        private System.Windows.Forms.LinkLabel _linkrptAktiva;
     }
 }
 

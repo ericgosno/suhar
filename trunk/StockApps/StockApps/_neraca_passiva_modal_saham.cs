@@ -30,10 +30,10 @@ namespace StockApps
 
             _dataPassivaModalSaham.DataSource = NeracaPassiva.getAllPassivaSaham();
 
-            _dataPassivaModalSaham.Columns["nourut"].HeaderText = "No.";
-            _dataPassivaModalSaham.Columns["nama"].HeaderText = "Nama";
-        
-            _dataPassivaModalSaham.Columns["jumlah"].HeaderText = "Jumlah";
+            _dataPassivaModalSaham.Columns["nourut_saham"].HeaderText = "No.";
+            _dataPassivaModalSaham.Columns["nama_saham"].HeaderText = "Nama";
+
+            _dataPassivaModalSaham.Columns["jumlah_saham"].HeaderText = "Jumlah";
             _dataPassivaModalSaham.Columns["tahun_passiva"].HeaderText = "Date";
 
             _dataPassivaModalSaham.Columns["idneraca_passiva_saham"].Visible = false;

@@ -89,6 +89,11 @@
     <Compile Include="BankReport.Designer.cs">
       <DependentUpon>BankReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataPassiva.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataPassiva.xsd</DependentUpon>
+    </Compile>
     <Compile Include="NeracaPassivaPajak1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -826,6 +831,17 @@
     </EmbeddedResource>
     <None Include="App.Config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="DataPassiva.xsc">
+      <DependentUpon>DataPassiva.xsd</DependentUpon>
+    </None>
+    <None Include="DataPassiva.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataPassiva.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataPassiva.xss">
+      <DependentUpon>DataPassiva.xsd</DependentUpon>
     </None>
     <None Include="dsAdmin.xsc">
       <DependentUpon>dsAdmin.xsd</DependentUpon>

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-        
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -50,7 +49,7 @@
             this.ClientSize = new System.Drawing.Size(585, 445);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "_history";
-            this.Text = "_history";
+            this.Text = "CV. WARNA MURNI - History";
             this.Load += new System.EventHandler(this._history_Load);
             this.ResumeLayout(false);
 
