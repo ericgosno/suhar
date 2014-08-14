@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockApps", "StockApps\Stoc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockModel", "StockModel\StockModel.csproj", "{A27E7E72-EF72-413E-AF40-FF4EACDE48DC}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "setup", "setup\setup.vdproj", "{DBFDE490-5CBD-4526-9EC8-274C56CAA6C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,12 @@ Global
 		{A27E7E72-EF72-413E-AF40-FF4EACDE48DC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A27E7E72-EF72-413E-AF40-FF4EACDE48DC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A27E7E72-EF72-413E-AF40-FF4EACDE48DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{DBFDE490-5CBD-4526-9EC8-274C56CAA6C8}.Debug|Any CPU.ActiveCfg = Debug
+		{DBFDE490-5CBD-4526-9EC8-274C56CAA6C8}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{DBFDE490-5CBD-4526-9EC8-274C56CAA6C8}.Debug|x86.ActiveCfg = Debug
+		{DBFDE490-5CBD-4526-9EC8-274C56CAA6C8}.Release|Any CPU.ActiveCfg = Release
+		{DBFDE490-5CBD-4526-9EC8-274C56CAA6C8}.Release|Mixed Platforms.ActiveCfg = Release
+		{DBFDE490-5CBD-4526-9EC8-274C56CAA6C8}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -141,6 +141,9 @@ namespace StockApps
             }
             catch (Exception ex)
             {
+               // MessageBox.Show(ex.StackTrace);
+               // MessageBox.Show(ex.InnerException.ToString());
+               // MessageBox.Show(ex.Message);
                 _lIdentityAddress.Visible = false;
                 _lIdentityCity.Visible = false;
                 _lIdentityCompany.Visible = false;
