@@ -54,8 +54,13 @@ namespace StockApps
 
             _dataBank.Columns["Bank_ID"].Visible = false;
             _dataBank.Columns["Currency_ID"].Visible = false;
-            _dataBank.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
+
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+
+                dataGridView1.Columns[column.Name].SortMode = DataGridViewColumnSortMode.Automatic;
+            }
             _dataBank.Refresh();
         }
 
