@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="BankController.cs" />
     <Compile Include="ConnectionController.cs" />
+    <Compile Include="ControllerBiayaLain.cs" />
     <Compile Include="HistoryController.cs" />
     <Compile Include="NeracaAktiva.cs" />
     <Compile Include="NeracaPassiva.cs" />
@@ -92,6 +93,7 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

@@ -42,6 +42,7 @@
             this._rptSRFakturPajak.Size = new System.Drawing.Size(1008, 730);
             this._rptSRFakturPajak.TabIndex = 0;
             this._rptSRFakturPajak.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this._rptSRFakturPajak.Load += new System.EventHandler(this._rptSRFakturPajak_Load);
             // 
             // sellingReportFPajak_bForm_RptViewer
             // 

@@ -628,6 +628,38 @@ namespace StockModel
             }
         }
         private ObjectSet<neraca_passiva_usaha> _neraca_passiva_usaha;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<kategori_biaya_lain> kategori_biaya_lain
+        {
+            get
+            {
+                if ((_kategori_biaya_lain == null))
+                {
+                    _kategori_biaya_lain = base.CreateObjectSet<kategori_biaya_lain>("kategori_biaya_lain");
+                }
+                return _kategori_biaya_lain;
+            }
+        }
+        private ObjectSet<kategori_biaya_lain> _kategori_biaya_lain;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<supplier_biaya_lain> supplier_biaya_lain
+        {
+            get
+            {
+                if ((_supplier_biaya_lain == null))
+                {
+                    _supplier_biaya_lain = base.CreateObjectSet<supplier_biaya_lain>("supplier_biaya_lain");
+                }
+                return _supplier_biaya_lain;
+            }
+        }
+        private ObjectSet<supplier_biaya_lain> _supplier_biaya_lain;
 
         #endregion
 
@@ -895,6 +927,22 @@ namespace StockModel
         public void AddToneraca_passiva_usaha(neraca_passiva_usaha neraca_passiva_usaha)
         {
             base.AddObject("neraca_passiva_usaha", neraca_passiva_usaha);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the kategori_biaya_lain EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTokategori_biaya_lain(kategori_biaya_lain kategori_biaya_lain)
+        {
+            base.AddObject("kategori_biaya_lain", kategori_biaya_lain);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the supplier_biaya_lain EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTosupplier_biaya_lain(supplier_biaya_lain supplier_biaya_lain)
+        {
+            base.AddObject("supplier_biaya_lain", supplier_biaya_lain);
         }
 
         #endregion
@@ -4536,6 +4584,89 @@ namespace StockModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="kategori_biaya_lain")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class kategori_biaya_lain : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new kategori_biaya_lain object.
+        /// </summary>
+        /// <param name="kategori_lain_ID">Initial value of the Kategori_lain_ID property.</param>
+        /// <param name="nama_biaya_lain">Initial value of the nama_biaya_lain property.</param>
+        public static kategori_biaya_lain Createkategori_biaya_lain(global::System.Int32 kategori_lain_ID, global::System.String nama_biaya_lain)
+        {
+            kategori_biaya_lain kategori_biaya_lain = new kategori_biaya_lain();
+            kategori_biaya_lain.Kategori_lain_ID = kategori_lain_ID;
+            kategori_biaya_lain.nama_biaya_lain = nama_biaya_lain;
+            return kategori_biaya_lain;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Kategori_lain_ID
+        {
+            get
+            {
+                return _Kategori_lain_ID;
+            }
+            set
+            {
+                if (_Kategori_lain_ID != value)
+                {
+                    OnKategori_lain_IDChanging(value);
+                    ReportPropertyChanging("Kategori_lain_ID");
+                    _Kategori_lain_ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Kategori_lain_ID");
+                    OnKategori_lain_IDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Kategori_lain_ID;
+        partial void OnKategori_lain_IDChanging(global::System.Int32 value);
+        partial void OnKategori_lain_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String nama_biaya_lain
+        {
+            get
+            {
+                return _nama_biaya_lain;
+            }
+            set
+            {
+                Onnama_biaya_lainChanging(value);
+                ReportPropertyChanging("nama_biaya_lain");
+                _nama_biaya_lain = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("nama_biaya_lain");
+                Onnama_biaya_lainChanged();
+            }
+        }
+        private global::System.String _nama_biaya_lain;
+        partial void Onnama_biaya_lainChanging(global::System.String value);
+        partial void Onnama_biaya_lainChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="neraca_aktiva")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -7933,6 +8064,141 @@ namespace StockModel
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="stockappsModel", Name="supplier_biaya_lain")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class supplier_biaya_lain : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new supplier_biaya_lain object.
+        /// </summary>
+        /// <param name="supplier_biaya_laincol">Initial value of the supplier_biaya_laincol property.</param>
+        /// <param name="kategori_lain_ID">Initial value of the Kategori_lain_ID property.</param>
+        /// <param name="supplier_Transaction_ID">Initial value of the Supplier_Transaction_ID property.</param>
+        /// <param name="harga_Biaya">Initial value of the Harga_Biaya property.</param>
+        public static supplier_biaya_lain Createsupplier_biaya_lain(global::System.Int32 supplier_biaya_laincol, global::System.Int32 kategori_lain_ID, global::System.String supplier_Transaction_ID, global::System.Decimal harga_Biaya)
+        {
+            supplier_biaya_lain supplier_biaya_lain = new supplier_biaya_lain();
+            supplier_biaya_lain.supplier_biaya_laincol = supplier_biaya_laincol;
+            supplier_biaya_lain.Kategori_lain_ID = kategori_lain_ID;
+            supplier_biaya_lain.Supplier_Transaction_ID = supplier_Transaction_ID;
+            supplier_biaya_lain.Harga_Biaya = harga_Biaya;
+            return supplier_biaya_lain;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 supplier_biaya_laincol
+        {
+            get
+            {
+                return _supplier_biaya_laincol;
+            }
+            set
+            {
+                if (_supplier_biaya_laincol != value)
+                {
+                    Onsupplier_biaya_laincolChanging(value);
+                    ReportPropertyChanging("supplier_biaya_laincol");
+                    _supplier_biaya_laincol = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("supplier_biaya_laincol");
+                    Onsupplier_biaya_laincolChanged();
+                }
+            }
+        }
+        private global::System.Int32 _supplier_biaya_laincol;
+        partial void Onsupplier_biaya_laincolChanging(global::System.Int32 value);
+        partial void Onsupplier_biaya_laincolChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Kategori_lain_ID
+        {
+            get
+            {
+                return _Kategori_lain_ID;
+            }
+            set
+            {
+                OnKategori_lain_IDChanging(value);
+                ReportPropertyChanging("Kategori_lain_ID");
+                _Kategori_lain_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Kategori_lain_ID");
+                OnKategori_lain_IDChanged();
+            }
+        }
+        private global::System.Int32 _Kategori_lain_ID;
+        partial void OnKategori_lain_IDChanging(global::System.Int32 value);
+        partial void OnKategori_lain_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Supplier_Transaction_ID
+        {
+            get
+            {
+                return _Supplier_Transaction_ID;
+            }
+            set
+            {
+                OnSupplier_Transaction_IDChanging(value);
+                ReportPropertyChanging("Supplier_Transaction_ID");
+                _Supplier_Transaction_ID = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Supplier_Transaction_ID");
+                OnSupplier_Transaction_IDChanged();
+            }
+        }
+        private global::System.String _Supplier_Transaction_ID;
+        partial void OnSupplier_Transaction_IDChanging(global::System.String value);
+        partial void OnSupplier_Transaction_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Harga_Biaya
+        {
+            get
+            {
+                return _Harga_Biaya;
+            }
+            set
+            {
+                OnHarga_BiayaChanging(value);
+                ReportPropertyChanging("Harga_Biaya");
+                _Harga_Biaya = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Harga_Biaya");
+                OnHarga_BiayaChanged();
+            }
+        }
+        private global::System.Decimal _Harga_Biaya;
+        partial void OnHarga_BiayaChanging(global::System.Decimal value);
+        partial void OnHarga_BiayaChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

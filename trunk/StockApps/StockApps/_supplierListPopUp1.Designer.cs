@@ -75,6 +75,7 @@
             // 
             // _dataDetailSupplier
             // 
+            this._dataDetailSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,13 +95,13 @@
             this._dataDetailSupplier.DefaultCellStyle = dataGridViewCellStyle2;
             this._dataDetailSupplier.Location = new System.Drawing.Point(18, 105);
             this._dataDetailSupplier.Name = "_dataDetailSupplier";
-            this._dataDetailSupplier.Size = new System.Drawing.Size(632, 260);
+            this._dataDetailSupplier.Size = new System.Drawing.Size(724, 286);
             this._dataDetailSupplier.TabIndex = 13;
             // 
             // _bspDUpdate
             // 
             this._bspDUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDUpdate.Location = new System.Drawing.Point(408, 381);
+            this._bspDUpdate.Location = new System.Drawing.Point(500, 411);
             this._bspDUpdate.Name = "_bspDUpdate";
             this._bspDUpdate.Size = new System.Drawing.Size(121, 35);
             this._bspDUpdate.TabIndex = 14;
@@ -111,7 +112,7 @@
             // _bspDDelete
             // 
             this._bspDDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDDelete.Location = new System.Drawing.Point(535, 381);
+            this._bspDDelete.Location = new System.Drawing.Point(627, 411);
             this._bspDDelete.Name = "_bspDDelete";
             this._bspDDelete.Size = new System.Drawing.Size(115, 35);
             this._bspDDelete.TabIndex = 15;
@@ -122,7 +123,7 @@
             // _bspDInsert
             // 
             this._bspDInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bspDInsert.Location = new System.Drawing.Point(281, 381);
+            this._bspDInsert.Location = new System.Drawing.Point(373, 411);
             this._bspDInsert.Name = "_bspDInsert";
             this._bspDInsert.Size = new System.Drawing.Size(121, 35);
             this._bspDInsert.TabIndex = 16;
@@ -133,9 +134,9 @@
             // _bProSPriceHistory
             // 
             this._bProSPriceHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bProSPriceHistory.Location = new System.Drawing.Point(18, 381);
+            this._bProSPriceHistory.Location = new System.Drawing.Point(18, 411);
             this._bProSPriceHistory.Name = "_bProSPriceHistory";
-            this._bProSPriceHistory.Size = new System.Drawing.Size(217, 35);
+            this._bProSPriceHistory.Size = new System.Drawing.Size(319, 35);
             this._bProSPriceHistory.TabIndex = 49;
             this._bProSPriceHistory.Text = "PRICE HISTORY";
             this._bProSPriceHistory.UseVisualStyleBackColor = true;
@@ -148,7 +149,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(670, 457);
+            this.shapeContainer1.Size = new System.Drawing.Size(766, 457);
             this.shapeContainer1.TabIndex = 50;
             this.shapeContainer1.TabStop = false;
             // 
@@ -156,16 +157,16 @@
             // 
             this.lineShape1.BorderWidth = 2;
             this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 259;
-            this.lineShape1.X2 = 259;
-            this.lineShape1.Y1 = 375;
-            this.lineShape1.Y2 = 423;
+            this.lineShape1.X1 = 355;
+            this.lineShape1.X2 = 355;
+            this.lineShape1.Y1 = 402;
+            this.lineShape1.Y2 = 450;
             // 
             // _supplierListPopUp1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 457);
+            this.ClientSize = new System.Drawing.Size(766, 457);
             this.Controls.Add(this._bProSPriceHistory);
             this.Controls.Add(this._bspDInsert);
             this.Controls.Add(this._bspDUpdate);

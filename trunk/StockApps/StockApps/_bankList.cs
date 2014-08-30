@@ -56,10 +56,10 @@ namespace StockApps
             _dataBank.Columns["Currency_ID"].Visible = false;
 
 
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            foreach (DataGridViewColumn column in _dataBank.Columns)
             {
 
-                dataGridView1.Columns[column.Name].SortMode = DataGridViewColumnSortMode.Automatic;
+                _dataBank.Columns[column.Name].SortMode = DataGridViewColumnSortMode.Automatic;
             }
             _dataBank.Refresh();
         }
@@ -83,7 +83,7 @@ namespace StockApps
             }
             else
             {
-                BankController.updateBank(selectedId, _tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedValue.ToString()));
+                //BankController.updateBank(selectedId, _tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedValue.ToString()));
             }
             RefreshForm();
         }
@@ -105,7 +105,7 @@ namespace StockApps
                 selectedId = bankNow.Bank_ID;
                 _tbankName.Text = bankNow.Bank_Name;
                 _cbankCurrency.SelectedValue = bankNow.currency.Currency_ID;
-                _bbankInsert.Text = "UPDATE";
+                //_bbankInsert.Text = "UPDATE";
             }
             catch (Exception ex)
             {
@@ -116,7 +116,7 @@ namespace StockApps
 
         private void _bbankReset_Click(object sender, EventArgs e)
         {
-            _bbankInsert.Text = "INSERT";
+            //_bbankInsert.Text = "INSERT";
             _tbankName.Text = "";
             _cbankCurrency.SelectedIndex = -1;
             selectedId = -1;
@@ -154,6 +154,21 @@ namespace StockApps
         {
 
         }
+
+        private void _bbankUpdateku_Click(object sender, EventArgs e)
+        {
+            if (selectedId == -1)
+            {
+                //BankController.insertBank(_tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedValue.ToString()));
+            }
+            else
+            {
+                BankController.updateBank(selectedId, _tbankName.Text, Convert.ToInt32(_cbankCurrency.SelectedValue.ToString()));
+            }
+            RefreshForm();
+        }
+
+    
 
     
     }

@@ -61,7 +61,7 @@
             // _bPurTransPrint
             // 
             this._bPurTransPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bPurTransPrint.Location = new System.Drawing.Point(12, 446);
+            this._bPurTransPrint.Location = new System.Drawing.Point(12, 610);
             this._bPurTransPrint.Name = "_bPurTransPrint";
             this._bPurTransPrint.Size = new System.Drawing.Size(105, 33);
             this._bPurTransPrint.TabIndex = 89;
@@ -73,7 +73,7 @@
             // 
             this._dataPriceHistory.AllowUserToAddRows = false;
             this._dataPriceHistory.AllowUserToDeleteRows = false;
-            this._dataPriceHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._dataPriceHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this._dataPriceHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -92,11 +92,11 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this._dataPriceHistory.DefaultCellStyle = dataGridViewCellStyle2;
-            this._dataPriceHistory.Location = new System.Drawing.Point(12, 210);
+            this._dataPriceHistory.Location = new System.Drawing.Point(12, 193);
             this._dataPriceHistory.MultiSelect = false;
             this._dataPriceHistory.Name = "_dataPriceHistory";
             this._dataPriceHistory.ReadOnly = true;
-            this._dataPriceHistory.Size = new System.Drawing.Size(588, 230);
+            this._dataPriceHistory.Size = new System.Drawing.Size(1159, 401);
             this._dataPriceHistory.TabIndex = 88;
             // 
             // label6
@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 487);
+            this.ClientSize = new System.Drawing.Size(1183, 655);
             this.Controls.Add(this._lShowAll);
             this.Controls.Add(this._bPurTransPrint);
             this.Controls.Add(this._dataPriceHistory);
@@ -216,6 +216,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "_purchasingTransactionList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchasing Transaction Archive";
             ((System.ComponentModel.ISupportInitialize)(this._dataPriceHistory)).EndInit();
             this.ResumeLayout(false);

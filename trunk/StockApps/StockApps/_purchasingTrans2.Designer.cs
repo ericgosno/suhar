@@ -60,6 +60,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lblBiaya = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblsemua = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _cbPurBank
@@ -273,7 +279,7 @@
             // 
             this._lsellkurs2.AutoSize = true;
             this._lsellkurs2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lsellkurs2.Location = new System.Drawing.Point(533, 172);
+            this._lsellkurs2.Location = new System.Drawing.Point(494, 172);
             this._lsellkurs2.Name = "_lsellkurs2";
             this._lsellkurs2.Size = new System.Drawing.Size(19, 29);
             this._lsellkurs2.TabIndex = 90;
@@ -313,7 +319,7 @@
             // 
             this._lsellkurs1.AutoSize = true;
             this._lsellkurs1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lsellkurs1.Location = new System.Drawing.Point(419, 172);
+            this._lsellkurs1.Location = new System.Drawing.Point(380, 172);
             this._lsellkurs1.Name = "_lsellkurs1";
             this._lsellkurs1.Size = new System.Drawing.Size(108, 29);
             this._lsellkurs1.TabIndex = 86;
@@ -323,7 +329,7 @@
             // 
             this._lPurKurs.AutoSize = true;
             this._lPurKurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lPurKurs.Location = new System.Drawing.Point(551, 172);
+            this._lPurKurs.Location = new System.Drawing.Point(512, 172);
             this._lPurKurs.Name = "_lPurKurs";
             this._lPurKurs.Size = new System.Drawing.Size(130, 29);
             this._lPurKurs.TabIndex = 85;
@@ -378,11 +384,77 @@
             this.lineShape1.Y1 = 216;
             this.lineShape1.Y2 = 216;
             // 
+            // lblBiaya
+            // 
+            this.lblBiaya.AutoSize = true;
+            this.lblBiaya.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBiaya.Location = new System.Drawing.Point(512, 55);
+            this.lblBiaya.Name = "lblBiaya";
+            this.lblBiaya.Size = new System.Drawing.Size(78, 29);
+            this.lblBiaya.TabIndex = 115;
+            this.lblBiaya.Text = "22500";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(494, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 29);
+            this.label7.TabIndex = 114;
+            this.label7.Text = ":";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(347, 55);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(123, 29);
+            this.label11.TabIndex = 113;
+            this.label11.Text = "Biaya Lain";
+            // 
+            // lblsemua
+            // 
+            this.lblsemua.AutoSize = true;
+            this.lblsemua.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsemua.Location = new System.Drawing.Point(512, 84);
+            this.lblsemua.Name = "lblsemua";
+            this.lblsemua.Size = new System.Drawing.Size(130, 29);
+            this.lblsemua.TabIndex = 118;
+            this.lblsemua.Text = "222000000";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(495, 84);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(19, 29);
+            this.label15.TabIndex = 117;
+            this.label15.Text = ":";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(348, 84);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(150, 29);
+            this.label16.TabIndex = 116;
+            this.label16.Text = "Total Semua";
+            // 
             // _purchasingTrans2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 406);
+            this.Controls.Add(this.lblsemua);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.lblBiaya);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this._cbPurBank);
             this.Controls.Add(this._lsellBank2);
             this.Controls.Add(this._lsellBank1);
@@ -457,5 +529,11 @@
         private System.Windows.Forms.Label label5;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
+        private System.Windows.Forms.Label lblBiaya;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblsemua;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
     }
 }

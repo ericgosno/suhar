@@ -46,11 +46,12 @@ namespace StockApps
                             Supplier_Transaction_Note_Number = join.supplier_transaction.Supplier_Transaction_Note_Number + "",
                             Supplier_Transaction_ID = join.supplier_transaction.Supplier_Transaction_ID + "",
                             Supplier_Transaction_Date = join.supplier_transaction.Supplier_Transaction_Date.ToString("MMMM dd, yyyy") + "",
+                            Supplier_ID = SupplierController.getSupplier(Convert.ToInt32(join.supplier_transaction.Supplier_ID)).First().Supplier_Name + "",
                             Supplier_Transaction_Price = (join.supplier_transaction.Currency_ID == 1 ? join.supplier_transaction.Supplier_Transaction_Total_Dollar.ToString("C2") : join.supplier_transaction.Supplier_Transaction_Total_Rupiah.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"))) + "",
-                            Supplier_Payment_Deadline_Date = join.supplier_transaction.supplier_payment.First().Supplier_Payment_Deadline_Date.ToString("MMMM dd, yyyy") + "",
-                            Payment_Category_Name = join.supplier_transaction.supplier_payment.First().payment_category.Payment_Category_Name + "",
-                            Supplier_Payment_Status = (join.supplier_transaction.supplier_payment.First().Supplier_Payment_Status == 1) ? "Wait Payment" : "Finished",
-                            Supplier_Transaction_Invoice_Number = join.supplier_transaction.Supplier_Transaction_Invoice_Number + ""
+                            Supplier_Payment_Deadline_Date = (join.supplier_transaction.supplier_payment.Count > 0) ? join.supplier_transaction.supplier_payment.First().Supplier_Payment_Deadline_Date.ToString("MMMM dd, yyyy") + ""  : "null",
+                            Payment_Category_Name = (join.supplier_transaction.supplier_payment.Count > 0) ? join.supplier_transaction.supplier_payment.First().payment_category.Payment_Category_Name + ""  : "null",
+                            Supplier_Payment_Status = (join.supplier_transaction.supplier_payment.Count > 0) ? ((join.supplier_transaction.supplier_payment.First().Supplier_Payment_Status == 1) ? "Wait Payment" : "Finished") : "null",
+                            Supplier_Transaction_Invoice_Number = (join.supplier_transaction.supplier_payment.Count > 0) ? join.supplier_transaction.Supplier_Transaction_Invoice_Number + "" : "null"
                         })
                         .ToList();
 
@@ -62,7 +63,9 @@ namespace StockApps
                 _dataPriceHistory.Columns["Payment_Category_Name"].HeaderText = "Payment Method";
                 _dataPriceHistory.Columns["Supplier_Payment_Deadline_Date"].HeaderText = "Payment Deadline";
                 _dataPriceHistory.Columns["Supplier_Payment_Status"].HeaderText = "Status";
+                //_dataPriceHistory.Columns["Supplier_ID"].HeaderText = "Nama Supplier";
                 _dataPriceHistory.Columns["Supplier_Transaction_ID"].Visible = false;
+                _dataPriceHistory.Columns["Supplier_ID"].HeaderText = "Nama Supplier";
 
                 _dataPriceHistory.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
