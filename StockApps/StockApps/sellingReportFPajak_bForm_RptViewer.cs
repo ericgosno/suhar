@@ -82,5 +82,10 @@ namespace StockApps
         {
 
         }
+
+        private void _rptSRFakturPajak_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

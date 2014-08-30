@@ -12,6 +12,8 @@ namespace StockApps
 {
     public partial class _purchasingTrans : Form
     {
+        Decimal ttlBiayaLain = 0;
+        Double ttlBiayaLainItu = 0;
         public _purchasingTrans()
         {
             InitializeComponent();
@@ -22,7 +24,11 @@ namespace StockApps
             _cbpurKurs.DataSource = CurrencyController.getCurrency();
             _cbpurKurs.DisplayMember = "Currency_Name";
             _cbpurKurs.ValueMember = "Currency_ID";
+            comboKategori.DataSource = ControllerBiayaLain.getKategori();
+            comboKategori.DisplayMember = "Nama_biaya_lain";
+            comboKategori.ValueMember = "Kategori_lain_ID";
             refreshListProduct();
+            RefreshForm();
         }
 
         private void refreshListProduct()
@@ -95,6 +101,8 @@ namespace StockApps
             _lpurPPNDollar.Text = (totalDollar * 0.1).ToString("C2");
             _lpurTotalPPNDollar.Text = (totalDollar * 1.1).ToString("C2");
             _lpurTotalPPNRupiah.Text = (totalRupiah * 1.1).ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
+            ttlseluruh.Text = (totalRupiah * 1.1 + Convert.ToDouble(ttlBiayaLain)).ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
+         
         }
         private void _dataSupTransaction_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -158,14 +166,18 @@ namespace StockApps
                 MessageBox.Show("Kurs must be nominal!");
                 return;
             }
-
+            //totalRupiah += ttlBiayaLainItu;
             supplier_transaction newTrans = SupplierTransaction.insertSupplierTransaction(_dtTransDate.Value,Convert.ToInt32(_cbpurNama.SelectedValue), totalDollar, totalRupiah, _tpurDescription.Text, prod,_tpurNoteNum.Text,_tpurInvoice.Text,Convert.ToInt32(_cbpurKurs.SelectedValue),Convert.ToDecimal(_tpurKurs.Text));
             foreach (supplier_transaction_product stp in prod)
             {
                 product productStp = ProductController.getProductByProductID(stp.Product_ID).First();
                 PriceHistoryController.insertPriceHistory(stp.Product_ID, Convert.ToDecimal(productStp.Product_Buy_Price), _dtTransDate.Value, stp.Supplier_Transaction_Product_Quantity, Convert.ToInt32(productStp.Currency_ID));
             }
-            _purchasingTrans2 nextForm = new _purchasingTrans2(newTrans);
+            String Cek = "";
+            Cek = newTrans.Supplier_Transaction_ID;
+            ControllerBiayaLain.UpdateIdBiaya(Cek);
+            _purchasingTrans2 nextForm = new _purchasingTrans2(newTrans,ttlBiayaLain);
+      
             nextForm.FormClosed += new FormClosedEventHandler(prodForm_FormClosed);
             nextForm.Show();
             this.Hide();
@@ -174,6 +186,14 @@ namespace StockApps
         void prodForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
+        }
+
+        void prodForm_FormClosedRefresh(object sender, FormClosedEventArgs e)
+        {
+            //this.Close();
+            comboKategori.DataSource = ControllerBiayaLain.getKategori();
+            comboKategori.DisplayMember = "nama_biaya_lain";
+            comboKategori.ValueMember = "Kategori_lain_ID";
         }
 
         private void _bpurDelete_Click(object sender, EventArgs e)
@@ -201,6 +221,69 @@ namespace StockApps
         private void _cbpurKurs_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _purchasing_biaya_lain detailNamaBiaya = new _purchasing_biaya_lain();
+            detailNamaBiaya.Show(this);
+            detailNamaBiaya.FormClosed += new FormClosedEventHandler(prodForm_FormClosedRefresh);
+        }
+
+        private void btnTambahLain_Click(object sender, EventArgs e)
+        {
+            if (txtjmllain.Text == "")
+            {
+                MessageBox.Show("Jumlah cannot be null!");
+                return;
+            }
+            ControllerBiayaLain.insertSupBiayaLain(Convert.ToInt32(comboKategori.SelectedValue), "Null1", Convert.ToDecimal(txtjmllain.Text));
+            ttlBiayaLain += Convert.ToDecimal(txtjmllain.Text);
+            ttlBiayaLainItu += Convert.ToDouble(txtjmllain.Text);
+            RefreshForm();
+        }
+
+        private void RefreshForm()
+        {
+            txtjmllain.Text = "";
+
+            dgvLainlain.DataSource = ControllerBiayaLain
+                .getsupKategoriSpec();
+
+            dgvLainlain.Columns["Kategori_lain_ID"].HeaderText = "ID KATEGORI";
+            dgvLainlain.Columns["Supplier_Transaction_ID"].HeaderText = "Supplier Trans ID";
+            dgvLainlain.Columns["Harga_Biaya"].HeaderText = "Harga";
+            dgvLainlain.Columns["supplier_biaya_laincol"].Visible = false;
+            dgvLainlain.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+            dgvLainlain.Refresh();
+            label31.Text = ttlBiayaLain.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
+            RefreshData();
+        }
+
+        private void btnDelB_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo) == DialogResult.No) return;
+            try
+            {
+                DataGridViewRow rowNow = null;
+                if (dgvLainlain.CurrentCell != null)
+                {
+                    rowNow = dgvLainlain.SelectedCells[0].OwningRow;
+                }
+                else if (dgvLainlain.CurrentRow != null)
+                {
+                    rowNow = dgvLainlain.SelectedRows[0];
+                }
+                int SupplierID = (int)rowNow.Cells["supplier_biaya_laincol"].Value;
+
+                ControllerBiayaLain.deleteKategoriBiaya(SupplierID);
+                RefreshForm();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

@@ -65,7 +65,7 @@
             // _bcusDelete
             // 
             this._bcusDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusDelete.Location = new System.Drawing.Point(163, 641);
+            this._bcusDelete.Location = new System.Drawing.Point(922, 332);
             this._bcusDelete.Name = "_bcusDelete";
             this._bcusDelete.Size = new System.Drawing.Size(142, 35);
             this._bcusDelete.TabIndex = 10;
@@ -76,7 +76,7 @@
             // _bcusInsert
             // 
             this._bcusInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bcusInsert.Location = new System.Drawing.Point(18, 641);
+            this._bcusInsert.Location = new System.Drawing.Point(774, 332);
             this._bcusInsert.Name = "_bcusInsert";
             this._bcusInsert.Size = new System.Drawing.Size(142, 35);
             this._bcusInsert.TabIndex = 9;
@@ -106,7 +106,7 @@
             this._dataCustomer.DefaultCellStyle = dataGridViewCellStyle2;
             this._dataCustomer.Location = new System.Drawing.Point(18, 384);
             this._dataCustomer.Name = "_dataCustomer";
-            this._dataCustomer.Size = new System.Drawing.Size(873, 249);
+            this._dataCustomer.Size = new System.Drawing.Size(1160, 312);
             this._dataCustomer.TabIndex = 8;
             this._dataCustomer.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataCustomer_CellEndEdit);
             // 
@@ -319,7 +319,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(808, 56);
+            this.pictureBox2.Location = new System.Drawing.Point(1109, 55);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(43, 291);
             this.pictureBox2.TabIndex = 35;
@@ -327,7 +327,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(799, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(1100, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(103, 99);
             this.pictureBox1.TabIndex = 34;
@@ -337,7 +337,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(903, 688);
+            this.ClientSize = new System.Drawing.Size(1203, 708);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this._tcusCity);

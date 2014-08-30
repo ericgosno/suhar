@@ -28,12 +28,14 @@ namespace StockApps
 
         private void RefreshQuery()
         {
-            try
-            {
+           // try
+        //    {
                 int customerID = -1;
-                if (!_lShowAll.Checked) 
+                if (!_lShowAll.Checked && _cbSellTransNama.SelectedValue is int) 
                     customerID = Convert.ToInt32(_cbSellTransNama.SelectedValue);
                 var query = CustomerTransaction.getCustomerTransaction(customerID, _cbSellTransFrom.Value, _cbSellTransTo.Value);
+                
+
                 var listCurrency = CurrencyController.getCurrency();
                 var list = query
                         .Join(listCurrency,
@@ -46,14 +48,18 @@ namespace StockApps
                             Customer_Transaction_Note_Number = join.customer_transaction.Customer_Transaction_Note_Number + "",
                             Customer_Transaction_ID = join.customer_transaction.Customer_Transaction_ID + "",
                             Customer_Transaction_Date = join.customer_transaction.Customer_Transaction_Date.ToString("MMMM dd, yyyy") + "",
+                            Customer_ID = CustomerController.getCustomer(Convert.ToInt32(join.customer_transaction.Customer_ID)).First().Customer_Name + "",
                             Customer_Transaction_Price = (join.customer_transaction.Currency_ID == 1 ? join.customer_transaction.Customer_Transaction_Total_Dollar.ToString("C2") : join.customer_transaction.Customer_Transaction_Total_Rupiah.ToString("C2",System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"))) + "",
-                            Customer_Payment_Deadline_Date = join.customer_transaction.customer_payment.First().Customer_Payment_Deadline_Date.ToString("MMMM dd, yyyy") + "",
-                            Payment_Category_Name = join.customer_transaction.customer_payment.First().payment_category.Payment_Category_Name + "",
-                            Customer_Payment_Status = (join.customer_transaction.customer_payment.First().Customer_Payment_Status == 1) ? "Wait Payment" : "Finished"
+                            Customer_Payment_Deadline_Date = (join.customer_transaction.customer_payment.Count > 0) ? join.customer_transaction.customer_payment.First().Customer_Payment_Deadline_Date.ToString("MMMM dd, yyyy") + "" : "null",
+                            Payment_Category_Name = (join.customer_transaction.customer_payment.Count > 0) ? join.customer_transaction.customer_payment.First().payment_category.Payment_Category_Name + "" : "Null",
+                            Customer_Payment_Status = (join.customer_transaction.customer_payment.Count > 0) ? (join.customer_transaction.customer_payment.First().Customer_Payment_Status == 1) ? "Wait Payment" : "Finished" : "Null"
                         })
                         .ToList();
 
+
+                MessageBox.Show(customerID.ToString() + " : " + list.Count().ToString());
                 _dataPriceHistory.DataSource = list;
+                /*
                 _dataPriceHistory.Columns["Customer_Transaction_Date"].HeaderText = "Date";
                 _dataPriceHistory.Columns["Customer_Transaction_Price"].HeaderText = "Price";
                 _dataPriceHistory.Columns["Customer_Transaction_Note_Number"].HeaderText = "Note Number";
@@ -61,10 +67,14 @@ namespace StockApps
                 _dataPriceHistory.Columns["Customer_Payment_Deadline_Date"].HeaderText = "Payment Deadline";
                 _dataPriceHistory.Columns["Customer_Payment_Status"].HeaderText = "Status";
                 _dataPriceHistory.Columns["Customer_Transaction_ID"].Visible = false;
-
+                _dataPriceHistory.Columns["Customer_ID"].HeaderText = "Nama Customer";
+                */
                 _dataPriceHistory.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            }
-            catch (Exception ex) { }
+                _dataPriceHistory.Refresh();
+           // }
+            //catch (Exception ex) {
+             //   MessageBox.Show(ex.Message + " " + ex.StackTrace);
+           // }
         }
 
 
@@ -162,6 +172,33 @@ namespace StockApps
             customer_transaction transNow = CustomerTransaction.getCustomerTransaction(transID).First();
             sellingReportFPajak_bForm_RptViewer nextForm = new sellingReportFPajak_bForm_RptViewer(transID);
             nextForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow rowNow = null;
+            if (_dataPriceHistory.CurrentCell != null)
+            {
+                rowNow = _dataPriceHistory.SelectedCells[0].OwningRow;
+            }
+            else if (_dataPriceHistory.CurrentRow != null)
+            {
+                rowNow = _dataPriceHistory.SelectedRows[0];
+            }
+            else
+            {
+                MessageBox.Show("You must select a Row First!");
+                return;
+            }
+            string transID = rowNow.Cells["Customer_Transaction_ID"].Value.ToString();
+            customer_transaction transNow = CustomerTransaction.getCustomerTransaction(transID).First();
+            sellingReportFPRangkap3 nextForm = new sellingReportFPRangkap3(transID);
+            nextForm.Show();
+        }
+
+        private void _sellingTransactionList_Load(object sender, EventArgs e)
+        {
+
         }
 
 

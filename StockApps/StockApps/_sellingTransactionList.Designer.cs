@@ -46,6 +46,7 @@
             this._lShowAll = new System.Windows.Forms.CheckBox();
             this._bSellTransFP = new System.Windows.Forms.Button();
             this._bSellTransFPAJAK = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataPriceHistory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,7 +152,7 @@
             // 
             this._dataPriceHistory.AllowUserToAddRows = false;
             this._dataPriceHistory.AllowUserToDeleteRows = false;
-            this._dataPriceHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this._dataPriceHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this._dataPriceHistory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -174,13 +175,13 @@
             this._dataPriceHistory.MultiSelect = false;
             this._dataPriceHistory.Name = "_dataPriceHistory";
             this._dataPriceHistory.ReadOnly = true;
-            this._dataPriceHistory.Size = new System.Drawing.Size(593, 253);
+            this._dataPriceHistory.Size = new System.Drawing.Size(1141, 405);
             this._dataPriceHistory.TabIndex = 68;
             // 
             // _bSellTransPrint
             // 
             this._bSellTransPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bSellTransPrint.Location = new System.Drawing.Point(12, 446);
+            this._bSellTransPrint.Location = new System.Drawing.Point(13, 607);
             this._bSellTransPrint.Name = "_bSellTransPrint";
             this._bSellTransPrint.Size = new System.Drawing.Size(105, 36);
             this._bSellTransPrint.TabIndex = 73;
@@ -191,7 +192,7 @@
             // _bSellTransSJ
             // 
             this._bSellTransSJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bSellTransSJ.Location = new System.Drawing.Point(123, 448);
+            this._bSellTransSJ.Location = new System.Drawing.Point(124, 609);
             this._bSellTransSJ.Name = "_bSellTransSJ";
             this._bSellTransSJ.Size = new System.Drawing.Size(207, 33);
             this._bSellTransSJ.TabIndex = 74;
@@ -214,7 +215,7 @@
             // _bSellTransFP
             // 
             this._bSellTransFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bSellTransFP.Location = new System.Drawing.Point(336, 489);
+            this._bSellTransFP.Location = new System.Drawing.Point(613, 609);
             this._bSellTransFP.Name = "_bSellTransFP";
             this._bSellTransFP.Size = new System.Drawing.Size(270, 35);
             this._bSellTransFP.TabIndex = 76;
@@ -225,7 +226,7 @@
             // _bSellTransFPAJAK
             // 
             this._bSellTransFPAJAK.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bSellTransFPAJAK.Location = new System.Drawing.Point(336, 448);
+            this._bSellTransFPAJAK.Location = new System.Drawing.Point(337, 609);
             this._bSellTransFPAJAK.Name = "_bSellTransFPAJAK";
             this._bSellTransFPAJAK.Size = new System.Drawing.Size(270, 35);
             this._bSellTransFPAJAK.TabIndex = 77;
@@ -233,11 +234,23 @@
             this._bSellTransFPAJAK.UseVisualStyleBackColor = true;
             this._bSellTransFPAJAK.Click += new System.EventHandler(this._bSellTransFPAJAK_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(889, 609);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(270, 35);
+            this.button1.TabIndex = 78;
+            this.button1.Text = "FAKTUR PAJAK R3";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // _sellingTransactionList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 533);
+            this.ClientSize = new System.Drawing.Size(1177, 655);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this._bSellTransFPAJAK);
             this.Controls.Add(this._bSellTransFP);
             this.Controls.Add(this._lShowAll);
@@ -255,7 +268,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Name = "_sellingTransactionList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Selling Transaction Archive";
+            this.Load += new System.EventHandler(this._sellingTransactionList_Load);
             ((System.ComponentModel.ISupportInitialize)(this._dataPriceHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -280,5 +295,6 @@
         private System.Windows.Forms.CheckBox _lShowAll;
         private System.Windows.Forms.Button _bSellTransFP;
         private System.Windows.Forms.Button _bSellTransFPAJAK;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -14,7 +14,7 @@ namespace StockApps
     {
         private bool isFinished;
         private supplier_transaction transNow;
-        public _purchasingTrans2(supplier_transaction transNow)
+        public _purchasingTrans2(supplier_transaction transNow, Decimal totalbll)
         {
             InitializeComponent();
             isFinished = false;
@@ -26,12 +26,18 @@ namespace StockApps
                 _lPurTotal.Text = Convert.ToDecimal(transNow.Supplier_Transaction_Dollar).ToString("C2");
                 _lPurTax.Text = Convert.ToDecimal(transNow.Supplier_Transaction_PPN_Dollar).ToString("C2");
                 _lPurTotalTax.Text = Convert.ToDecimal(transNow.Supplier_Transaction_Total_Dollar).ToString("C2");
+                lblBiaya.Text = Convert.ToDecimal(totalbll).ToString("C2");
+                Decimal ttlAll = transNow.Supplier_Transaction_Total_Dollar + totalbll;
+                lblsemua.Text = ttlAll.ToString("C2");
             }
             else
             {
                 _lPurTotal.Text = Convert.ToDecimal(transNow.Supplier_Transaction_Rupiah).ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
                 _lPurTax.Text = Convert.ToDecimal(transNow.Supplier_Transaction_PPN_Rupiah).ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
                 _lPurTotalTax.Text = Convert.ToDecimal(transNow.Supplier_Transaction_Total_Rupiah).ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
+                lblBiaya.Text = Convert.ToDecimal(totalbll).ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
+                Decimal ttlAll = transNow.Supplier_Transaction_Total_Rupiah + totalbll;
+                lblsemua.Text = ttlAll.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID"));
             }
             _cbPurPayWith.DataSource = PaymentController.getPaymentCategory();
             _cbPurPayWith.DisplayMember = "Payment_Category_Name";
@@ -61,6 +67,7 @@ namespace StockApps
                 return;
             }
         }
+
 
     }
 }

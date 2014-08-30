@@ -130,7 +130,12 @@ namespace StockModel
         public static IQueryable<customer_transaction> getCustomerTransaction(int CustomerID, DateTime from, DateTime to)
         {
             var list = getCustomerTransaction().Where(x => x.Customer_Transaction_Date.CompareTo(from) >= 0 && x.Customer_Transaction_Date.CompareTo(to) <= 0);
-            if (CustomerID != -1) list = list.Where(x => x.Customer_ID == CustomerID);
+            if (CustomerID != -1)
+            {
+               list = list.Where(x => x.Customer_ID == CustomerID);
+            }
+            List<customer_transaction> test = list.ToList();
+
             return list;
         }
         public static IQueryable<customer_transaction> getCustomerTransaction(int CustomerID)

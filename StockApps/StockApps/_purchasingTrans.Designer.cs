@@ -75,9 +75,25 @@
             this.label21 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.btnTambahLain = new System.Windows.Forms.Button();
+            this.txtjmllain = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.button2 = new System.Windows.Forms.Button();
+            this.comboKategori = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.ttlseluruh = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.dgvLainlain = new System.Windows.Forms.DataGridView();
+            this.btnDelB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._dataSupTransaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLainlain)).BeginInit();
             this.SuspendLayout();
             // 
             // _dataSupTransaction
@@ -109,7 +125,7 @@
             this._dataSupTransaction.DefaultCellStyle = dataGridViewCellStyle4;
             this._dataSupTransaction.Location = new System.Drawing.Point(19, 340);
             this._dataSupTransaction.Name = "_dataSupTransaction";
-            this._dataSupTransaction.Size = new System.Drawing.Size(766, 238);
+            this._dataSupTransaction.Size = new System.Drawing.Size(1304, 238);
             this._dataSupTransaction.TabIndex = 8;
             this._dataSupTransaction.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataSupTransaction_CellEndEdit);
             // 
@@ -150,7 +166,7 @@
             // _bpurPay
             // 
             this._bpurPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bpurPay.Location = new System.Drawing.Point(642, 630);
+            this._bpurPay.Location = new System.Drawing.Point(833, 289);
             this._bpurPay.Name = "_bpurPay";
             this._bpurPay.Size = new System.Drawing.Size(143, 35);
             this._bpurPay.TabIndex = 10;
@@ -248,7 +264,7 @@
             // _bpurDelete
             // 
             this._bpurDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._bpurDelete.Location = new System.Drawing.Point(642, 589);
+            this._bpurDelete.Location = new System.Drawing.Point(684, 289);
             this._bpurDelete.Name = "_bpurDelete";
             this._bpurDelete.Size = new System.Drawing.Size(143, 35);
             this._bpurDelete.TabIndex = 9;
@@ -505,7 +521,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(699, 55);
+            this.pictureBox2.Location = new System.Drawing.Point(1254, 55);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(43, 291);
             this.pictureBox2.TabIndex = 90;
@@ -513,17 +529,175 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(690, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(1245, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(103, 99);
             this.pictureBox1.TabIndex = 89;
             this.pictureBox1.TabStop = false;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(692, 58);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(181, 29);
+            this.label22.TabIndex = 91;
+            this.label22.Text = "Biaya Lain-lain :";
+            // 
+            // btnTambahLain
+            // 
+            this.btnTambahLain.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTambahLain.Location = new System.Drawing.Point(1054, 242);
+            this.btnTambahLain.Name = "btnTambahLain";
+            this.btnTambahLain.Size = new System.Drawing.Size(160, 36);
+            this.btnTambahLain.TabIndex = 93;
+            this.btnTambahLain.Text = "TAMBAH";
+            this.btnTambahLain.UseVisualStyleBackColor = true;
+            this.btnTambahLain.Click += new System.EventHandler(this.btnTambahLain_Click);
+            // 
+            // txtjmllain
+            // 
+            this.txtjmllain.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtjmllain.Location = new System.Drawing.Point(1054, 98);
+            this.txtjmllain.Name = "txtjmllain";
+            this.txtjmllain.Size = new System.Drawing.Size(160, 31);
+            this.txtjmllain.TabIndex = 95;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(692, 99);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(89, 29);
+            this.label23.TabIndex = 96;
+            this.label23.Text = "Nama :";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(955, 99);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(102, 29);
+            this.label24.TabIndex = 97;
+            this.label24.Text = "Jumlah :";
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(1346, 704);
+            this.shapeContainer1.TabIndex = 98;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // rectangleShape1
+            // 
+            this.rectangleShape1.Location = new System.Drawing.Point(685, 46);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.Size = new System.Drawing.Size(541, 239);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(879, 59);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(216, 31);
+            this.button2.TabIndex = 100;
+            this.button2.Text = "ADD NAMA KATEGORI";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboKategori
+            // 
+            this.comboKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboKategori.FormattingEnabled = true;
+            this.comboKategori.Location = new System.Drawing.Point(778, 97);
+            this.comboKategori.Name = "comboKategori";
+            this.comboKategori.Size = new System.Drawing.Size(171, 33);
+            this.comboKategori.TabIndex = 101;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(634, 592);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(247, 29);
+            this.label25.TabIndex = 102;
+            this.label25.Text = "Total Biaya Lain - Rp :";
+            // 
+            // ttlseluruh
+            // 
+            this.ttlseluruh.AutoSize = true;
+            this.ttlseluruh.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ttlseluruh.Location = new System.Drawing.Point(888, 626);
+            this.ttlseluruh.Name = "ttlseluruh";
+            this.ttlseluruh.Size = new System.Drawing.Size(26, 29);
+            this.ttlseluruh.TabIndex = 106;
+            this.ttlseluruh.Text = "0";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(609, 626);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(272, 29);
+            this.label30.TabIndex = 107;
+            this.label30.Text = "Total Keseluruhan - Rp :";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(888, 591);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(26, 29);
+            this.label31.TabIndex = 108;
+            this.label31.Text = "0";
+            // 
+            // dgvLainlain
+            // 
+            this.dgvLainlain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLainlain.Location = new System.Drawing.Point(697, 137);
+            this.dgvLainlain.Name = "dgvLainlain";
+            this.dgvLainlain.Size = new System.Drawing.Size(517, 101);
+            this.dgvLainlain.TabIndex = 109;
+            // 
+            // btnDelB
+            // 
+            this.btnDelB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelB.Location = new System.Drawing.Point(905, 242);
+            this.btnDelB.Name = "btnDelB";
+            this.btnDelB.Size = new System.Drawing.Size(143, 35);
+            this.btnDelB.TabIndex = 110;
+            this.btnDelB.Text = "DELETE";
+            this.btnDelB.UseVisualStyleBackColor = true;
+            this.btnDelB.Click += new System.EventHandler(this.btnDelB_Click);
+            // 
             // _purchasingTrans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 704);
+            this.ClientSize = new System.Drawing.Size(1346, 704);
+            this.Controls.Add(this.btnDelB);
+            this.Controls.Add(this.dgvLainlain);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.ttlseluruh);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.comboKategori);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.txtjmllain);
+            this.Controls.Add(this.btnTambahLain);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this._dataSupTransaction);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -563,6 +737,7 @@
             this.Controls.Add(this._bpurPay);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.shapeContainer1);
             this.Name = "_purchasingTrans";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CV. WARNA MURNI - PURCHASING";
@@ -570,6 +745,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._dataSupTransaction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLainlain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,6 +798,21 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button btnTambahLain;
+        private System.Windows.Forms.TextBox txtjmllain;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboKategori;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label ttlseluruh;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.DataGridView dgvLainlain;
+        public System.Windows.Forms.Button btnDelB;
 
     }
 }

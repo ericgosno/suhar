@@ -42,6 +42,7 @@
             this._rptSRFakturPenjualan.Size = new System.Drawing.Size(1008, 730);
             this._rptSRFakturPenjualan.TabIndex = 0;
             this._rptSRFakturPenjualan.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this._rptSRFakturPenjualan.Load += new System.EventHandler(this._rptSRFakturPenjualan_Load);
             // 
             // sellingReportFP_bForm_RptViewer
             // 
@@ -52,7 +53,6 @@
             this.Name = "sellingReportFP_bForm_RptViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "sellingReportFP";
-            this.Load += new System.EventHandler(this.sellingReportFP_bForm_RptViewer_Load);
             this.ResumeLayout(false);
 
         }

@@ -77,9 +77,11 @@ namespace StockApps
             _rptSRFakturPenjualan.ReportSource = rptFP;
         }
 
-        private void sellingReportFP_bForm_RptViewer_Load(object sender, EventArgs e)
+        private void _rptSRFakturPenjualan_Load(object sender, EventArgs e)
         {
 
         }
+
+  
     }
 }

@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\3nc\Desktop\CVWarnaMurni%281.0.0%29\</PublishUrl>
+    <PublishUrl>C:\Users\Stefanus\Desktop\Suhar Apps\CV.WARNA_MURNI\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -288,6 +288,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptSupplierCredit.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sellingFPR3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sellingFPR3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sellingReportFPRangkap3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sellingReportFPRangkap3.Designer.cs">
+      <DependentUpon>sellingReportFPRangkap3.cs</DependentUpon>
     </Compile>
     <Compile Include="_ChangeDatabase.cs">
       <SubType>Form</SubType>
@@ -556,6 +568,12 @@
     <Compile Include="_purchasingTransactionList.Designer.cs">
       <DependentUpon>_purchasingTransactionList.cs</DependentUpon>
     </Compile>
+    <Compile Include="_purchasing_biaya_lain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_purchasing_biaya_lain.Designer.cs">
+      <DependentUpon>_purchasing_biaya_lain.cs</DependentUpon>
+    </Compile>
     <Compile Include="_sellingReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -694,6 +712,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSupplierCredit.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="sellingFPR3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>sellingFPR3.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="sellingReport.resx">
       <DependentUpon>sellingReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -703,6 +725,9 @@
     <EmbeddedResource Include="sellingReportFPajak_cViewer.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>sellingReportFPajak_cViewer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sellingReportFPRangkap3.resx">
+      <DependentUpon>sellingReportFPRangkap3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sellingReportFP_cViewer.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -826,6 +851,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_purchasingTransactionList.resx">
       <DependentUpon>_purchasingTransactionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_purchasing_biaya_lain.resx">
+      <DependentUpon>_purchasing_biaya_lain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_sellingReportViewer.resx">
       <DependentUpon>_sellingReportViewer.cs</DependentUpon>
