@@ -12,8 +12,9 @@ namespace StockApps
 {
     public partial class _sellingTransv2 : Form
     {
-        private bool isFinished;
+        public bool isFinished;
         private customer_transaction transNow;
+
         public _sellingTransv2(customer_transaction transNow)
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace StockApps
             _cbsellBank.DisplayMember = "Bank_Name";
             _cbsellBank.ValueMember = "Bank_ID";
         }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -59,11 +61,14 @@ namespace StockApps
 
         private void _bcusInsert_Click_1(object sender, EventArgs e)
         {
-            CustomerTransaction.insertCustomerPayment(transNow, Convert.ToInt32(_cbsellBank.SelectedValue), _dateJatuhTempo.Value,Convert.ToInt32(_cbsellPayWith.SelectedValue));
-            CustomerController.insertCustomerDebt(transNow.Customer_ID, transNow.Customer_Transaction_Date, "DBT", true,(transNow.Currency_ID == 1) ? transNow.Customer_Transaction_Total_Dollar : transNow.Customer_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbsellPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")),transNow.Customer_Transaction_Kurs,transNow.Currency_ID);
-            MessageBox.Show("Transaction Inserted Succesfully");
-            isFinished = true;
-            this.Close();
+            if (MessageBox.Show("Warning! Once Transaction Processed, It can not be Removed/Edited Again, Are you sure to process?", "Warning!", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                CustomerTransaction.insertCustomerPayment(transNow, Convert.ToInt32(_cbsellBank.SelectedValue), _dateJatuhTempo.Value, Convert.ToInt32(_cbsellPayWith.SelectedValue));
+                CustomerController.insertCustomerDebt(transNow.Customer_ID, transNow.Customer_Transaction_Date, "DBT", true, (transNow.Currency_ID == 1) ? transNow.Customer_Transaction_Total_Dollar : transNow.Customer_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbsellPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")), transNow.Customer_Transaction_Kurs, transNow.Currency_ID);
+                MessageBox.Show("Transaction Inserted Succesfully");
+                isFinished = true;
+                this.Close();
+            }
         }
 
         private void _bSellTransFP_Click(object sender, EventArgs e)
@@ -88,10 +93,20 @@ namespace StockApps
         {
             if (isFinished == false)
             {
-                MessageBox.Show("You must finish the transaction!");
-                e.Cancel = true;
-                return;
+                if (MessageBox.Show("Warning! Closing this page means cancel current transaction, are you sure to cancel current transaction?", "Warning!", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    CustomerTransaction.CancelCustomerTransaction(transNow.Customer_Transaction_ID);
+                }
+                else
+                {
+                    e.Cancel = false;
+                }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

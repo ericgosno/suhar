@@ -23,7 +23,7 @@ namespace StockApps
         {
             InitializeComponent();
             ID_Trans = Trans_ID;
-            sellingFPR3 rptFP = new sellingFPR3();
+            FPRangkap3_Multi multi = new FPRangkap3_Multi();
             identity identityNow = IdentityController.getIdentity();
             var listTrans = CustomerTransaction.getCustomerTransaction();
             customer_transaction transNow = CustomerTransaction.getCustomerTransaction(ID_Trans).First();
@@ -64,18 +64,25 @@ namespace StockApps
                     Customer_Transaction_Total_Rupiah = join.customer_transaction.Customer_Transaction_Total_Rupiah + ""
                 }).ToList();
 
-            rptFP.SetDataSource(transprod);
-            rptFP.SetParameterValue("identityCompany", identityNow.Identity_Company_Name);
-            rptFP.SetParameterValue("identityCity", identityNow.Identity_City);
-            rptFP.SetParameterValue("identityName", identityNow.Identity_Name);
-            rptFP.SetParameterValue("identityAddress", identityNow.Identity_Address);
-            rptFP.SetParameterValue("TransactionDate", transNow.Customer_Transaction_Date.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")));
-            //rptFP.SetParameterValue("TransactionNoteNumber", transNow.Customer_Transaction_Note_Number);
-            rptFP.SetParameterValue("CustomerCompany", custNow.Customer_Company_Name);
-            rptFP.SetParameterValue("CustomerAddress", custNow.Customer_Address);
-            rptFP.SetParameterValue("CustomerNpwp", custNow.Customer_NPWP);
-            rptFP.SetParameterValue("identityNPWP", identityNow.Identity_NPWP);
-            _rpvFPR3.ReportSource = rptFP;
+            multi.Subreports[0].SetDataSource(transprod);
+            multi.Subreports[1].SetDataSource(transprod);
+            multi.Subreports[2].SetDataSource(transprod);
+
+            for(int i = 0;i < 3;i++)
+            {
+                multi.SetParameterValue("identityCompany", identityNow.Identity_Company_Name, multi.Subreports[i].Name.ToString());
+                multi.SetParameterValue("identityCity", identityNow.Identity_City, multi.Subreports[i].Name.ToString());
+                multi.SetParameterValue("identityName", identityNow.Identity_Name, multi.Subreports[i].Name.ToString());
+                multi.SetParameterValue("identityAddress", identityNow.Identity_Address, multi.Subreports[i].Name.ToString());
+                multi.SetParameterValue("TransactionDate", transNow.Customer_Transaction_Date.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")), multi.Subreports[i].Name.ToString());
+                multi.SetParameterValue("CustomerCompany", custNow.Customer_Company_Name, multi.Subreports[i].Name.ToString());
+                multi.SetParameterValue("CustomerAddress", custNow.Customer_Address, multi.Subreports[i].Name.ToString());
+                multi.SetParameterValue("CustomerNpwp", custNow.Customer_NPWP, multi.Subreports[i].Name.ToString());
+                multi.SetParameterValue("identityNPWP", identityNow.Identity_NPWP, multi.Subreports[i].Name.ToString());
+                multi.SetParameterValue("link page", i+1, multi.Subreports[i].Name.ToString());
+            }
+
+            _rpvFPR3.ReportSource = multi;
         }
 
         private void _rpvFPR3_Load(object sender, EventArgs e)

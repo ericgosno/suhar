@@ -33,7 +33,8 @@ namespace StockApps
                 int supplierID = -1;
                 if (!_lShowAll.Checked)
                     supplierID = Convert.ToInt32(_cbPurTransNama.SelectedValue);
-                var query = SupplierTransaction.getSupplierTransaction(supplierID, _cbPurTransFrom.Value, _cbPurTransTo.Value);
+                SupplierTransaction.FixSupplierTransaction();
+                var query = SupplierTransaction.getSupplierTransaction(supplierID, _cbPurTransFrom.Value, _cbPurTransTo.Value);                
                 var listCurrency = CurrencyController.getCurrency();
                 var list = query
                         .Join(listCurrency,

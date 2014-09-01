@@ -51,21 +51,34 @@ namespace StockApps
 
         private void _bcusInsert_Click(object sender, EventArgs e)
         {
-            SupplierTransaction.insertSupplierPayment(transNow, Convert.ToInt32(_cbPurBank.SelectedValue), _dateJatuhTempo.Value, Convert.ToInt32(_cbPurPayWith.SelectedValue));
-            SupplierController.insertSupplierCredit(transNow.Supplier_ID, transNow.Supplier_Transaction_Date, "DBT", true,(transNow.Currency_ID == 1) ? transNow.Supplier_Transaction_Total_Rupiah : transNow.Supplier_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbPurPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")), transNow.Supplier_Transaction_Kurs,transNow.Currency_ID);
-            MessageBox.Show("Transaction Inserted Succesfully");
-            isFinished = true;
-            this.Close();
+            if (MessageBox.Show("Warning! Once Transaction Processed, It can not be Removed/Edited Again, Are you sure to process?", "Warning!", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                SupplierTransaction.insertSupplierPayment(transNow, Convert.ToInt32(_cbPurBank.SelectedValue), _dateJatuhTempo.Value, Convert.ToInt32(_cbPurPayWith.SelectedValue));
+                SupplierController.insertSupplierCredit(transNow.Supplier_ID, transNow.Supplier_Transaction_Date, "DBT", true, (transNow.Currency_ID == 1) ? transNow.Supplier_Transaction_Total_Rupiah : transNow.Supplier_Transaction_Total_Rupiah, "Pembayaran dilakukan secara " + _cbPurPayWith.Text + " jatuh tempo pada tanggal " + _dateJatuhTempo.Value.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("id-ID")), transNow.Supplier_Transaction_Kurs, transNow.Currency_ID);
+                MessageBox.Show("Transaction Inserted Succesfully");
+                isFinished = true;
+                this.Close();
+            }
         }
 
         private void _purchasingTrans2_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isFinished == false)
             {
-                MessageBox.Show("You must finish the transaction!");
-                e.Cancel = true;
-                return;
+                if (MessageBox.Show("Warning! Closing this page means cancel current transaction, are you sure to cancel current transaction?", "Warning!", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    SupplierTransaction.CancelSupplierTransaction(transNow.Supplier_Transaction_ID);
+                }
+                else
+                {
+                    e.Cancel = false;
+                }
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

@@ -28,11 +28,12 @@ namespace StockApps
 
         private void RefreshQuery()
         {
-           // try
-        //    {
+            try
+            {
                 int customerID = -1;
                 if (!_lShowAll.Checked && _cbSellTransNama.SelectedValue is int) 
                     customerID = Convert.ToInt32(_cbSellTransNama.SelectedValue);
+                CustomerTransaction.FixCustomerTransaction();
                 var query = CustomerTransaction.getCustomerTransaction(customerID, _cbSellTransFrom.Value, _cbSellTransTo.Value);
                 
 
@@ -57,9 +58,8 @@ namespace StockApps
                         .ToList();
 
 
-                MessageBox.Show(customerID.ToString() + " : " + list.Count().ToString());
                 _dataPriceHistory.DataSource = list;
-                /*
+                
                 _dataPriceHistory.Columns["Customer_Transaction_Date"].HeaderText = "Date";
                 _dataPriceHistory.Columns["Customer_Transaction_Price"].HeaderText = "Price";
                 _dataPriceHistory.Columns["Customer_Transaction_Note_Number"].HeaderText = "Note Number";
@@ -68,13 +68,13 @@ namespace StockApps
                 _dataPriceHistory.Columns["Customer_Payment_Status"].HeaderText = "Status";
                 _dataPriceHistory.Columns["Customer_Transaction_ID"].Visible = false;
                 _dataPriceHistory.Columns["Customer_ID"].HeaderText = "Nama Customer";
-                */
+                
                 _dataPriceHistory.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 _dataPriceHistory.Refresh();
-           // }
-            //catch (Exception ex) {
-             //   MessageBox.Show(ex.Message + " " + ex.StackTrace);
-           // }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message + " " + ex.StackTrace);
+            }
         }
 
 

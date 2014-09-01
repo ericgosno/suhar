@@ -66,6 +66,7 @@
             this.lblsemua = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _cbPurBank
@@ -444,11 +445,23 @@
             this.label16.TabIndex = 116;
             this.label16.Text = "Total Semua";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(396, 357);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(154, 37);
+            this.btnCancel.TabIndex = 119;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // _purchasingTrans2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 406);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblsemua);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
@@ -535,5 +548,6 @@
         private System.Windows.Forms.Label lblsemua;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
