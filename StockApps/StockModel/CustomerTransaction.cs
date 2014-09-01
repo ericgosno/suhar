@@ -117,6 +117,46 @@ namespace StockModel
             return true; 
         }
 
+        public static void CancelCustomerTransaction(string TransactionID)
+        {
+            /* Revert Transaction */
+            customer_transaction TransNow = getCustomerTransaction(TransactionID).First();
+            foreach (customer_transaction_product prod in TransNow.customer_transaction_product.ToList())
+            {
+                ProductController.changeProductStock(prod.Product_ID, 1 * Convert.ToInt32(prod.Customer_Transaction_Product_Quantity));
+                StockEntity.Entity.DeleteObject(prod);
+            }
+            StockEntity.Entity.DeleteObject(TransNow);
+            StockEntity.Entity.SaveChanges();
+        }
+        public static void FixCustomerTransaction()
+        {
+            List<customer_transaction> list = (from f in StockEntity.Entity.customer_transaction
+                                               where f.customer_payment.Count() == 0
+                                               select f).ToList();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                string id = list[i].Customer_Transaction_ID;
+                IQueryable<customer_payment> payment = (from f in StockEntity.Entity.customer_payment
+                                                        where f.Customer_Payment_ID == id
+                                                        select f);
+                if (payment.Count() > 0)
+                {
+                    list[i].customer_payment.Add(payment.First());
+                }
+                else
+                {
+                     /* Revert Transaction */
+                    foreach (customer_transaction_product prod in list[i].customer_transaction_product.ToList())
+                    {
+                        ProductController.changeProductStock(prod.Product_ID, 1 * Convert.ToInt32(prod.Customer_Transaction_Product_Quantity));
+                        StockEntity.Entity.DeleteObject(prod);
+                    }
+                    StockEntity.Entity.DeleteObject(list[i]);
+                }
+            }
+            StockEntity.Entity.SaveChanges();
+        }
         public static IQueryable<customer_transaction> getCustomerTransaction()
         {
             var list = (from f in StockEntity.Entity.customer_transaction
@@ -135,7 +175,6 @@ namespace StockModel
                list = list.Where(x => x.Customer_ID == CustomerID);
             }
             List<customer_transaction> test = list.ToList();
-
             return list;
         }
         public static IQueryable<customer_transaction> getCustomerTransaction(int CustomerID)

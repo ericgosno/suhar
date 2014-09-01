@@ -110,6 +110,47 @@ namespace StockModel
             return true;
         }
 
+        public static void CancelSupplierTransaction(string TransactionID)
+        {
+            /* Revert Transaction */
+            supplier_transaction TransNow = getSupplierTransaction(TransactionID).First();
+            foreach (supplier_transaction_product prod in TransNow.supplier_transaction_product.ToList())
+            {
+                ProductController.changeProductStock(prod.Product_ID, -1 * Convert.ToInt32(prod.Supplier_Transaction_Product_Quantity));
+                StockEntity.Entity.DeleteObject(prod);
+            }
+            StockEntity.Entity.DeleteObject(TransNow);
+            StockEntity.Entity.SaveChanges();
+        }
+        public static void FixSupplierTransaction()
+        {
+            List<supplier_transaction> list = (from f in StockEntity.Entity.supplier_transaction
+                                               where f.supplier_payment.Count() == 0
+                                               select f).ToList();
+            for (int i = 0; i < list.Count(); i++)
+            {
+                string id = list[i].Supplier_Transaction_ID;
+                IQueryable<supplier_payment> payment = (from f in StockEntity.Entity.supplier_payment
+                                                        where f.Supplier_Payment_ID == id
+                                                        select f);
+                if (payment.Count() > 0)
+                {
+                    list[i].supplier_payment.Add(payment.First());
+                }
+                else
+                {
+                    /* Revert Transaction */
+                    foreach (supplier_transaction_product prod in list[i].supplier_transaction_product.ToList())
+                    {
+                        ProductController.changeProductStock(prod.Product_ID, -1 * Convert.ToInt32(prod.Supplier_Transaction_Product_Quantity));
+                        StockEntity.Entity.DeleteObject(prod);
+                    }
+                    StockEntity.Entity.DeleteObject(list[i]);
+                }
+            }
+            StockEntity.Entity.SaveChanges();
+        }
+
         public static IQueryable<supplier_transaction> getSupplierTransaction()
         {
             var list = (from f in StockEntity.Entity.supplier_transaction

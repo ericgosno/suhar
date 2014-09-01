@@ -122,6 +122,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataPassiva.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FPRangkap3-Multi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FPRangkap3-Multi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NeracaPassivaPajak1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -643,6 +649,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BankReport.resx">
       <DependentUpon>BankReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPRangkap3-Multi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FPRangkap3-Multi.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="NeracaPassivaPajak.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
